@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+#root {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.expandButtonContainer {
+  width: 130px;
+}
+
+.expandButton {
+  width: 110px;
+  transition: width 0.3s ease-in-out;
+}
+
+.expandButton:hover,
+.expandButton:focus {
+  width: 130px;
+}
+
+.expandButtonContainerSecondary {
+  width: 135px;
+}
+
+.expandButtonContainerSecondary .expandButton {
+  width: 105px;
+  transition: width 0.3s ease-in-out;
+}
+
+.expandButtonContainerSecondary .expandButton:hover,
+.expandButtonContainerSecondary.expandButton:focus {
+  width: 135px;
+}
+
+.expandButtonIcon {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.expandButton:hover .expandButtonIcon,
+.expandButton:focus .expandButtonIcon {
+  opacity: 1;
+}
+
+.elipces_shadow {
+  clip-path: ellipse(50% 15% at 50% 51%);
+}
