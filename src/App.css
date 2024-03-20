@@ -10,6 +10,12 @@
   font-style: normal;
 }
 
+#root-body {
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
 .expandButtonContainer {
   width: 130px;
 }
@@ -36,6 +42,20 @@
 .expandButtonContainerSecondary .expandButton:hover,
 .expandButtonContainerSecondary.expandButton:focus {
   width: 135px;
+}
+
+.expandButtonContainerThird {
+  width: 155px;
+}
+
+.expandButtonContainerThird .expandButton {
+  width: 115px;
+  transition: width 0.3s ease-in-out;
+}
+
+.expandButtonContainerThird .expandButton:hover,
+.expandButtonContainerThird.expandButton:focus {
+  width: 155px;
 }
 
 .expandButtonIcon {

@@ -3,26 +3,26 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { IoIosArrowRoundForward } from "react-icons/io";
 
-const About = () => {
+const Projects = () => {
   const { ref, inView } = useInView({
     /* Optional options */
     threshold: 0.4,
   });
 
   return (
-    <article className="px-[10%] py-36 overflow-hidden text-white bg-black flex items-start justify-between ">
+    <article className="px-[10%] h-[100vh] overflow-hidden text-white bg-black flex items-start justify-between ">
       <section ref={ref} className="flex items-start justify-between">
         <motion.div
-          className="w-[45%] "
+          className="w-full "
           initial={inView ? { x: -600 } : { x: 0 }}
           animate={inView ? { x: 0 } : { x: -600 }}
           transition={{ duration: 1 }}
         >
-          <h2 className="text-[#4F4F4F] text-[115px] font-extrabold">About</h2>
-          <h5 className="font-semibold text-xl">
-            Where Creativity Meets Strategy
-          </h5>
-          <p className="mt-2">
+          <h2 className="text-[#4F4F4F] text-[115px] font-extrabold">
+            Projects
+          </h2>
+
+          <p className="ml-[45%]">
             We provide a broad spectrum of services because we are a
             multifaceted business that meets the various needs of businesses.
             With this all-inclusive range of services, we enable businesses to
@@ -40,18 +40,9 @@ const About = () => {
             </button>
           </div>
         </motion.div>
-
-        <motion.div
-          className="w-[45%] flex justify-center items-start  pt-4"
-          initial={inView ? { x: 1000 } : { x: 0 }}
-          animate={inView ? { x: 0 } : { x: 1000 }}
-          transition={{ duration: 1 }}
-        >
-          <img src={bg_img} alt="" className="max-w-[20rem]" />
-        </motion.div>
       </section>
     </article>
   );
 };
 
-export default About;
+export default Projects;

@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Hero from "../components/Hero";
 import { motion } from "framer-motion";
 import Services from "../components/Services";
+import Projects from "../components/Projects";
 
 const Home = () => {
   return (
@@ -21,6 +22,8 @@ const Home = () => {
       <About />
 
       <Services />
+
+      <Projects />
     </article>
   );
 };
