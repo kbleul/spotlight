@@ -1,9 +1,11 @@
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 const NavButtoms = () => {
+  const navigate = useNavigate();
   return (
     <article className="flex gap-7  text-[#777777] font-medium text-lg">
-      <button>Home</button>
+      <button onClick={() => navigate("/services")}>Services</button>
       <button>About</button>
       <button>Approch</button>
       <button>Culture</button>

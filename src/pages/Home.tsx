@@ -1,9 +1,13 @@
 import About from "../components/About";
-import Header from "../components/Header";
 import Hero from "../components/Hero";
 import { motion } from "framer-motion";
 import Services from "../components/Services";
 import Projects from "../components/Projects";
+import Approch from "../components/Approch";
+import Carasole from "../components/Carasole";
+import Culture from "../components/culture";
+import Feeds from "../components/Feeds";
+import Partners from "../components/Partners";
 
 const Home = () => {
   return (
@@ -12,10 +16,8 @@ const Home = () => {
         className="h-[90vh]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 1 }}
       >
-        <Header />
-
         <Hero />
       </motion.div>
 
@@ -23,7 +25,17 @@ const Home = () => {
 
       <Services />
 
+      <Approch />
+
       <Projects />
+
+      <Carasole />
+
+      <Culture />
+
+      <Feeds />
+
+      <Partners />
     </article>
   );
 };

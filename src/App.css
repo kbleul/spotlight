@@ -31,7 +31,7 @@
 }
 
 .expandButtonContainerSecondary {
-  width: 135px;
+  width: 140px;
 }
 
 .expandButtonContainerSecondary .expandButton {
@@ -41,7 +41,7 @@
 
 .expandButtonContainerSecondary .expandButton:hover,
 .expandButtonContainerSecondary.expandButton:focus {
-  width: 135px;
+  width: 140px;
 }
 
 .expandButtonContainerThird {
@@ -70,4 +70,42 @@
 
 .elipces_shadow {
   clip-path: ellipse(50% 15% at 50% 51%);
+}
+
+.carousel-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel {
+  display: flex;
+  animation: scrollCarousel 6s infinite linear;
+}
+
+.carousel-track {
+  display: flex;
+  width: max-content;
+}
+
+.carousel-item {
+  margin-right: 1rem;
+}
+
+@keyframes scrollCarousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.feeds_scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.feeds_scroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

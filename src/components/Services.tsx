@@ -36,11 +36,9 @@ const CONTENT = [
 
 const Services = () => {
   const [currentContent, setCurrentContent] = useState(0);
-  const [ref, inView] = useInView({ threshold: 0.95 });
+  const [ref, inView] = useInView({ threshold: 0.9 });
 
   useEffect(() => {
-    console.log({ inView });
-
     if (inView) {
       const rootElement = document.getElementById("root-body");
       if (rootElement) {
