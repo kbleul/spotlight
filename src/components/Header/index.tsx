@@ -13,8 +13,8 @@ const Header = () => {
     <article
       className={
         BlackBgRoutes.includes(currentRoute)
-          ? "py-8 px-12 w-full flex items-start justify-between bg-black"
-          : "py-8 px-12 w-full flex items-start justify-between"
+          ? "py-8 px-12 w-full flex items-start justify-between z-10 bg-black"
+          : "py-8 px-12 w-full flex items-start justify-between z-10"
       }
     >
       <button type="button" onClick={() => navigate("/")}>
