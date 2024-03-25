@@ -1,15 +1,28 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import logo_black from "../../assets/images/logo.svg";
 import logo_white from "../../assets/images/logo_white.svg";
 import NavButtoms from "./NavButtoms";
+import { BlackBgRoutes } from "../../utils/data";
 
 const Header = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const currentRoute = location.pathname;
 
   return (
-    <article className="py-8  w-full flex items-start justify-between px-12">
+    <article
+      className={
+        BlackBgRoutes.includes(currentRoute)
+          ? "py-8 px-12 w-full flex items-start justify-between bg-black"
+          : "py-8 px-12 w-full flex items-start justify-between"
+      }
+    >
       <button type="button" onClick={() => navigate("/")}>
-        <img src={logo_black} alt="logo" className="w-40" />
+        <img
+          src={BlackBgRoutes.includes(currentRoute) ? logo_white : logo_black}
+          alt="logo"
+          className="w-40"
+        />
       </button>
 
       <NavButtoms />

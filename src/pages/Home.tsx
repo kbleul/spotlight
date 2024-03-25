@@ -29,7 +29,7 @@ const Home = () => {
 
       <Projects />
 
-      <Carasole />
+      <Carasole title="Latest Wins" />
 
       <Culture />
 

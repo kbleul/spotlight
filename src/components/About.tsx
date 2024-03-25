@@ -5,7 +5,6 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 
 const About = () => {
   const { ref, inView } = useInView({
-    /* Optional options */
     threshold: 0.4,
   });
 

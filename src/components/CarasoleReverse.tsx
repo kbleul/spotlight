@@ -1,9 +1,9 @@
-import img1 from "../assets/images/carasol/1.png";
-import img2 from "../assets/images/carasol/2.png";
-import img3 from "../assets/images/carasol/3a.svg";
-import img4 from "../assets/images/carasol/4.png";
+import img1 from "../assets/images/clients/alibaba.svg";
+import img2 from "../assets/images/clients/bill.svg";
+import img3 from "../assets/images/clients/mastercard.svg";
+import img4 from "../assets/images/clients/safari.svg";
 
-const Carasole = ({ title }: { title?: string }) => {
+const CarasoleReverse = ({ title }: { title?: string }) => {
   return (
     <article className="carousel-container bg-black pb-20">
       {title && (
@@ -11,7 +11,7 @@ const Carasole = ({ title }: { title?: string }) => {
           {title}
         </h4>
       )}
-      <section className="carousel">
+      <section className="carouselReverse">
         <div className="carousel-track gap-x-6 md:gap-x-40">
           <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
           <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
@@ -25,10 +25,6 @@ const Carasole = ({ title }: { title?: string }) => {
           <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
           <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
           <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
 
           <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
           <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
@@ -45,10 +41,6 @@ const Carasole = ({ title }: { title?: string }) => {
           <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
           <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
 
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
           <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
           <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
           <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
@@ -82,4 +74,4 @@ const Carasole = ({ title }: { title?: string }) => {
   );
 };
 
-export default Carasole;
+export default CarasoleReverse;

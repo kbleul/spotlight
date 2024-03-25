@@ -5,6 +5,8 @@ import Loading from "./components/Suspense/index";
 import { useState } from "react";
 import Services from "./pages/Services";
 import Header from "./components/Header";
+import Works from "./pages/Works";
+import About from "./pages/About";
 
 const Layout = () => {
   return (
@@ -30,7 +32,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <div>About</div>,
+        element: <About />,
+      },
+      {
+        path: "/works",
+        element: <Works />,
       },
     ],
   },

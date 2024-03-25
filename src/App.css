@@ -79,7 +79,12 @@
 
 .carousel {
   display: flex;
-  animation: scrollCarousel 6s infinite linear;
+  animation: scrollCarousel 60s infinite linear;
+}
+
+.carouselReverse {
+  display: flex;
+  animation: scrollCarouselReverse 60s infinite linear;
 }
 
 .carousel-track {
@@ -96,7 +101,16 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-600%);
+  }
+}
+
+@keyframes scrollCarouselReverse {
+  0% {
+    transform: translateX(-600%);
+  }
+  100% {
+    transform: translateX(0%);
   }
 }
 

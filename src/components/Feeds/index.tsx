@@ -14,7 +14,7 @@ const Feeds = () => {
       ref={ref}
       className="pt-[10vh]  pb-[5rem] overflow-hidden text-black bg-white"
     >
-      <section className="flex items-start justify-between px-[5%]">
+      <section className="flex items-start justify-between px-[5%] hover:overflow-x-scroll border-4">
         <motion.div
           className="w-full "
           initial={inView ? { x: -600 } : { x: 0 }}
