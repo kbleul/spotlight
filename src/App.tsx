@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Works from "./pages/Works";
 import About from "./pages/About";
 import Culture from "./pages/Culture";
+import Feeds from "./pages/Feeds";
 
 const Layout = () => {
   return (
@@ -43,12 +44,12 @@ const router = createBrowserRouter([
         path: "/culture",
         element: <Culture />,
       },
+      {
+        path: "/feeds",
+        element: <Feeds />,
+      },
     ],
   },
-  // {
-  //   path: "services",
-  //   element: <Services />,
-  // },
   // {
   //   path: "about",
   //   element: <div>About</div>,

@@ -3,7 +3,9 @@ import logo from "../../assets/images/logo.svg";
 const Hero = () => {
   return (
     <article className="px-12 pt-6 mt-10">
-      <img src={logo} alt="logo" className="w-full" />
+      <div className="w-full flex justify-center">
+        <img src={logo} alt="logo" className="w-full max-w-[1400px]" />
+      </div>
 
       <section className="w-full flex justify-end mt-10">
         <div className="w-1/2 mt-6 pr-12">

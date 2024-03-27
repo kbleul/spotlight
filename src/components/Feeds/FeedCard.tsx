@@ -4,7 +4,7 @@ import { MdArrowOutward } from "react-icons/md";
 
 const FeedCard = () => {
   return (
-    <article className="bg-[#F5F5F5] rounded-lg">
+    <article className="bg-[#F5F5F5] rounded-lg max-w-[550px]">
       <div className="flex justify-start items-center gap-2 px-6 pt-7">
         <p className="border border-black rounded-full px-5 ">News</p>
         <img src={avatar} alt="" className="w-6 h-6 rounded-full" />

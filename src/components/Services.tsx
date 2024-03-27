@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import service1_img from "../assets/images/services1.svg";
 import service2_img from "../assets/images/services2.svg";
 import service3_img from "../assets/images/services3.svg";
+import service4_img from "../assets/images/Want.svg";
+
 import { IoIosArrowRoundForward } from "react-icons/io";
 
 const CONTENT = [
@@ -30,7 +32,7 @@ const CONTENT = [
     id: "services004",
     title: "Want More?",
     body: "View more",
-    img: service3_img,
+    img: service4_img,
   },
 ];
 
@@ -64,10 +66,11 @@ const Services = () => {
         if (delta < 0 && currentContent > 0) {
           setCurrentContent((prevContent) => prevContent - 1);
         } else if (delta > 0) {
-          setCurrentContent((prevContent) => prevContent + 1);
+          currentContent < CONTENT.length &&
+            setCurrentContent((prevContent) => prevContent + 1);
         }
 
-        if (currentContent > CONTENT.length) {
+        if (currentContent >= CONTENT.length) {
           const rootElement = document.getElementById("root-body");
 
           if (rootElement && rootElement.style.overflowY === "hidden") {
@@ -86,38 +89,33 @@ const Services = () => {
   }, [currentContent, inView]);
 
   return (
-    <article ref={ref} className="relative h-[95vh]  bg-black">
+    <article
+      ref={ref}
+      className={
+        currentContent % 2 === 0 && currentContent < CONTENT.length
+          ? "relative h-[108vh] bg-white mb-20 "
+          : "relative h-[108vh] bg-black mb-20 "
+      }
+    >
       {inView && (
-        <motion.div
-          className="px-[10%] h-[95%] text-white  py-20 flex justify-between  items-center"
-          initial={{ y: -15 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.2 }}
-        >
+        <>
           {currentContent == 0 && (
-            <>
-              <section className="w-1/2 ">
+            <motion.div
+              className="h-[108vh] w-full bg-black flex justify-evenly items-center "
+              initial={inView ? { x: 2000 } : { x: 0 }}
+              animate={inView ? { x: 0 } : { x: 2000 }}
+              transition={{ duration: 1 }}
+            >
+              <section className="w-[45%] max-w-[600px] text-white">
                 <h2 className="text-[115px] font-extrabold text-[#4F4F4F] mb-6">
                   Services
                 </h2>
 
-                <motion.div
-                  className="font-bold text-2xl"
-                  initial={{ y: -15 }}
-                  animate={{ y: 0 }}
-                  transition={{ duration: 0.8 }}
-                >
+                <div className="font-bold text-2xl">
                   <h4>{CONTENT[0].title}</h4>
-                </motion.div>
+                </div>
 
-                <motion.div
-                  className="max-w-[600px] mt-4"
-                  initial={{ y: 50 }}
-                  animate={{ y: 0 }}
-                  transition={{ duration: 0.8 }}
-                >
-                  {CONTENT[0].body}
-                </motion.div>
+                <div className="max-w-[600px] mt-4">{CONTENT[0].body}</div>
               </section>
               <section className="w-[45%] flex justify-center items-start  pt-4 ">
                 <motion.img
@@ -129,12 +127,17 @@ const Services = () => {
                   transition={{ duration: 0.7 }}
                 />
               </section>
-            </>
+            </motion.div>
           )}
 
           {currentContent == 1 && (
-            <>
-              <section className="w-1/2 ">
+            <motion.div
+              className="h-[108vh] w-full bg-white flex justify-evenly items-center "
+              initial={inView ? { x: 2000 } : { x: 0 }}
+              animate={inView ? { x: 0 } : { x: 2000 }}
+              transition={{ duration: 1 }}
+            >
+              <section className="w-[45%] max-w-[600px]">
                 <h2 className="text-[115px] font-extrabold text-[#4F4F4F] mb-6">
                   Services
                 </h2>
@@ -158,59 +161,23 @@ const Services = () => {
                 </motion.div>
               </section>
               <section className="w-[45%] flex justify-center items-start  pt-4 ">
-                <motion.img
+                <img
                   src={CONTENT[1].img}
                   alt="logo"
                   className="max-w-[25rem] max-h-[25rem]"
-                  initial={{ x: 1000 }}
-                  animate={{ x: 0 }}
-                  transition={{ duration: 0.7 }}
                 />
               </section>
-            </>
+            </motion.div>
           )}
 
           {currentContent == 2 && (
-            <>
-              <section className="w-1/2 ">
-                <h2 className="text-[115px] font-extrabold text-[#4F4F4F] mb-6">
-                  Services
-                </h2>
-
-                <motion.div
-                  className="font-bold text-2xl"
-                  initial={{ y: -15 }}
-                  animate={{ y: 0 }}
-                  transition={{ duration: 0.8 }}
-                >
-                  <h4>{CONTENT[2].title}</h4>
-                </motion.div>
-
-                <motion.div
-                  className="max-w-[600px] mt-4"
-                  initial={{ y: 50 }}
-                  animate={{ y: 0 }}
-                  transition={{ duration: 0.8 }}
-                >
-                  {CONTENT[2].body}
-                </motion.div>
-              </section>
-              <section className="w-[45%] flex justify-center items-start  pt-4 ">
-                <motion.img
-                  src={CONTENT[2].img}
-                  alt="logo"
-                  className="max-w-[25rem] max-h-[25rem]"
-                  initial={{ x: 1000 }}
-                  animate={{ x: 0 }}
-                  transition={{ duration: 0.7 }}
-                />
-              </section>
-            </>
-          )}
-
-          {currentContent >= 3 && (
-            <>
-              <section className="w-1/2 ">
+            <motion.div
+              className="h-[108vh] w-full bg-black flex justify-evenly items-center "
+              initial={inView ? { x: 2000 } : { x: 0 }}
+              animate={inView ? { x: 0 } : { x: 2000 }}
+              transition={{ duration: 1 }}
+            >
+              <section className="w-[45%] max-w-[600px] text-white">
                 <h2 className="text-[115px] font-extrabold text-[#4F4F4F] mb-6">
                   Services
                 </h2>
@@ -221,16 +188,33 @@ const Services = () => {
 
                 <div className="max-w-[600px] mt-4">{CONTENT[2].body}</div>
               </section>
+              <section className="w-[45%] flex justify-center items-start  pt-4 ">
+                <img
+                  src={CONTENT[2].img}
+                  alt="logo"
+                  className="max-w-[25rem] max-h-[25rem]"
+                />
+              </section>
+            </motion.div>
+          )}
+
+          {currentContent >= 3 && (
+            <article className="h-[108vh]">
+              <section className="w-1/2 "></section>
 
               <motion.div
-                className="absolute top-0 right-0 w-2/5 h-[110vh] bg-white flex flex-col justify-start items-center  pt-[30vh] "
+                className="absolute top-0 right-0 w-2/5 h-[110vh] bg-white flex flex-col justify-start items-center px-[5%]  pt-[30vh] "
                 initial={inView ? { x: 2000 } : { x: 0 }}
                 animate={inView ? { x: 0 } : { x: 2000 }}
                 transition={{ duration: 1 }}
               >
-                <h4 className="text-[80px] font-extrabold text-[#4F4F4F] mb-6 w-full text-center">
-                  {CONTENT[3].title}
-                </h4>
+                <img className="" src={CONTENT[3].img} alt="" />
+
+                <p className="py-16 text-[#777777] font-medium">
+                  Lorem ipsum dolor sit amet consectetur. Ut et vestibulum
+                  lectus nullam tellus aliquet pellentesque a dui. Nunc leo at
+                  sit fusce.
+                </p>
                 <div className="expandButtonContainerThird">
                   <button
                     type="button"
@@ -244,9 +228,9 @@ const Services = () => {
                   </button>
                 </div>
               </motion.div>
-            </>
+            </article>
           )}
-        </motion.div>
+        </>
       )}
     </article>
   );

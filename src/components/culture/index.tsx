@@ -20,11 +20,11 @@ const Culture = () => {
     index: number
   ) => {
     setShowImageIndex(index);
-    setSmallImagePosition({ x: event.clientX - 10, y: event.clientY - 50 });
+    setSmallImagePosition({ x: event.clientX, y: event.clientY - 20 });
   };
 
   const handleMouseMove = (event: React.MouseEvent<HTMLImageElement>) => {
-    setSmallImagePosition({ x: event.clientX - 10, y: event.clientY - 50 });
+    setSmallImagePosition({ x: event.clientX, y: event.clientY - 20 });
   };
 
   const handleMouseLeave = () => {

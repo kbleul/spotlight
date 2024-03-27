@@ -1,4 +1,5 @@
 import bulbImg from "../assets/images/light_small.svg";
+import borderImg from "../assets/images/border1.svg";
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -20,29 +21,70 @@ const GuideUs = () => {
         </p>
       </section>
 
-      {/* <section ref={ref} className="flex items-stretch justify-between">
-      <motion.div
-        className="w-[45%] "
-        initial={inView ? { x: -600 } : { x: 0 }}
-        animate={inView ? { x: 0 } : { x: -600 }}
-        transition={{ duration: 0.7 }}
-      >
-        <h2 className="text-[#fff] text-6xl font-extrabold">{title}</h2>
-        <h2 className="text-[#fff] text-6xl font-extrabold">
-          {secondaryTitle}
-        </h2>
-        <p className="mt-14 text-[#777777]">{textBody}</p>
-      </motion.div>
-
-      <motion.div
-        className="w-[45%] flex justify-center items-center  pt-4"
-        initial={inView ? { x: 1000 } : { x: 0 }}
-        animate={inView ? { x: 0 } : { x: 1000 }}
-        transition={{ duration: 0.7 }}
-      >
-        <img src={img} alt="" className="" />
-      </motion.div>
-    </section> */}
+      <section className="flex justify-evenly w-[90%] mt-20">
+        <div
+          className="max-w-[600px] w-[46%] z-0 px-6 pt-6 pb-20 border-b border-black "
+          style={{
+            backgroundImage: `url(${borderImg})`,
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          <h4 className="text-right text-3xl font-extrabold">Visionary</h4>
+          <p className="mt-4 text-[#777777] font-bold ">
+            Lorem ipsum dolor sit amet consectetur. Donec ac tincidunt integer
+            sed euismod pellentesque. Eget fermentum leo diam tortor vitae
+            tellus lacus pellentesque sed.
+          </p>
+        </div>
+        <div
+          className="max-w-[600px] w-[46%] z-0 px-6 pt-6 pb-20 border-b border-black "
+          style={{
+            backgroundImage: `url(${borderImg})`,
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          <h4 className="text-right text-3xl font-extrabold">Precise</h4>
+          <p className="mt-4 text-[#777777] font-bold">
+            Lorem ipsum dolor sit amet consectetur. Donec ac tincidunt integer
+            sed euismod pellentesque. Eget fermentum leo diam tortor vitae
+            tellus lacus pellentesque sed.
+          </p>
+        </div>
+      </section>
+      <section className="flex justify-evenly ml-[5%] w-[90%] mt-20">
+        <div
+          className="max-w-[600px] w-[46%] z-0 px-6 pt-6 pb-20 border-b border-black "
+          style={{
+            backgroundImage: `url(${borderImg})`,
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          <h4 className="text-right text-3xl font-extrabold">Agile</h4>
+          <p className="mt-4 text-[#777777] font-bold">
+            Lorem ipsum dolor sit amet consectetur. Donec ac tincidunt integer
+            sed euismod pellentesque. Eget fermentum leo diam tortor vitae
+            tellus lacus pellentesque sed.
+          </p>
+        </div>
+        <div
+          className="max-w-[600px] w-[46%] z-0 px-6 pt-6 pb-20 border-b border-black "
+          style={{
+            backgroundImage: `url(${borderImg})`,
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          <h4 className="text-right text-3xl font-extrabold">Harmonious</h4>
+          <p className="mt-4 text-[#777777] font-bold">
+            Lorem ipsum dolor sit amet consectetur. Donec ac tincidunt integer
+            sed euismod pellentesque. Eget fermentum leo diam tortor vitae
+            tellus lacus pellentesque sed.
+          </p>
+        </div>
+      </section>
     </article>
   );
 };

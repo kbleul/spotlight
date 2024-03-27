@@ -11,11 +11,16 @@ const NavButtoms = () => {
     ? ColorTheme.dark
     : ColorTheme.light;
 
-  const buttonStylePrimary = `text-[${buttonTheme.primary}]`;
+  const buttonStylePrimary = `text-${
+    currentRoute === "/culture" ? "white" : "[" + buttonTheme.primary + "]"
+  } `;
   const buttonStyleSecondary = `text-[${buttonTheme.active}] font-extrabold`;
 
-  const indicatorStylePrimary = `opacity-0 bg-black w-2 h-2 rounded-full`;
-  const indicatorStyleSecondary = `bg-black w-2 h-2 rounded-full`;
+  const indicatorStylePrimary = `opacity-0 w-2 h-2 rounded-full`;
+  console.log(buttonTheme.active);
+  const indicatorStyleSecondary = BlackBgRoutes.includes(currentRoute)
+    ? `bg-white w-2 h-2 rounded-full`
+    : `bg-black w-2 h-2 rounded-full`;
 
   return (
     <article className="flex gap-7 font-medium text-lg">
@@ -44,7 +49,13 @@ const NavButtoms = () => {
         </section>
       ))}
       <div className="expandButtonContainer ml-10">
-        <button className="expandButton bg-black text-white py-2 font-normal flex gap-1 items-center px-4">
+        <button
+          className={`expandButton ${
+            BlackBgRoutes.includes(currentRoute)
+              ? " text-black bg-white "
+              : " bg-black text-white "
+          }  py-2 font-normal flex gap-1 items-center px-4`}
+        >
           <p>Contact</p>
 
           <IoIosArrowRoundForward className="expandButtonIcon" size={24} />

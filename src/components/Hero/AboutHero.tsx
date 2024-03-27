@@ -4,7 +4,10 @@ import { useInView } from "react-intersection-observer";
 import aboutImg from "../../assets/images/about.svg";
 import shineImg from "../../assets/images/shine.svg";
 import handsImg from "../../assets/images/hands.png";
+import strongerImg from "../../assets/images/Stronger.svg";
 import GuideUs from "../GuideUs";
+import ContactUs from "../Contact";
+import Employees from "../Employees";
 
 const AboutHero = () => {
   const [ref, inView] = useInView({ threshold: 0.5 });
@@ -42,7 +45,7 @@ const AboutHero = () => {
             </h2>
           </div>
 
-          <div className="w-4/5 ml-[10%] mt-20 flex justify-end text-[#777777]">
+          <div className="w-4/5 ml-[5%] mt-20 flex justify-end text-[#777777]">
             <p className="w-1/2">
               Lorem ipsum dolor sit amet consectetur. Donec ac tincidunt integer
               sed euismod pellentesque. Eget fermentum leo diam tortor vitae
@@ -57,7 +60,7 @@ const AboutHero = () => {
         </motion.article>
       </article>
 
-      <div className="py-48 bg-black">
+      <div className="py-48 bg-black  h-[90vh]">
         <Leading
           img={aboutImg}
           title="Leading the"
@@ -73,7 +76,7 @@ const AboutHero = () => {
         />
       </div>
 
-      <div className="pb-48 bg-black">
+      <div className="pb-48 bg-black h-[100vh]">
         <Leading
           img={shineImg}
           title="Shining a Light"
@@ -88,7 +91,7 @@ const AboutHero = () => {
         />
       </div>
 
-      <div className="pb-48 bg-black">
+      <div className="pb-48 bg-black  h-[90vh]">
         <Connections
           img={handsImg}
           title="Connecting on a"
@@ -105,6 +108,12 @@ aliquam quisque dui lacus eget egestas.`}
       </div>
 
       <GuideUs />
+
+      <img src={strongerImg} alt="" className="mt-32 py-20 px-[2%]" />
+
+      <Employees />
+
+      <ContactUs />
     </>
   );
 };
@@ -127,8 +136,8 @@ const Leading = ({
       <section ref={ref} className="flex items-start justify-between">
         <motion.div
           className="w-[45%] flex justify-center items-start  pt-4"
-          initial={inView ? { x: -600 } : { x: 0 }}
-          animate={inView ? { x: 0 } : { x: -600 }}
+          initial={inView ? { x: -1600 } : { x: 0 }}
+          animate={inView ? { x: 0 } : { x: -1600 }}
           transition={{ duration: 0.7 }}
         >
           <img src={img} alt="" className="max-w-[20rem]" />

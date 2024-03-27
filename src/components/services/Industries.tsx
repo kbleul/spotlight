@@ -6,6 +6,14 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { useInView } from "react-intersection-observer";
 
+const INDUSTRY_ITEMS = [
+  "Telecom",
+  "Fashion",
+  "Film",
+  "Finance",
+  "Technology",
+  "Real Estate",
+];
 const Industries = () => {
   const { ref, inView } = useInView({
     threshold: 0.4,
@@ -54,18 +62,22 @@ const Industries = () => {
       </motion.section>
 
       <section className="w-[45%] my-[7%]  flex flex-col text-[2.5rem] text-[#4f4f4f] capitalize font-extrabold">
-        <motion.p
-          className="pt-10 pb-2 px-6 border-b border-black"
+        {INDUSTRY_ITEMS.map((item, index) => (
+          <motion.p
+            key={"industry-item-" + index}
+            className="pt-10 pb-2 px-6 border-b border-black relative"
+            initial={inView ? { y: 2000 } : { y: 0 }}
+            animate={inView ? { y: 0 } : { y: 2000 }}
+            transition={{ duration: 0.4 * (index + 1) }}
+          >
+            {item}
+          </motion.p>
+        ))}
+        {/* <motion.p
+          className="pt-10 pb-2 px-6 border-b border-black relative"
           initial={inView ? { y: 2000 } : { y: 0 }}
           animate={inView ? { y: 0 } : { y: 2000 }}
           transition={{ duration: 0.5 }}
-          onMouseEnter={(event: React.MouseEvent<HTMLImageElement>) =>
-            handleMouseEnter(event, 1)
-          }
-          onMouseMove={(event: React.MouseEvent<HTMLImageElement>) =>
-            handleMouseMove(event)
-          }
-          onMouseLeave={handleMouseLeave}
         >
           Telecom
         </motion.p>
@@ -74,13 +86,6 @@ const Industries = () => {
           initial={inView ? { y: 2000 } : { y: 0 }}
           animate={inView ? { y: 0 } : { y: 2000 }}
           transition={{ duration: 0.8 }}
-          onMouseEnter={(event: React.MouseEvent<HTMLImageElement>) =>
-            handleMouseEnter(event, 2)
-          }
-          onMouseMove={(event: React.MouseEvent<HTMLImageElement>) =>
-            handleMouseMove(event)
-          }
-          onMouseLeave={handleMouseLeave}
         >
           Fashion
         </motion.p>
@@ -89,13 +94,6 @@ const Industries = () => {
           initial={inView ? { y: 2000 } : { y: 0 }}
           animate={inView ? { y: 0 } : { y: 2000 }}
           transition={{ duration: 1.1 }}
-          onMouseEnter={(event: React.MouseEvent<HTMLImageElement>) =>
-            handleMouseEnter(event, 3)
-          }
-          onMouseMove={(event: React.MouseEvent<HTMLImageElement>) =>
-            handleMouseMove(event)
-          }
-          onMouseLeave={handleMouseLeave}
         >
           Film
         </motion.p>
@@ -104,13 +102,6 @@ const Industries = () => {
           initial={inView ? { y: 2000 } : { y: 0 }}
           animate={inView ? { y: 0 } : { y: 2000 }}
           transition={{ duration: 1.4 }}
-          onMouseEnter={(event: React.MouseEvent<HTMLImageElement>) =>
-            handleMouseEnter(event, 1)
-          }
-          onMouseMove={(event: React.MouseEvent<HTMLImageElement>) =>
-            handleMouseMove(event)
-          }
-          onMouseLeave={handleMouseLeave}
         >
           Finance
         </motion.p>
@@ -119,13 +110,6 @@ const Industries = () => {
           initial={inView ? { y: 2000 } : { y: 0 }}
           animate={inView ? { y: 0 } : { y: 2000 }}
           transition={{ duration: 1.7 }}
-          onMouseEnter={(event: React.MouseEvent<HTMLImageElement>) =>
-            handleMouseEnter(event, 2)
-          }
-          onMouseMove={(event: React.MouseEvent<HTMLImageElement>) =>
-            handleMouseMove(event)
-          }
-          onMouseLeave={handleMouseLeave}
         >
           Technology
         </motion.p>
@@ -134,16 +118,9 @@ const Industries = () => {
           initial={inView ? { y: 2000 } : { y: 0 }}
           animate={inView ? { y: 0 } : { y: 2000 }}
           transition={{ duration: 2 }}
-          onMouseEnter={(event: React.MouseEvent<HTMLImageElement>) =>
-            handleMouseEnter(event, 3)
-          }
-          onMouseMove={(event: React.MouseEvent<HTMLImageElement>) =>
-            handleMouseMove(event)
-          }
-          onMouseLeave={handleMouseLeave}
         >
           Real Estate
-        </motion.p>
+        </motion.p> */}
       </section>
 
       {showImageIndex && (

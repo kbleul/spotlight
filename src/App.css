@@ -16,6 +16,12 @@
   overflow-x: hidden;
 }
 
+#root-body-hidden {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
 .expandButtonContainer {
   width: 130px;
 }
@@ -73,7 +79,6 @@
 }
 
 .carousel-container {
-  overflow: hidden;
   width: 100%;
 }
 
@@ -114,6 +119,62 @@
   }
 }
 
+.carouselEmployees {
+  display: flex;
+  animation: scrollCarouselEmployee 20s infinite linear;
+}
+
+.carouselEmployeeReverse {
+  display: flex;
+  animation: scrollCarouselEmployeeReverse 20s infinite linear;
+}
+
+.carouselEmployees--slow {
+  display: flex;
+  animation: scrollCarouselEmployee--slow 5s infinite linear;
+}
+
+.carouselEmployeeReverse--slow {
+  display: flex;
+  animation: scrollCarouselEmployeeReverse--slow 5s infinite linear;
+}
+
+@keyframes scrollCarouselEmployee--slow {
+  0% {
+    transform: translateX(2%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes scrollCarouselEmployeeReverse--slow {
+  0% {
+    transform: translateX(-2%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes scrollCarouselEmployee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-250%);
+  }
+}
+
+@keyframes scrollCarouselEmployeeReverse {
+  0% {
+    transform: translateX(-250%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
 .feeds_scroll::-webkit-scrollbar {
   display: none;
 }
@@ -122,4 +183,26 @@
 .feeds_scroll {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+.scroll-tab-container {
+  scrollbar-width: thin;
+  scrollbar-color: #e6e5e5 #fffefe;
+}
+
+.scroll-tab-container::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.scroll-tab-container::-webkit-scrollbar-track {
+  background-color: #f5f5f5; /* Color of the scrollbar track */
+}
+
+.scroll-tab-container::-webkit-scrollbar-thumb {
+  background-color: #999999; /* Color of the scrollbar thumb */
+  border-radius: 4px; /* Border radius of the scrollbar thumb */
+}
+
+.scroll-tab-container::-webkit-scrollbar-thumb:hover {
+  background-color: #555555; /* Color of the scrollbar thumb on hover */
 }

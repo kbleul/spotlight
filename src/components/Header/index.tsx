@@ -13,7 +13,9 @@ const Header = () => {
     <article
       className={
         BlackBgRoutes.includes(currentRoute)
-          ? "py-8 px-12 w-full flex items-start justify-between z-10 bg-black"
+          ? `py-8 px-12 w-full flex items-start justify-between z-10 ${
+              currentRoute === "/culture" ? "bg-transparent" : "bg-black"
+            } `
           : "py-8 px-12 w-full flex items-start justify-between z-10"
       }
     >

@@ -20,7 +20,7 @@ export const ROUTES = [
     link: "/feeds",
   },
 ];
-export const BlackBgRoutes = ["/about"];
+export const BlackBgRoutes = ["/about", "/culture"];
 
 export const ColorTheme = {
   light: {

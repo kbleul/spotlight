@@ -7,7 +7,7 @@ const Carasole = ({ title }: { title?: string }) => {
   return (
     <article className="carousel-container bg-black pb-20">
       {title && (
-        <h4 className="mt-4 pb-12 font-bold text-2xl text-[#4F4F4F] text-center">
+        <h4 className="pt-4 pb-12 font-bold text-2xl text-[#4F4F4F] text-center">
           {title}
         </h4>
       )}

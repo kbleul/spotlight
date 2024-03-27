@@ -10,8 +10,8 @@ const ProjectCard = () => {
         Lorem ipsum dolor sit amet con sectetur
       </h4>
 
-      <div className="bg-[#d9d9d9] h-[28vh] rounded-t-[2rem] overflow-hidden">
-        <img src={placeholder_img} alt="" className="w-full h-[28vh]" />
+      <div className="bg-[#d9d9d9] h-[30vh] rounded-t-[2rem] overflow-hidden">
+        <img src={placeholder_img} alt="" className="w-full h-[30vh]" />
       </div>
     </article>
   );

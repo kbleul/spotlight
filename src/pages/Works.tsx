@@ -3,6 +3,7 @@ import CarasoleReverse from "../components/CarasoleReverse";
 import Featured from "../components/Featured";
 import ServicesProjects from "../components/Projects/ServicesProjects";
 import Hero from "../components/Hero/WorksHero";
+import ContactUs from "../components/Contact";
 
 const Works = () => {
   return (
@@ -15,6 +16,8 @@ const Works = () => {
         <Carasole />
       </div>
       <CarasoleReverse />
+
+      <ContactUs />
     </article>
   );
 };

@@ -9,7 +9,7 @@ const About = () => {
   });
 
   return (
-    <article className="px-[10%] py-36 overflow-hidden text-white bg-black flex items-start justify-between ">
+    <article className="px-[10%] py-52 overflow-hidden text-white bg-black flex items-start justify-between ">
       <section ref={ref} className="flex items-start justify-between">
         <motion.div
           className="w-[45%] "
