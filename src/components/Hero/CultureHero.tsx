@@ -35,7 +35,7 @@ const CultureHero = () => {
         <Header />
         {!showVideo && (
           <>
-            <div className="px-[5%] leading-[7rem] text-[105px] text-white font-bold capitalize pt-[40vh]">
+            <div className="px-[5%] leading-[6rem] text-[96px] text-white font-bold capitalize  absolute bottom-14">
               <p className="">relentless</p>
               <p className="">commitment</p>
               <p className="">to work and play</p>

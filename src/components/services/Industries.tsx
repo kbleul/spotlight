@@ -53,7 +53,7 @@ const Industries = () => {
         </p>
       </motion.section>
 
-      <section className="w-[45%] my-[7%]  flex flex-col text-[2.5rem] text-[#4f4f4f] capitalize font-extrabold">
+      <section className="w-[45%] h-full   flex flex-col justify-center text-[2.5rem] text-[#4f4f4f] capitalize font-extrabold">
         {INDUSTRY_ITEMS.map((item, index) => (
           <ItemCard
             key={"industry-item-" + index}
@@ -80,7 +80,9 @@ const ItemCard = ({
 
   return (
     <motion.div
-      className="pt-10 pb-2 px-6 border-b border-black relative"
+      className={`h-[14%] pb-2 px-6 ${
+        index !== 5 && " border-b "
+      }  border-black relative flex items-end`}
       initial={inView ? { y: 2000 } : { y: 0 }}
       animate={inView ? { y: 0 } : { y: 2000 }}
       transition={{ duration: 0.4 * (index + 1) }}

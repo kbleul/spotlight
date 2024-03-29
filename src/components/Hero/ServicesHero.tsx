@@ -4,13 +4,13 @@ import serviceImg from "../../assets/images/service2.png";
 const Hero = () => {
   return (
     <motion.div
-      className="h-[100vh]"
+      className="h-[100vh] overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
       <article className="px-[5%]">
-        <h2 className="text-[#4F4F4F] text-[130px] font-extrabold">Service</h2>
+        <h2 className="text-[#4F4F4F] text-[110px] font-extrabold">Service</h2>
 
         <p className="ml-[20%] text-[#4f4f4f]">
           Lorem ipsum dolor sit amet consectetur. Pretium mattis sit aliquet
@@ -23,12 +23,8 @@ const Hero = () => {
           commodo praesent.
         </p>
 
-        <div className="w-full">
-          <img
-            src={serviceImg}
-            alt=""
-            className="mt-10 border-4 w-full h-[50vh] bg-cover"
-          />
+        <div className="w-full flex justify-center mt-10">
+          <img src={serviceImg} alt="" className="mt-10 w-[90%]  bg-cover" />
         </div>
       </article>
     </motion.div>

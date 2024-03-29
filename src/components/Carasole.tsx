@@ -5,7 +5,7 @@ import img4 from "../assets/images/carasol/4.png";
 
 const Carasole = ({ title }: { title?: string }) => {
   return (
-    <article className="carousel-container bg-black pb-20">
+    <article className="carousel-container bg-black pb-20 overflow-hidden">
       {title && (
         <h4 className="pt-4 pb-12 font-bold text-2xl text-[#4F4F4F] text-center">
           {title}

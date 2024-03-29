@@ -24,11 +24,11 @@ const FeedCard = () => {
       <div className="flex justify-end px-4 py-2">
         <MdArrowOutward size={40} />
       </div>
-      <div className="w-full h-[30vh] rounded-t-[2rem] overflow-hidden ">
+      <div className="w-full max-h-[40vh] rounded-t-[2rem] overflow-hidden ">
         <img
           src={placeholderimg}
           alt=""
-          className="w-full  h-[30vh] object-cover"
+          className="w-full  max-h-[40vh] object-cover"
         />
       </div>
     </article>

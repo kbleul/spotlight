@@ -105,22 +105,22 @@ const Feeds: React.FC = () => {
         onTouchMove={handleTouchMove}
         className="scroll-tab-container flex gap-6 w-full pb-6 ml-[5%]"
       >
-        <div className="w-[45%] feed max-w-[550px] flex-shrink-0">
+        <div className="w-[45%] feed max-w-[450px] flex-shrink-0">
           <FeedCard />
         </div>
-        <div className="w-[45%] feed max-w-[550px] flex-shrink-0">
+        <div className="w-[45%] feed max-w-[450px] flex-shrink-0">
           <FeedCard />
         </div>
-        <div className="w-[45%] feed max-w-[550px] flex-shrink-0">
+        <div className="w-[45%] feed max-w-[450px] flex-shrink-0">
           <FeedCard />
         </div>
-        <div className="w-[45%] feed max-w-[550px] flex-shrink-0">
+        <div className="w-[45%] feed max-w-[450px] flex-shrink-0">
           <FeedCard />
         </div>
-        <div className="w-[45%] feed max-w-[550px] flex-shrink-0">
+        <div className="w-[45%] feed max-w-[450px] flex-shrink-0">
           <FeedCard />
         </div>
-        <div className="w-[45%] feed max-w-[550px] flex-shrink-0 mr-32">
+        <div className="w-[45%] feed max-w-[450px] flex-shrink-0 mr-32">
           <FeedCard />
         </div>
       </section>

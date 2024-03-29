@@ -135,8 +135,8 @@ const ServicesScroll = () => {
       ref={ref}
       className={
         currentContent >= 5
-          ? "relative h-[108vh] w-full  bg-black rounded-[3rem] mb-20"
-          : "relative h-[108vh] w-full  "
+          ? "relative h-[108vh] w-full  bg-black rounded-[3rem] mt-20 mb-10"
+          : "relative h-[108vh] w-full  mt-10"
       }
       style={{
         backgroundImage: `url(${bgImg})`,

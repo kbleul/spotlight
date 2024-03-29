@@ -27,8 +27,8 @@ const CultureGallery = () => {
     img12,
   ];
   return (
-    <article className="h-[102vh] bg-black flex items-start justify-evenly">
-      <section className="w-[22%] feeds_scroll flex flex-col h-[102vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
+    <article className="h-[112vh]  bg-black flex items-start justify-evenly">
+      <section className="w-[22%] feeds_scroll flex flex-col h-[107vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
         {ImagesArr.map((image, index) => (
           <img
             className="w-full"
@@ -38,7 +38,7 @@ const CultureGallery = () => {
           />
         ))}
       </section>
-      <section className="w-[22%] feeds_scroll flex flex-col h-[102vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
+      <section className="w-[22%] feeds_scroll flex flex-col h-[107vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
         {ImagesArr.slice(6, 11).map((image, index) => (
           <img
             className="w-full"
@@ -48,7 +48,7 @@ const CultureGallery = () => {
           />
         ))}
       </section>
-      <section className="w-[22%] feeds_scroll flex flex-col h-[102vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
+      <section className="w-[22%] feeds_scroll flex flex-col h-[107vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
         {ImagesArr.reverse()
           .slice(0, 6)
           .map((image, index) => (
@@ -60,7 +60,7 @@ const CultureGallery = () => {
             />
           ))}
       </section>
-      <section className="w-[22%] feeds_scroll flex flex-col h-[102vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
+      <section className="w-[22%] feeds_scroll flex flex-col h-[107vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
         {ImagesArr.reverse().map((image, index) => (
           <img
             className="w-full"

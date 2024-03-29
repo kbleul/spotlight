@@ -104,7 +104,7 @@ const Featured = () => {
 
   const contentDispatch = () => {
     return (
-      <div className="w-1/2 max-w-[520px]" key={currentContent}>
+      <div className="w-1/2 max-w-[420px]" key={currentContent}>
         <motion.img
           src={CONTENT[currentContent].img}
           alt=""
@@ -124,7 +124,7 @@ const Featured = () => {
               0{currentContent + 1}
             </motion.h3>
             <motion.p
-              className="text-[#777777] text-sm  mt-4"
+              className="text-[#777777] text-xs  mt-4"
               initial={{ y: 100 }}
               animate={{ y: 0 }}
               transition={{ duration: 0.8 }}
@@ -161,9 +161,7 @@ const Featured = () => {
           >
             Lorem ipsum dolor sit amet consectetur. Feugiat leo facilisis cras
             mi. Blandit nisi eget adipiscing congue. Facilisis nulla amet nibh
-            pellentesque ornare viverra gravida. Enim sapien quisque lectus
-            egestas amet. Magna diam quam facilisi cum vulputate condimentum sit
-            vel.
+            pellentesque ornare viverra gravida.
           </motion.p>
         </section>
       </div>
@@ -178,12 +176,12 @@ const Featured = () => {
           "h-[105vh] px-[5%] pb-[5rem] overflow-hidden text-white bg-black"
         }
       >
-        <h2 className="py-4 text-[#4F4F4F] text-[115px] font-extrabold">
+        <h2 className="pb-4 text-[#4F4F4F] text-[100px] font-extrabold">
           Featured
         </h2>
 
-        <section className="w-full flex items-start mt-12">
-          <div className="w-1/2 pl-[10%] pt-4 text-[#777777] text-5xl font-extrabold ">
+        <section className="w-full flex items-start mt-2">
+          <div className="w-1/2 pl-[10%] pt-4 text-[#777777] text-4xl  font-extrabold ">
             {CONTENT.map((content, index: number) => (
               <p
                 key={content.id}

@@ -20,7 +20,7 @@ const OurStory = () => {
       <img
         src={storyImg}
         alt=""
-        className="max-w-[780px] absolute"
+        className="max-w-[600px] absolute"
         style={{ transform: "rotate(10deg)", bottom: 50, right: -50 }}
       />
     </article>

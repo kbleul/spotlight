@@ -8,20 +8,20 @@ const Values = () => {
         <img
           src={communityImg}
           alt=""
-          className="absolute w-[701px] h-[701px]"
+          className="absolute w-[451px]"
           style={{
-            left: -100,
-            top: -150,
+            left: -50,
+            top: -50,
             transform: "rotate(13deg)",
           }}
         />
         <img
           src={communityImg2}
           alt=""
-          className="absolute w-[409px] h-[409px]"
+          className="absolute w-[359px]"
           style={{
-            left: -100,
-            top: 450,
+            left: -50,
+            top: 350,
             transform: "rotate(-25deg)",
           }}
         />

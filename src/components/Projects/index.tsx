@@ -62,7 +62,7 @@ const ProjectsGrid = () => {
   return (
     <article ref={ref} className="w-full flex justify-center">
       <motion.div
-        className="w-[90%] gap-6 flex justify-center items-center"
+        className="w-full gap-6 flex justify-center items-center max-w-[1000px] "
         initial={inView ? { y: -1000, x: 0 } : { y: 0, x: 0 }}
         animate={inView ? { y: 0, x: 0 } : { y: 1000, x: 0 }}
         transition={{ duration: 0.8 }}
