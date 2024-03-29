@@ -2,11 +2,18 @@ import FeedImgList from "../components/FeedImgList";
 import newsTrace from "../assets/images/news/News.svg";
 import NewsSection from "../components/NewsSection";
 import ContactUs from "../components/Contact";
+import FeedModal from "../components/FeedModal";
+import { useState } from "react";
 
 const Feeds = () => {
+  const [isFeedModalOpen, setIsFeednModalOpen] = useState(false);
+
   return (
-    <article>
-      <h2 className="text-[#4F4F4F] text-[185px] font-extrabold text-center mb-10">
+    <article id="yourAppElement">
+      <h2
+        className="text-[#4F4F4F] text-[185px] font-extrabold text-center mb-10"
+        onClick={() => setIsFeednModalOpen(true)}
+      >
         Feed
       </h2>
 
@@ -21,6 +28,11 @@ const Feeds = () => {
       <div className="mt-10">
         <ContactUs />
       </div>
+
+      <FeedModal
+        isFeedModalOpen={isFeedModalOpen}
+        setIsFeednModalOpen={setIsFeednModalOpen}
+      />
     </article>
   );
 };

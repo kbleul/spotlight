@@ -66,11 +66,10 @@ const Services = () => {
         if (delta < 0 && currentContent > 0) {
           setCurrentContent((prevContent) => prevContent - 1);
         } else if (delta > 0) {
-          currentContent < CONTENT.length &&
-            setCurrentContent((prevContent) => prevContent + 1);
+          setCurrentContent((prevContent) => prevContent + 1);
         }
 
-        if (currentContent >= CONTENT.length) {
+        if (currentContent >= 9) {
           const rootElement = document.getElementById("root-body");
 
           if (rootElement && rootElement.style.overflowY === "hidden") {
@@ -92,19 +91,19 @@ const Services = () => {
     <article
       ref={ref}
       className={
-        currentContent % 2 === 0 && currentContent < CONTENT.length
+        currentContent % 2 === 0 && currentContent !== 0
           ? "relative h-[108vh] bg-white mb-20 "
           : "relative h-[108vh] bg-black mb-20 "
       }
     >
       {inView && (
         <>
-          {currentContent == 0 && (
-            <motion.div
+          {currentContent < 3 && (
+            <div
               className="h-[108vh] w-full bg-black flex justify-evenly items-center "
-              initial={inView ? { x: 2000 } : { x: 0 }}
-              animate={inView ? { x: 0 } : { x: 2000 }}
-              transition={{ duration: 1 }}
+              // initial={inView ? { x: 2000 } : { x: 0 }}
+              // animate={inView ? { x: 0 } : { x: 2000 }}
+              // transition={{ duration: 1 }}
             >
               <section className="w-[45%] max-w-[600px] text-white">
                 <h2 className="text-[115px] font-extrabold text-[#4F4F4F] mb-6">
@@ -127,10 +126,10 @@ const Services = () => {
                   transition={{ duration: 0.7 }}
                 />
               </section>
-            </motion.div>
+            </div>
           )}
 
-          {currentContent == 1 && (
+          {currentContent >= 3 && currentContent < 6 && (
             <motion.div
               className="h-[108vh] w-full bg-white flex justify-evenly items-center "
               initial={inView ? { x: 2000 } : { x: 0 }}
@@ -170,7 +169,7 @@ const Services = () => {
             </motion.div>
           )}
 
-          {currentContent == 2 && (
+          {currentContent >= 6 && currentContent < 9 && (
             <motion.div
               className="h-[108vh] w-full bg-black flex justify-evenly items-center "
               initial={inView ? { x: 2000 } : { x: 0 }}
@@ -198,7 +197,7 @@ const Services = () => {
             </motion.div>
           )}
 
-          {currentContent >= 3 && (
+          {currentContent >= 9 && (
             <article className="h-[108vh]">
               <section className="w-1/2 "></section>
 

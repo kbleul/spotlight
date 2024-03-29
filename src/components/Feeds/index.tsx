@@ -2,21 +2,74 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import FeedCard from "./FeedCard";
+import { useRef, useState } from "react";
 
-const Feeds = () => {
+const Feeds: React.FC = () => {
   const { ref, inView } = useInView({
-    /* Optional options */
     threshold: 0.1,
   });
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isMouseDown, setIsMouseDown] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!scrollRef.current) return;
+
+    setIsMouseDown(true);
+    setStartX(e.pageX - -scrollRef.current.offsetLeft);
+    setScrollLeft(scrollRef.current.scrollLeft);
+  };
+
+  const handleMouseLeave = () => {
+    setIsMouseDown(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsMouseDown(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isMouseDown || !scrollRef.current) return;
+
+    e.preventDefault();
+
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 1;
+    scrollRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!scrollRef.current || !e.touches[0]) return;
+
+    setIsMouseDown(true);
+    setStartX(e.touches[0].pageX - -scrollRef.current.offsetLeft);
+    setScrollLeft(scrollRef.current.scrollLeft);
+  };
+
+  const handleTouchEnd = () => {
+    setIsMouseDown(false);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!isMouseDown || !scrollRef.current || !e.touches[0]) return;
+
+    e.preventDefault();
+
+    const x = e.touches[0].pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 1;
+    scrollRef.current.scrollLeft = scrollLeft - walk;
+  };
 
   return (
     <article
       ref={ref}
-      className="pt-[10vh]  pb-[5rem] overflow-hidden text-black bg-white"
+      className="pt-[10vh] pb-[5rem] overflow-hidden text-black bg-white"
     >
-      <section className="flex items-start justify-between px-[5%] ">
+      <section className="flex items-start justify-between px-[5%]">
         <motion.div
-          className="w-full "
+          className="w-full"
           initial={inView ? { x: -600 } : { x: 0 }}
           animate={inView ? { x: 0 } : { x: -600 }}
           transition={{ duration: 1 }}
@@ -41,55 +94,35 @@ const Feeds = () => {
         </motion.div>
       </section>
 
-      <section className="scroll-tab-container  flex gap-6 w-full overflow-hidden hover:overflow-x-scroll pb-6 ml-[5%]">
-        <motion.div
-          className="w-[45%] max-w-[550px] flex-shrink-0"
-          initial={inView ? { x: 1200 } : { x: 0 }}
-          animate={inView ? { x: 0 } : { x: 1200 }}
-          transition={{ duration: 0.7 }}
-        >
+      <section
+        ref={scrollRef}
+        onMouseDown={handleMouseDown}
+        onMouseLeave={handleMouseLeave}
+        onMouseUp={handleMouseUp}
+        onMouseMove={handleMouseMove}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        onTouchMove={handleTouchMove}
+        className="scroll-tab-container flex gap-6 w-full pb-6 ml-[5%]"
+      >
+        <div className="w-[45%] feed max-w-[550px] flex-shrink-0">
           <FeedCard />
-        </motion.div>
-        <motion.div
-          className="w-[45%] max-w-[550px] flex-shrink-0"
-          initial={inView ? { x: 1200 } : { x: 0 }}
-          animate={inView ? { x: 0 } : { x: 1200 }}
-          transition={{ duration: 1.2 }}
-        >
+        </div>
+        <div className="w-[45%] feed max-w-[550px] flex-shrink-0">
           <FeedCard />
-        </motion.div>
-        <motion.div
-          className="w-[45%] max-w-[550px] flex-shrink-0"
-          initial={inView ? { x: 1200 } : { x: 0 }}
-          animate={inView ? { x: 0 } : { x: 1200 }}
-          transition={{ duration: 1.2 }}
-        >
+        </div>
+        <div className="w-[45%] feed max-w-[550px] flex-shrink-0">
           <FeedCard />
-        </motion.div>
-        <motion.div
-          className="w-[45%] max-w-[550px] flex-shrink-0"
-          initial={inView ? { x: 1200 } : { x: 0 }}
-          animate={inView ? { x: 0 } : { x: 1200 }}
-          transition={{ duration: 1.2 }}
-        >
+        </div>
+        <div className="w-[45%] feed max-w-[550px] flex-shrink-0">
           <FeedCard />
-        </motion.div>
-        <motion.div
-          className="w-[45%] max-w-[550px] flex-shrink-0"
-          initial={inView ? { x: 1200 } : { x: 0 }}
-          animate={inView ? { x: 0 } : { x: 1200 }}
-          transition={{ duration: 1.2 }}
-        >
+        </div>
+        <div className="w-[45%] feed max-w-[550px] flex-shrink-0">
           <FeedCard />
-        </motion.div>
-        <motion.div
-          className="w-[45%] max-w-[550px] flex-shrink-0 mr-32"
-          initial={inView ? { x: 1200 } : { x: 0 }}
-          animate={inView ? { x: 0 } : { x: 1200 }}
-          transition={{ duration: 1.6 }}
-        >
+        </div>
+        <div className="w-[45%] feed max-w-[550px] flex-shrink-0 mr-32">
           <FeedCard />
-        </motion.div>
+        </div>
       </section>
     </article>
   );

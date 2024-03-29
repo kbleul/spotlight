@@ -1,12 +1,7 @@
 import bulbImg from "../assets/images/light_small.svg";
 import borderImg from "../assets/images/border1.svg";
 
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-
 const GuideUs = () => {
-  const [ref, inView] = useInView({ threshold: 0.5 });
-
   return (
     <article className="pl-[3%] overflow-hidden text-black bg-white ">
       <img src={bulbImg} alt="" className="w-48" />

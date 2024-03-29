@@ -19,8 +19,8 @@ const ImageCard = ({ employee }: { employee: any }) => {
         style={{
           top: -40,
         }}
-        initial={isHover ? { x: 0, y: 0 } : { x: -40, y: -35 }}
-        animate={isHover ? { x: -40, y: -35 } : { x: 0, y: 0 }}
+        initial={isHover ? { x: 0, y: 0 } : { x: -40, y: -37 }}
+        animate={isHover ? { x: -40, y: -37 } : { x: 0, y: 0 }}
         transition={{ duration: 0.4 }}
       />
       <div className="absolute bottom- 0 w-full px-3 py-2 flex justify-between items-center text-black font-medium">

@@ -34,7 +34,7 @@ const Culture = () => {
   return (
     <article
       ref={ref}
-      className="bg-white  pt-12 px-12 relative max-h-[80vh] overflow-hidden"
+      className="bg-white h-[100vh]  pt-12 px-12 relative overflow-hidden"
     >
       <motion.div
         className="w-full flex justify-between items-start"

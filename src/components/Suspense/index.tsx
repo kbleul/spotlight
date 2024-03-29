@@ -61,14 +61,14 @@ const Loading = ({
       )}
 
       <motion.div
-        className="elipces_shadow bg-[#1a1a1a] shadow-xl w-2/5 h-8 absolute top-[65vh]"
+        className="elipces_shadow bg-[#1a1a1a] shadow-xl w-2/5 h-8 absolute top-[75vh]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5 }}
       />
 
       {isLoadingVisible && (
-        <div className="bg-black w-4/5 h-[2px] rounded-full">
+        <div className="bg-black w-4/5 h-[2px] rounded-full absolute bottom-20">
           <motion.div
             style={{
               width: `${progress}%`,

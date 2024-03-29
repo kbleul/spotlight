@@ -6,6 +6,17 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { useInView } from "react-intersection-observer";
 
+const ItemImgs = [
+  cultureImg1,
+  cultureImg2,
+  cultureImg3,
+  cultureImg1,
+  cultureImg2,
+  cultureImg3,
+  cultureImg1,
+  cultureImg2,
+  cultureImg3,
+];
 const INDUSTRY_ITEMS = [
   "Telecom",
   "Fashion",
@@ -18,25 +29,6 @@ const Industries = () => {
   const { ref, inView } = useInView({
     threshold: 0.4,
   });
-
-  const [showImageIndex, setShowImageIndex] = useState<number | null>(null);
-  const [smallImagePosition, setSmallImagePosition] = useState({ x: 0, y: 0 });
-
-  const handleMouseEnter = (
-    event: React.MouseEvent<HTMLImageElement>,
-    index: number
-  ) => {
-    setShowImageIndex(index);
-    setSmallImagePosition({ x: event.clientX, y: event.clientY - 20 });
-  };
-
-  const handleMouseMove = (event: React.MouseEvent<HTMLImageElement>) => {
-    setSmallImagePosition({ x: event.clientX, y: event.clientY - 20 });
-  };
-
-  const handleMouseLeave = () => {
-    setShowImageIndex(null);
-  };
 
   return (
     <article
@@ -63,89 +55,65 @@ const Industries = () => {
 
       <section className="w-[45%] my-[7%]  flex flex-col text-[2.5rem] text-[#4f4f4f] capitalize font-extrabold">
         {INDUSTRY_ITEMS.map((item, index) => (
-          <motion.p
+          <ItemCard
             key={"industry-item-" + index}
-            className="pt-10 pb-2 px-6 border-b border-black relative"
-            initial={inView ? { y: 2000 } : { y: 0 }}
-            animate={inView ? { y: 0 } : { y: 2000 }}
-            transition={{ duration: 0.4 * (index + 1) }}
-          >
-            {item}
-          </motion.p>
+            item={item}
+            index={index}
+            inView={inView}
+          />
         ))}
-        {/* <motion.p
-          className="pt-10 pb-2 px-6 border-b border-black relative"
-          initial={inView ? { y: 2000 } : { y: 0 }}
-          animate={inView ? { y: 0 } : { y: 2000 }}
-          transition={{ duration: 0.5 }}
-        >
-          Telecom
-        </motion.p>
-        <motion.p
-          className="pt-10 pb-2 px-6 border-b border-black"
-          initial={inView ? { y: 2000 } : { y: 0 }}
-          animate={inView ? { y: 0 } : { y: 2000 }}
+      </section>
+    </article>
+  );
+};
+
+const ItemCard = ({
+  item,
+  index,
+  inView,
+}: {
+  item: any;
+  index: number;
+  inView: boolean;
+}) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <motion.div
+      className="pt-10 pb-2 px-6 border-b border-black relative"
+      initial={inView ? { y: 2000 } : { y: 0 }}
+      animate={inView ? { y: 0 } : { y: 2000 }}
+      transition={{ duration: 0.4 * (index + 1) }}
+      onMouseOver={() => setIsHovered(true)}
+      onMouseOut={() => setIsHovered(false)}
+    >
+      <p>{item}</p>
+
+      {isHovered && (
+        <motion.div
+          className="absolute bottom-2 right-3 flex items-center gap-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          Fashion
-        </motion.p>
-        <motion.p
-          className="pt-10 pb-2 px-6 border-b border-black"
-          initial={inView ? { y: 2000 } : { y: 0 }}
-          animate={inView ? { y: 0 } : { y: 2000 }}
-          transition={{ duration: 1.1 }}
-        >
-          Film
-        </motion.p>
-        <motion.p
-          className="pt-10 pb-2 px-6 border-b border-black"
-          initial={inView ? { y: 2000 } : { y: 0 }}
-          animate={inView ? { y: 0 } : { y: 2000 }}
-          transition={{ duration: 1.4 }}
-        >
-          Finance
-        </motion.p>
-        <motion.p
-          className="pt-10 pb-2 px-6 border-b border-black"
-          initial={inView ? { y: 2000 } : { y: 0 }}
-          animate={inView ? { y: 0 } : { y: 2000 }}
-          transition={{ duration: 1.7 }}
-        >
-          Technology
-        </motion.p>
-        <motion.p
-          className="pt-10 pb-2 px-6 border-b border-black"
-          initial={inView ? { y: 2000 } : { y: 0 }}
-          animate={inView ? { y: 0 } : { y: 2000 }}
-          transition={{ duration: 2 }}
-        >
-          Real Estate
-        </motion.p> */}
-      </section>
-
-      {showImageIndex && (
-        <div
-          className="absolute bg-black z-20 rounded-full overflow-hidden w-28 h-28 "
-          style={{
-            top: smallImagePosition.y + 10,
-            left: smallImagePosition.x + 10,
-            pointerEvents: "none",
-          }}
-        >
           <img
-            src={
-              showImageIndex === 1
-                ? cultureImg3
-                : showImageIndex === 2
-                ? cultureImg1
-                : cultureImg2
-            }
-            alt=""
-            className="w-full h-full rounded-full bg-cover"
+            src={ItemImgs[index]}
+            alt={item}
+            className="w-12 h-12 rounded-full object-cover"
           />
-        </div>
+          <img
+            src={ItemImgs[index + 1]}
+            alt={item}
+            className="w-12 h-12 rounded-full object-cover"
+          />
+          <img
+            src={ItemImgs[index + 2]}
+            alt={item}
+            className="w-12 h-12 rounded-full object-cover"
+          />
+        </motion.div>
       )}
-    </article>
+    </motion.div>
   );
 };
 
