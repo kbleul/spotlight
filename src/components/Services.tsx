@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 
@@ -47,7 +47,7 @@ const Services = () => {
   function handleWheel(event: WheelEvent) {
     if (inView) {
       const rootElement = document.getElementById("root-body");
-      if (rootElement) {
+      if (rootElement && scrollPrecentage > 20) {
         rootElement.style.overflowY = "hidden";
       }
       const container: HTMLElement | null =
@@ -105,13 +105,32 @@ const Services = () => {
     }
   }
 
+  const handleMouseLeave = () => {
+    const container: HTMLElement | null = document.querySelector("#container");
+    const container2: HTMLElement | null =
+      document.querySelector("#container2");
+    const container3: HTMLElement | null =
+      document.querySelector("#container3");
+    const container4: HTMLElement | null =
+      document.querySelector("#container4");
+
+    if (container && container2 && container3 && container4) {
+      setTimeout(() => {
+        container.style.transform = `translateX(-${0}%)`;
+        container2.style.transform = `translateX(-${0}%)`;
+        container3.style.transform = `translateX(-${0}%)`;
+        container4.style.transform = `translateX(-${0}%)`;
+      }, 1000);
+
+      setScrollPercentage(0);
+      setScrollPercentageUp(0);
+    }
+  };
+
   useEffect(() => {
     const rootElement = document.getElementById("root-body");
 
-    console.log(inView);
     if (inView && rootElement) {
-      console.log("inviewCheck ", inView);
-
       rootElement.style.overflowY = "hidden";
     }
   }, [inView]);
@@ -122,6 +141,7 @@ const Services = () => {
       ref={ref}
       className="h-[105vh] w-full bg-transparent flex overflow-hidden"
       onWheel={handleWheel}
+      onMouseLeave={handleMouseLeave}
     >
       <div
         id="container"
@@ -206,23 +226,25 @@ const Services = () => {
       </div>
       <div
         id="container4"
-        className="w-full flex-shrink-0 h-[105vh] flex flex-col justify-evenly items-center bg-white"
+        className="w-full flex-shrink-0 h-[105vh] flex flex-col justify-evenly items-start bg-white "
       >
-        <img className="" src={CONTENT[3].img} alt="" />
+        <section className="w-[40%] flex flex-col items-start pl-[5%]">
+          <img className="" src={CONTENT[3].img} alt="" />
 
-        <p className="py-16 text-[#777777] font-medium">
-          Lorem ipsum dolor sit amet consectetur. Ut et vestibulum lectus nullam
-          tellus aliquet pellentesque a dui. Nunc leo at sit fusce.
-        </p>
-        <div className="expandButtonContainerThird">
-          <button
-            type="button"
-            className="expandButton bg-white px-4 text-black py-2 border border-black font-normal flex gap-4 items-center"
-          >
-            <p className="text-base text-nowrap">{CONTENT[3].body}</p>
-            <IoIosArrowRoundForward className="expandButtonIcon" size={33} />
-          </button>
-        </div>
+          <p className="py-16 text-[#777777] font-medium">
+            Lorem ipsum dolor sit amet consectetur. Ut et vestibulum lectus
+            nullam tellus aliquet pellentesque a dui. Nunc leo at sit fusce.
+          </p>
+          <div className="expandButtonContainerThird w-full flex justify-center">
+            <button
+              type="button"
+              className="expandButton bg-white px-4 text-black py-2 border border-black font-normal flex gap-4 items-center"
+            >
+              <p className="text-base text-nowrap">{CONTENT[3].body}</p>
+              <IoIosArrowRoundForward className="expandButtonIcon" size={33} />
+            </button>
+          </div>
+        </section>
       </div>
     </article>
   );

@@ -28,8 +28,8 @@ const FeedImgList = () => {
             style={{
               top: 40,
             }}
-            initial={isHovered ? { x: 0 } : { x: -242 }}
-            animate={isHovered ? { x: -242 } : { x: 0 }}
+            initial={isHovered ? { x: 0 } : { x: -225 }}
+            animate={isHovered ? { x: -225 } : { x: 0 }}
             transition={{ duration: 0.4 }}
           />
           <motion.img
@@ -40,8 +40,8 @@ const FeedImgList = () => {
               top: 30,
               left: "100px",
             }}
-            initial={isHovered ? { x: 0 } : { x: -118 }}
-            animate={isHovered ? { x: -118 } : { x: 0 }}
+            initial={isHovered ? { x: 0 } : { x: -108 }}
+            animate={isHovered ? { x: -108 } : { x: 0 }}
             transition={{ duration: 0.4 }}
           />
           <motion.img
@@ -52,8 +52,8 @@ const FeedImgList = () => {
               top: 30,
               left: "420px",
             }}
-            initial={isHovered ? { x: 0 } : { x: 108 }}
-            animate={isHovered ? { x: 108 } : { x: 0 }}
+            initial={isHovered ? { x: 0 } : { x: 90 }}
+            animate={isHovered ? { x: 90 } : { x: 0 }}
             transition={{ duration: 0.4 }}
           />
           <motion.img
@@ -64,8 +64,8 @@ const FeedImgList = () => {
               top: 40,
               left: "560px",
             }}
-            initial={isHovered ? { x: 0 } : { x: 211 }}
-            animate={isHovered ? { x: 211 } : { x: 0 }}
+            initial={isHovered ? { x: 0 } : { x: 188 }}
+            animate={isHovered ? { x: 188 } : { x: 0 }}
             transition={{ duration: 0.4 }}
           />
         </div>

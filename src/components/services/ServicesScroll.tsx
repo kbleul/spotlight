@@ -83,6 +83,8 @@ const ServicesScroll = () => {
   const [currentContent, setCurrentContent] = useState(0);
   const [ref, inView] = useInView({ threshold: 0.9 });
 
+  const [, setScrolledAmountCounter] = useState(0);
+
   useEffect(() => {
     if (inView) {
       const rootElement = document.getElementById("root-body");
@@ -106,20 +108,30 @@ const ServicesScroll = () => {
       if (inView) {
         const delta = event.deltaY;
 
-        if (delta < 0 && currentContent > 0) {
-          setCurrentContent((prevContent) => prevContent - 1);
-        } else if (delta > 0) {
-          setCurrentContent((prevContent) => prevContent + 1);
-        }
+        setScrolledAmountCounter((prev) => {
+          if (prev >= 16) {
+            if (delta < 0 && currentContent > 0) {
+              setCurrentContent((prevContent) => {
+                return prevContent > 0 ? prevContent - 1 : 0;
+              });
+            } else if (delta > 0) {
+              setCurrentContent((prevContent) => {
+                if (prevContent >= CONTENT.length - 1) {
+                  const rootElement = document.getElementById("root-body");
 
-        if (currentContent > CONTENT.length) {
-          const rootElement = document.getElementById("root-body");
+                  if (rootElement && rootElement.style.overflowY === "hidden") {
+                    rootElement.style.overflowY = "scroll";
+                    setTimeout(() => setCurrentContent(0), 2000);
+                  }
+                }
+                return prevContent + 1;
+              });
+            }
 
-          if (rootElement && rootElement.style.overflowY === "hidden") {
-            rootElement.style.overflowY = "scroll";
-            setTimeout(() => setCurrentContent(0), 2000);
+            setScrolledAmountCounter(0);
           }
-        }
+          return prev + 1;
+        });
       }
     };
 
@@ -133,11 +145,9 @@ const ServicesScroll = () => {
   return (
     <article
       ref={ref}
-      className={
-        currentContent >= 5
-          ? "relative h-[108vh] w-full  bg-black rounded-[3rem] mt-20 mb-10"
-          : "relative h-[108vh] w-full  mt-10"
-      }
+      className={`relative h-[108vh] w-full   mt-10 ${
+        currentContent >= 5 && " bg-black"
+      }`}
       style={{
         backgroundImage: `url(${bgImg})`,
         backgroundSize: "cover",

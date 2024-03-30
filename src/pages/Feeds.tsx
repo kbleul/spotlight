@@ -19,7 +19,7 @@ const Feeds = () => {
 
       <FeedImgList />
 
-      <div className="border-t border-b border-black px-[1%] py-6 mx-6 mt-10">
+      <div className="border-t border-b border-black px-[1%] pt-1 pb-2 mx-6 mt-10">
         <img src={newsTrace} alt="" />
       </div>
 

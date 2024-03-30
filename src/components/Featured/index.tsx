@@ -52,6 +52,7 @@ const Featured = () => {
   });
 
   const [currentContent, setCurrentContent] = useState(0);
+  const [, setScrolledAmountCounter] = useState(0);
 
   useEffect(() => {
     if (inView) {
@@ -70,28 +71,36 @@ const Featured = () => {
   }, [inView]);
 
   useEffect(() => {
-    const handleScroll = (event: any) => {
+    const handleScroll = (event: WheelEvent) => {
       event.preventDefault();
 
       if (inView) {
         const delta = event.deltaY;
 
-        if (delta < 0 && currentContent > 0) {
-          setCurrentContent((prevContent) => prevContent - 1);
-        } else if (delta > 0) {
-          setCurrentContent((prevContent) =>
-            prevContent < CONTENT.length - 1 ? prevContent + 1 : prevContent
-          );
-        }
+        setScrolledAmountCounter((prev) => {
+          if (prev >= 13) {
+            if (delta < 0 && currentContent > 0) {
+              setCurrentContent((prevContent) => {
+                return prevContent > 0 ? prevContent - 1 : 0;
+              });
+            } else if (delta > 0) {
+              setCurrentContent((prevContent) => {
+                if (prevContent >= CONTENT.length - 1) {
+                  const rootElement = document.getElementById("root-body");
 
-        if (currentContent >= CONTENT.length - 1) {
-          const rootElement = document.getElementById("root-body");
+                  if (rootElement && rootElement.style.overflowY === "hidden") {
+                    rootElement.style.overflowY = "scroll";
+                    setTimeout(() => setCurrentContent(0), 2000);
+                  }
+                }
+                return prevContent + 1;
+              });
+            }
 
-          if (rootElement && rootElement.style.overflowY === "hidden") {
-            rootElement.style.overflowY = "scroll";
-            setTimeout(() => setCurrentContent(0), 500);
+            setScrolledAmountCounter(0);
           }
-        }
+          return prev + 1;
+        });
       }
     };
 
@@ -104,9 +113,22 @@ const Featured = () => {
 
   const contentDispatch = () => {
     return (
-      <div className="w-1/2 max-w-[420px]" key={currentContent}>
+      <div
+        className="w-1/2 max-w-[420px]"
+        key={
+          currentContent >= CONTENT.length - 1
+            ? CONTENT.length - 1
+            : currentContent
+        }
+      >
         <motion.img
-          src={CONTENT[currentContent].img}
+          src={
+            CONTENT[
+              currentContent >= CONTENT.length - 1
+                ? CONTENT.length - 1
+                : currentContent
+            ].img
+          }
           alt=""
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -121,7 +143,10 @@ const Featured = () => {
               animate={{ y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              0{currentContent + 1}
+              0
+              {currentContent >= CONTENT.length - 1
+                ? CONTENT.length - 1
+                : currentContent + 1}
             </motion.h3>
             <motion.p
               className="text-[#777777] text-xs  mt-4"
@@ -129,7 +154,13 @@ const Featured = () => {
               animate={{ y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              {CONTENT[currentContent].body}
+              {
+                CONTENT[
+                  currentContent >= CONTENT.length - 1
+                    ? CONTENT.length - 1
+                    : currentContent
+                ].body
+              }
             </motion.p>
 
             <motion.div

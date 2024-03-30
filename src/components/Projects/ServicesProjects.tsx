@@ -1,5 +1,5 @@
 import { IoIosArrowRoundForward } from "react-icons/io";
-import projectTraceImage from "../../assets/images/trace_projects.png";
+import projectTraceImage from "../../assets/images/Projects.svg";
 import FeedCard from "../Feeds/FeedCard";
 
 const ServicesProjects = () => {

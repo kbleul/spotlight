@@ -4,6 +4,8 @@ import { useInView } from "react-intersection-observer";
 import cultureImg1 from "../../assets/images/culture/1.svg";
 import cultureImg2 from "../../assets/images/culture/2.svg";
 import cultureImg3 from "../../assets/images/culture/3.svg";
+import cultureTrace from "../../assets/images/Culture.svg";
+
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { useState } from "react";
 
@@ -34,7 +36,7 @@ const Culture = () => {
   return (
     <article
       ref={ref}
-      className="bg-white h-[100vh]  pt-12 px-12 relative overflow-hidden"
+      className="bg-white h-[100vh] pt-[3vh] px-12 relative overflow-hidden"
     >
       <motion.div
         className="w-full flex justify-between items-start"
@@ -85,9 +87,7 @@ const Culture = () => {
           />
         </section>
         <section className="w-1/2 px-[8%]">
-          <h2 className="text-[#4F4F4F] text-[115px] font-extrabold">
-            Culture
-          </h2>
+          <img src={cultureTrace} alt="" className=" max-w-[500px]" />
 
           <div className="pl-3 w-full">
             <h4 className="font-extrabold mt-4 text-2xl">

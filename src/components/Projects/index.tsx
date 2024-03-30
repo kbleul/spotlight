@@ -4,23 +4,10 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import ProjectCard from "./ProjectCard";
 
 const Projects = () => {
-  const { ref, inView } = useInView({
-    /* Optional options */
-    threshold: 0.1,
-  });
-
   return (
-    <article
-      ref={ref}
-      className=" px-[5%] pb-[5rem] overflow-hidden text-white bg-black"
-    >
+    <article className=" px-[5%] pb-[5rem] overflow-hidden text-white bg-black">
       <section className="flex items-start justify-between">
-        <motion.div
-          className="w-full "
-          initial={inView ? { x: -600 } : { x: 0 }}
-          animate={inView ? { x: 0 } : { x: -600 }}
-          transition={{ duration: 1 }}
-        >
+        <div className="w-full ">
           <div className="flex justify-between items-start">
             <h2 className="text-[#4F4F4F] text-[115px] font-extrabold">
               Projects
@@ -46,7 +33,7 @@ const Projects = () => {
             effectively accomplish their goals, engage their audiences, and
             improve their brand presence.
           </p>
-        </motion.div>
+        </div>
       </section>
 
       <ProjectsGrid />

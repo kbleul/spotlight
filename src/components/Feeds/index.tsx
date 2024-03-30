@@ -1,14 +1,9 @@
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import FeedCard from "./FeedCard";
 import { useRef, useState } from "react";
+import feedsTrace from "../../assets/images/Feeds.svg";
 
 const Feeds: React.FC = () => {
-  const { ref, inView } = useInView({
-    threshold: 0.1,
-  });
-
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -62,22 +57,40 @@ const Feeds: React.FC = () => {
     scrollRef.current.scrollLeft = scrollLeft - walk;
   };
 
+  const positionElement = (e: React.MouseEvent<HTMLDivElement>) => {
+    const cursorItem = document.getElementById("cursorItem");
+
+    if (cursorItem) {
+      const mouseY = e.clientY;
+      const mouseX = e.clientX;
+
+      cursorItem.style.display = "block";
+      cursorItem.style.transform = `translate3d(${mouseX}px, ${
+        mouseY + 100
+      }px, 0)`;
+    }
+  };
+
+  const hidePositionElement = () => {
+    const cursorItem = document.getElementById("cursorItem");
+    if (cursorItem) {
+      cursorItem.style.display = "hidden";
+    }
+  };
+
   return (
     <article
-      ref={ref}
-      className="pt-[10vh] pb-[5rem] overflow-hidden text-black bg-white"
+      className="border-t-[28px] border-[#F9F9F9] mt-[8vh] pt-[1vh] pb-[5rem] overflow-hidden text-black bg-white"
+      onMouseMove={positionElement}
+      onMouseLeave={hidePositionElement}
     >
+      <div id="cursorItem" className="hidden customCursor" />
+
       <section className="flex items-start justify-between px-[5%]">
-        <motion.div
-          className="w-full"
-          initial={inView ? { x: -600 } : { x: 0 }}
-          animate={inView ? { x: 0 } : { x: -600 }}
-          transition={{ duration: 1 }}
-        >
-          <div className="flex justify-between items-start">
-            <h2 className="text-[#4F4F4F] text-[115px] font-extrabold">
-              Feeds
-            </h2>
+        <div className="w-full mb-8">
+          <div className="flex justify-between items-center">
+            <img src={feedsTrace} alt="" className="w-1/2 max-w-[500px]" />
+
             <div className="expandButtonContainerSecondary mt-12">
               <button
                 type="button"
@@ -91,7 +104,7 @@ const Feeds: React.FC = () => {
               </button>
             </div>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       <section
