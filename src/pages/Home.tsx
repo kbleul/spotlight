@@ -9,7 +9,6 @@ import Carasole from "../components/Carasole";
 import Culture from "../components/culture";
 import Feeds from "../components/Feeds";
 import Partners from "../components/Partners";
-import ContactUs from "../components/Contact";
 
 const Home = () => {
   return (
@@ -38,8 +37,6 @@ const Home = () => {
       <Feeds />
 
       <Partners />
-
-      <ContactUs />
     </article>
   );
 };

@@ -9,12 +9,16 @@ import Works from "./pages/Works";
 import About from "./pages/About";
 import Culture from "./pages/Culture";
 import Feeds from "./pages/Feeds";
+import ContactUs from "./components/Contact";
+import Footer from "./components/Footer";
 
 const Layout = () => {
   return (
     <>
       <Header />
       <Outlet />
+      <ContactUs />
+      <Footer />
     </>
   );
 };
@@ -50,10 +54,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-  // {
-  //   path: "about",
-  //   element: <div>About</div>,
-  // },
 ]);
 
 function App() {

@@ -48,7 +48,7 @@ const CONTENT = [
 
 const Featured = () => {
   const { ref, inView } = useInView({
-    threshold: 0.9,
+    threshold: 1,
   });
 
   const [currentContent, setCurrentContent] = useState(0);
@@ -202,16 +202,15 @@ const Featured = () => {
   return (
     <article className="">
       <article
-        ref={ref}
         className={
           "h-[105vh] px-[5%] pb-[5rem] overflow-hidden text-white bg-black"
         }
       >
-        <h2 className="pb-4 text-[#4F4F4F] text-[100px] font-extrabold">
+        <h2 className="py-4 text-[#4F4F4F] text-[100px] font-extrabold">
           Featured
         </h2>
 
-        <section className="w-full flex items-start mt-2">
+        <section ref={ref} className="w-full flex items-center mt-2 h-4/5 ">
           <div className="w-1/2 pl-[10%] pt-4 text-[#777777] text-4xl  font-extrabold ">
             {CONTENT.map((content, index: number) => (
               <p

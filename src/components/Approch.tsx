@@ -3,7 +3,7 @@ import stairImg from "../assets/images/stair.svg";
 
 const Approch = () => {
   return (
-    <article className="px-[5%] py-20 bg-white flex flex-col items-start">
+    <article className="h-screen px-[5%] py-20 bg-white flex flex-col items-start">
       <img src={approachTrace} alt="" className="w-1/2 max-w-[800px]" />
 
       <section className="flex items-start justify-start pl-6 w-full">

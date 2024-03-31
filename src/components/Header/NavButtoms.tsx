@@ -17,13 +17,12 @@ const NavButtoms = () => {
   const buttonStyleSecondary = `text-[${buttonTheme.active}] font-extrabold`;
 
   const indicatorStylePrimary = `opacity-0 w-2 h-2 rounded-full`;
-  console.log(buttonTheme.active);
   const indicatorStyleSecondary = BlackBgRoutes.includes(currentRoute)
     ? `bg-white w-2 h-2 rounded-full`
     : `bg-black w-2 h-2 rounded-full`;
 
   return (
-    <article className="flex gap-7 font-medium text-lg">
+    <article className=" gap-7 font-medium text-lg hidden lg:flex">
       {ROUTES.map((route, index) => (
         <section
           key={index + "--" + route.link}

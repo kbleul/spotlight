@@ -1,7 +1,6 @@
 import FeedImgList from "../components/FeedImgList";
 import newsTrace from "../assets/images/news/News.svg";
 import NewsSection from "../components/NewsSection";
-import ContactUs from "../components/Contact";
 import FeedModal from "../components/FeedModal";
 import { useState } from "react";
 
@@ -25,14 +24,12 @@ const Feeds = () => {
 
       <NewsSection />
 
-      <div className="mt-10">
-        <ContactUs />
+      <div className="mt-[10vh]">
+        <FeedModal
+          isFeedModalOpen={isFeedModalOpen}
+          setIsFeednModalOpen={setIsFeednModalOpen}
+        />
       </div>
-
-      <FeedModal
-        isFeedModalOpen={isFeedModalOpen}
-        setIsFeednModalOpen={setIsFeednModalOpen}
-      />
     </article>
   );
 };

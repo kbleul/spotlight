@@ -1,8 +1,9 @@
 import logo from "../../assets/images/logo.svg";
+import scrollArrow from "../../assets/images/arrow_scroll.svg";
 
 const Hero = () => {
   return (
-    <article className="px-12 pt-6 mt-10">
+    <article className="px-12 pt-6 mt-10 relative">
       <div className="w-full flex justify-center">
         <img src={logo} alt="logo" className="w-full max-w-[1400px]" />
       </div>
@@ -20,6 +21,15 @@ const Hero = () => {
           </p>
         </div>
       </section>
+
+      <img
+        src={scrollArrow}
+        alt="logo"
+        className="absolute w-8"
+        style={{
+          bottom: -150,
+        }}
+      />
     </article>
   );
 };

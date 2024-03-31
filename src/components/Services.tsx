@@ -130,8 +130,16 @@ const Services = () => {
   useEffect(() => {
     const rootElement = document.getElementById("root-body");
 
-    if (inView && rootElement) {
-      rootElement.style.overflowY = "hidden";
+    if (inView) {
+      if (rootElement) {
+        rootElement.style.overflowY = "hidden";
+      }
+    } else {
+      if (rootElement) {
+        if (rootElement.style.overflowY === "hidden") {
+          rootElement.style.overflowY = "scroll";
+        }
+      }
     }
   }, [inView]);
 

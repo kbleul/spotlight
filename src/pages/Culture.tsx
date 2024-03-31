@@ -14,7 +14,6 @@ const Culture = () => {
       <OurStory />
 
       <CultureGallery />
-      <ContactUs />
     </>
   );
 };
