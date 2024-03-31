@@ -36,15 +36,15 @@ const Culture = () => {
   return (
     <article
       ref={ref}
-      className="bg-white h-[100vh] pt-[3vh] px-12 relative overflow-hidden"
+      className="bg-white lg:h-[100vh] pt-[1vh] md:pt-[3vh] lg:px-12 relative overflow-hidden"
     >
       <motion.div
-        className="w-full flex justify-between items-start"
+        className="w-full flex flex-col lg:flex-row justify-between items-start px-[3%] lg:px-0"
         initial={inView ? { y: -1000, x: 0 } : { y: 0, x: 0 }}
         animate={inView ? { y: 0, x: 0 } : { y: 1000, x: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <section className="w-1/2 flex flex-col gap-y-[18vh] relative">
+        <section className="w-full lg:w-1/2 flex flex-col gap-y-[6vh] lg:gap-y-[18vh] relative order-2 lg:order-1  mt-10 lg:mt-0">
           <img
             src={cultureImg2}
             alt=""
@@ -86,11 +86,11 @@ const Culture = () => {
             onMouseLeave={handleMouseLeave}
           />
         </section>
-        <section className="w-1/2 px-[8%]">
-          <img src={cultureTrace} alt="" className=" max-w-[500px]" />
+        <section className="w-full lg:w-1/2 lg:px-[8%] order-1 lg:order-2">
+          <img src={cultureTrace} alt="" className="w-full max-w-[500px]" />
 
           <div className="pl-3 w-full">
-            <h4 className="font-extrabold mt-4 text-2xl">
+            <h4 className="font-extrabold mt-8 md:mt-4 text-2xl">
               Good Times for All.
             </h4>
 
@@ -128,7 +128,7 @@ const Culture = () => {
               : cultureImg2
           }
           alt=""
-          className="absolute w-40 h-40 z-20"
+          className="absolute w-20 h-20 lg:w-40 lg:h-40 z-20"
           style={{
             top: smallImagePosition.y + 10,
             left: smallImagePosition.x + 10,

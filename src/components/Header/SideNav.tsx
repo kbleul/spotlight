@@ -23,7 +23,7 @@ const SideNav = ({
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.2 * index, delay: 0.1 }}
             key={index + "--" + route.link}
-            className="flex items-center gap-1"
+            className="flex items-center gap-1 border-b border-gray-400"
           >
             <section
               key={index + "--" + route.link}

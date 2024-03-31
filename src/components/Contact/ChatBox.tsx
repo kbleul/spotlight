@@ -23,10 +23,10 @@ const ChatBox = () => {
   }, [answers]);
 
   return (
-    <article className="w-1/2 h-[90vh] px-10  flex flex-col justify-end py-16 overflow-hidden">
+    <article className="z-10 w-full lg:w-1/2 h-[80vh] lgh-[90vh]  md:px-4 lg:px-10  flex flex-col justify-end py-8 lg:py-16 overflow-hidden">
       <section
         ref={messagesContainerRef}
-        className="chatscroll w-full pr-8 hover:pr-4 overflow-hidden hover:overflow-y-scroll"
+        className="chatscroll w-full pr-3 lg:pr-8 hover:pr-4 overflow-hidden hover:overflow-y-scroll"
       >
         {Array.from({ length: answers.length + 1 }).map((_, index) => (
           <div key={"message--" + index + "--chat"}>
@@ -40,8 +40,12 @@ const ChatBox = () => {
         ))}
       </section>
 
-      <section className="flex items-center justify-center gap-4 mt-8 z-10">
-        <img src={chatBotImg} alt="" className="w-12 h-12 rounded-full" />
+      <section className="w-full flex items-center justify-center gap-2 lg:gap-4 mt-8 z-10 ">
+        <img
+          src={chatBotImg}
+          alt=""
+          className="w-8 h-8 lg:w-12 lg:h-12 rounded-full"
+        />
         <input
           type="text"
           value={answer ? answer : ""}
@@ -56,7 +60,7 @@ const ChatBox = () => {
         />
         <button
           type="button"
-          className="text-white rounded-full w-16 h-12 border border-gray-500 flex justify-center items-center "
+          className="text-white rounded-full w-10 h-10 lg:w-16 lg:h-12 border border-gray-500 flex justify-center items-center "
           disabled={!answer || answers.length >= MESSAGES.length}
           onClick={() => {
             if (answer) {
@@ -65,7 +69,7 @@ const ChatBox = () => {
             }
           }}
         >
-          <VscSend size={20} />
+          <VscSend className="w-28" />
         </button>
       </section>
     </article>

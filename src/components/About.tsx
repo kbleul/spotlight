@@ -9,16 +9,21 @@ const About = () => {
   });
 
   return (
-    <article className="px-[10%] py-52 overflow-hidden text-white bg-black flex items-start justify-between ">
-      <section ref={ref} className="flex items-start justify-between">
+    <article className="px-[2%] md:px-[10%] pt-2 pb-32 lg:pt-16 lg:py-52 overflow-hidden text-white bg-black flex items-start justify-between ">
+      <section
+        ref={ref}
+        className="flex flex-col md:flex-row items-start justify-between"
+      >
         <motion.div
-          className="w-[45%] "
+          className="w-full lg:w-[45%] px-[5%] lg:px-0"
           initial={inView ? { x: -600 } : { x: 0 }}
           animate={inView ? { x: 0 } : { x: -600 }}
           transition={{ duration: 1 }}
         >
-          <h2 className="text-[#4F4F4F] text-[115px] font-extrabold">About</h2>
-          <h5 className="font-semibold text-xl">
+          <h2 className="text-[#4F4F4F] text-[90px] text-center lg:text-left md:text-[115px] font-extrabold">
+            About
+          </h2>
+          <h5 className="font-semibold text-lg md:text-xl mt-8 mb-3 md:mb-0">
             Where Creativity Meets Strategy
           </h5>
           <p className="mt-2">
@@ -41,7 +46,7 @@ const About = () => {
         </motion.div>
 
         <motion.div
-          className="w-[45%] flex justify-center items-start  pt-4"
+          className="w-full lg:w-[45%] hidden lg:flex justify-center items-start  pt-4"
           initial={inView ? { x: 1000 } : { x: 0 }}
           animate={inView ? { x: 0 } : { x: 1000 }}
           transition={{ duration: 1 }}

@@ -261,3 +261,17 @@ html {
     background-color: red;
   }
 }
+
+.bgCircles {
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  z-index: 0;
+}
+
+@media (max-width: 1000px) {
+  .bgCircles {
+    top: 40px;
+    left: -20px;
+  }
+}

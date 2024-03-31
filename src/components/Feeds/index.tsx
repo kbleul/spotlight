@@ -84,14 +84,18 @@ const Feeds: React.FC = () => {
       onMouseMove={positionElement}
       onMouseLeave={hidePositionElement}
     >
-      <div id="cursorItem" className="hidden customCursor" />
+      <div id="cursorItem" className="hidden lg:customCursor" />
 
       <section className="flex items-start justify-between px-[5%]">
         <div className="w-full mb-8">
           <div className="flex justify-between items-center">
-            <img src={feedsTrace} alt="" className="w-1/2 max-w-[500px]" />
+            <img
+              src={feedsTrace}
+              alt=""
+              className="w-full lgw-1/2 max-w-[500px]"
+            />
 
-            <div className="expandButtonContainerSecondary mt-12">
+            <div className="expandButtonContainerSecondary mt-12 hidden lg:block">
               <button
                 type="button"
                 className="expandButton bg-black px-4 text-white py-2 text-sm font-normal flex gap-4 items-center"
@@ -116,24 +120,45 @@ const Feeds: React.FC = () => {
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
         onTouchMove={handleTouchMove}
-        className="scroll-tab-container flex gap-6 w-full pb-6 ml-[5%]"
+        className="scroll-tab-container hidden  lg:flex flex-col lg:flex-row gap-6 w-full pb-6 ml-[5%]"
       >
-        <div className="w-[45%] feed max-w-[450px] flex-shrink-0">
+        <div className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0">
           <FeedCard />
         </div>
-        <div className="w-[45%] feed max-w-[450px] flex-shrink-0">
+        <div className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0">
           <FeedCard />
         </div>
-        <div className="w-[45%] feed max-w-[450px] flex-shrink-0">
+        <div className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0">
           <FeedCard />
         </div>
-        <div className="w-[45%] feed max-w-[450px] flex-shrink-0">
+        <div className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0">
           <FeedCard />
         </div>
-        <div className="w-[45%] feed max-w-[450px] flex-shrink-0">
+        <div className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0">
           <FeedCard />
         </div>
-        <div className="w-[45%] feed max-w-[450px] flex-shrink-0 mr-32">
+        <div className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0 mr-32">
+          <FeedCard />
+        </div>
+      </section>
+
+      <section className=" flex lg:hidden flex-col lg:flex-row gap-6 w-full pb-6 px-[3%] lg:ml-[5%] lg:px-0 items-center">
+        <div className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0">
+          <FeedCard />
+        </div>
+        <div className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0">
+          <FeedCard />
+        </div>
+        <div className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0">
+          <FeedCard />
+        </div>
+        <div className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0">
+          <FeedCard />
+        </div>
+        <div className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0">
+          <FeedCard />
+        </div>
+        <div className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0 lg:mr-32">
           <FeedCard />
         </div>
       </section>
