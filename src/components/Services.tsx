@@ -144,117 +144,194 @@ const Services = () => {
   }, [inView]);
 
   return (
-    <article
-      id="container-article"
-      ref={ref}
-      className="h-[105vh] w-full bg-transparent flex overflow-hidden"
-      onWheel={handleWheel}
-      onMouseLeave={handleMouseLeave}
-    >
-      <div
-        id="container"
-        className="w-full flex-shrink-0 h-[105vh] flex justify-evenly items-center bg-black"
+    <>
+      <article
+        id="container-article"
+        ref={ref}
+        className="h-[105vh] w-full bg-transparent hidden lg:flex overflow-hidden"
+        onWheel={handleWheel}
+        onMouseLeave={handleMouseLeave}
       >
-        <section className="w-[45%] max-w-[600px] text-white">
-          <h2 className="text-[115px] font-extrabold text-[#4F4F4F] mb-6">
-            Services
-          </h2>
+        <div
+          id="container"
+          className="w-full flex-shrink-0 h-[105vh] flex justify-evenly items-center bg-black"
+        >
+          <section className="w-[45%] max-w-[600px] text-white">
+            <h2 className="text-[115px] font-extrabold text-[#4F4F4F] mb-6">
+              Services
+            </h2>
 
-          <div className="font-bold text-2xl">
-            <h4>{CONTENT[0].title}</h4>
-          </div>
+            <div className="font-bold text-2xl">
+              <h4>{CONTENT[0].title}</h4>
+            </div>
 
-          <div className="max-w-[600px] mt-4">{CONTENT[0].body}</div>
-        </section>
-        <section className="w-[45%] flex justify-center items-start  pt-4 ">
-          <img
-            src={CONTENT[0].img}
-            alt="logo"
-            className="max-w-[25rem] max-h-[25rem]"
-          />
-        </section>
-      </div>
-      <div
-        id="container2"
-        className="w-full flex-shrink-0 h-[105vh] flex justify-evenly items-center bg-[#fce8bb]"
-      >
-        <section className="w-[45%] max-w-[600px]">
-          <h2 className="text-[115px] font-extrabold text-[#4F4F4F] mb-6">
-            Services
-          </h2>
+            <div className="max-w-[600px] mt-4">{CONTENT[0].body}</div>
+          </section>
+          <section className="w-[45%] flex justify-center items-start  pt-4 ">
+            <img
+              src={CONTENT[0].img}
+              alt="logo"
+              className="max-w-[25rem] max-h-[25rem]"
+            />
+          </section>
+        </div>
+        <div
+          id="container2"
+          className="w-full flex-shrink-0 h-[105vh] flex justify-evenly items-center bg-[#fce8bb]"
+        >
+          <section className="w-[45%] max-w-[600px]">
+            <h2 className="text-[115px] font-extrabold text-[#4F4F4F] mb-6">
+              Services
+            </h2>
 
-          <motion.div
-            className="font-bold text-2xl"
-            initial={{ y: -15 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h4>{CONTENT[1].title}</h4>
-          </motion.div>
-
-          <motion.div
-            className="max-w-[600px] mt-4"
-            initial={{ y: 50 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            {CONTENT[1].body}
-          </motion.div>
-        </section>
-        <section className="w-[45%] flex justify-center items-start  pt-4 ">
-          <img
-            src={CONTENT[1].img}
-            alt="logo"
-            className="max-w-[25rem] max-h-[25rem]"
-          />
-        </section>
-      </div>
-      <div
-        id="container3"
-        className="w-full flex-shrink-0 h-[105vh] flex justify-evenly items-center bg-black"
-      >
-        <section className="w-[45%] max-w-[600px] text-white">
-          <h2 className="text-[115px] font-extrabold text-[#4F4F4F] mb-6">
-            Services
-          </h2>
-
-          <div className="font-bold text-2xl">
-            <h4>{CONTENT[2].title}</h4>
-          </div>
-
-          <div className="max-w-[600px] mt-4">{CONTENT[2].body}</div>
-        </section>
-        <section className="w-[45%] flex justify-center items-start  pt-4 ">
-          <img
-            src={CONTENT[2].img}
-            alt="logo"
-            className="max-w-[25rem] max-h-[25rem]"
-          />
-        </section>
-      </div>
-      <div
-        id="container4"
-        className="w-full flex-shrink-0 h-[105vh] flex flex-col justify-evenly items-start bg-white "
-      >
-        <section className="w-[40%] flex flex-col items-start pl-[5%]">
-          <img className="" src={CONTENT[3].img} alt="" />
-
-          <p className="py-16 text-[#777777] font-medium">
-            Lorem ipsum dolor sit amet consectetur. Ut et vestibulum lectus
-            nullam tellus aliquet pellentesque a dui. Nunc leo at sit fusce.
-          </p>
-          <div className="expandButtonContainerThird w-full flex justify-center">
-            <button
-              type="button"
-              className="expandButton bg-white px-4 text-black py-2 border border-black font-normal flex gap-4 items-center"
+            <motion.div
+              className="font-bold text-2xl"
+              initial={{ y: -15 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.8 }}
             >
-              <p className="text-base text-nowrap">{CONTENT[3].body}</p>
-              <IoIosArrowRoundForward className="expandButtonIcon" size={33} />
-            </button>
-          </div>
-        </section>
-      </div>
-    </article>
+              <h4>{CONTENT[1].title}</h4>
+            </motion.div>
+
+            <motion.div
+              className="max-w-[600px] mt-4"
+              initial={{ y: 50 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              {CONTENT[1].body}
+            </motion.div>
+          </section>
+          <section className="w-[45%] flex justify-center items-start  pt-4 ">
+            <img
+              src={CONTENT[1].img}
+              alt="logo"
+              className="max-w-[25rem] max-h-[25rem]"
+            />
+          </section>
+        </div>
+        <div
+          id="container3"
+          className="w-full flex-shrink-0 h-[105vh] flex justify-evenly items-center bg-black"
+        >
+          <section className="w-[45%] max-w-[600px] text-white">
+            <h2 className="text-[115px] font-extrabold text-[#4F4F4F] mb-6">
+              Services
+            </h2>
+
+            <div className="font-bold text-2xl">
+              <h4>{CONTENT[2].title}</h4>
+            </div>
+
+            <div className="max-w-[600px] mt-4">{CONTENT[2].body}</div>
+          </section>
+          <section className="w-[45%] flex justify-center items-start  pt-4 ">
+            <img
+              src={CONTENT[2].img}
+              alt="logo"
+              className="max-w-[25rem] max-h-[25rem]"
+            />
+          </section>
+        </div>
+        <div
+          id="container4"
+          className="w-full flex-shrink-0 h-[105vh] flex flex-col justify-evenly items-start bg-white "
+        >
+          <section className="w-[40%] flex flex-col items-start pl-[5%]">
+            <img className="" src={CONTENT[3].img} alt="" />
+
+            <p className="py-16 text-[#777777] font-medium">
+              Lorem ipsum dolor sit amet consectetur. Ut et vestibulum lectus
+              nullam tellus aliquet pellentesque a dui. Nunc leo at sit fusce.
+            </p>
+            <div className="expandButtonContainerThird w-full flex justify-center">
+              <button
+                type="button"
+                className="expandButton bg-white px-4 text-black py-2 border border-black font-normal flex gap-4 items-center"
+              >
+                <p className="text-base text-nowrap">{CONTENT[3].body}</p>
+                <IoIosArrowRoundForward
+                  className="expandButtonIcon"
+                  size={33}
+                />
+              </button>
+            </div>
+          </section>
+        </div>
+      </article>
+
+      <article className="lg:hidden w-full bg-black flex flex-col overflow-hidden">
+        <h2 className="w-full text-center text-[80px] font-extrabold text-[#4F4F4F] mb-6">
+          Services
+        </h2>
+        <div className="w-full flex-shrink-0  flex flex-col justify-evenly items-center bg-black  px-[5%]">
+          <section className="w-full text-white">
+            <div className="font-bold text-2xl">
+              <h4>{CONTENT[0].title}</h4>
+            </div>
+
+            <div className="max-w-[600px] mt-4">{CONTENT[0].body}</div>
+          </section>
+          <section className="w-[45%] flex justify-center items-start  pt-4 ">
+            <img
+              src={CONTENT[0].img}
+              alt="logo"
+              className="max-w-[15rem] max-h-[15rem] mt-12 mb-20"
+            />
+          </section>
+        </div>
+        <div className="w-full flex-shrink-0  flex flex-col justify-evenly items-center bg-black  px-[5%]">
+          <section className="w-full text-white">
+            <div className="font-bold text-2xl">
+              <h4>{CONTENT[1].title}</h4>
+            </div>
+
+            <div className="max-w-[600px] mt-4">{CONTENT[1].body}</div>
+          </section>
+          <section className="w-[45%] flex justify-center items-start  pt-4 ">
+            <img
+              src={CONTENT[1].img}
+              alt="logo"
+              className="max-w-[15rem] max-h-[15rem] mt-12 mb-20"
+            />
+          </section>
+        </div>
+        <div className="w-full flex-shrink-0 flex flex-col justify-evenly items-center bg-black px-[5%]">
+          <section className="w-full text-white">
+            <div className="font-bold text-2xl">
+              <h4>{CONTENT[2].title}</h4>
+            </div>
+
+            <div className="max-w-[600px] mt-4">{CONTENT[2].body}</div>
+          </section>
+          <section className="w-[45%] flex justify-center items-start  pt-4 ">
+            <img
+              src={CONTENT[2].img}
+              alt="logo"
+              className="max-w-[15rem] max-h-[15rem] mt-12 mb-20"
+            />
+          </section>
+        </div>
+        <div className="w-full flex-shrink-0 min-h-[80vh] flex flex-col justify-evenly items-start bg-white  px-[5%]">
+          <section className="w-full flex flex-col items-start px-[5%] gap-[5vh] ">
+            <h2 className="text-5xl font-extrabold text-[#4F4F4F] mb-6 text-nowrap">
+              Want More?
+            </h2>
+
+            <div className="w-full flex justify-center">
+              <button
+                type="button"
+                className=" bg-white px-10 text-black py-3 border-2 border-black font-normal flex gap-4 items-center"
+              >
+                <p className="text-base text-nowrap text-center w-full">
+                  {CONTENT[3].body}
+                </p>
+              </button>
+            </div>
+          </section>
+        </div>
+      </article>
+    </>
   );
 };
 
