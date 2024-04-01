@@ -55,7 +55,13 @@ const Featured = () => {
   const [, setScrolledAmountCounter] = useState(0);
 
   useEffect(() => {
-    if (inView) {
+    const scrollContainer = document.getElementById("scrollContainer");
+
+    if (
+      inView &&
+      scrollContainer &&
+      scrollContainer.style.display === "block"
+    ) {
       const rootElement = document.getElementById("root-body");
       if (rootElement) {
         rootElement.style.overflowY = "hidden";
@@ -104,7 +110,11 @@ const Featured = () => {
       }
     };
 
-    window.addEventListener("wheel", handleScroll);
+    const scrollContainer = document.getElementById("scrollContainer");
+
+    if (scrollContainer && scrollContainer.style.display === "block") {
+      window.addEventListener("wheel", handleScroll);
+    }
 
     return () => {
       window.removeEventListener("wheel", handleScroll);
@@ -200,33 +210,71 @@ const Featured = () => {
   };
 
   return (
-    <article className="">
-      <article
-        className={
-          "h-[105vh] px-[5%] pb-[5rem] overflow-hidden text-white bg-black"
-        }
-      >
-        <h2 className="py-4 text-[#4F4F4F] text-[100px] font-extrabold">
-          Featured
-        </h2>
+    <>
+      <article id="scrollContainer" className="hidden lg:block">
+        <article
+          className={
+            "h-[105vh] px-[5%] pb-[5rem] overflow-hidden text-white bg-black"
+          }
+        >
+          <h2 className="py-4 text-[#4F4F4F] text-[70px] lg:text-[100px] text-center lg:text-left font-extrabold">
+            Featured
+          </h2>
 
-        <section ref={ref} className="w-full flex items-center mt-2 h-4/5 ">
-          <div className="w-1/2 pl-[10%] pt-4 text-[#777777] text-4xl  font-extrabold ">
-            {CONTENT.map((content, index: number) => (
-              <p
-                key={content.id}
-                className={
-                  currentContent === index ? "text-white mb-10" : "mb-10 "
-                }
-              >
-                {content.title}
-              </p>
-            ))}
-          </div>
-          {contentDispatch()}
-        </section>
+          <section ref={ref} className="w-full flex items-center mt-2 h-4/5 ">
+            <div className="w-1/2 pl-[10%] pt-4 text-[#777777] text-4xl  font-extrabold ">
+              {CONTENT.map((content, index: number) => (
+                <p
+                  key={content.id}
+                  className={
+                    currentContent === index ? "text-white mb-10" : "mb-10 "
+                  }
+                >
+                  {content.title}
+                </p>
+              ))}
+            </div>
+            {contentDispatch()}
+          </section>
+        </article>
       </article>
-    </article>
+
+      <article className="lg:hidden">
+        <article
+          className={"px-[5%] pb-[5rem] overflow-hidden text-white bg-black"}
+        >
+          <h2 className="py-4 text-[#4F4F4F] text-[70px] lg:text-[100px] text-center lg:text-left font-extrabold">
+            Featured
+          </h2>
+
+          <motion.img
+            src={CONTENT[currentContent].img}
+            className="w-1/2 mx-[10%] mb-8"
+            alt=""
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4 }}
+          />
+
+          <section ref={ref} className="w-full flex items-center ">
+            <div className="w-full px-[10%] text-[#777777] text-4xl  font-extrabold flex flex-col items-start ">
+              {CONTENT.map((content, index: number) => (
+                <button
+                  type="button"
+                  onClick={() => setCurrentContent(index)}
+                  key={content.id}
+                  className={
+                    currentContent === index ? "text-white mb-10" : "mb-10 "
+                  }
+                >
+                  {content.title}
+                </button>
+              ))}
+            </div>
+          </section>
+        </article>
+      </article>
+    </>
   );
 };
 

@@ -275,3 +275,47 @@ html {
     left: -20px;
   }
 }
+
+.customBorder {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("./assets/images//border.svg");
+}
+
+@media (max-width: 768px) {
+  .customBorder {
+    background-image: url("./assets/images//border2.svg");
+  }
+}
+.customImg1 {
+  position: absolute;
+  left: 200px;
+  top: -100px;
+}
+
+.customImg2 {
+  position: absolute;
+  left: -50px;
+  bottom: -20px;
+}
+
+.customImg3 {
+  position: absolute;
+  left: -50px;
+  top: 350px;
+}
+
+@media (max-width: 768px) {
+  .customImg1 {
+    left: 150px;
+    top: -50px;
+  }
+  .customImg2 {
+    left: -10px;
+    bottom: -20px;
+  }
+  .customImg3 {
+    left: -100px;
+    top: 300px;
+  }
+}

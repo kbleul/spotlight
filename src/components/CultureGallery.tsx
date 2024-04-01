@@ -25,10 +25,22 @@ const CultureGallery = () => {
     img10,
     img11,
     img12,
+    img1,
+    img2,
+    img3,
+    img4,
+    img5,
+    img6,
+    img7,
+    img8,
+    img9,
+    img10,
+    img11,
+    img12,
   ];
   return (
-    <article className="h-[112vh]  bg-black flex items-start justify-evenly">
-      <section className="w-[22%] feeds_scroll flex flex-col h-[107vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
+    <article className="-[112vh]  bg-black flex items-start justify-evenly">
+      <section className="w-[22%] feeds_scroll flex flex-col h-[80vh] lg:h-[107vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
         {ImagesArr.map((image, index) => (
           <img
             className="w-full"
@@ -38,8 +50,8 @@ const CultureGallery = () => {
           />
         ))}
       </section>
-      <section className="w-[22%] feeds_scroll flex flex-col h-[107vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
-        {ImagesArr.slice(6, 11).map((image, index) => (
+      <section className="w-[22%] feeds_scroll flex flex-col h-[80vh] lg:h-[107vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
+        {ImagesArr.map((image, index) => (
           <img
             className="w-full"
             key={index + "gallery-two"}
@@ -48,19 +60,18 @@ const CultureGallery = () => {
           />
         ))}
       </section>
-      <section className="w-[22%] feeds_scroll flex flex-col h-[107vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
+      <section className="w-[22%] feeds_scroll flex flex-col h-[80vh] lg:h-[107vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
         {ImagesArr.reverse()
-          .slice(0, 6)
-          .map((image, index) => (
-            <img
-              className="w-full"
-              key={index + "gallery-three"}
-              src={image}
-              alt=""
-            />
-          ))}
+        .map((image, index) => (
+          <img
+            className="w-full"
+            key={index + "gallery-three"}
+            src={image}
+            alt=""
+          />
+        ))}
       </section>
-      <section className="w-[22%] feeds_scroll flex flex-col h-[107vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
+      <section className="w-[22%] feeds_scroll flex flex-col h-[80vh] lg:h-[107vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
         {ImagesArr.reverse().map((image, index) => (
           <img
             className="w-full"

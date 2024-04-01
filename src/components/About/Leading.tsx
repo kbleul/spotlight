@@ -15,10 +15,13 @@ const Leading = ({
   const [ref, inView] = useInView({ threshold: 0.5 }); // Adjust threshold as needed
 
   return (
-    <article className="px-[10%]  overflow-hidden text-white bg-black flex items-start justify-between ">
-      <section ref={ref} className="flex items-start justify-between">
+    <article className="px-[3%] lg:px-[10%] overflow-hidden text-white bg-black flex items-start justify-between ">
+      <section
+        ref={ref}
+        className="flex flex-col lg:flex-row items-start justify-between"
+      >
         <motion.div
-          className="w-[45%] flex justify-center items-start  pt-4"
+          className="w-full lg:w-[45%] flex justify-center items-start  pt-4"
           initial={inView ? { x: -1600 } : { x: 0 }}
           animate={inView ? { x: 0 } : { x: -1600 }}
           transition={{ duration: 0.7 }}
@@ -27,18 +30,20 @@ const Leading = ({
         </motion.div>
 
         <motion.div
-          className="w-[45%] "
+          className="w-full lg:w-[45%] mt-16 lg:mt-0"
           initial={inView ? { x: 1000 } : { x: 0 }}
           animate={inView ? { x: 0 } : { x: 1000 }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-[#fff] text-6xl font-extrabold">{title}</h2>
+          <h2 className="text-[#fff] text-5xl lg:text-6xl font-extrabold">
+            {title}
+          </h2>
           {secondaryTitle && (
-            <h2 className="text-[#fff] text-6xl font-extrabold">
+            <h2 className="text-[#fff] text-5xl lg:text-6xl font-extrabold">
               {secondaryTitle}
             </h2>
           )}
-          <p className="mt-10 text-[#777777]">{textBody}</p>
+          <p className="mt-10 text-white lg:text-[#777777]">{textBody}</p>
         </motion.div>
       </section>
     </article>

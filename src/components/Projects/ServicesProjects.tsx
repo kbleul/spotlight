@@ -4,8 +4,8 @@ import FeedCard from "../Feeds/FeedCard";
 
 const ServicesProjects = () => {
   return (
-    <article className="bg-white flex items-start px-[5%] py-16">
-      <section className="w-1/2 pt-12 flex flex-col justify-center items-center gap-8">
+    <article className="bg-white flex flex-col lg:flex-row items-start px-[5%] pt-0 lg:py-16">
+      <section className="w-full lg:w-1/2 pt-12 flex flex-col justify-center items-center gap-8 order-2 lg:order-1">
         {Array.from({ length: 3 }).map((_, i) => (
           <div key={"ServicesProjects-" + i} className="max-w-[800px]">
             <FeedCard />
@@ -22,7 +22,7 @@ const ServicesProjects = () => {
           </button>
         </div>
       </section>
-      <section className="w-1/2 flex flex-col justify-center items-start gap-8">
+      <section className="w-full lg:w-1/2 flex flex-col justify-center items-start gap-8 order-1 lg:order-2">
         <img src={projectTraceImage} alt="Projects" />
         {Array.from({ length: 3 }).map((_, i) => (
           <div key={"ServicesProjects-secondary" + i} className="max-w-[800px]">

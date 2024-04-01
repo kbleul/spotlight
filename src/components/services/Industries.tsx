@@ -33,19 +33,19 @@ const Industries = () => {
   return (
     <article
       ref={ref}
-      className="bg-white flex items-start pl-[5%] h-[100vh] overflow-hidden relative"
+      className="bg-white flex flex-col lg:flex-row items-start lg:px-0 lg:pl-[5%] lg:h-[100vh] overflow-hidden relative"
     >
       <motion.section
-        className="w-[55%] h-full pt-10 pb-[5%] border-r border-black flex flex-col justify-between"
+        className="w-full lg:w-[55%] lg:h-full px-[3%] pt-10 pb-[5%] lg:border-r border-black flex flex-col justify-between"
         initial={inView ? { x: -600 } : { x: 0 }}
         animate={inView ? { x: 0 } : { x: -600 }}
         transition={{ duration: 1 }}
       >
-        <h2 className="text-[#4F4F4F] text-[110px] font-extrabold">
+        <h2 className="text-[#E0E0E0] lg:text-[#4F4F4F] text-[70px] md:text-[110px] text-center lg:text-left font-extrabold">
           Industries
         </h2>
 
-        <p className="px-10 font-bold text-[#4F4F4F]">
+        <p className="px-4 lg:px-10 mt-4 lg:mt-0 lg:font-bold text-[#4F4F4F] max-w-[600px] self-center">
           Lorem ipsum dolor sit amet consectetur. Pretium mattis sit aliquet
           hendrerit imperdiet tortor lectus auctor. Malesuada vitae nunc orci
           faucibus. Faucibus nisl nec eu accumsan. Neque in nisl sit nisl semper
@@ -53,7 +53,7 @@ const Industries = () => {
         </p>
       </motion.section>
 
-      <section className="w-[45%] h-full   flex flex-col justify-center text-[2.5rem] text-[#4f4f4f] capitalize font-extrabold">
+      <section className="w-full lg:w-[45%] h-full flex flex-col justify-center text-[2.5rem] text-[#4f4f4f] capitalize font-extrabold pb-20">
         {INDUSTRY_ITEMS.map((item, index) => (
           <ItemCard
             key={"industry-item-" + index}
@@ -80,7 +80,7 @@ const ItemCard = ({
 
   return (
     <motion.div
-      className={`h-[14%] pb-2 px-6 ${
+      className={`h-[14%] pt-6 lg:pt-0 lg:pb-2 px-6 border-b lg:border-b-0 ${
         index !== 5 && " border-b "
       }  border-black relative flex items-end`}
       initial={inView ? { y: 2000 } : { y: 0 }}
@@ -101,17 +101,17 @@ const ItemCard = ({
           <img
             src={ItemImgs[index]}
             alt={item}
-            className="w-12 h-12 rounded-full object-cover"
+            className="w-8 h-8 md:w-12 md:h-12 rounded-full object-cover"
           />
           <img
             src={ItemImgs[index + 1]}
             alt={item}
-            className="w-12 h-12 rounded-full object-cover"
+            className="w-8 h-8 md:w-12 md:h-12 rounded-full object-cover"
           />
           <img
             src={ItemImgs[index + 2]}
             alt={item}
-            className="w-12 h-12 rounded-full object-cover"
+            className="w-8 h-8 md:w-12 md:h-12 rounded-full object-cover"
           />
         </motion.div>
       )}

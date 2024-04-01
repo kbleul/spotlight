@@ -2,11 +2,11 @@ import FeedCard from "./Feeds/FeedCard";
 
 const NewsSection = () => {
   return (
-    <article className="flex gap-10 pt-14 px-[2%] ">
-      <section className="w-1/4">
+    <article className="flex flex-col lg:flex-row gap-10 pt-14 px-[2%] ">
+      <section className="w-full lg:w-1/4">
         <FIlter />
       </section>
-      <section className="w-1/2 flex flex-col gap-10 h-[80vh] overflow-y-scroll feeds_scroll items-center">
+      <section className="w-full lg:w-1/2 flex flex-col gap-10 lg:h-[80vh] px-4 lg:px-0 overflow-y-scroll feeds_scroll items-center">
         <FeedCard />
         <FeedCard />
         <FeedCard />

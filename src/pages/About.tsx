@@ -15,14 +15,14 @@ const About = () => {
   return (
     <article>
       <motion.div
-        className="h-[90vh]"
+        className="lg:h-[90vh]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
         <AboutHero />
       </motion.div>
-      <div className="py-48 bg-black  h-[90vh]">
+      <div className="py-16 lg:py-48 bg-black  lg:h-[90vh]">
         <Leading
           img={aboutImg}
           title="Leading the"
@@ -69,11 +69,17 @@ aliquam quisque dui lacus eget egestas.`}
         />
       </div>
 
-      <GuideUs />
+      <div className="pb-20 lg:pb-0">
+        <GuideUs />
+      </div>
 
-      <img src={strongerImg} alt="" className="mt-32 py-20 px-[2%]" />
+      <img
+        src={strongerImg}
+        alt=""
+        className="mt-32 py-20 px-[2%] hidden lg:block"
+      />
 
-      <div className="mb-[5vh]">
+      <div className="mb-[5vh] hidden lg:block">
         <Employees />
       </div>
     </article>

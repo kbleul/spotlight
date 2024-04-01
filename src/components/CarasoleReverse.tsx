@@ -13,61 +13,61 @@ const CarasoleReverse = ({ title }: { title?: string }) => {
       )}
       <section className="carouselReverse">
         <div className="carousel-track gap-x-6 md:gap-x-40">
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
+          <img src={img1} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img2} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img3} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img4} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img1} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img2} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img3} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img4} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img1} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img2} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img3} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img4} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
 
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
+          <img src={img1} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img2} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img3} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img4} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
 
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
+          <img src={img1} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img2} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img3} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img4} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
 
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
+          <img src={img1} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img2} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img3} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img4} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
 
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
+          <img src={img1} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img2} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img3} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img4} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img1} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img2} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img3} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img4} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img1} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img2} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img3} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img4} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
 
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
+          <img src={img1} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img2} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img3} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img4} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
 
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
+          <img src={img1} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img2} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img3} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img4} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
 
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
+          <img src={img1} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img2} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img3} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
+          <img src={img4} alt="" className="w-[15%] h-16 md:h-20 md:w-1/4" />
         </div>
       </section>
     </article>

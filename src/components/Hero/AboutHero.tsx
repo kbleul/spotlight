@@ -20,25 +20,25 @@ const AboutHero = () => {
   };
   return (
     <>
-      <article className="h-full bg-black text-white pt-[10vh]">
+      <article className="lg:h-full px-[3%] lg:px-0 bg-black text-white pt-[5vh] lg:pt-[10vh]">
         <motion.article
           ref={ref}
           variants={heroVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="   "
+          className=""
         >
-          <div className="ml-[25%]">
-            <h2 className=" text-8xl font-extrabold  tracking-wider">
+          <div className="lg:ml-[25%] flex flex-col items-center lg:block">
+            <h2 className=" text-6xl md:text-8xl text-center lg:text-left font-extrabold  tracking-wider">
               Under the
             </h2>
-            <h2 className="text-8xl font-extrabold capitalize tracking-wider">
+            <h2 className="text-6xl md:text-8xl lg:text-8xl text-center lg:text-left font-extrabold capitalize tracking-wider">
               Spotlight
             </h2>
           </div>
 
-          <div className="w-4/5 ml-[5%] mt-20 flex justify-end text-[#777777]">
-            <p className="w-1/2">
+          <div className="w-full lg:w-4/5 lg:ml-[5%] mt-8 lg:mt-20 flex justify-center lg:justify-end text-[#777777]">
+            <p className="px-3 lg:px-0 max-w-[600px] lg:max-w-none lg:w-1/2 text-white lg:text-[#777777]">
               Lorem ipsum dolor sit amet consectetur. Donec ac tincidunt integer
               sed euismod pellentesque. Eget fermentum leo diam tortor vitae
               tellus lacus pellentesque sed. Fringilla ut blandit faucibus a.
