@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ROUTES } from "../../utils/data";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { scrollToContactSection } from "../../utils/func";
 
 const SideNav = ({
   setIsSidenavOpen,
@@ -14,7 +15,12 @@ const SideNav = ({
   const currentRoute = location.pathname;
 
   return (
-    <article className="bg-black h-screen w-full absolute top-20 left-0 z-50">
+    <article
+      className="bg-black h-screen w-full absolute top-20 left-0 "
+      style={{
+        zIndex: 100,
+      }}
+    >
       <article className="mt-[5vh] gap-7 font-medium text-lg flex flex-col text-white ">
         {ROUTES.map((route, index) => (
           <motion.circle
@@ -57,6 +63,7 @@ const SideNav = ({
         >
           <button
             className={`expandButton mt-8 bg-white text-black  py-2 font-normal flex gap-1 items-center px-4`}
+            onClick={() => scrollToContactSection(setIsSidenavOpen)}
           >
             <p>Contact</p>
 

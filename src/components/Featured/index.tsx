@@ -51,17 +51,15 @@ const Featured = () => {
     threshold: 1,
   });
 
+  const [isZero, setIsZero] = useState(0);
+
   const [currentContent, setCurrentContent] = useState(0);
   const [, setScrolledAmountCounter] = useState(0);
 
   useEffect(() => {
     const scrollContainer = document.getElementById("scrollContainer");
 
-    if (
-      inView &&
-      scrollContainer &&
-      scrollContainer.style.display === "block"
-    ) {
+    if (inView && scrollContainer) {
       const rootElement = document.getElementById("root-body");
       if (rootElement) {
         rootElement.style.overflowY = "hidden";
@@ -85,10 +83,15 @@ const Featured = () => {
 
         setScrolledAmountCounter((prev) => {
           if (prev >= 13) {
-            if (delta < 0 && currentContent > 0) {
-              setCurrentContent((prevContent) => {
-                return prevContent > 0 ? prevContent - 1 : 0;
-              });
+            if (delta < 0) {
+              if (currentContent > 0) {
+                setCurrentContent((prevContent) => {
+                  return prevContent > 0 ? prevContent - 1 : 0;
+                });
+                setIsZero(0);
+              } else {
+                setIsZero((prev) => prev + 1);
+              }
             } else if (delta > 0) {
               setCurrentContent((prevContent) => {
                 if (prevContent >= CONTENT.length - 1) {
@@ -112,7 +115,7 @@ const Featured = () => {
 
     const scrollContainer = document.getElementById("scrollContainer");
 
-    if (scrollContainer && scrollContainer.style.display === "block") {
+    if (scrollContainer) {
       window.addEventListener("wheel", handleScroll);
     }
 
@@ -209,6 +212,13 @@ const Featured = () => {
     );
   };
 
+  useEffect(() => {
+    if (isZero >= 2) {
+      const rootElement = document.getElementById("root-body");
+      rootElement.style.overflowY = "scroll";
+    }
+  }, [isZero]);
+
   return (
     <>
       <article id="scrollContainer" className="hidden lg:block">
@@ -248,7 +258,10 @@ const Featured = () => {
           </h2>
 
           <motion.img
-            src={CONTENT[currentContent].img}
+            src={
+              CONTENT[currentContent >= CONTENT.length - 1 ? 5 : currentContent]
+                .img
+            }
             className="w-1/2 mx-[10%] mb-8"
             alt=""
             initial={{ opacity: 0 }}
@@ -256,7 +269,7 @@ const Featured = () => {
             transition={{ duration: 0.4 }}
           />
 
-          <section ref={ref} className="w-full flex items-center ">
+          <section className="w-full flex items-center ">
             <div className="w-full px-[10%] text-[#777777] text-4xl  font-extrabold flex flex-col items-start ">
               {CONTENT.map((content, index: number) => (
                 <button

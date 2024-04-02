@@ -31,3 +31,14 @@ export const truncateText = (text: string, maxLength: number): string => {
 
   return amharicText;
 };
+
+export const scrollToContactSection = (
+  setIsSidenavOpen?: React.Dispatch<React.SetStateAction<boolean>>
+) => {
+  const element = document.getElementById("contact-us");
+
+  setIsSidenavOpen && setIsSidenavOpen(false);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};

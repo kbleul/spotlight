@@ -2,8 +2,10 @@ import bg_img from "../assets/images/about.svg";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 const About = () => {
+  const navigate = useNavigate();
   const { ref, inView } = useInView({
     threshold: 0.4,
   });
@@ -36,6 +38,10 @@ const About = () => {
 
           <div className="expandButtonContainerSecondary mt-6">
             <button
+              onClick={() => {
+                window.scrollTo(0, 0);
+                navigate("/about");
+              }}
               type="button"
               className="expandButton bg-white px-4 text-black py-2 text-sm font-normal flex gap-4 items-center"
             >

@@ -2,8 +2,11 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import FeedCard from "./FeedCard";
 import { useRef, useState } from "react";
 import feedsTrace from "../../assets/images/Feeds.svg";
+import { useNavigate } from "react-router-dom";
 
 const Feeds: React.FC = () => {
+  const navigate = useNavigate();
+
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -98,6 +101,10 @@ const Feeds: React.FC = () => {
             <div className="expandButtonContainerSecondary mt-12 hidden lg:block">
               <button
                 type="button"
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                  navigate("/feeds");
+                }}
                 className="expandButton bg-black px-4 text-white py-2 text-sm font-normal flex gap-4 items-center"
               >
                 <p className="text-nowrap pl-2">View All</p>
