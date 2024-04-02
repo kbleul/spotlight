@@ -11,3 +11,14 @@ export const disableScroll = () => {
 export const enableScroll = () => {
   window.onscroll = function () {};
 };
+
+export const scrollToContactSection = (
+  setIsSidenavOpen?: React.Dispatch<React.SetStateAction<boolean>>
+) => {
+  const element = document.getElementById("contact-us");
+
+  setIsSidenavOpen && setIsSidenavOpen(false);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};

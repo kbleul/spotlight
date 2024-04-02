@@ -1,6 +1,7 @@
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { useLocation, useNavigate } from "react-router-dom";
 import { BlackBgRoutes, ColorTheme, ROUTES } from "../../utils/data";
+import { scrollToContactSection } from "../../utils/func";
 
 const NavButtoms = () => {
   const navigate = useNavigate();
@@ -54,6 +55,7 @@ const NavButtoms = () => {
               ? " text-black bg-white "
               : " bg-black text-white "
           }  py-2 font-normal flex gap-1 items-center px-4`}
+          onClick={() => scrollToContactSection()}
         >
           <p>Contact</p>
 

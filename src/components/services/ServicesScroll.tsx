@@ -83,6 +83,9 @@ const CONTENT = [
 
 const ServicesScroll = () => {
   const [currentContent, setCurrentContent] = useState(0);
+
+  const [isZero, setIsZero] = useState(0);
+
   const [ref, inView] = useInView({ threshold: 0.9 });
 
   const [, setScrolledAmountCounter] = useState(0);
@@ -112,10 +115,15 @@ const ServicesScroll = () => {
 
         setScrolledAmountCounter((prev) => {
           if (prev >= 16) {
-            if (delta < 0 && currentContent > 0) {
-              setCurrentContent((prevContent) => {
-                return prevContent > 0 ? prevContent - 1 : 0;
-              });
+            if (delta < 0) {
+              if (currentContent > 0) {
+                setCurrentContent((prevContent) => {
+                  return prevContent > 0 ? prevContent - 1 : 0;
+                });
+                setIsZero(0);
+              } else {
+                setIsZero((prev) => prev + 1);
+              }
             } else if (delta > 0) {
               setCurrentContent((prevContent) => {
                 if (prevContent >= CONTENT.length - 1) {
@@ -128,9 +136,10 @@ const ServicesScroll = () => {
                 }
                 return prevContent + 1;
               });
+              setIsZero(0);
             }
 
-            setScrolledAmountCounter(0);
+            return 0;
           }
           return prev + 1;
         });
@@ -155,6 +164,13 @@ const ServicesScroll = () => {
     setCurrentContent((prev) => (prev > 0 ? --prev : prev));
   };
 
+  useEffect(() => {
+    if (isZero >= 2) {
+      const rootElement = document.getElementById("root-body");
+      rootElement.style.overflowY = "scroll";
+    }
+  }, [isZero]);
+
   return (
     <>
       <article
@@ -171,7 +187,7 @@ const ServicesScroll = () => {
       >
         {inView && (
           <motion.div
-            className="px-[10%] lg:h-[95%] text-white py-20 flex flex-col items-start border justify-center  lg:items-center"
+            className="px-[10%] lg:h-[95%] text-white py-20 flex flex-col items-start justify-center  lg:items-center"
             initial={{ y: -15 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.2 }}
@@ -350,7 +366,7 @@ const ServicesScroll = () => {
       </article>
 
       <article
-        className={`relative w-full block  mt-10 ${
+        className={`lg:hidden relative w-full block  mt-10 ${
           currentContent >= 5 && " bg-black "
         }`}
         style={{
@@ -375,7 +391,9 @@ const ServicesScroll = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6 }}
             >
-              <h4 className="">{CONTENT[currentContent].title}</h4>
+              <h4 className="">
+                {CONTENT[currentContent >= 5 ? 5 : currentContent].title}
+              </h4>
             </motion.div>
 
             <h2 className="text-xl text-center font-bold text-[#4F4F4F] mt-8 mb-4">
@@ -388,9 +406,11 @@ const ServicesScroll = () => {
               animate={{ y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              {CONTENT[currentContent].body.map((item, index) => (
-                <p key={index}>{item}</p>
-              ))}
+              {CONTENT[currentContent >= 5 ? 5 : currentContent].body.map(
+                (item, index) => (
+                  <p key={index}>{item}</p>
+                )
+              )}
             </motion.div>
           </>
         </motion.div>

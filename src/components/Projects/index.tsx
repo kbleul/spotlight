@@ -2,8 +2,12 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import ProjectCard from "./ProjectCard";
+import { useNavigate } from "react-router-dom";
+import { scrollToContactSection } from "../../utils/func";
 
 const Projects = () => {
+  const navigate = useNavigate();
+
   return (
     <article className=" px-[5%] pb-[5rem] overflow-hidden text-white bg-black">
       <section className="flex items-start justify-between">
@@ -14,6 +18,10 @@ const Projects = () => {
             </h2>
             <div className="hidden lg:block expandButtonContainerSecondary mt-12">
               <button
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                  navigate("/works");
+                }}
                 type="button"
                 className="expandButton bg-white px-4 text-black py-2 text-sm font-normal flex gap-4 items-center"
               >
@@ -71,6 +79,7 @@ const ProjectsGrid = () => {
             </p>
             <div className="expandButtonContainerSecondary mt-16  pl-3">
               <button
+                onClick={() => scrollToContactSection()}
                 type="button"
                 className="expandButton bg-black px-4 text-white py-2 border k font-normal flex gap-4 items-center"
               >

@@ -8,8 +8,11 @@ import cultureTrace from "../../assets/images/Culture.svg";
 
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Culture = () => {
+  const navigate = useNavigate();
+
   const { ref, inView } = useInView({
     threshold: 0.2,
   });
@@ -105,6 +108,10 @@ const Culture = () => {
             <div className="expandButtonContainerSecondary mt-6">
               <button
                 type="button"
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                  navigate("/culture");
+                }}
                 className="expandButton bg-black px-4 text-white py-2 text-sm font-normal flex gap-2 items-center"
               >
                 <p className="text-nowrap">Our Culture</p>

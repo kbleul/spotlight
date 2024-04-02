@@ -8,6 +8,7 @@ import service3_img from "../assets/images/services3.svg";
 import service4_img from "../assets/images/Want.svg";
 
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 const CONTENT = [
   {
@@ -37,6 +38,8 @@ const CONTENT = [
 ];
 
 const Services = () => {
+  const navigate = useNavigate();
+
   const { ref, inView } = useInView({
     threshold: 0.9,
   });
@@ -47,7 +50,7 @@ const Services = () => {
   function handleWheel(event: WheelEvent) {
     if (inView) {
       const rootElement = document.getElementById("root-body");
-      if (rootElement && scrollPrecentage > 20) {
+      if (rootElement) {
         rootElement.style.overflowY = "hidden";
       }
       const container: HTMLElement | null =
@@ -58,9 +61,16 @@ const Services = () => {
         document.querySelector("#container3");
       const container4: HTMLElement | null =
         document.querySelector("#container4");
-
       if (event.deltaY < 0) {
-        setScrollPercentage(0);
+        setScrollPercentage((prev) => {
+          if (prev === 0 && scrollPrecentageUp === 0) {
+            rootElement.style.overflowY = "scroll";
+          } else {
+            rootElement.style.overflowY = "hidden";
+          }
+
+          return 0;
+        });
         if (container && container2 && container3 && container4) {
           container.style.transform = `translateX(+${scrollPrecentageUp}%)`;
           container2.style.transform = `translateX(+${scrollPrecentageUp}%)`;
@@ -89,9 +99,12 @@ const Services = () => {
             const rootElement = document.getElementById("root-body");
 
             if (rootElement) {
-              rootElement.style.overflowY = "scroll";
+              setTimeout(() => {
+                rootElement.style.overflowY = "scroll";
+              }, 1000);
             }
-            return 240;
+
+            return 250;
           }
 
           return Math.max(prev + 5, 5);
@@ -140,6 +153,8 @@ const Services = () => {
           rootElement.style.overflowY = "scroll";
         }
       }
+
+      handleMouseLeave();
     }
   }, [inView]);
 
@@ -248,6 +263,10 @@ const Services = () => {
               <button
                 type="button"
                 className="expandButton bg-white px-4 text-black py-2 border border-black font-normal flex gap-4 items-center"
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                  navigate("/services");
+                }}
               >
                 <p className="text-base text-nowrap">{CONTENT[3].body}</p>
                 <IoIosArrowRoundForward
@@ -321,6 +340,10 @@ const Services = () => {
             <div className="w-full flex justify-center">
               <button
                 type="button"
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                  navigate("/services");
+                }}
                 className=" bg-white px-10 text-black py-3 border-2 border-black font-normal flex gap-4 items-center"
               >
                 <p className="text-base text-nowrap text-center w-full">

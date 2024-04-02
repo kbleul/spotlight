@@ -25,7 +25,7 @@ const CultureHero = () => {
     <article className="w-full h-[100vh]  z-0">
       <section
         ref={ref}
-        className="absolute top-0 h-[100vh] w-full"
+        className="absolute top-0 h-[100vh] w-full bg-black"
         style={{
           backgroundImage: `url(${bgImg})`,
           backgroundSize: "cover",
