@@ -48,6 +48,8 @@ const CultureHero = () => {
                   if (rootElement) {
                     rootElement.style.overflowY = "hidden";
                   }
+                  window.scrollTo(0, 0);
+
                   isFirstTime && setIsFirstTime(false);
                   setShowVideo(true);
                 }}
@@ -67,7 +69,9 @@ const CultureHero = () => {
                 <button
                   type="button"
                   className=""
-                  onClick={() => setShowVideo(false)}
+                  onClick={() => {
+                    setShowVideo(false);
+                  }}
                 >
                   <IoMdClose size={38} />
                 </button>

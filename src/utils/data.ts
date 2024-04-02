@@ -32,3 +32,8 @@ export const ColorTheme = {
     active: "#fff",
   },
 };
+
+export const myHeader = {
+  "Content-Type": "multipart/form-data",
+  Accept: "application/json",
+};

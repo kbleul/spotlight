@@ -160,7 +160,7 @@ const ServicesScroll = () => {
       <article
         id="scrolledItem"
         ref={ref}
-        className={`relative lg:h-[108vh] w-full hidden lg:block mt-10 ${
+        className={`relative lg:h-[108vh] w-full  lg:block mt-10 ${
           currentContent >= 5 && " bg-black "
         }`}
         style={{
@@ -171,7 +171,7 @@ const ServicesScroll = () => {
       >
         {inView && (
           <motion.div
-            className="px-[10%] lg:h-[95%] text-white py-20 flex flex-col items-start border justify-center  lg:items-center"
+            className="px-[10%] lg:h-[95%] text-white py-20 flex flex-col items-start  justify-center  lg:items-center"
             initial={{ y: -15 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.2 }}
@@ -195,7 +195,7 @@ const ServicesScroll = () => {
                 </h2>
 
                 <motion.div
-                  className="w-1/2  mt-4 font-semibold capitalize grid grid-cols-2 gap-10 items-center justify-center pl-20"
+                  className="w-1/2 lg:w-full lg:max-w-[600px]   mt-4 font-semibold capitalize grid grid-cols-2 gap-10 items-center justify-center pl-20"
                   initial={{ y: 50 }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.8 }}
@@ -350,7 +350,7 @@ const ServicesScroll = () => {
       </article>
 
       <article
-        className={`relative w-full block  mt-10 ${
+        className={`relative w-full lg:hidden  mt-10 ${
           currentContent >= 5 && " bg-black "
         }`}
         style={{
@@ -375,7 +375,9 @@ const ServicesScroll = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6 }}
             >
-              <h4 className="">{CONTENT[currentContent].title}</h4>
+              <h4 className="">
+                {CONTENT[currentContent >= 5 ? 5 : currentContent].title}
+              </h4>
             </motion.div>
 
             <h2 className="text-xl text-center font-bold text-[#4F4F4F] mt-8 mb-4">
@@ -388,9 +390,11 @@ const ServicesScroll = () => {
               animate={{ y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              {CONTENT[currentContent].body.map((item, index) => (
-                <p key={index}>{item}</p>
-              ))}
+              {CONTENT[currentContent >= 5 ? 5 : currentContent].body.map(
+                (item, index) => (
+                  <p key={index}>{item}</p>
+                )
+              )}
             </motion.div>
           </>
         </motion.div>
