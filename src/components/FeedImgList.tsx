@@ -73,7 +73,7 @@ const FeedImgList = () => {
         </section>
       </article>
 
-      <article className="lg:hidden w-full border">
+      <article className="lg:hidden w-full">
         <section className="flex w-full justify-center relative ">
           <div
             className="w-[750px] relative flex justify-center"
