@@ -35,8 +35,9 @@ const Home = () => {
       </div>
 
       <Culture />
-
-      <Feeds />
+      <div className="px-4 md:px-0">
+        <Feeds />
+      </div>
 
       <div className=" lg:hidden">
         <Carasole title="Latest Wins" />

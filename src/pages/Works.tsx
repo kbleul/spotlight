@@ -11,11 +11,12 @@ const Works = () => {
       <Featured />
       <ServicesProjects />
 
-      <div className="bg-black pt-20 mt-[10vh]">
+      <div className="bg-black pt-20 mt-[10vh] w-full overflow-hidden">
         <Carasole />
       </div>
-
-      <CarasoleReverse />
+      <div className="overflow-hidden">
+        <CarasoleReverse />
+      </div>
     </article>
   );
 };
