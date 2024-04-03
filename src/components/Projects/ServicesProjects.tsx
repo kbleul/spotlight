@@ -2,28 +2,37 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import projectTraceImage from "../../assets/images/Projects.svg";
 import FeedCard from "../Feeds/FeedCard";
 import { useQuery } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 
 const ServicesProjects = () => {
+  const navigate = useNavigate();
+
   const { isPending, error, data } = useQuery({
-    queryKey: ["repoData"],
+    queryKey: ["allProjects"],
     queryFn: () =>
       fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}projects`).then(
         (res) => res.json()
       ),
   });
 
+  //loading
   if (isPending) return <article className="bg-white h-screen" />;
 
-  if (error) return "An error has occurred: " + error.message;
+  if (error) return <></>;
 
   const projectsArr: any[] = data.data.data;
+
+  const handleClick = (item: any) => {
+    window.scrollTo(0, 0);
+    navigate("/case-study/" + item.id, { state: { item } });
+  };
 
   return (
     <article className="bg-white flex flex-col lg:flex-row items-start px-[5%] pt-0 lg:py-16">
       <section className="w-full lg:w-1/2 pt-12 flex flex-col justify-center items-center gap-8 order-2 lg:order-1">
         {Array.from({ length: 3 }).map((_, i) => (
           <div key={"ServicesProjects-" + i} className="max-w-[800px]">
-            <FeedCard item={projectsArr[i]} />
+            <FeedCard item={projectsArr[i]} handleClick={handleClick} />
           </div>
         ))}
 
@@ -41,7 +50,7 @@ const ServicesProjects = () => {
         <img src={projectTraceImage} alt="Projects" />
         {Array.from({ length: 3 }).map((_, i) => (
           <div key={"ServicesProjects-secondary" + i} className="max-w-[800px]">
-            <FeedCard item={projectsArr[i + 3]} />
+            <FeedCard item={projectsArr[i + 3]} handleClick={handleClick} />
           </div>
         ))}
       </section>

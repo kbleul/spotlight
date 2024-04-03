@@ -4,14 +4,20 @@ import { MdArrowOutward } from "react-icons/md";
 import { truncateText } from "../../utils/func";
 import { useNavigate } from "react-router-dom";
 
-const FeedCard = ({ item, isFeed }: { item: any; isFeed?: boolean }) => {
-  const navigate = useNavigate();
-
+const FeedCard = ({
+  item,
+  isFeed,
+  handleClick,
+}: {
+  item: any;
+  isFeed?: boolean;
+  handleClick: (item: any) => void;
+}) => {
   return (
     <button
       type="button"
       className="bg-[#F5F5F5] rounded-lg max-w-[550px] pt-7"
-      onClick={() => navigate("/case-study/" + item.id, { state: { item } })}
+      onClick={() => handleClick(item)}
     >
       {isFeed && (
         <div className="flex justify-start items-center gap-2 px-6 ">

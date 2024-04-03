@@ -1,3 +1,5 @@
+import { galleryImage } from "../components/Projects/ProjectGallery";
+
 export const disableScroll = () => {
   // Get the current page scroll position
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -41,4 +43,55 @@ export const scrollToContactSection = (
   if (element) {
     element.scrollIntoView({ behavior: "smooth" });
   }
+};
+
+export const createViewableImageGrid = (
+  galleryImagesArr: galleryImage[]
+): galleryImage[] => {
+  const newGalleryImagesArr: galleryImage[] = [];
+  const addPortrateImagesIndex = new Set();
+
+  for (let i = 0; i < galleryImagesArr.length - 1; i++) {
+    if (galleryImagesArr[i].type === "landscape") {
+      newGalleryImagesArr.push(galleryImagesArr[i]);
+      continue;
+    }
+
+    let counter = i + 1;
+
+    if (
+      counter === galleryImagesArr.length - 1 &&
+      !addPortrateImagesIndex.has(i)
+    ) {
+      newGalleryImagesArr.push(galleryImagesArr[i]);
+      break;
+    }
+
+    if (
+      !addPortrateImagesIndex.has(i) &&
+      !addPortrateImagesIndex.has(counter)
+    ) {
+      let foundNextPortrait = false;
+
+      while (!foundNextPortrait) {
+        if (galleryImagesArr[counter].type === "portrait") {
+          addPortrateImagesIndex.add(i);
+          addPortrateImagesIndex.add(counter);
+
+          newGalleryImagesArr.push(galleryImagesArr[i]);
+          newGalleryImagesArr.push(galleryImagesArr[counter]);
+
+          foundNextPortrait = true;
+        }
+
+        if (counter === galleryImagesArr.length - 1) {
+          foundNextPortrait = true;
+        }
+
+        ++counter;
+      }
+    }
+  }
+
+  return newGalleryImagesArr;
 };

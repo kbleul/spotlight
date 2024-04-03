@@ -1,137 +1,49 @@
-import React, { useEffect, useState } from "react";
-import { IoMdClose } from "react-icons/io";
-import { useInView } from "react-intersection-observer";
-import { useLocation, useParams } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Player } from "video-react";
-import { FaPlayCircle } from "react-icons/fa";
+import { useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+
+import Hero from "../components/Hero/CaseStudyHero";
+import ProjectDetail from "../components/Projects/ProjectDetail";
+import ProjectGallery from "../components/Projects/ProjectGallery";
 
 const CaseStudy = () => {
   const { id } = useParams();
 
-  const location = useLocation();
-
-  // Access the values or objects passed as state
-  const { item } = location.state;
-
-  const [showVideo, setShowVideo] = useState(false);
-  const [isFirstTime, setIsFirstTime] = useState(true);
-  const { ref, inView } = useInView({
-    threshold: 0.1,
+  const { isPending, error, data } = useQuery({
+    queryKey: ["projectDetails" + id, id],
+    queryFn: () =>
+      fetch(
+        `${import.meta.env.VITE_REACT_APP_BACKEND_URL}project-detail/${id}`
+      ).then((res) => res.json()),
   });
 
-  useEffect(() => {
-    if (!inView) {
-      setShowVideo(false);
-      setIsFirstTime(true);
-    }
-  }, [inView]);
+  //loading
+  if (isPending) return <article className="bg-white h-screen" />;
 
+  if (error) return <></>;
+
+  const projectDetails = data.data;
   return (
-    <article
-      ref={ref}
-      className="h-[90vh] w-full bg-white"
-      style={{
-        backgroundImage: `url(${item.cover.url})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      {!showVideo && (
-        <>
-          <div className="px-[5%] text-5xl lg:leading-[6rem] lg:text-[96px] text-white font-bold capitalize  absolute bottom-36 lg:bottom-14">
-            <p className="w-full lg:max-w-[80%]">{item.title}</p>
+    <section className="pb-20">
+      <Hero />
+      <ProjectDetail projectDetails={projectDetails} />
 
-            {item.video && item.video !== "" && (
-              <button
-                type="button"
-                className="flex gap-4 items-center justify-start text-xl mt-10 hover:font-medium"
-                onClick={() => {
-                  const rootElement = document.getElementById("root-body");
-                  if (rootElement) {
-                    rootElement.style.overflowY = "hidden";
-                  }
-                  window.scrollTo(0, 0);
+      <div className="flex justify-center items-center w-full px-[3%] lg:px-[5%]">
+        <Intro intro={projectDetails.sub_title} />
+      </div>
 
-                  isFirstTime && setIsFirstTime(false);
-                  setShowVideo(true);
-                }}
-              >
-                <FaPlayCircle size={25} className="pt-1" />
-                <p className="border-b hover:border-b-green-200">Watch Video</p>
-              </button>
-            )}
+      <div className="flex justify-center items-center w-full px-[3%] lg:px-[5%]">
+        <ProjectGallery galleries={projectDetails.galleries} />
+      </div>
+    </section>
+  );
+};
 
-            {item.services && (
-              <section className="text-white text-sm  grid grid-cols-2 gap-4 w-full justify-end ">
-                {item.services.map((service: any, index: number) => (
-                  <p
-                    key={"servie-cate" + index}
-                    className="border px-8 py-3 rounded-full w-fit"
-                  >
-                    {service.name}
-                  </p>
-                ))}
-              </section>
-            )}
-          </div>
-
-          <motion.div
-            className="h-[100vh]  w-full bg-black z-10 absolute top-0"
-            initial={{ x: isFirstTime ? -3000 : 0 }}
-            animate={{ x: -3000 }}
-            transition={{ duration: 1.5 }}
-          >
-            <div className="absolute top-8 right-12 text-gray-300 z-10">
-              <button
-                type="button"
-                className=""
-                onClick={() => {
-                  setShowVideo(false);
-                }}
-              >
-                <IoMdClose size={38} />
-              </button>
-            </div>
-          </motion.div>
-        </>
-      )}
-
-      {showVideo && (
-        <motion.div
-          className=" h-[100vh] w-full bg-black z-10 absolute top-0"
-          initial={{ x: -3000 }}
-          animate={{ x: showVideo ? 0 : -3000 }}
-          transition={{ duration: 1.4 }}
-        >
-          <div className="absolute top-8 right-12 text-gray-300 z-10">
-            <button
-              type="button"
-              className=""
-              onClick={() => {
-                const rootElement = document.getElementById("root-body");
-                if (rootElement) {
-                  rootElement.style.overflowY = "scroll";
-                }
-                setShowVideo(false);
-              }}
-            >
-              <IoMdClose size={38} />
-            </button>
-          </div>
-
-          <Player
-            fluid={false}
-            height="100%"
-            autoPlay
-            controls={false}
-            stopOnUnmount
-          >
-            <source src={item.video.url} />
-          </Player>
-        </motion.div>
-      )}
-    </article>
+const Intro = ({ intro }: { intro: string }) => {
+  return (
+    <section className="bg-white py-10  max-w-[1000px]">
+      <h4 className="text-[#777777] text-xl font-bold mb-2">Intro</h4>
+      <p className="font-bold">{intro}</p>
+    </section>
   );
 };
 
