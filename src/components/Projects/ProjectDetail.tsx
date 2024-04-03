@@ -9,7 +9,7 @@ const ProjectDetail = ({ projectDetails }: { projectDetails: any }) => {
       </h2>
 
       <section className="flex flex-col lg:flex-row  ">
-        <div className="pt-10 pb-20 w-1/2 grid grid-cols-2  h-fit items-stretch justify-start gap-10">
+        <div className="pt-10 pb-20 w-full lg:w-1/2 grid grid-cols-2  h-fit items-stretch justify-start gap-10 px-5 lg:px-0">
           <ItemBox title="Client" content={projectDetails.client.name} />
           <ItemBox
             title="Industry"
@@ -28,8 +28,8 @@ const ProjectDetail = ({ projectDetails }: { projectDetails: any }) => {
             content={projectDetails.services.flatMap((item: any) => item.name)}
           />
         </div>
-        <div className="w-1/2 pt-10 pb-20 min-h-[50vh] relative border-l">
-          <p className="px-[10%] pb-28 text-4xl font-semibold">
+        <div className="w-full lg:w-1/2 pt-4 lg:pt-10 pb-20 min-h-[50vh] relative border-t  lg:border-l">
+          <p className="px-[5%] lg:px-[10%] pb-28 text-2xl lg:text-4xl font-semibold">
             {projectDetails.content}
           </p>
 
@@ -71,7 +71,10 @@ const ItemBox = ({
       {isArray &&
         type !== "duration" &&
         content.map((item, index) => (
-          <p key={"services-names" + index} className="font-bold text-3xl">
+          <p
+            key={"services-names" + index}
+            className="font-bold text-xl lg:text-3xl"
+          >
             {truncateText(item, 25)}
           </p>
         ))}
@@ -84,7 +87,9 @@ const ItemBox = ({
       )}
 
       {!isArray && (
-        <p className="font-bold text-3xl">{truncateText(content, 25)}</p>
+        <p className="font-bold text-xl lg:text-3xl">
+          {truncateText(content, 25)}
+        </p>
       )}
     </div>
   );

@@ -32,7 +32,11 @@ const ServicesProjects = () => {
       <section className="w-full lg:w-1/2 pt-12 flex flex-col justify-center items-center gap-8 order-2 lg:order-1">
         {Array.from({ length: 3 }).map((_, i) => (
           <div key={"ServicesProjects-" + i} className="max-w-[800px]">
-            <FeedCard item={projectsArr[i]} handleClick={handleClick} />
+            <FeedCard
+              item={projectsArr[i]}
+              handleClick={handleClick}
+              showArrow
+            />
           </div>
         ))}
 
@@ -50,7 +54,11 @@ const ServicesProjects = () => {
         <img src={projectTraceImage} alt="Projects" />
         {Array.from({ length: 3 }).map((_, i) => (
           <div key={"ServicesProjects-secondary" + i} className="max-w-[800px]">
-            <FeedCard item={projectsArr[i + 3]} handleClick={handleClick} />
+            <FeedCard
+              item={projectsArr[i + 3]}
+              handleClick={handleClick}
+              showArrow
+            />
           </div>
         ))}
       </section>

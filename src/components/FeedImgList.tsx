@@ -8,7 +8,7 @@ import { useState } from "react";
 
 import { motion } from "framer-motion";
 
-const FeedImgList = () => {
+const FeedImgList = ({ isFeedModalOpen }: { isFeedModalOpen: any }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -20,7 +20,11 @@ const FeedImgList = () => {
             onMouseOver={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
-            <img src={newsImg1} alt="" className="w-[300px] z-50" />
+            <img
+              src={newsImg1}
+              alt=""
+              className={isFeedModalOpen ? "w-[300px] z-0" : "w-[300px] z-50"}
+            />
 
             <motion.img
               src={newsImg2}
@@ -80,7 +84,11 @@ const FeedImgList = () => {
             onClick={() => setIsHovered((prev) => !prev)}
             onMouseOut={() => setIsHovered(false)}
           >
-            <img src={newsImg1} alt="" className="w-[30%] z-50" />
+            <img
+              src={newsImg1}
+              alt=""
+              className={isFeedModalOpen ? "w-[30%] z-0" : "w-[30%] z-50"}
+            />
 
             <motion.img
               src={newsImg2}

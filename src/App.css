@@ -198,6 +198,7 @@ html {
   scrollbar-color: transparent transparent;
   user-select: none;
   cursor: url("./assets/images/cola_placeholder.svg"), auto;
+  padding-right: 90px;
 }
 
 .scroll-tab-container::-webkit-scrollbar {

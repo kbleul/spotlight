@@ -3,14 +3,31 @@ import FeedCard from "./FeedCard";
 import { useRef, useState } from "react";
 import feedsTrace from "../../assets/images/Feeds.svg";
 import { useNavigate } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import FeedModal from "../FeedModal";
 
 const Feeds: React.FC = () => {
   const navigate = useNavigate();
+
+  const [isFeedModalOpen, setIsFeednModalOpen] = useState<any>(null);
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+
+  const { isPending, error, data } = useQuery({
+    queryKey: ["latestBlogs"],
+    queryFn: () =>
+      fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}latest-blogs`).then(
+        (res) => res.json()
+      ),
+  });
+
+  //loading
+  if (isPending) return <article className="bg-white h-screen" />;
+
+  if (error) return <></>;
 
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!scrollRef.current) return;
@@ -81,6 +98,8 @@ const Feeds: React.FC = () => {
     }
   };
 
+  const latestBlogs: any[] = data.data.data;
+
   return (
     <article
       className="border-t-[28px] border-[#F9F9F9] mt-[8vh] pt-[1vh] pb-[5rem] overflow-hidden text-black bg-white"
@@ -89,7 +108,10 @@ const Feeds: React.FC = () => {
     >
       <div id="cursorItem" className="hidden lg:customCursor" />
 
-      <section className="flex items-start justify-between px-[5%]">
+      <section
+        id="feedsContainer"
+        className="flex items-start justify-between px-[5%]"
+      >
         <div className="w-full mb-8">
           <div className="flex justify-between items-center">
             <img
@@ -129,46 +151,45 @@ const Feeds: React.FC = () => {
         onTouchMove={handleTouchMove}
         className="scroll-tab-container hidden  lg:flex flex-col lg:flex-row gap-6 w-full pb-6 ml-[5%]"
       >
-        <div className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0">
-          <FeedCard />
-        </div>
-        <div className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0">
-          <FeedCard />
-        </div>
-        <div className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0">
-          <FeedCard />
-        </div>
-        <div className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0">
-          <FeedCard />
-        </div>
-        <div className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0">
-          <FeedCard />
-        </div>
-        <div className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0 mr-32">
-          <FeedCard />
-        </div>
+        {latestBlogs.slice(0, 8).map((blog: any) => (
+          <div
+            key={blog.id}
+            className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0"
+          >
+            <FeedCard
+              item={blog}
+              isFeed
+              handleClick={() => setIsFeednModalOpen(blog)}
+              showArrow={true}
+            />
+          </div>
+        ))}
       </section>
 
       <section className=" flex lg:hidden flex-col lg:flex-row gap-6 w-full pb-6 px-[3%] lg:ml-[5%] lg:px-0 items-center">
-        <div className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0">
-          <FeedCard />
-        </div>
-        <div className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0">
-          <FeedCard />
-        </div>
-        <div className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0">
-          <FeedCard />
-        </div>
-        <div className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0">
-          <FeedCard />
-        </div>
-        <div className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0">
-          <FeedCard />
-        </div>
-        <div className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0 lg:mr-32">
-          <FeedCard />
-        </div>
+        {latestBlogs.slice(0, 3).map((blog: any) => (
+          <div
+            key={blog.id}
+            className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0"
+          >
+            <FeedCard
+              item={blog}
+              isFeed
+              handleClick={() => setIsFeednModalOpen(blog)}
+              showArrow={true}
+            />
+          </div>
+        ))}
       </section>
+
+      {isFeedModalOpen && (
+        <div className="mt-[10vh]">
+          <FeedModal
+            isFeedModalOpen={isFeedModalOpen}
+            setIsFeednModalOpen={setIsFeednModalOpen}
+          />
+        </div>
+      )}
     </article>
   );
 };
