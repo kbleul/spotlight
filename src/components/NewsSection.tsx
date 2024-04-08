@@ -2,6 +2,7 @@ import { MdOutlineUnfoldMore } from "react-icons/md";
 import FeedCard from "./Feeds/FeedCard";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
+import { Oval } from "react-loader-spinner";
 
 type categoryType = {
   id: string;
@@ -46,7 +47,17 @@ const NewsSection = ({
             setSelectedCategory={setSelectedCategory}
           />
         </section>
-        <section className="w-full lg:w-1/2 flex flex-col gap-10 lg:h-[80vh] px-4 lg:px-0 overflow-y-scroll feeds_scroll items-center">
+        <section className="w-full lg:w-1/2 flex flex-col gap-10 lg:h-[80vh] px-4 lg:px-0 overflow-y-scroll feeds_scroll items-center justify-center">
+          <Oval
+            visible={true}
+            height="30"
+            width="30"
+            color="#000"
+            secondaryColor="#cfcdcc"
+            ariaLabel="oval-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+          />
           Loading ...
         </section>
       </article>
@@ -64,7 +75,7 @@ const NewsSection = ({
           setSelectedCategory={setSelectedCategory}
         />
       </section>
-      <section className="w-full lg:w-1/2 flex flex-col gap-10 lg:h-[80vh] px-4 lg:px-0 overflow-y-scroll feeds_scroll items-center">
+      <section className="w-full lg:w-1/2 flex flex-col gap-10 lg:h-screen px-4 lg:px-0 overflow-y-scroll feeds_scroll items-center">
         {latestBlogs.map((blog) => (
           <FeedCard
             key={blog.id}
@@ -157,10 +168,10 @@ const FIlter = ({
 
       <div className="w-full flex flex-col ">
         {showCategories &&
-          categories.map((category) => (
+          categories.map((category, index) => (
             <button
               type="button"
-              key={category.id}
+              key={category.id + index}
               className="text-lg md:text-xl text-center border-b py-2 hover:border-b-gray-300"
               onClick={() => handleSelectCategory(category)}
             >

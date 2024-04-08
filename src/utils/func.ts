@@ -95,3 +95,11 @@ export const createViewableImageGrid = (
 
   return newGalleryImagesArr;
 };
+
+export const isEvenArray = (galleryImagesLength: number): boolean => {
+  if (galleryImagesLength % 4 === 0) {
+    return true;
+  }
+
+  return false;
+};

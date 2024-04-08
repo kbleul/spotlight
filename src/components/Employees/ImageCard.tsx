@@ -13,7 +13,7 @@ const ImageCard = ({ employee }: { employee: any }) => {
       onMouseLeave={() => setIsHover(false)}
     >
       <motion.img
-        src={employee.img}
+        src={employee.image.url}
         alt=""
         className="h-full w-full z-50 object-cover"
         style={{
@@ -25,7 +25,7 @@ const ImageCard = ({ employee }: { employee: any }) => {
       />
       <div className="absolute bottom- 0 w-full px-3 py-2 flex justify-between items-center text-black font-medium">
         <h3 className="">{employee.name}</h3>
-        <p className="">{employee.title}</p>
+        <p className="">{employee.position}</p>
       </div>
     </section>
   );

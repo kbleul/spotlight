@@ -20,7 +20,7 @@ const Hero = () => {
   };
 
   return (
-    <article className="lg:h-[90vh] pb-48 lg:pb-0 bg-white flex justify-center items-center">
+    <article className="lg:h-[90vh] pt-16  pb-28 lg:pt-0 lg:pb-0 bg-white flex justify-center items-center">
       <motion.article
         ref={ref}
         variants={heroVariants}

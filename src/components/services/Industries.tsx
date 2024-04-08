@@ -5,6 +5,7 @@ import cultureImg3 from "../../assets/images/cola_placeholder2.png";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useInView } from "react-intersection-observer";
+import { useQuery } from "@tanstack/react-query";
 
 const ItemImgs = [
   cultureImg1,
@@ -17,18 +18,23 @@ const ItemImgs = [
   cultureImg2,
   cultureImg3,
 ];
-const INDUSTRY_ITEMS = [
-  "Telecom",
-  "Fashion",
-  "Film",
-  "Finance",
-  "Technology",
-  "Real Estate",
-];
+
 const Industries = () => {
   const { ref, inView } = useInView({
     threshold: 0.4,
   });
+
+  const { isPending, error, data } = useQuery({
+    queryKey: ["industries"],
+    queryFn: () =>
+      fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}industries`).then(
+        (res) => res.json()
+      ),
+  });
+
+  //loading
+
+  if (error || isPending) return <></>;
 
   return (
     <article
@@ -45,7 +51,7 @@ const Industries = () => {
           Industries
         </h2>
 
-        <p className="px-4 lg:px-10 mt-4 lg:mt-0 lg:font-bold text-[#4F4F4F] max-w-[600px] self-center">
+        <p className="mt-4 lg:mt-0 lg:font-bold text-[#4F4F4F] max-w-[600px] ">
           Lorem ipsum dolor sit amet consectetur. Pretium mattis sit aliquet
           hendrerit imperdiet tortor lectus auctor. Malesuada vitae nunc orci
           faucibus. Faucibus nisl nec eu accumsan. Neque in nisl sit nisl semper
@@ -54,7 +60,7 @@ const Industries = () => {
       </motion.section>
 
       <section className="w-full lg:w-[45%] h-full flex flex-col justify-center text-[2.5rem] text-[#4f4f4f] capitalize font-extrabold pb-20">
-        {INDUSTRY_ITEMS.map((item, index) => (
+        {data.data.map((item: any, index: number) => (
           <ItemCard
             key={"industry-item-" + index}
             item={item}
@@ -80,7 +86,7 @@ const ItemCard = ({
 
   return (
     <motion.div
-      className={`h-[14%] pt-6 lg:pt-0 lg:pb-2 px-6 border-b lg:border-b-0 ${
+      className={`h-[14%] pt-6 lg:pt-0 lg:pb-2 px-6 ${
         index !== 5 && " border-b "
       }  border-black relative flex items-end`}
       initial={inView ? { y: 2000 } : { y: 0 }}
@@ -89,7 +95,7 @@ const ItemCard = ({
       onMouseOver={() => setIsHovered(true)}
       onMouseOut={() => setIsHovered(false)}
     >
-      <p>{item}</p>
+      <p>{item.name}</p>
 
       {isHovered && (
         <motion.div
@@ -98,21 +104,14 @@ const ItemCard = ({
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <img
-            src={ItemImgs[index]}
-            alt={item}
-            className="w-8 h-8 md:w-12 md:h-12 rounded-full object-cover"
-          />
-          <img
-            src={ItemImgs[index + 1]}
-            alt={item}
-            className="w-8 h-8 md:w-12 md:h-12 rounded-full object-cover"
-          />
-          <img
-            src={ItemImgs[index + 2]}
-            alt={item}
-            className="w-8 h-8 md:w-12 md:h-12 rounded-full object-cover"
-          />
+          {item.client_images.map((img: any) => (
+            <img
+              key={img.uuid}
+              src={img.url}
+              alt={item.name}
+              className="w-8 h-8 md:w-12 md:h-12 rounded-full object-cover"
+            />
+          ))}
         </motion.div>
       )}
     </motion.div>
