@@ -94,15 +94,13 @@ const Culture = () => {
 
           <div className="pl-3 w-full">
             <h4 className="font-extrabold mt-8 md:mt-4 text-2xl">
-              Good Times for All.
+              We are Spotlight
             </h4>
 
             <p className=" mt-4  text-[#4f4f4f] font-semibold">
-              Lorem ipsum dolor sit amet consectetur. Vitae vitae tincidunt
-              viverra turpis pulvinar netus euismod id dui. Dolor purus dui
-              sodales maecenas sed luctus aenean et odio. Orci magnis vel
-              ullamcorper rhoncus luctus consequat. Diam rhoncus sit id enim
-              cras.
+              We are creative, we are diverse, we are ever-changing. We debate,
+              laugh, craft and bring together perspectives that challenge the
+              status quo.
             </p>
 
             <div className="expandButtonContainerSecondary mt-6">
@@ -114,7 +112,7 @@ const Culture = () => {
                 }}
                 className="expandButton bg-black px-4 text-white py-2 text-sm font-normal flex gap-2 items-center"
               >
-                <p className="text-nowrap">Our Culture</p>
+                <p className="text-nowrap">Learn More </p>
                 <IoIosArrowRoundForward
                   className="expandButtonIcon"
                   size={32}

@@ -13,16 +13,9 @@ const Approch = () => {
       <section className="flex items-start justify-start pl-6 w-full">
         <div className="w-full lg:w-1/2 flex flex-col gap-8 pt-4 lg:pt-10 text-[#4F4F4F] font-medium md:font-semibold">
           <p className="max-w-[600px]">
-            Lorem ipsum dolor sit amet consectetur. Sem rhoncus diam aliquam
-            aliquet nibh enim massa suspendisse tristique. Massa mauris vel
-            tincidunt egestas scelerisque viverra sem venenatis mollis. Non
-            pharetra magna at amet volutpat ac ut nec enim. Pellentesque viverra
-            nulla vitae ullamcorper. Sit.
-          </p>
-          <p className="max-w-[600px]">
-            Lorem ipsum dolor sit amet consectetur. Sem rhoncus diam aliquam
-            aliquet nibh enim massa suspendisse tristique. Massa mauris vel
-            tincidunt egestas scelerisque viverra sem
+            We collaborate to craft creative communications strategies and
+            spot-lessly execute to create lastings connections in the hearts and
+            minds of people.
           </p>
         </div>
         <img

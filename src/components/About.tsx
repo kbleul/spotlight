@@ -26,14 +26,12 @@ const About = () => {
             About
           </h2>
           <h5 className="font-semibold text-lg md:text-xl mt-8 mb-3 md:mb-0">
-            Where Creativity Meets Strategy
+            We Take The Stage
           </h5>
           <p className="mt-2">
-            We provide a broad spectrum of services because we are a
-            multifaceted business that meets the various needs of businesses.
-            With this all-inclusive range of services, we enable businesses to
-            effectively accomplish their goals, engage their audiences, and
-            improve their brand presence.
+            We are a leading creative communications, marketing, and advertising
+            agency in Ethiopia sparking bold, trendsetting ideas. Our innovative
+            strategies amplify brands and businesses, making them stand out.
           </p>
 
           <div className="expandButtonContainerSecondary mt-6">
@@ -45,7 +43,7 @@ const About = () => {
               type="button"
               className="expandButton bg-white px-4 text-black py-2 text-sm font-normal flex gap-4 items-center"
             >
-              <p className="text-nowrap">Read More</p>
+              <p className="text-nowrap">Learn More</p>
               <IoIosArrowRoundForward className="expandButtonIcon" size={24} />
             </button>
           </div>

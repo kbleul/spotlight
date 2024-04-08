@@ -48,11 +48,8 @@ const Projects = () => {
           </div>
 
           <p className="lg:ml-[15%] max-w-[1000px] mt-4 lg:pr-[7%] text-[#B9B9B9]">
-            We provide a broad spectrum of services because we are a
-            multifaceted business that meets the various needs of businesses.
-            With this all-inclusive range of services, we enable businesses to
-            effectively accomplish their goals, engage their audiences, and
-            improve their brand presence.
+            From global titans to innovative startups, our brands shine. Explore
+            our campaigns that have stood out and captured hearts.
           </p>
         </div>
       </section>

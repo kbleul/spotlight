@@ -28,7 +28,7 @@ const ProjectDetail = ({ projectDetails }: { projectDetails: any }) => {
             content={projectDetails.services.flatMap((item: any) => item.name)}
           />
         </div>
-        <div className="w-full lg:w-1/2 pt-4 lg:pt-10 pb-20 min-h-[50vh] relative border-t  lg:border-l">
+        <div className="w-full lg:w-1/2 pt-4 lg:pt-10 pb-20 min-h-[50vh] relative border-t lg:border-t-0  lg:border-l">
           <p className="px-[5%] lg:px-[10%] pb-28 text-2xl lg:text-4xl font-semibold">
             {projectDetails.content}
           </p>

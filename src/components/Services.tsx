@@ -13,20 +13,20 @@ import { useNavigate } from "react-router-dom";
 const CONTENT = [
   {
     id: "services001",
-    title: "Public Relations",
-    body: "Specializing in crafting narratives that elevate brands, our Public Relations excels in weaving resonant stories, enhancing brand perception, and nurturing lasting connections. Gain increased visibility, trust, and audience connections through our strategic storytelling expertise.",
+    title: "Public Relations & Communications",
+    body: "Creating influence through strategic media relations, thought leadership and attention-commanding campaigns.",
     img: service1_img,
   },
   {
     id: "services002",
     title: "Marketing",
-    body: "Seamlessly blending research, strategy, and execution, our Marketing service ensures your brand’s comprehensive visibility. Drive your brand to the forefront with tailored strategies that elevate its market positioning and enhance overall presence.",
+    body: "Captivating hearts with insight-driven, creative marketing strategies that inspire action.",
     img: service2_img,
   },
   {
     id: "services003",
     title: "Advertising",
-    body: "Masterfully coordinating channels, our Advertising service ensures effective brand connection, increasing engagement and market share. From traditional to digital platforms, connect seamlessly with your audience and elevate your brand’s impact.",
+    body: "Elevating brands with ad campaigns that blend strategy with show-stopping creativity to drive engagement.",
     img: service3_img,
   },
   {

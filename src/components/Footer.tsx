@@ -20,7 +20,7 @@ const Footer = () => {
             <CiLocationOn className="w-4 h-4" />
           </div>
           <div className="lg:text-lg flex flex-col gap-2 mt-4">
-            <p>Bole; DH Geda Tower</p>
+            <p>Bole, DH Geda Tower</p>
             <p>7th Floor; Office Suite 705</p>
           </div>
         </div>
@@ -30,7 +30,8 @@ const Footer = () => {
             <MdOutlinePhone className="w-4 h-4" />
           </div>
           <div className="lg:text-lg flex flex-col gap-2 ">
-            <p>+2519000000</p>
+            <p>+251 92 917 5223</p>
+            <p>+251 91 398 6445 </p>
           </div>
         </div>
       </section>
@@ -44,22 +45,38 @@ const Footer = () => {
 
         <div className="lg:pr-[10%]">
           <div className="flex justify-center lg:justify-end gap-6 text-white">
-            <div className="border border-[#777777] p-2 lg:p-3 rounded-full">
+            <a
+              href="http://www.facebook.com/spotlightethiopia"
+              className="border border-[#777777] p-2 lg:p-3 rounded-full"
+              target="_blank"
+            >
               <FaFacebookF className="w-4 h-4" />
-            </div>
-            <div className="border border-[#777777] p-2 lg:p-3 rounded-full">
+            </a>
+            <a
+              href="http:/www.linkedin.com/company/spotlightethiopia"
+              className="border border-[#777777] p-2 lg:p-3 rounded-full"
+              target="_blank"
+            >
               <GrLinkedinOption className="w-4 h-4" />
-            </div>
-            <div className="border border-[#777777] p-2 lg:p-3 rounded-full">
+            </a>
+            <a
+              href="http://www.instagram.com/spotlightethiopia"
+              className="border border-[#777777] p-2 lg:p-3 rounded-full"
+              target="_blank"
+            >
               <FaInstagram className="w-4 h-4" />
-            </div>
+            </a>
 
-            <div className="border border-[#777777] p-2 lg:p-3 rounded-full">
+            <a
+              href="http://www.twitter.com/spotlightethiopia"
+              className="border border-[#777777] p-2 lg:p-3 rounded-full"
+              target="_blank"
+            >
               <FaXTwitter className="w-4 h-4" />
-            </div>
+            </a>
           </div>
           <p className="text-[#777777]  lg:text-lg uppercase font-semibold mt-5 text-center lg:text-right">
-            Spotlight communication ©2024
+            Spotlight Communications and Marketing LTD © 2024
           </p>
         </div>
       </section>

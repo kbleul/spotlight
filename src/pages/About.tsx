@@ -27,14 +27,7 @@ const About = () => {
           img={aboutImg}
           title="Leading the"
           secondaryTitle="Change"
-          textBody={`Lorem ipsum dolor sit amet consectetur. Donec ac tincidunt integer
-      sed euismod pellentesque. Eget fermentum leo diam tortor vitae
-      tellus lacus pellentesque sed. Fringilla ut blandit faucibus a. Vel
-      vitae neque egestas risus fermentum porta. Purus mauris elementum
-      erat mi non quam augue. Consectetur sed vivamus nulla tempor
-      ultrices augue est. Varius ac sed viverra magna velit nisi.
-      Tincidunt sollicitudin fermentum enim vel sem. Duis molestie id
-      aliquam quisque dui lacus eget egestas.`}
+          textBody={`Driving marketing from tired, stale tactics into creatively strategic campaigns that shake up entire industries. No brand is too big or too small - our pioneering strategies can exponentially amplify any company's influence and dominance.`}
         />
       </div>
 
@@ -56,16 +49,9 @@ const About = () => {
       <div className="pb-48 bg-black  h-[90vh]">
         <Connections
           img={handsImg}
-          title="Connecting on a"
+          title="Setting the Stage"
           secondaryTitle="Human Level"
-          textBody={`Lorem ipsum dolor sit amet consectetur. Donec ac tincidunt integer
-sed euismod pellentesque. Eget fermentum leo diam tortor vitae
-tellus lacus pellentesque sed. Fringilla ut blandit faucibus a. Vel
-vitae neque egestas risus fermentum porta. Purus mauris elementum
-erat mi non quam augue. Consectetur sed vivamus nulla tempor
-ultrices augue est. Varius ac sed viverra magna velit nisi.
-Tincidunt sollicitudin fermentum enim vel sem. Duis molestie id
-aliquam quisque dui lacus eget egestas.`}
+          textBody={`We never follow - we always lead. Our teams check egos at the door to create a playground of melding together perspectives, pushing creative boundaries through bold and fresh thinking is in our DNA. While our ideas are revolutionary, our process is swift and precise to bring game-changing campaigns to life. `}
         />
       </div>
 

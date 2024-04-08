@@ -9,74 +9,69 @@ import { IoArrowForward } from "react-icons/io5";
 const CONTENT = [
   {
     id: "services001",
-    title: "Public Relations",
+    title: "Public Relations & Communications",
     body: [
-      "trust",
-      "increased visibility",
-      "audience connections",
-      "constructing stories",
-      "enhancing brand",
-      "nurturing connections",
+      "Reputation Management",
+      "Communications Strategy",
+      "Risk and Crisis Management",
+      "Media Training",
+      "Media Relation",
     ],
   },
   {
     id: "services002",
     title: "Marketing",
     body: [
-      "hard work",
-      "increased visibility",
-      "audience connections",
-      "constructing stories",
-      "enhancing brand",
-      "nurturing connections",
+      "Market Research",
+      "Marketing Strategy",
+      "Shoppers Marketing",
+      "Promotional Marketing",
+      "Experiential Marketing",
     ],
   },
   {
     id: "services003",
     title: "Advertising",
     body: [
-      "trust",
-      "increased visibility",
-      "audience connections",
-      "constructing stories",
-      "enhancing brand",
-      "nurturing connections",
+      "Television Advertising",
+      "Radio Advertising",
+      "Print Advertising",
+      "Out-of-home Advertising",
+      "Affiliate and Influencer Marketing",
+      "Search Engine and Social Media Advertising",
     ],
   },
   {
     id: "services004",
     title: "Brand & Design",
     body: [
-      "trust",
-      "increased visibility",
-      "audience connections",
-      "constructing stories",
-      "enhancing brand",
-      "nurturing connections",
+      "Brand Strategy",
+      "Brand Identity",
+      "Graphic Design",
+      "UX/UI & Web Design",
     ],
   },
   {
     id: "services005",
     title: "Production",
     body: [
-      "trust",
-      "increased visibility",
-      "audience connections",
-      "constructing stories",
-      "enhancing brand",
-      "nurturing connections",
+      "TVC",
+      "Talk Shows",
+      "Documentaries",
+      "Event Documentation",
+      "Photography",
+      "Radio Ad and Jingle Production",
     ],
   },
   {
     id: "services004",
     title: "Event Managment",
     body: [
-      "trust",
-      "increased visibility",
-      "audience connections",
-      "constructing stories",
-      "enhancing brand",
-      "nurturing connections",
+      "Event Planning",
+      "Event Management",
+      "Venue Sourcing",
+      "Event Engagement and Entertainment",
+      "Audio-visual Support",
     ],
   },
 ];
@@ -90,17 +85,30 @@ const ServicesScroll = () => {
 
   const [, setScrolledAmountCounter] = useState(0);
 
+  const handleNextClick = () => {
+    setCurrentContent((prev) => (prev < CONTENT.length - 1 ? ++prev : prev));
+  };
+
+  const handleBackClick = () => {
+    setCurrentContent((prev) => (prev > 0 ? --prev : prev));
+  };
+
   useEffect(() => {
-    if (inView) {
-      const rootElement = document.getElementById("root-body");
-      if (rootElement) {
-        rootElement.style.overflowY = "hidden";
-      }
-    } else {
-      const rootElement = document.getElementById("root-body");
-      if (rootElement) {
-        if (rootElement.style.overflowY === "hidden") {
-          rootElement.style.overflowY = "scroll";
+    let x = window.matchMedia("(max-width: 700px)");
+    if (!x.matches) {
+      console.log(x);
+
+      if (inView) {
+        const rootElement = document.getElementById("root-body");
+        if (rootElement) {
+          rootElement.style.overflowY = "hidden";
+        }
+      } else {
+        const rootElement = document.getElementById("root-body");
+        if (rootElement) {
+          if (rootElement.style.overflowY === "hidden") {
+            rootElement.style.overflowY = "scroll";
+          }
         }
       }
     }
@@ -156,14 +164,6 @@ const ServicesScroll = () => {
     };
   }, [currentContent, inView]);
 
-  const handleNextClick = () => {
-    setCurrentContent((prev) => (prev < CONTENT.length - 1 ? ++prev : prev));
-  };
-
-  const handleBackClick = () => {
-    setCurrentContent((prev) => (prev > 0 ? --prev : prev));
-  };
-
   useEffect(() => {
     const rootElement = document.getElementById("root-body");
 
@@ -177,7 +177,7 @@ const ServicesScroll = () => {
       <article
         id="scrolledItem"
         ref={ref}
-        className={`relative lg:h-[108vh] w-full  lg:block mt-10 ${
+        className={`hidden lg:block relative lg:h-[108vh] w-full mt-10 ${
           currentContent >= 5 && " bg-black "
         }`}
         style={{
@@ -244,7 +244,7 @@ const ServicesScroll = () => {
                   animate={{ y: 0 }}
                   transition={{ duration: 0.8 }}
                 >
-                  {CONTENT[0].body.map((item, index) => (
+                  {CONTENT[1].body.map((item, index) => (
                     <p key={index}>{item}</p>
                   ))}
                 </motion.div>
@@ -367,7 +367,7 @@ const ServicesScroll = () => {
       </article>
 
       <article
-        className={`lg:hidden relative w-full block  mt-10 ${
+        className={`lg:hidden h-[100vh] relative w-full block  mt-10 ${
           currentContent >= 5 && " bg-black "
         }`}
         style={{
@@ -377,7 +377,7 @@ const ServicesScroll = () => {
         }}
       >
         <motion.div
-          className="px-[5%]  text-white py-20 flex flex-col items-start justify-center"
+          className="px-[5%]  text-white py-20 flex flex-col items-start justify-center h-[85%]"
           initial={{ y: -15 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.2 }}

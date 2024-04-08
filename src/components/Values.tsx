@@ -26,21 +26,14 @@ const Values = () => {
       </section>
       <section className="w-full lg:w-[48%] lg:pt-[20vh] order-1 lg:order-2">
         <h4 className="text-6xl lg:text-8xl font-bold  text-white">
-          Our Values
+          We Don’t Stop
         </h4>
 
         <p className="max-w-[600px] text-white lg:text-[#777777] font-medium mt-10">
-          Lorem ipsum dolor sit amet consectetur. Donec ac tincidunt integer sed
-          euismod pellentesque. Eget fermentum leo diam tortor vitae tellus
-          lacus pellentesque sed. Fringilla ut blandit faucibus a. Vel vitae
-          neque egestas risus fermentum porta. Purus mauris elementum erat mi
-          non quam augue. Consectetur sed vivamus nulla tempor ultrices augue
-          est. Varius ac sed viverra magna velit nisi. Tincidunt sollicitudin
-          fermentum enim vel sem. Duis molestie id aliquam quisque dui lacus
-          eget egestas. Consectetur sed vivamus nulla tempor ultrices augue est.
-          Varius ac sed viverra magna velit nisi. Tincidunt sollicitudin
-          fermentum enim vel sem. Duis molestie id aliquam quisque dui lacus
-          eget egestas.
+          "Good enough" isn't in our vocabulary. Our fire rages with an
+          insatiable hunger to learn, explore uncharted territories, and dig up
+          fresh truths that'll blow minds. We never stop questioning, learning
+          and evolving to perpetually push the creative envelope.
         </p>
       </section>
     </article>

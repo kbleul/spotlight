@@ -39,14 +39,10 @@ const AboutHero = () => {
 
           <div className="w-full lg:w-4/5 lg:ml-[5%] mt-8 lg:mt-20 flex justify-center lg:justify-end text-[#777777]">
             <p className="px-3 lg:px-0 max-w-[600px] lg:max-w-none lg:w-1/2 text-white lg:text-[#777777]">
-              Lorem ipsum dolor sit amet consectetur. Donec ac tincidunt integer
-              sed euismod pellentesque. Eget fermentum leo diam tortor vitae
-              tellus lacus pellentesque sed. Fringilla ut blandit faucibus a.
-              Vel vitae neque egestas risus fermentum porta. Purus mauris
-              elementum erat mi non quam augue. Consectetur sed vivamus nulla
-              tempor ultrices augue est. Varius ac sed viverra magna velit nisi.
-              Tincidunt sollicitudin fermentum enim vel sem. Duis molestie id
-              aliquam quisque dui lacus eget egestas.
+              We don’t stop until we put our brands front-and-center. Through
+              deep insights, creative strategy, and spotless execution, we
+              showcase brands as must-see icons and thought leaders that inspire
+              their action.
             </p>
           </div>
         </motion.article>

@@ -5,7 +5,9 @@ const Hero = () => {
   return (
     <article className="px-6 md:px-12 pt-6 mt-10 relative ">
       <div className="w-full flex justify-center">
-        <img src={logo} alt="logo" className="w-full max-w-[1400px]" />
+        <h2 className="text-[#4F4F4F] text-[60px] text-center lg:text-left md:text-[120px] lg:text-[250px] font-extrabold">
+          Spotlight
+        </h2>
       </div>
 
       <section className="w-full flex justify-end mt-6 md:mt-10">

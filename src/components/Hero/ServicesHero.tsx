@@ -15,14 +15,16 @@ const Hero = () => {
         </h2>
 
         <p className="lg:ml-[20%] text-[#4f4f4f]">
-          Lorem ipsum dolor sit amet consectetur. Pretium mattis sit aliquet
-          hendrerit imperdiet tortor lectus auctor. Malesuada vitae nunc orci
-          faucibus. Faucibus nisl nec eu accumsan. Neque in nisl sit nisl semper
-          pulvinar pharetra. Congue commodo praesent. Lorem ipsum dolor sit amet
-          consectetur. Pretium mattis sit aliquet hendrerit imperdiet tortor
-          lectus auctor. Malesuada vitae nunc orci faucibus. Faucibus nisl nec
-          eu accumsan. Neque in nisl sit nisl semper pulvinar pharetra. Congue
-          commodo praesent.
+          We are storytellers and brand advocates. We craft compelling
+          narratives that grow brands, nurture meaningful connections, and
+          inspire audiences through experiences across the full spectrum of
+          strategy, marketing, advertising, branding, production, and event
+          services.
+        </p>
+
+        <p className="lg:ml-[20%] text-[#4f4f4f] mt-4">
+          We connect with people to promote, manage and protect brands and
+          reputations
         </p>
 
         <div className="w-full flex justify-center mt-10">
