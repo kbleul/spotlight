@@ -6,6 +6,9 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useState, useEffect } from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { useQuery } from "@tanstack/react-query";
+import { handleNavigateToCaseStudy } from "../Projects/ServicesProjects";
+import { useNavigate } from "react-router-dom";
 
 const CONTENT = [
   {
@@ -50,6 +53,8 @@ const Featured = () => {
   const { ref, inView } = useInView({
     threshold: 1,
   });
+
+  const navigate = useNavigate();
 
   const [isZero, setIsZero] = useState(0);
 
@@ -124,28 +129,55 @@ const Featured = () => {
     };
   }, [currentContent, inView]);
 
+  const { isPending, error, data } = useQuery({
+    queryKey: ["galleries"],
+    queryFn: () =>
+      fetch(
+        `${import.meta.env.VITE_REACT_APP_BACKEND_URL}featured-projects`
+      ).then((res) => res.json()),
+  });
+
+  useEffect(() => {
+    if (isZero >= 2) {
+      const rootElement = document.getElementById("root-body");
+      if (rootElement) {
+        rootElement.style.overflowY = "scroll";
+      }
+    }
+  }, [isZero]);
+
+  //loading
+  if (isPending) return <article className="bg-white h-screen" />;
+
+  if (error) return <></>;
+
+  const featuredProjects: any[] = data.data.data;
+
   const contentDispatch = () => {
     return (
       <div
-        className="w-1/2 max-w-[420px]"
+        className="w-1/2 max-w-[470px] "
         key={
-          currentContent >= CONTENT.length - 1
-            ? CONTENT.length - 1
-            : currentContent
+          featuredProjects[
+            currentContent >= featuredProjects.length - 1
+              ? featuredProjects.length - 1
+              : currentContent
+          ]
         }
       >
         <motion.img
           src={
-            CONTENT[
-              currentContent >= CONTENT.length - 1
-                ? CONTENT.length - 1
+            featuredProjects[
+              currentContent >= featuredProjects.length - 1
+                ? featuredProjects.length - 1
                 : currentContent
-            ].img
+            ].cover.url
           }
           alt=""
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4 }}
+          className="w-full"
         />
 
         <section className="py-2 pl-2 flex items-start gap-4">
@@ -157,8 +189,8 @@ const Featured = () => {
               transition={{ duration: 0.8 }}
             >
               0
-              {currentContent >= CONTENT.length - 1
-                ? CONTENT.length - 1
+              {currentContent >= featuredProjects.length - 1
+                ? featuredProjects.length - 1
                 : currentContent + 1}
             </motion.h3>
             <motion.p
@@ -168,11 +200,11 @@ const Featured = () => {
               transition={{ duration: 0.8 }}
             >
               {
-                CONTENT[
-                  currentContent >= CONTENT.length - 1
-                    ? CONTENT.length - 1
+                featuredProjects[
+                  currentContent >= featuredProjects.length - 1
+                    ? featuredProjects.length - 1
                     : currentContent
-                ].body
+                ].sub_title
               }
             </motion.p>
 
@@ -187,6 +219,16 @@ const Featured = () => {
                 className={
                   "expandButton bg-white px-4 text-black py-2 text-sm font-normal flex gap-4 items-center"
                 }
+                onClick={() =>
+                  handleNavigateToCaseStudy(
+                    featuredProjects[
+                      currentContent >= featuredProjects.length - 1
+                        ? featuredProjects.length - 1
+                        : currentContent
+                    ],
+                    navigate
+                  )
+                }
               >
                 <p className="text-nowrap pl-2">Read Me</p>
                 <IoIosArrowRoundForward
@@ -195,7 +237,6 @@ const Featured = () => {
                 />
               </button>
             </motion.div>
-            <div></div>
           </div>
           <motion.p
             className="w-1/2 text-sm"
@@ -203,22 +244,18 @@ const Featured = () => {
             animate={{ x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Lorem ipsum dolor sit amet consectetur. Feugiat leo facilisis cras
-            mi. Blandit nisi eget adipiscing congue. Facilisis nulla amet nibh
-            pellentesque ornare viverra gravida.
+            {
+              featuredProjects[
+                currentContent >= featuredProjects.length - 1
+                  ? featuredProjects.length - 1
+                  : currentContent
+              ].content
+            }
           </motion.p>
         </section>
       </div>
     );
   };
-
-  useEffect(() => {
-    if (isZero >= 2) {
-      const rootElement = document.getElementById("root-body");
-      rootElement.style.overflowY = "scroll";
-    }
-  }, [isZero]);
-
   return (
     <>
       <article id="scrollContainer" className="hidden lg:block">
@@ -233,16 +270,20 @@ const Featured = () => {
 
           <section ref={ref} className="w-full flex items-center mt-2 h-4/5 ">
             <div className="w-1/2 pl-[10%] pt-4 text-[#777777] text-4xl  font-extrabold ">
-              {CONTENT.map((content, index: number) => (
-                <p
-                  key={content.id}
-                  className={
-                    currentContent === index ? "text-white mb-10" : "mb-10 "
-                  }
-                >
-                  {content.title}
-                </p>
-              ))}
+              {featuredProjects
+                .slice(0, 6)
+                .map((content: any, index: number) => (
+                  <p
+                    key={content.id}
+                    className={
+                      currentContent === index
+                        ? "text-white mb-10 line-clamp-1"
+                        : "mb-10 line-clamp-1"
+                    }
+                  >
+                    {content.title}
+                  </p>
+                ))}
             </div>
             {contentDispatch()}
           </section>
@@ -271,18 +312,20 @@ const Featured = () => {
 
           <section className="w-full flex items-center ">
             <div className="w-full px-[10%] text-[#777777] text-4xl  font-extrabold flex flex-col items-start ">
-              {CONTENT.map((content, index: number) => (
-                <button
-                  type="button"
-                  onClick={() => setCurrentContent(index)}
-                  key={content.id}
-                  className={
-                    currentContent === index ? "text-white mb-10" : "mb-10 "
-                  }
-                >
-                  {content.title}
-                </button>
-              ))}
+              {featuredProjects
+                .slice(0, 6)
+                .map((content: any, index: number) => (
+                  <button
+                    type="button"
+                    onClick={() => setCurrentContent(index)}
+                    key={content.id}
+                    className={
+                      currentContent === index ? "text-white mb-10" : "mb-10 "
+                    }
+                  >
+                    {content.title}
+                  </button>
+                ))}
             </div>
           </section>
         </article>

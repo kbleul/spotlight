@@ -4,6 +4,15 @@ import FeedCard from "../Feeds/FeedCard";
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 
+export const handleNavigateToCaseStudy = (item: any, navigate: any) => {
+  window.scrollTo(0, 0);
+  const rootElement = document.getElementById("root-body");
+  if (rootElement) {
+    rootElement.style.overflowY = "scroll";
+  }
+  navigate("/case-study/" + item.id, { state: { item } });
+};
+
 const ServicesProjects = () => {
   const navigate = useNavigate();
 
@@ -22,11 +31,6 @@ const ServicesProjects = () => {
 
   const projectsArr: any[] = data.data.data;
 
-  const handleClick = (item: any) => {
-    window.scrollTo(0, 0);
-    navigate("/case-study/" + item.id, { state: { item } });
-  };
-
   return (
     <article className="bg-white flex flex-col lg:flex-row items-start px-[5%] pt-0 lg:py-16">
       <section className="w-full lg:w-1/2 pt-12 flex flex-col justify-center items-center gap-8 order-2 lg:order-1">
@@ -34,7 +38,9 @@ const ServicesProjects = () => {
           <div key={"ServicesProjects-" + i} className="max-w-[800px]">
             <FeedCard
               item={projectsArr[i]}
-              handleClick={handleClick}
+              handleClick={() =>
+                handleNavigateToCaseStudy(projectsArr[i], navigate)
+              }
               showArrow
             />
           </div>
@@ -56,7 +62,9 @@ const ServicesProjects = () => {
           <div key={"ServicesProjects-secondary" + i} className="max-w-[800px]">
             <FeedCard
               item={projectsArr[i + 3]}
-              handleClick={handleClick}
+              handleClick={() =>
+                handleNavigateToCaseStudy(projectsArr[i], navigate)
+              }
               showArrow
             />
           </div>

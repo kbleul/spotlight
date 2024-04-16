@@ -177,9 +177,7 @@ const ServicesScroll = () => {
       <article
         id="scrolledItem"
         ref={ref}
-        className={`hidden lg:block relative lg:h-[108vh] w-full mt-10 ${
-          currentContent >= 5 && " bg-black "
-        }`}
+        className={`hidden lg:block relative lg:h-[108vh] w-full mt-10 bg-black`}
         style={{
           backgroundImage: `url(${bgImg})`,
           backgroundSize: "cover",
@@ -367,9 +365,7 @@ const ServicesScroll = () => {
       </article>
 
       <article
-        className={`lg:hidden h-[100vh] relative w-full block  mt-10 ${
-          currentContent >= 5 && " bg-black "
-        }`}
+        className={`lg:hidden h-[100vh] relative w-full block  mt-10  bg-black`}
         style={{
           backgroundImage: `url(${bgImg})`,
           backgroundSize: "cover",
