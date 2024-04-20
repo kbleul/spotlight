@@ -35,11 +35,11 @@ const Home = () => {
       </div>
 
       <Culture />
-      <div className="px-4 md:px-0">
+      {/* <div className="px-4 md:px-0">
         <Feeds />
-      </div>
+      </div> */}
 
-      <div className=" lg:hidden">
+      <div className="mt-10 lg:hidden">
         <Carasole title="Latest Wins" />
       </div>
 

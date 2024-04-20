@@ -3,16 +3,16 @@ import communityImg2 from "../assets/images/culture.png";
 
 const Communty = () => {
   return (
-    <article className="px-[5%] py-20 lg:h-[100vh] flex flex-col lg:flex-row items-start justify-between">
+    <article className="px-[5%] pb-28 lg:py-20 lg:h-[100vh] flex flex-col lg:flex-row items-start justify-between">
       <section className="w-full lg:w-[48%]">
-        <h4 className="text-5xl lg:leading-[6.5rem] lg:text-7xl font-extrabold lg:font-bold  text-black">
+        <h4 className="text-5xl lg:leading-[6.5rem] lg:text-7xl font-extrabold lg:font-bold mb-4 md:mb-0  text-black">
           This is
         </h4>
-        <h4 className="text-5xl lg:leading-[6.5rem] lg:text-7xl font-extrabold lg:font-bold  text-black hidden lg:block">
+        <h4 className="text-5xl lg:leading-[6.5rem] lg:text-7xl font-extrabold lg:font-bold mb-4 md:mb-0  text-black  lg:block">
           No Ordinary Workplace
         </h4>
 
-        <h4 className="text-5xl lg:leading-[6.5rem] lg:text-7xl font-extrabold lg:font-bold  text-black hidden lg:block">
+        <h4 className="text-5xl lg:leading-[6.5rem] lg:text-7xl font-extrabold lg:font-bold  mb-4 md:mb-0 text-black  lg:block">
           It’s a Creative Playground
         </h4>
 

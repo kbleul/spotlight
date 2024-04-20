@@ -35,12 +35,12 @@ const CultureHero = () => {
         <Header />
         {!showVideo && (
           <>
-            <div className="px-[5%] text-5xl lg:leading-[6rem] lg:text-[96px] text-white font-bold capitalize  absolute bottom-28 lg:bottom-14">
+            <div className="px-[5%] text-5xl lg:leading-[6rem] lg:text-[96px] text-white font-bold capitalize  absolute bottom-36 lg:bottom-14">
               <p className="">relentless</p>
               <p className="">commitment</p>
               <p className="">to work and play</p>
 
-              <button
+              {/* {<button
                 type="button"
                 className="flex gap-4 items-center justify-start text-xl mt-10 hover:font-medium"
                 onClick={() => {
@@ -56,7 +56,7 @@ const CultureHero = () => {
               >
                 <FaPlayCircle size={25} className="pt-1" />
                 <p className="border-b hover:border-b-green-200">Watch Video</p>
-              </button>
+              </button>} */}
             </div>
 
             <motion.div

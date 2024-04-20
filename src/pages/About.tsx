@@ -54,20 +54,20 @@ const About = () => {
           textBody={`We never follow - we always lead. Our teams check egos at the door to create a playground of melding together perspectives, pushing creative boundaries through bold and fresh thinking is in our DNA. While our ideas are revolutionary, our process is swift and precise to bring game-changing campaigns to life. `}
         />
       </div>
-
+      {/* 
       <div className="pb-20 lg:pb-0">
         <GuideUs />
-      </div>
-
+      </div> */}
+      {/* 
       <img
         src={strongerImg}
         alt=""
         className="mt-32 py-20 px-[2%] hidden lg:block"
-      />
+      /> */}
 
-      <div className="mb-[5vh] hidden lg:block">
+      {/* <div className="mb-[5vh] hidden lg:block">
         <Employees />
-      </div>
+      </div> */}
     </article>
   );
 };

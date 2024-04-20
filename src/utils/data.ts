@@ -15,10 +15,10 @@ export const ROUTES = [
     name: "Culture",
     link: "/culture",
   },
-  {
-    name: "Feeds",
-    link: "/feeds",
-  },
+  // {
+  //   name: "Feeds",
+  //   link: "/feeds",
+  // },
 ];
 export const BlackBgRoutes = ["/about", "/culture"];
 

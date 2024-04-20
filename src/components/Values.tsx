@@ -25,7 +25,7 @@ const Values = () => {
         />
       </section>
       <section className="w-full lg:w-[48%] lg:pt-[20vh] order-1 lg:order-2">
-        <h4 className="text-6xl lg:text-8xl font-bold  text-white">
+        <h4 className="text-5xl lg:text-8xl font-bold  text-white">
           We Don’t Stop
         </h4>
 

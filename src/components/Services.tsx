@@ -32,7 +32,7 @@ const CONTENT = [
   {
     id: "services004",
     title: "Want More?",
-    body: "View more",
+    body: "Read More",
     img: service4_img,
   },
 ];
@@ -256,8 +256,7 @@ const Services = () => {
             <img className="" src={CONTENT[3].img} alt="" />
 
             <p className="py-16 text-[#777777] font-medium">
-              Lorem ipsum dolor sit amet consectetur. Ut et vestibulum lectus
-              nullam tellus aliquet pellentesque a dui. Nunc leo at sit fusce.
+              There's more to discover! Explore our extended lineup of projects.
             </p>
             <div className="expandButtonContainerThird w-full flex justify-center">
               <button
@@ -331,7 +330,7 @@ const Services = () => {
             />
           </section>
         </div>
-        <div className="w-full flex-shrink-0 min-h-[80vh] flex flex-col justify-evenly items-start bg-white  px-[5%]">
+        <div className="w-full flex-shrink-0 min-h-[40vh] flex flex-col justify-evenly items-start bg-white  px-[5%]">
           <section className="w-full flex flex-col items-start px-[5%] gap-[5vh] ">
             <h2 className="text-5xl font-extrabold text-[#4F4F4F] mb-6 text-nowrap">
               Want More?

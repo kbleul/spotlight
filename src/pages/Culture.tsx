@@ -12,7 +12,7 @@ const Culture = () => {
       <Values />
       <OurStory />
 
-      <CultureGallery />
+      {/* <CultureGallery /> */}
     </>
   );
 };

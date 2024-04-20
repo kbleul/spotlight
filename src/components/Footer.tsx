@@ -75,7 +75,7 @@ const Footer = () => {
               <FaXTwitter className="w-4 h-4" />
             </a>
           </div>
-          <p className="text-[#777777]  lg:text-lg uppercase font-semibold mt-5 text-center lg:text-right">
+          <p className="text-[#777777] text-sm  lg:text-lg uppercase font-semibold mt-5 text-center lg:text-right">
             Spotlight Communications and Marketing LTD © 2024
           </p>
         </div>

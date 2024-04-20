@@ -51,12 +51,12 @@ const Industries = () => {
           Industries
         </h2>
 
-        <p className="mt-4 lg:mt-0 lg:font-bold text-[#4F4F4F] max-w-[600px] ">
+        {/* <p className="mt-4 lg:mt-0 lg:font-bold text-[#4F4F4F] max-w-[600px] ">
           Lorem ipsum dolor sit amet consectetur. Pretium mattis sit aliquet
           hendrerit imperdiet tortor lectus auctor. Malesuada vitae nunc orci
           faucibus. Faucibus nisl nec eu accumsan. Neque in nisl sit nisl semper
           pulvinar pharetra. Congue commodo praesent.
-        </p>
+        </p> */}
       </motion.section>
 
       <section className="w-full lg:w-[45%] h-full flex flex-col justify-center text-[2.5rem] text-[#4f4f4f] capitalize font-extrabold pb-20">

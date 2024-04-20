@@ -3,8 +3,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import Home from "./pages/Home";
-import Loading from "./components/Suspense/index";
-import { useState } from "react";
+
 import Services from "./pages/Services";
 import Header from "./components/Header";
 import Works from "./pages/Works";
@@ -66,17 +65,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  return (
-    <>
-      {isLoading ? (
-        <Loading setIsLoading={setIsLoading} />
-      ) : (
-        <RouterProvider router={router} />
-      )}
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

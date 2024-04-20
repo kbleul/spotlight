@@ -17,8 +17,10 @@ const FeedCard = ({
   return (
     <button
       type="button"
-      className="bg-[#F5F5F5] rounded-lg max-w-[550px] pt-7"
-      onClick={() => handleClick(item)}
+      className="bg-[#F5F5F5] rounded-lg md:min-w-[500px] max-w-[550px] pt-7"
+      onClick={() =>
+        showArrow && item.sub_title && item.content && handleClick(item)
+      }
     >
       {isFeed && (
         <div className="flex justify-start items-center gap-2 px-6 ">
@@ -29,39 +31,51 @@ const FeedCard = ({
         </div>
       )}
 
-      <div className="px-8 text-left h-[10vh]">
+      <div
+        className={
+          item.sub_title ? "px-8 text-left h-[10vh]" : "px-8 text-left h-[4vh]"
+        }
+      >
         <h4 className="text-xl font-bold mt-2 hidden md:block">
           {truncateText(item.title, 55)}
         </h4>
         <h4 className="text-xl font-bold mt-2  md:hidden">
           {truncateText(item.title, 40)}
         </h4>
-        <p
-          className="mt-2 font-medium text-sm hidden md:block"
-          style={{
-            wordBreak: "break-all",
-          }}
-        >
-          {truncateText(item.sub_title, 130)}
-        </p>
-        <p
-          className="mt-2 font-medium text-sm  md:hidden"
-          style={{
-            wordBreak: "break-all",
-          }}
-        >
-          {truncateText(item.sub_title, 65)}
-        </p>
+        {item.sub_title && (
+          <p
+            className="mt-2 font-medium text-sm hidden md:block"
+            style={{
+              wordBreak: "break-all",
+            }}
+          >
+            {truncateText(item.sub_title, 130)}
+          </p>
+        )}
+        {item.sub_title && (
+          <p
+            className="mt-2 font-medium text-sm  md:hidden"
+            style={{
+              wordBreak: "break-all",
+            }}
+          >
+            {truncateText(item.sub_title, 65)}
+          </p>
+        )}
       </div>
 
       <div className="flex justify-end px-4 py-2">
-        {showArrow ? <MdArrowOutward size={35} /> : <div className="h-8" />}
+        {showArrow && item.sub_title && item.content ? (
+          <MdArrowOutward size={35} />
+        ) : (
+          <div className="h-8" />
+        )}
       </div>
       <div className="w-full max-h-[40vh] rounded-t-[2rem] overflow-hidden ">
         <img
-          src={placeholderimg}
+          src={item.cover && item.cover.url ? item.cover.url : placeholderimg}
           alt=""
-          className="w-full  max-h-[40vh] object-cover"
+          className="w-full max-h-[40vh] object-cover"
         />
       </div>
     </button>

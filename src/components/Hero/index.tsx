@@ -3,14 +3,14 @@ import scrollArrow from "../../assets/images/arrow_scroll.svg";
 
 const Hero = () => {
   return (
-    <article className="px-6 md:px-12 pt-6 mt-10 relative ">
+    <article className="px-6 md:px-12 pt-6 mt-10 relative min-h-[40vh] md:min-h-[70vh]">
       <div className="w-full flex justify-center">
-        <h2 className="text-[#4F4F4F] text-[60px] text-center lg:text-left md:text-[120px] lg:text-[250px] font-extrabold">
-          Spotlight
+        <h2 className="w-full  text-[#4F4F4F] text-[80px] text-center   md:text-[120px] lg:text-[250px] lg:leading-[20rem] font-extrabold">
+          SHINE BRIGHT
         </h2>
       </div>
 
-      <section className="w-full flex justify-end mt-6 md:mt-10">
+      {/* <section className="w-full flex justify-end mt-6 md:mt-10">
         <div className="w-[95%] lg:w-1/2 mt-6 lg:pr-12">
           <h2 className="text-lg md:tet-xl lg:text-2xl font-extrabold">
             We make it simple to stand out
@@ -22,7 +22,7 @@ const Hero = () => {
             faucibus. Vitae etiam non sem tempus.
           </p>
         </div>
-      </section>
+      </section> */}
 
       <img
         src={scrollArrow}
