@@ -7,18 +7,6 @@ import { useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { useQuery } from "@tanstack/react-query";
 
-const ItemImgs = [
-  cultureImg1,
-  cultureImg2,
-  cultureImg3,
-  cultureImg1,
-  cultureImg2,
-  cultureImg3,
-  cultureImg1,
-  cultureImg2,
-  cultureImg3,
-];
-
 const Industries = () => {
   const { ref, inView } = useInView({
     threshold: 0.4,
@@ -99,7 +87,7 @@ const ItemCard = ({
 
       {isHovered && (
         <motion.div
-          className="absolute bottom-2 right-3 flex items-center gap-2"
+          className="absolute top-4 right-3 flex items-center gap-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
@@ -109,7 +97,7 @@ const ItemCard = ({
               key={img.uuid}
               src={img.url}
               alt={item.name}
-              className="w-8 h-8 md:w-12 md:h-12 rounded-full object-cover"
+              className="w-8 h-8 md:w-10 md:h-10 rounded-full object-cover"
             />
           ))}
         </motion.div>

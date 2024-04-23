@@ -96,8 +96,6 @@ const ServicesScroll = () => {
   useEffect(() => {
     let x = window.matchMedia("(max-width: 700px)");
     if (!x.matches) {
-      console.log(x);
-
       if (inView) {
         const rootElement = document.getElementById("root-body");
         if (rootElement) {
@@ -122,7 +120,7 @@ const ServicesScroll = () => {
         const delta = event.deltaY;
 
         setScrolledAmountCounter((prev) => {
-          if (prev >= 16) {
+          if (prev >= 36) {
             if (delta < 0) {
               if (currentContent > 0) {
                 setCurrentContent((prevContent) => {

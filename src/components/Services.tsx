@@ -192,7 +192,7 @@ const Services = () => {
         </div>
         <div
           id="container2"
-          className="w-full flex-shrink-0 h-[105vh] flex justify-evenly items-center bg-[#fce8bb]"
+          className="w-full flex-shrink-0 h-[105vh] flex justify-evenly items-center bg-white"
         >
           <section className="w-[45%] max-w-[600px]">
             <h2 className="text-[115px] font-extrabold text-[#4F4F4F] mb-6">

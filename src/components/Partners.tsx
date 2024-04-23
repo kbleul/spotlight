@@ -1,6 +1,7 @@
 import partner_img1 from "../assets/images/partners/1.svg";
 import partner_img2 from "../assets/images/partners/2.svg";
 import partner_img3 from "../assets/images/partners/3.svg";
+import partner_img4 from "../assets/images/partners/4.png";
 
 const Partners = () => {
   return (
@@ -13,6 +14,7 @@ const Partners = () => {
         <img src={partner_img1} alt="" className="max-w-[12rem]" />
         <img src={partner_img2} alt="" className="max-w-[12rem]" />
         <img src={partner_img3} alt="" className="max-w-[12rem]" />
+        <img src={partner_img4} alt="" className="max-w-[12rem]" />
       </section>
     </article>
   );

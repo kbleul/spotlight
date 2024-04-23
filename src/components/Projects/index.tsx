@@ -76,7 +76,7 @@ const ProjectsGrid = ({ projects }: { projects: any[] }) => {
           <ProjectCard project={projects[0]} />
           <ProjectCard project={projects[1]} />
         </section>
-        <section className="w-[90%] lg:w-1/3 max-w-[400px]  flex flex-col gap-6 lg:mt-[20vh] ">
+        <section className="w-[90%] lg:w-1/3 max-w-[400px]  flex flex-col gap-6 lg:mt-[3vh] ">
           <ProjectCard project={projects[2]} />
           <section className="hidden lg:flex h-[50vh] px-4 bg-white text-black rounded-md flex-col gap-4 justify-center items-center">
             <h4 className="font-extrabold w-full text-center">

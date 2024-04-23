@@ -123,7 +123,7 @@ const Culture = () => {
         </section>
       </motion.div>
 
-      {showImageIndex && (
+      {/* {showImageIndex && (
         <img
           src={
             showImageIndex === 1
@@ -139,7 +139,7 @@ const Culture = () => {
             left: smallImagePosition.x + 10,
           }}
         />
-      )}
+      )} */}
     </article>
   );
 };
