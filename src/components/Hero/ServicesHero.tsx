@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import serviceImg from "../../assets/images/service2.png";
+import serviceImg from "../../assets/images/Services-Page---Banner.jpg";
 
 const Hero = () => {
   return (

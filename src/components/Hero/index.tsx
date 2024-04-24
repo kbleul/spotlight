@@ -4,9 +4,12 @@ import scrollArrow from "../../assets/images/arrow_scroll.svg";
 const Hero = () => {
   return (
     <article className="px-6 md:px-12 pt-6 mt-10 relative min-h-[40vh] md:min-h-[70vh]">
-      <div className="w-full flex justify-center">
-        <h2 className="w-full  text-[#4F4F4F] text-[80px] text-center   md:text-[120px] lg:text-[250px] lg:leading-[20rem] font-extrabold">
-          SHINE BRIGHT
+      <div className="w-full flex flex-col justify-center">
+        <h2 className="w-full  text-[#4F4F4F] text-[80px] text-center md:text-[120px] lg:text-[200px] leading-[8rem] lg:leading-[12rem] font-extrabold">
+          SHINE
+        </h2>
+        <h2 className="w-full  text-[#4F4F4F] text-[80px] text-center md:text-[120px] lg:text-[200px] leading-[4rem] lg:leading-[12rem] font-extrabold">
+          BRIGHT
         </h2>
       </div>
 

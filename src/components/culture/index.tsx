@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import cultureImg from "../../assets/images//Culture.png";
 
 import cultureImg1 from "../../assets/images/culture/1.svg";
 import cultureImg2 from "../../assets/images/culture/2.svg";
@@ -39,7 +40,7 @@ const Culture = () => {
   return (
     <article
       ref={ref}
-      className="bg-white lg:h-[100vh] pt-[1vh] md:pt-[3vh] lg:px-12 relative overflow-hidden"
+      className="bg-white md:pb-[25vh] md:pt-[20vh] lg:px-12 relative overflow-hidden"
     >
       <motion.div
         className="w-full flex flex-col lg:flex-row justify-between items-start px-[3%] lg:px-0"
@@ -47,8 +48,8 @@ const Culture = () => {
         animate={inView ? { y: 0, x: 0 } : { y: 1000, x: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <section className="w-full lg:w-1/2 flex flex-col gap-y-[6vh] lg:gap-y-[18vh] relative order-2 lg:order-1  mt-10 lg:mt-0">
-          <img
+        <section className=" w-full lg:w-1/2 flex flex-col items-center gap-y-[6vh] lg:gap-y-[18vh] relative order-2 lg:order-1  mt-10 lg:mt-0">
+          {/* <img
             src={cultureImg2}
             alt=""
             className="w-3/5 z-10"
@@ -71,15 +72,12 @@ const Culture = () => {
               handleMouseMove(event)
             }
             onMouseLeave={handleMouseLeave}
-          />
+          /> */}
 
           <img
-            src={cultureImg1}
+            src={cultureImg}
             alt=""
-            className="absolute  h-[80%] mt-[10%] w-3/5"
-            style={{
-              right: -30,
-            }}
+            className="lg:h-[60vh] max-w-[600px] w-4/5"
             onMouseEnter={(event: React.MouseEvent<HTMLImageElement>) =>
               handleMouseEnter(event, 3)
             }
@@ -97,7 +95,7 @@ const Culture = () => {
               We are Spotlight
             </h4>
 
-            <p className=" mt-4  text-[#4f4f4f] font-semibold">
+            <p className=" mt-4  text-[#4f4f4f] font-semibold lg:text-lg">
               We are creative, we are diverse, we are ever-changing. We debate,
               laugh, craft and bring together perspectives that challenge the
               status quo.

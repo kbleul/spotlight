@@ -43,7 +43,7 @@ const Leading = ({
               {secondaryTitle}
             </h2>
           )}
-          <p className="mt-10 text-white lg:text-[#777777]">{textBody}</p>
+          <p className="mt-10 text-[#777777] lg:text-lg">{textBody}</p>
         </motion.div>
       </section>
     </article>

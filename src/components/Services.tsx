@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 
-import service1_img from "../assets/images/services1.svg";
-import service2_img from "../assets/images/services2.svg";
-import service3_img from "../assets/images/services3.svg";
+import service1_img from "../assets/images/Public_Relations.png";
+import service2_img from "../assets/images/Marketing.png";
+import service5_img from "../assets/images/Marketing_black.png";
+
+import service3_img from "../assets/images/Advertising.png";
 import service4_img from "../assets/images/Want.svg";
 
 import { IoIosArrowRoundForward } from "react-icons/io";
@@ -22,6 +24,7 @@ const CONTENT = [
     title: "Marketing",
     body: "Captivating hearts with insight-driven, creative marketing strategies that inspire action.",
     img: service2_img,
+    img_two: service5_img,
   },
   {
     id: "services003",
@@ -180,7 +183,9 @@ const Services = () => {
               <h4>{CONTENT[0].title}</h4>
             </div>
 
-            <div className="max-w-[600px] mt-4">{CONTENT[0].body}</div>
+            <div className="max-w-[600px] mt-4 lg:text-lg">
+              {CONTENT[0].body}
+            </div>
           </section>
           <section className="w-[45%] flex justify-center items-start  pt-4 ">
             <img
@@ -209,7 +214,7 @@ const Services = () => {
             </motion.div>
 
             <motion.div
-              className="max-w-[600px] mt-4"
+              className="max-w-[600px] mt-4 lg:text-lg"
               initial={{ y: 50 }}
               animate={{ y: 0 }}
               transition={{ duration: 0.8 }}
@@ -238,7 +243,9 @@ const Services = () => {
               <h4>{CONTENT[2].title}</h4>
             </div>
 
-            <div className="max-w-[600px] mt-4">{CONTENT[2].body}</div>
+            <div className="max-w-[600px] mt-4 lg:text-lg">
+              {CONTENT[2].body}
+            </div>
           </section>
           <section className="w-[45%] flex justify-center items-start  pt-4 ">
             <img
@@ -255,9 +262,15 @@ const Services = () => {
           <section className="w-[40%] flex flex-col items-start pl-[5%]">
             <img className="" src={CONTENT[3].img} alt="" />
 
-            <p className="py-16 text-[#777777] font-medium">
-              There's more to discover! Explore our extended lineup of projects.
-            </p>
+            <div className="py-16 w-full flex flex-col items-center">
+              <p className=" text-[#777777] font-medium lg:text-lg text-center">
+                There's more to discover!
+              </p>
+              <p className=" text-[#777777] font-medium lg:text-lg text-center">
+                Explore our extended lineup of projects.
+              </p>
+            </div>
+
             <div className="expandButtonContainerThird w-full flex justify-center">
               <button
                 type="button"
@@ -308,7 +321,7 @@ const Services = () => {
           </section>
           <section className="w-[45%] flex justify-center items-start  pt-4 ">
             <img
-              src={CONTENT[1].img}
+              src={CONTENT[1].img_two}
               alt="logo"
               className="max-w-[15rem] max-h-[15rem] mt-12 mb-20"
             />

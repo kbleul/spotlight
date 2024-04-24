@@ -76,7 +76,7 @@ const ItemCard = ({
     <motion.div
       className={`h-[14%] pt-6 lg:pt-0 lg:pb-2 px-6 ${
         index !== 5 && " border-b "
-      }  border-black relative flex items-end`}
+      }  border-black relative flex items-end cursor-pointer`}
       initial={inView ? { y: 2000 } : { y: 0 }}
       animate={inView ? { y: 0 } : { y: 2000 }}
       transition={{ duration: 0.4 * (index + 1) }}

@@ -1,5 +1,6 @@
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { scrollToContactSection, truncateText } from "../../utils/func";
+import parse from "html-react-parser";
 
 const ProjectDetail = ({ projectDetails }: { projectDetails: any }) => {
   return (
@@ -30,7 +31,7 @@ const ProjectDetail = ({ projectDetails }: { projectDetails: any }) => {
         </div>
         <div className="w-full lg:w-1/2 pt-4 lg:pt-10 pb-20 min-h-[50vh] relative border-t lg:border-t-0  lg:border-l">
           <p className="px-[5%] lg:px-[10%] pb-28 text-2xl lg:text-4xl font-semibold">
-            {projectDetails.content}
+            {parse(projectDetails.sub_title)}
           </p>
 
           <div

@@ -2,6 +2,7 @@ import avatar from "../../assets/images/avatar_placeholder.svg";
 import placeholderimg from "../../assets/images/feed_placeholder.svg";
 import { MdArrowOutward } from "react-icons/md";
 import { truncateText } from "../../utils/func";
+import parse from "html-react-parser";
 
 const FeedCard = ({
   item,
@@ -42,24 +43,15 @@ const FeedCard = ({
         <h4 className="text-xl font-bold mt-2  md:hidden">
           {truncateText(item.title, 40)}
         </h4>
+
         {item.sub_title && (
           <p
-            className="mt-2 font-medium text-sm hidden md:block"
+            className="mt-2 font-medium text-sm  line-clamp-2"
             style={{
               wordBreak: "break-all",
             }}
           >
-            {truncateText(item.sub_title, 130)}
-          </p>
-        )}
-        {item.sub_title && (
-          <p
-            className="mt-2 font-medium text-sm  md:hidden"
-            style={{
-              wordBreak: "break-all",
-            }}
-          >
-            {truncateText(item.sub_title, 65)}
+            {parse(item.sub_title)}
           </p>
         )}
       </div>

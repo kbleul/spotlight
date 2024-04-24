@@ -48,7 +48,7 @@ const Hero = () => {
     >
       {!showVideo && (
         <>
-          <div className="px-[5%] text-3xl md:text-4xl lg:text-5xl lg:leading-[6rem] lg:text-[90px] text-white font-bold capitalize  absolute bottom-10 lg:bottom-14">
+          <div className="w-full px-[5%] text-3xl md:text-4xl lg:text-5xl lg:leading-[6rem] lg:text-[90px] text-white font-bold capitalize  absolute bottom-10 lg:bottom-14">
             <p className="w-full lg:max-w-[80%]">{item.title}</p>
 
             {item.video && item.video !== "" && (
@@ -64,11 +64,11 @@ const Hero = () => {
 
             {item.services && (
               <article
-                className={`w-full flex ${
+                className={`w-full flex  ${
                   item.services.length >= 2 ? "justify-end" : "justify-start"
                 }  mt-4  `}
               >
-                <section className="text-white text-sm  grid grid-cols-2 gap-4 ">
+                <section className="text-white text-sm  grid grid-cols-2 gap-4 justify-end">
                   {item.services.map((service: any, index: number) => (
                     <p
                       key={"servie-cate" + index}

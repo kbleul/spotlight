@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import { handleNavigateToCaseStudy } from "../Projects/ServicesProjects";
 import { useNavigate } from "react-router-dom";
 import { MdArrowOutward } from "react-icons/md";
-
+import parse from "html-react-parser";
 const Featured = () => {
   const { ref, inView } = useInView({
     threshold: 1,
@@ -110,7 +110,7 @@ const Featured = () => {
 
   if (error) return <></>;
 
-  const featuredProjects: any[] = data.data.data;
+  const featuredProjects: any[] = data.data.data.slice(0, 6);
 
   const contentDispatch = () => {
     return (
@@ -152,20 +152,26 @@ const Featured = () => {
                 ? featuredProjects.length - 1
                 : currentContent + 1}
             </motion.h3>
-            <motion.p
-              className="text-[#777777] text-xs  mt-4"
-              initial={{ y: 100 }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              {
-                featuredProjects[
-                  currentContent >= featuredProjects.length - 1
-                    ? featuredProjects.length - 1
-                    : currentContent
-                ].sub_title
-              }
-            </motion.p>
+            {featuredProjects[
+              currentContent >= featuredProjects.length - 1
+                ? featuredProjects.length - 1
+                : currentContent
+            ].sub_title && (
+              <motion.p
+                className="text-[#777777] text-sm line-clamp-5  mt-4 "
+                initial={{ y: 100 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                {parse(
+                  featuredProjects[
+                    currentContent >= featuredProjects.length - 1
+                      ? featuredProjects.length - 1
+                      : currentContent
+                  ].sub_title
+                )}
+              </motion.p>
+            )}
 
             {featuredProjects[
               currentContent >= featuredProjects.length - 1
@@ -176,7 +182,7 @@ const Featured = () => {
                 currentContent >= featuredProjects.length - 1
                   ? featuredProjects.length - 1
                   : currentContent
-              ].subtitle && (
+              ].sub_title && (
                 <motion.div
                   className="expandButtonContainerSecondary mt-6"
                   initial={{ y: 100 }}
@@ -209,18 +215,18 @@ const Featured = () => {
               )}
           </div>
           <motion.p
-            className="w-1/2 text-sm"
+            className="w-1/2 text-sm line-clamp-[8]"
             initial={{ x: 100 }}
             animate={{ x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            {
+            {parse(
               featuredProjects[
                 currentContent >= featuredProjects.length - 1
                   ? featuredProjects.length - 1
                   : currentContent
               ].content
-            }
+            )}
           </motion.p>
         </section>
       </div>
@@ -277,7 +283,13 @@ const Featured = () => {
 
               <div className="w-[60%] mx-[10%] mb-8 relative">
                 <motion.img
-                  src={featuredProjects[currentContent].cover.url}
+                  src={
+                    featuredProjects[
+                      currentContent >= featuredProjects.length - 1
+                        ? featuredProjects.length - 1
+                        : currentContent
+                    ].cover.url
+                  }
                   className="w-full"
                   alt=""
                   initial={{ opacity: 0 }}
@@ -294,7 +306,7 @@ const Featured = () => {
                     currentContent >= featuredProjects.length - 1
                       ? featuredProjects.length - 1
                       : currentContent
-                  ].subtitle && (
+                  ].sub_title && (
                     <button
                       type="button"
                       className="absolute top-0 text-white"

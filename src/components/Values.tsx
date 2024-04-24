@@ -29,7 +29,7 @@ const Values = () => {
           We Don’t Stop
         </h4>
 
-        <p className="max-w-[600px] text-white lg:text-[#777777] font-medium mt-10">
+        <p className="max-w-[600px] text-white lg:text-[#777777] font-medium mt-10 lg:text-lg">
           "Good enough" isn't in our vocabulary. Our fire rages with an
           insatiable hunger to learn, explore uncharted territories, and dig up
           fresh truths that'll blow minds. We never stop questioning, learning

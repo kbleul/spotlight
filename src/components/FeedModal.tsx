@@ -7,7 +7,7 @@ import avatar from "../assets/images/avatar_placeholder.svg";
 import { FaPlayCircle } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import { Player } from "video-react";
-
+import parse from "html-react-parser";
 const FeedModal = ({
   isFeedModalOpen,
   setIsFeednModalOpen,
@@ -159,13 +159,7 @@ const FeedModal = ({
                           wordBreak: "break-all",
                         }}
                       >
-                        {blog.content}
-                        {blog.content}
-                        {blog.content}
-                        {blog.content}
-                        {blog.content}
-                        {blog.content}
-                        {blog.content}
+                        {parse(blog.content)}
                       </p>
                     </section>
                   </article>

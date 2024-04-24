@@ -47,7 +47,7 @@ const Projects = () => {
             </div>
           </div>
 
-          <p className="lg:ml-[15%] max-w-[1000px] mt-4 lg:pr-[7%] text-[#B9B9B9]">
+          <p className="lg:ml-[15%] max-w-[1000px] mt-4 lg:pr-[7%] text-[#B9B9B9] lg:text-lg">
             From global titans to innovative startups, our brands shine. Explore
             our campaigns that have stood out and captured hearts.
           </p>
@@ -80,12 +80,11 @@ const ProjectsGrid = ({ projects }: { projects: any[] }) => {
           <ProjectCard project={projects[2]} />
           <section className="hidden lg:flex h-[50vh] px-4 bg-white text-black rounded-md flex-col gap-4 justify-center items-center">
             <h4 className="font-extrabold w-full text-center">
-              Are You Looking For Something Special Or Different?
+              Shape your Success: Partner with Our Experts!
             </h4>
             <p className="w-full text-center text-[#777777]">
-              Lorem ipsum dolor sit amet consectetur. Egestas accumsan tristique
-              sed nibh suspendisse orci. Sed faucibus quis id vitae elementum
-              libero.
+              Explore our standout projects and let's craft your brand's success
+              story together. Get in touch now!
             </p>
             <div className="expandButtonContainerSecondary mt-16  pl-3">
               <button

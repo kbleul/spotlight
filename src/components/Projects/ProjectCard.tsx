@@ -19,13 +19,13 @@ const ProjectCard = ({ project }: { project: any }) => {
 
       <div
         className="bg-[#d9d9d9] h-[30vh] rounded-t-[2rem] overflow-hidden"
-        style={{
-          backgroundImage: `url(${project.cover.url})`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-        }}
+        // style={{
+        //   backgroundImage: `url(${project.cover.url})`,
+        //   backgroundSize: "cover",
+        //   backgroundRepeat: "no-repeat",
+        // }}
       >
-        {/* <img src={project.cover.url} alt="" className="w-full h-[30vh]" /> */}
+        <img src={project.cover.url} alt="" className="w-full h-auto" />
       </div>
     </article>
   );

@@ -35,14 +35,7 @@ const About = () => {
         <Leading
           img={shineImg}
           title="Shining a Light"
-          textBody={`Lorem ipsum dolor sit amet consectetur. Donec ac tincidunt integer
-      sed euismod pellentesque. Eget fermentum leo diam tortor vitae
-      tellus lacus pellentesque sed. Fringilla ut blandit faucibus a. Vel
-      vitae neque egestas risus fermentum porta. Purus mauris elementum
-      erat mi non quam augue. Consectetur sed vivamus nulla tempor
-      ultrices augue est. Varius ac sed viverra magna velit nisi.
-      Tincidunt sollicitudin fermentum enim vel sem. Duis molestie id
-      aliquam quisque dui lacus eget egestas.`}
+          textBody={`At Spotlight, we craft brands and communications campaigns that transcend boundaries and connect with diverse audiences. Our process involves meticulous research, strategic planning, and nurtuting strong relationships to make it happen.At Spotlight, we craft brands and communications campaigns that transcend boundaries and connect with diverse audiences. Our process involves meticulous research, strategic planning, and nurtuting strong relationships to make it happen.`}
         />
       </div>
 

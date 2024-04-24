@@ -8,18 +8,18 @@ import { IoIosArrowRoundUp } from "react-icons/io";
 
 const Footer = () => {
   return (
-    <article className="py-[10vh] bg-black flex flex-col lg:flex-row ">
+    <article className="py-[4vh] bg-black flex flex-col lg:flex-row ">
       <section className="lg:pl-[7%] text-white w-full  flex lg:block flex-col items-center lg:w-1/2">
         <img
           src={logoWhite}
           className="w-full lg:w-auto  max-w-[200px] lg:max-w-none order-1"
         />
 
-        <div className="w-full pl-[15%] lg:pl-0 flex items-center justify-start gap-4 mt-4 lg:mt-10 order-3 ">
+        <div className="w-full pl-[15%] lg:pl-0 flex items-center justify-start gap-4 mt-4 lg:mt-4 order-3 ">
           <div className="border border-[#777777] p-2 rounded-full">
             <CiLocationOn className="w-4 h-4" />
           </div>
-          <div className="lg:text-lg flex flex-col gap-2 mt-4">
+          <div className=" flex flex-col gap-2 mt-4">
             <p>Bole, DH Geda Tower</p>
             <p>7th Floor; Office Suite 705</p>
           </div>
@@ -29,7 +29,7 @@ const Footer = () => {
           <div className="border border-[#777777] p-2 rounded-full">
             <MdOutlinePhone className="w-4 h-4" />
           </div>
-          <div className="lg:text-lg flex flex-col gap-2 ">
+          <div className=" flex flex-col gap-2 ">
             <p>+251 92 917 5223</p>
             <p>+251 91 398 6445 </p>
           </div>
@@ -69,13 +69,13 @@ const Footer = () => {
 
             <a
               href="http://www.twitter.com/spotlightethiopia"
-              className="border border-[#777777] p-2 lg:p-3 rounded-full"
+              className="border border-[#777777] p-2 lg:p-2 rounded-full"
               target="_blank"
             >
               <FaXTwitter className="w-4 h-4" />
             </a>
           </div>
-          <p className="text-[#777777] text-sm  lg:text-lg uppercase font-semibold mt-5 text-center lg:text-right">
+          <p className="text-[#777777] text-sm  lg:text-base uppercase font-semibold mt-5 text-center lg:text-right">
             Spotlight Communications and Marketing LTD © 2024
           </p>
         </div>

@@ -32,7 +32,7 @@ const Connections = ({
           <h2 className="text-[#fff]  text-4xl lg:text-6xl font-extrabold">
             {secondaryTitle}
           </h2>
-          <p className="mt-14 text-[#777777]">{textBody}</p>
+          <p className="mt-14 text-[#777777] lg:text-lg">{textBody}</p>
         </motion.div>
 
         <motion.div

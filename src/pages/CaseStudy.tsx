@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import Hero from "../components/Hero/CaseStudyHero";
 import ProjectDetail from "../components/Projects/ProjectDetail";
 import ProjectGallery from "../components/Projects/ProjectGallery";
-
+import parse from "html-react-parser";
 const CaseStudy = () => {
   const { id } = useParams();
 
@@ -28,7 +28,7 @@ const CaseStudy = () => {
       <ProjectDetail projectDetails={projectDetails} />
 
       <div className="flex justify-center items-center w-full px-[3%] lg:px-[5%]">
-        <Intro intro={projectDetails.sub_title} />
+        <Intro intro={projectDetails.content} />
       </div>
 
       <div className="flex justify-center items-center w-full px-[3%] lg:px-[5%]">
@@ -41,8 +41,10 @@ const CaseStudy = () => {
 const Intro = ({ intro }: { intro: string }) => {
   return (
     <section className="bg-white py-10  max-w-[1000px]">
-      <h4 className="text-[#777777] text-xl font-bold mb-2">Intro</h4>
-      <p className="font-bold">{intro}</p>
+      <h4 className="text-[#777777] text-xl lg:text-2xl font-bold mb-2">
+        About
+      </h4>
+      <p className="font-semibold  lg:text-lg">{parse(intro)}</p>
     </section>
   );
 };

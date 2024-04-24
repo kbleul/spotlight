@@ -28,7 +28,7 @@ const About = () => {
           <h5 className="font-semibold text-lg md:text-xl mt-8 mb-3 md:mb-0">
             We Take The Stage
           </h5>
-          <p className="mt-2">
+          <p className="mt-2 lg:text-lg">
             We are a leading creative communications, marketing, and advertising
             agency in Ethiopia sparking bold, trendsetting ideas. Our innovative
             strategies amplify brands and businesses, making them stand out.
