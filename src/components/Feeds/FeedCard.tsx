@@ -1,37 +1,76 @@
 import avatar from "../../assets/images/avatar_placeholder.svg";
 import placeholderimg from "../../assets/images/feed_placeholder.svg";
 import { MdArrowOutward } from "react-icons/md";
+import { truncateText } from "../../utils/func";
+import parse from "html-react-parser";
 
-const FeedCard = () => {
+const FeedCard = ({
+  item,
+  isFeed,
+  handleClick,
+  showArrow,
+}: {
+  item: any;
+  isFeed?: boolean;
+  handleClick: (item: any) => void;
+  showArrow?: boolean;
+}) => {
   return (
-    <article className="bg-[#F5F5F5] rounded-lg max-w-[550px]">
-      <div className="flex justify-start items-center gap-2 px-6 pt-7">
-        <p className="border border-black rounded-full px-5 ">News</p>
-        <img src={avatar} alt="" className="w-6 h-6 rounded-full" />
-      </div>
+    <button
+      type="button"
+      className="bg-[#F5F5F5] rounded-lg md:min-w-[500px] max-w-[550px] pt-7"
+      onClick={() =>
+        showArrow && item.sub_title && item.content && handleClick(item)
+      }
+    >
+      {isFeed && (
+        <div className="flex justify-start items-center gap-2 px-6 ">
+          <p className="border border-black rounded-full px-5 ">
+            {item.category.name}
+          </p>
+          <img src={avatar} alt="" className="w-6 h-6 rounded-full" />
+        </div>
+      )}
 
-      <div className="px-8">
-        <h4 className="text-xl font-bold mt-2">
-          Lorem ipsum dolor sit amet consectetur.
+      <div
+        className={
+          item.sub_title ? "px-8 text-left h-[10vh]" : "px-8 text-left h-[4vh]"
+        }
+      >
+        <h4 className="text-xl font-bold mt-2 hidden md:block">
+          {truncateText(item.title, 55)}
         </h4>
-        <p className="mt-2 font-medium text-sm">
-          Lorem ipsum dolor sit amet consectetur. Feugiat consequat enim urna
-          mi. Lectus aliquet ut ut sollicitudin. Massa tellus lacinia tortor in
-          orci. Sit amet netus nec donec gravida nam. Orci amet neque duis.
-        </p>
+        <h4 className="text-xl font-bold mt-2  md:hidden">
+          {truncateText(item.title, 40)}
+        </h4>
+
+        {item.sub_title && (
+          <p
+            className="mt-2 font-medium text-sm  line-clamp-2"
+            style={{
+              wordBreak: "break-all",
+            }}
+          >
+            {parse(item.sub_title)}
+          </p>
+        )}
       </div>
 
       <div className="flex justify-end px-4 py-2">
-        <MdArrowOutward size={40} />
+        {showArrow && item.sub_title && item.content ? (
+          <MdArrowOutward size={35} />
+        ) : (
+          <div className="h-8" />
+        )}
       </div>
       <div className="w-full max-h-[40vh] rounded-t-[2rem] overflow-hidden ">
         <img
-          src={placeholderimg}
+          src={item.cover && item.cover.url ? item.cover.url : placeholderimg}
           alt=""
-          className="w-full  max-h-[40vh] object-cover"
+          className="w-full max-h-[40vh] object-cover"
         />
       </div>
-    </article>
+    </button>
   );
 };
 

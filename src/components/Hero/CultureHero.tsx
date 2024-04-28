@@ -1,5 +1,5 @@
 import { FaPlayCircle } from "react-icons/fa";
-import bgImg from "../../assets/images/culture.png";
+import bgImg from "../../assets/images/bgvid.gif";
 import { useEffect, useState } from "react";
 import { Player } from "video-react";
 import { IoMdClose } from "react-icons/io";
@@ -25,7 +25,7 @@ const CultureHero = () => {
     <article className="w-full h-[100vh]  z-0">
       <section
         ref={ref}
-        className="absolute top-0 h-[100vh] w-full"
+        className="absolute top-0 h-[100vh] w-full bg-black"
         style={{
           backgroundImage: `url(${bgImg})`,
           backgroundSize: "cover",
@@ -35,12 +35,12 @@ const CultureHero = () => {
         <Header />
         {!showVideo && (
           <>
-            <div className="px-[5%] leading-[6rem] text-[96px] text-white font-bold capitalize  absolute bottom-14">
+            <div className="px-[5%] text-5xl lg:leading-[6rem] lg:text-[96px] text-white font-bold capitalize  absolute bottom-36 lg:bottom-14">
               <p className="">relentless</p>
               <p className="">commitment</p>
               <p className="">to work and play</p>
 
-              <button
+              {/* {<button
                 type="button"
                 className="flex gap-4 items-center justify-start text-xl mt-10 hover:font-medium"
                 onClick={() => {
@@ -48,13 +48,15 @@ const CultureHero = () => {
                   if (rootElement) {
                     rootElement.style.overflowY = "hidden";
                   }
+                  window.scrollTo(0, 0);
+
                   isFirstTime && setIsFirstTime(false);
                   setShowVideo(true);
                 }}
               >
                 <FaPlayCircle size={25} className="pt-1" />
                 <p className="border-b hover:border-b-green-200">Watch Video</p>
-              </button>
+              </button>} */}
             </div>
 
             <motion.div
@@ -67,7 +69,9 @@ const CultureHero = () => {
                 <button
                   type="button"
                   className=""
-                  onClick={() => setShowVideo(false)}
+                  onClick={() => {
+                    setShowVideo(false);
+                  }}
                 >
                   <IoMdClose size={38} />
                 </button>

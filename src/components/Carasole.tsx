@@ -1,81 +1,61 @@
-import img1 from "../assets/images/carasol/1.png";
-import img2 from "../assets/images/carasol/2.png";
-import img3 from "../assets/images/carasol/3a.svg";
-import img4 from "../assets/images/carasol/4.png";
+import { useQuery } from "@tanstack/react-query";
 
 const Carasole = ({ title }: { title?: string }) => {
+  const { isPending, error, data } = useQuery({
+    queryKey: ["allclients"],
+    queryFn: () =>
+      fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}clients`).then(
+        (res) => res.json()
+      ),
+  });
+
+  //loading
+  if (isPending) return <article className="bg-white h-screen" />;
+
+  if (error) return <></>;
+
+  const clientsArr: {
+    id: string;
+    image: {
+      url: string;
+    };
+  }[] = data.data;
+
   return (
-    <article className="carousel-container bg-black pb-20 overflow-hidden">
+    <article className="carousel-container bg-black pt-0 pb-20 overflow-hidden">
       {title && (
-        <h4 className="pt-4 pb-12 font-bold text-2xl text-[#4F4F4F] text-center">
+        <h4 className="pt-4 pb-8 md:pb-12 font-bold text-2xl text-[#4F4F4F] text-center">
           {title}
         </h4>
       )}
       <section className="carousel">
-        <div className="carousel-track gap-x-6 md:gap-x-40">
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
+        <div className="carousel-track gap-x-12 md:gap-x-40">
+          {clientsArr.map((item, index) => (
+            <img
+              key={item.id + index}
+              src={item.image.url}
+              alt=""
+              className=" w-[15%] h-16 md:h-20 md:w-1/4"
+            />
+          ))}
+          {clientsArr.length < 33 &&
+            clientsArr.map((item, index) => (
+              <img
+                key={item.id + index}
+                src={item.image.url}
+                alt=""
+                className=" w-[15%] h-16 md:h-20 md:w-1/4"
+              />
+            ))}
+          {clientsArr.length < 33 &&
+            clientsArr.map((item, index) => (
+              <img
+                key={item.id + index}
+                src={item.image.url}
+                alt=""
+                className=" w-[15%] h-16 md:h-20 md:w-1/4"
+              />
+            ))}
         </div>
       </section>
     </article>

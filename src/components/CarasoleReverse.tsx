@@ -1,9 +1,26 @@
-import img1 from "../assets/images/clients/alibaba.svg";
-import img2 from "../assets/images/clients/bill.svg";
-import img3 from "../assets/images/clients/mastercard.svg";
-import img4 from "../assets/images/clients/safari.svg";
+import { useQuery } from "@tanstack/react-query";
 
 const CarasoleReverse = ({ title }: { title?: string }) => {
+  const { isPending, error, data } = useQuery({
+    queryKey: ["allclients"],
+    queryFn: () =>
+      fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}clients`).then(
+        (res) => res.json()
+      ),
+  });
+
+  //loading
+  if (isPending) return <article className="bg-white h-screen" />;
+
+  if (error) return <></>;
+
+  const clientsArr: {
+    id: string;
+    image: {
+      url: string;
+    };
+  }[] = data.data.reverse();
+
   return (
     <article className="carousel-container bg-black pb-20">
       {title && (
@@ -13,61 +30,32 @@ const CarasoleReverse = ({ title }: { title?: string }) => {
       )}
       <section className="carouselReverse">
         <div className="carousel-track gap-x-6 md:gap-x-40">
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
-
-          <img src={img1} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img2} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img3} alt="" className=" w-16 md:h-20 md:w-1/4" />
-          <img src={img4} alt="" className=" w-16 md:h-20 md:w-1/4" />
+          {clientsArr.map((item, index) => (
+            <img
+              key={item.id + index}
+              src={item.image.url}
+              alt=""
+              className="w-[15%] h-16 md:h-20 md:w-1/4"
+            />
+          ))}
+          {clientsArr.length < 33 &&
+            clientsArr.map((item, index) => (
+              <img
+                key={item.id + index}
+                src={item.image.url}
+                alt=""
+                className="w-[15%] h-16 md:h-20 md:w-1/4"
+              />
+            ))}
+          {clientsArr.length < 33 &&
+            clientsArr.map((item, index) => (
+              <img
+                key={item.id + index}
+                src={item.image.url}
+                alt=""
+                className="w-[15%] h-16 md:h-20 md:w-1/4"
+              />
+            ))}
         </div>
       </section>
     </article>

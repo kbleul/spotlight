@@ -3,7 +3,6 @@ import CarasoleReverse from "../components/CarasoleReverse";
 import Featured from "../components/Featured";
 import ServicesProjects from "../components/Projects/ServicesProjects";
 import Hero from "../components/Hero/WorksHero";
-import ContactUs from "../components/Contact";
 
 const Works = () => {
   return (
@@ -12,12 +11,12 @@ const Works = () => {
       <Featured />
       <ServicesProjects />
 
-      <div className="bg-black pt-20">
+      <div className="bg-black pt-20 mt-[10vh] w-full overflow-hidden">
         <Carasole />
       </div>
-      <CarasoleReverse />
-
-      <ContactUs />
+      <div className="overflow-hidden">
+        <CarasoleReverse />
+      </div>
     </article>
   );
 };

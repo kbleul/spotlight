@@ -7,58 +7,58 @@ const Hero = () => {
   const heroVariants = {
     hidden: {
       opacity: 0,
-      scale: 0.8, // Initial scale for a subtle zoom-in effect
+      scale: 0.8,
     },
     visible: {
       opacity: 1,
-      scale: 1, // Full scale
+      scale: 1,
       transition: {
-        duration: 1, // Animation duration in seconds (adjust as desired)
-        ease: "easeInOut", // Timing function for smooth animation
+        duration: 1,
+        ease: "easeInOut",
       },
     },
   };
 
   return (
-    <article className="h-[90vh] bg-white flex justify-center items-center">
+    <article className="lg:h-[90vh] pt-16  pb-28 lg:pt-0 lg:pb-0 bg-white flex justify-center items-center">
       <motion.article
         ref={ref}
         variants={heroVariants}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
-        className="h-[85vh] pt-[20vh] text-[#777777] bg-white flex flex-col justify-start items-center "
+        className="lg:h-[85vh] pt-[4vh] lg:pt-[20vh] text-[#777777] bg-white flex flex-col justify-start items-center text-3xl lg:text-8xl "
       >
-        <div className="flex gap-5">
+        <div className="flex gap-2 lg:gap-5 ">
           <motion.p
-            className="text-8xl font-extrabold capitalize tracking-wider" // Adjust font size and style
+            className=" font-extrabold capitalize tracking-wider"
             variants={heroVariants}
           >
-            We create{" "}
+            We make{" "}
           </motion.p>
           <motion.p
-            className="text-8xl font-extrabold capitalize text-black tracking-wider" // Adjust font size and style
+            className=" font-extrabold capitalize text-black tracking-wider"
             initial={{ x: 1000 }}
             animate={{ x: 0 }}
             transition={{ duration: 1 }}
           >
-            modern
+            standing
           </motion.p>
         </div>
 
         <motion.p
-          className="py-4 text-8xl font-extrabold capitalize tracking-wider" // Adjust font size and style
+          className="lg:py-4  font-extrabold capitalize tracking-wider"
           variants={heroVariants}
         >
-          experiences for
+          <span className="text-black">out</span> simple
         </motion.p>
-        <motion.p
-          className="text-8xl font-extrabold capitalize text-black tracking-wider" // Adjust font size and style
+        {/* <motion.p
+          className=" font-extrabold capitalize text-black tracking-wider"
           initial={{ x: -600 }}
           animate={{ x: 0 }}
           transition={{ duration: 1 }}
         >
-          tomorrow’s brands
-        </motion.p>
+          
+        </motion.p> */}
       </motion.article>
     </article>
   );

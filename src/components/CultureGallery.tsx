@@ -1,75 +1,130 @@
-import img1 from "../assets/images/story/1.svg";
-import img2 from "../assets/images/story/2.svg";
-import img3 from "../assets/images/story/3.svg";
-import img4 from "../assets/images/story/4.svg";
-import img5 from "../assets/images/story/5.png";
-import img6 from "../assets/images/story/6.svg";
-import img7 from "../assets/images/story/7.svg";
-import img8 from "../assets/images/story/8.svg";
-import img9 from "../assets/images/story/9.svg";
-import img10 from "../assets/images/story/10.svg";
-import img11 from "../assets/images/story/11.svg";
-import img12 from "../assets/images/story/12.svg";
+import { useQuery } from "@tanstack/react-query";
+import { galleryImage } from "./Projects/ProjectGallery";
+import { isEvenArray } from "../utils/func";
+
+export type galleryImageItem = {
+  id: string;
+  caption: string;
+} & galleryImage;
 
 const CultureGallery = () => {
-  const ImagesArr = [
-    img1,
-    img2,
-    img3,
-    img4,
-    img5,
-    img6,
-    img7,
-    img8,
-    img9,
-    img10,
-    img11,
-    img12,
-  ];
+  const { isPending, error, data } = useQuery({
+    queryKey: ["galleries"],
+    queryFn: () =>
+      fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}galleries`).then(
+        (res) => res.json()
+      ),
+  });
+
+  //loading
+  if (isPending) return <article className="bg-white h-screen" />;
+
+  if (error) return <></>;
+
+  const galleries: galleryImageItem[] = data.data;
+  const isEvenArrayLength = isEvenArray(galleries.length);
+  const indexAdder = Math.ceil(galleries.length / 4);
+
   return (
-    <article className="h-[112vh]  bg-black flex items-start justify-evenly">
-      <section className="w-[22%] feeds_scroll flex flex-col h-[107vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
-        {ImagesArr.map((image, index) => (
-          <img
-            className="w-full"
-            key={index + "gallery-one"}
-            src={image}
-            alt=""
-          />
-        ))}
-      </section>
-      <section className="w-[22%] feeds_scroll flex flex-col h-[107vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
-        {ImagesArr.slice(6, 11).map((image, index) => (
-          <img
-            className="w-full"
-            key={index + "gallery-two"}
-            src={image}
-            alt=""
-          />
-        ))}
-      </section>
-      <section className="w-[22%] feeds_scroll flex flex-col h-[107vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
-        {ImagesArr.reverse()
-          .slice(0, 6)
-          .map((image, index) => (
-            <img
-              className="w-full"
-              key={index + "gallery-three"}
-              src={image}
-              alt=""
-            />
-          ))}
-      </section>
-      <section className="w-[22%] feeds_scroll flex flex-col h-[107vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
-        {ImagesArr.reverse().map((image, index) => (
-          <img
-            className="w-full"
-            key={index + "gallery-four"}
-            src={image}
-            alt=""
-          />
-        ))}
-      </section>
+    <article className="h-[112vh] bg-black flex items-start justify-evenly">
+      {galleries.length >= 20 && (
+        <>
+          <section className="w-[22%] feeds_scroll flex flex-col h-[80vh] lg:h-[107vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
+            {galleries.slice(0, indexAdder).map((image, index) => (
+              <img
+                className="w-full"
+                key={index + image.id}
+                src={image.image.url}
+                alt=""
+              />
+            ))}
+          </section>
+          <section className="w-[22%] feeds_scroll flex flex-col h-[80vh] lg:h-[107vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
+            {galleries.slice(indexAdder, indexAdder * 2).map((image, index) => (
+              <img
+                className="w-full"
+                key={index + image.id}
+                src={image.image.url}
+                alt=""
+              />
+            ))}
+          </section>
+          <section className="w-[22%] feeds_scroll flex flex-col h-[80vh] lg:h-[107vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
+            {galleries
+              .slice(indexAdder * 2, indexAdder * 3)
+              .reverse()
+              .map((image, index) => (
+                <img
+                  className="w-full"
+                  key={index + image.id}
+                  src={image.image.url}
+                  alt=""
+                />
+              ))}
+          </section>
+          <section className="w-[22%] feeds_scroll flex flex-col h-[80vh] lg:h-[107vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
+            {galleries
+              .slice(
+                indexAdder * 3,
+                isEvenArrayLength ? indexAdder * 4 : indexAdder * 4 + 1
+              )
+              .reverse()
+              .map((image, index) => (
+                <img
+                  className="w-full"
+                  key={index + image.id}
+                  src={image.image.url}
+                  alt=""
+                />
+              ))}
+          </section>
+        </>
+      )}
+
+      {galleries.length < 20 && (
+        <>
+          <section className="w-[22%] feeds_scroll flex flex-col h-[80vh] lg:h-[107vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
+            {galleries.map((image, index) => (
+              <img
+                className="w-full"
+                key={index + image.id}
+                src={image.image.url}
+                alt=""
+              />
+            ))}
+          </section>
+          <section className="w-[22%] feeds_scroll flex flex-col h-[80vh] lg:h-[107vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
+            {galleries.reverse().map((image, index) => (
+              <img
+                className="w-full"
+                key={index + image.id}
+                src={image.image.url}
+                alt=""
+              />
+            ))}
+          </section>
+          <section className="w-[22%] feeds_scroll flex flex-col h-[80vh] lg:h-[107vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
+            {galleries.map((image, index) => (
+              <img
+                className="w-full"
+                key={index + image.id}
+                src={image.image.url}
+                alt=""
+              />
+            ))}
+          </section>
+          <section className="w-[22%] feeds_scroll flex flex-col h-[80vh] lg:h-[107vh] gap-4 overflow-y-hidden hover:overflow-y-scroll">
+            {galleries.reverse().map((image, index) => (
+              <img
+                className="w-full"
+                key={index + image.id}
+                src={image.image.url}
+                alt=""
+              />
+            ))}
+          </section>
+        </>
+      )}
     </article>
   );
 };

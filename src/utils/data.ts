@@ -15,12 +15,12 @@ export const ROUTES = [
     name: "Culture",
     link: "/culture",
   },
-  {
-    name: "Feeds",
-    link: "/feeds",
-  },
+  // {
+  //   name: "Feeds",
+  //   link: "/feeds",
+  // },
 ];
-export const BlackBgRoutes = ["/about", "/culture"];
+export const BlackBgRoutes = ["/about", "/culture", "/"];
 
 export const ColorTheme = {
   light: {
@@ -31,4 +31,9 @@ export const ColorTheme = {
     primary: "#777777",
     active: "#fff",
   },
+};
+
+export const myHeader = {
+  "Content-Type": "multipart/form-data",
+  Accept: "application/json",
 };

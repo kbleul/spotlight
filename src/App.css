@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
 
+html {
+  scroll-behavior: smooth;
+}
+
 #root {
   box-sizing: border-box;
   margin: 0;
@@ -16,6 +20,10 @@
   overflow-x: hidden;
 }
 
+.stop-scrolling {
+  height: 100vh;
+  overflow: hidden;
+}
 #root-body-hidden {
   height: 100vh;
   overflow-x: hidden;
@@ -190,11 +198,22 @@
   scrollbar-color: transparent transparent;
   user-select: none;
   cursor: url("./assets/images/cola_placeholder.svg"), auto;
+  padding-right: 90px;
 }
 
 .scroll-tab-container::-webkit-scrollbar {
   height: 8px;
   scrollbar-color: transparent;
+}
+
+.scroll-tab-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px; /* Adjust the width as needed */
+  height: 100%;
+  pointer-events: none;
 }
 
 .chatscroll {
@@ -217,4 +236,113 @@
 
 .chatscroll::-webkit-scrollbar-track {
   background-color: #000000;
+}
+
+#container,
+#container2,
+#container3,
+#container4 {
+  transition: transform 1s ease;
+}
+
+.customCursor {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  animation-name: stretch;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+
+@keyframes stretch {
+  0% {
+    opacity: 0.2;
+    background-color: green;
+    border-radius: 100%;
+  }
+
+  50% {
+    background-color: orange;
+  }
+
+  100% {
+    background-color: red;
+  }
+}
+
+.bgCircles {
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  z-index: 0;
+}
+
+@media (max-width: 1000px) {
+  .bgCircles {
+    top: 40px;
+    left: -20px;
+  }
+}
+
+.customBorder {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("./assets/images//border.svg");
+}
+
+@media (max-width: 768px) {
+  .customBorder {
+    background-image: url("./assets/images//border2.svg");
+  }
+}
+.customImg1 {
+  position: absolute;
+  left: 200px;
+  top: -100px;
+}
+
+.customImg2 {
+  position: absolute;
+  left: 50px;
+  bottom: -20px;
+}
+
+.customImg3 {
+  position: absolute;
+  left: -50px;
+  top: 350px;
+}
+
+@supports (-webkit-text-stroke: 1px white) {
+  .stroke {
+    -webkit-text-stroke: 1px white;
+    -webkit-text-fill-color: black;
+    font-size: 100px;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .stroke-black {
+    -webkit-text-stroke: 1px black;
+    -webkit-text-fill-color: white;
+    font-size: 100px;
+    font-family: "Poppins", sans-serif;
+  }
+}
+
+@media (max-width: 768px) {
+  .customImg1 {
+    left: 150px;
+    top: -50px;
+  }
+  .customImg2 {
+    left: -10px;
+    bottom: -20px;
+  }
+  .customImg3 {
+    left: -100px;
+    top: 300px;
+  }
 }

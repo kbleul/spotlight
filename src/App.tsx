@@ -1,21 +1,29 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 import Home from "./pages/Home";
-import Loading from "./components/Suspense/index";
-import { useState } from "react";
+
 import Services from "./pages/Services";
 import Header from "./components/Header";
 import Works from "./pages/Works";
 import About from "./pages/About";
 import Culture from "./pages/Culture";
 import Feeds from "./pages/Feeds";
+import ContactUs from "./components/Contact";
+import Footer from "./components/Footer";
+import CaseStudy from "./pages/CaseStudy";
 
 const Layout = () => {
+  const queryClient = new QueryClient();
+
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <Header />
       <Outlet />
-    </>
+      <ContactUs />
+      <Footer />
+    </QueryClientProvider>
   );
 };
 const router = createBrowserRouter([
@@ -48,26 +56,16 @@ const router = createBrowserRouter([
         path: "/feeds",
         element: <Feeds />,
       },
+      {
+        path: "/case-study/:id",
+        element: <CaseStudy />,
+      },
     ],
   },
-  // {
-  //   path: "about",
-  //   element: <div>About</div>,
-  // },
 ]);
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  return (
-    <>
-      {isLoading ? (
-        <Loading setIsLoading={setIsLoading} />
-      ) : (
-        <RouterProvider router={router} />
-      )}
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

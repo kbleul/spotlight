@@ -9,13 +9,12 @@ import Carasole from "../components/Carasole";
 import Culture from "../components/culture";
 import Feeds from "../components/Feeds";
 import Partners from "../components/Partners";
-import ContactUs from "../components/Contact";
 
 const Home = () => {
   return (
     <article>
       <motion.div
-        className="h-[90vh]"
+        className="h-[60vh] lg:h-[90vh] bg-black"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -31,15 +30,22 @@ const Home = () => {
 
       <Projects />
 
-      <Carasole title="Latest Wins" />
+      <div className="hidden md:block">
+        <Carasole title="Our Clients" />
+      </div>
 
       <Culture />
+      {/* <div className="px-4 md:px-0">
+        <Feeds />
+      </div> */}
 
-      <Feeds />
+      <div className="mt-10 lg:hidden">
+        <Carasole title="Our Clients" />
+      </div>
 
-      <Partners />
-
-      <ContactUs />
+      <div className="hidden lg:block">
+        <Partners />
+      </div>
     </article>
   );
 };

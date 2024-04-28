@@ -1,27 +1,26 @@
-import approachTrace from "../assets/images/Appoach.svg";
-import stairImg from "../assets/images/stair.svg";
+import approachTrace from "../assets/images/Approach.svg";
+import stairImg from "../assets/images/Approach.png";
 
 const Approch = () => {
   return (
-    <article className="px-[5%] py-20 bg-white">
-      <img src={approachTrace} alt="" className="w-1/2" />
+    <article className=" px-[5%] py-10 pb-28 lg:py-20 bg-white flex flex-col items-start">
+      <img
+        src={approachTrace}
+        alt=""
+        className="w-full lg:w-1/2 max-w-[800px]"
+      />
 
-      <section className="flex items-start justify-evenly">
-        <div className="w-3/5 flex flex-col gap-8 pt-10 text-[#4F4F4F] font-semibold">
-          <p className="max-w-[600px]">
-            Lorem ipsum dolor sit amet consectetur. Sem rhoncus diam aliquam
-            aliquet nibh enim massa suspendisse tristique. Massa mauris vel
-            tincidunt egestas scelerisque viverra sem venenatis mollis. Non
-            pharetra magna at amet volutpat ac ut nec enim. Pellentesque viverra
-            nulla vitae ullamcorper. Sit.
-          </p>
-          <p className="max-w-[600px]">
-            Lorem ipsum dolor sit amet consectetur. Sem rhoncus diam aliquam
-            aliquet nibh enim massa suspendisse tristique. Massa mauris vel
-            tincidunt egestas scelerisque viverra sem
+      <section className="flex items-start justify-start pl-6 w-full">
+        <div className="w-full lg:w-1/2 flex flex-col gap-8 pt-4 lg:pt-10 text-[#4F4F4F] font-medium md:font-semibold">
+          <p className="max-w-[600px] text-lg">
+            We collaborate to craft creative communications strategies and
+            spot-lessly execute to create lastings connections in the hearts and
+            minds of people.
           </p>
         </div>
-        <img src={stairImg} alt="" className="w-2/5 max-w-[450px]" />
+        <div className="hidden  w-1/2 lg:flex justify-center items-center">
+          <img src={stairImg} alt="" className=" max-w-[500px]" />
+        </div>
       </section>
     </article>
   );

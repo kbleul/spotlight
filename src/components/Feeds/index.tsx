@@ -1,18 +1,33 @@
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import FeedCard from "./FeedCard";
 import { useRef, useState } from "react";
+import feedsTrace from "../../assets/images/Feeds.svg";
+import { useNavigate } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import FeedModal from "../FeedModal";
 
 const Feeds: React.FC = () => {
-  const { ref, inView } = useInView({
-    threshold: 0.1,
-  });
+  const navigate = useNavigate();
+
+  const [isFeedModalOpen, setIsFeednModalOpen] = useState<any>(null);
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+
+  const { isPending, error, data } = useQuery({
+    queryKey: ["latestBlogs"],
+    queryFn: () =>
+      fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}latest-blogs`).then(
+        (res) => res.json()
+      ),
+  });
+
+  //loading
+  if (isPending) return <article className="bg-white h-screen" />;
+
+  if (error) return <></>;
 
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!scrollRef.current) return;
@@ -62,25 +77,56 @@ const Feeds: React.FC = () => {
     scrollRef.current.scrollLeft = scrollLeft - walk;
   };
 
+  const positionElement = (e: React.MouseEvent<HTMLDivElement>) => {
+    const cursorItem = document.getElementById("cursorItem");
+
+    if (cursorItem) {
+      const mouseY = e.clientY;
+      const mouseX = e.clientX;
+
+      cursorItem.style.display = "block";
+      cursorItem.style.transform = `translate3d(${mouseX}px, ${
+        mouseY + 100
+      }px, 0)`;
+    }
+  };
+
+  const hidePositionElement = () => {
+    const cursorItem = document.getElementById("cursorItem");
+    if (cursorItem) {
+      cursorItem.style.display = "hidden";
+    }
+  };
+
+  const latestBlogs: any[] = data.data.data;
+
   return (
     <article
-      ref={ref}
-      className="pt-[10vh] pb-[5rem] overflow-hidden text-black bg-white"
+      className="border-t-[28px] border-[#F9F9F9] mt-[8vh] pt-[1vh] pb-[5rem] overflow-hidden text-black bg-white"
+      onMouseMove={positionElement}
+      onMouseLeave={hidePositionElement}
     >
-      <section className="flex items-start justify-between px-[5%]">
-        <motion.div
-          className="w-full"
-          initial={inView ? { x: -600 } : { x: 0 }}
-          animate={inView ? { x: 0 } : { x: -600 }}
-          transition={{ duration: 1 }}
-        >
-          <div className="flex justify-between items-start">
-            <h2 className="text-[#4F4F4F] text-[115px] font-extrabold">
-              Feeds
-            </h2>
-            <div className="expandButtonContainerSecondary mt-12">
+      <div id="cursorItem" className="hidden lg:customCursor" />
+
+      <section
+        id="feedsContainer"
+        className="flex items-start justify-between px-[5%]"
+      >
+        <div className="w-full mb-8">
+          <div className="flex justify-between items-center">
+            <img
+              src={feedsTrace}
+              alt=""
+              className="w-full lgw-1/2 max-w-[500px]"
+            />
+
+            <div className="expandButtonContainerSecondary mt-12 hidden lg:block">
               <button
                 type="button"
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                  navigate("/feeds");
+                }}
                 className="expandButton bg-black px-4 text-white py-2 text-sm font-normal flex gap-4 items-center"
               >
                 <p className="text-nowrap pl-2">View All</p>
@@ -91,7 +137,7 @@ const Feeds: React.FC = () => {
               </button>
             </div>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       <section
@@ -103,27 +149,47 @@ const Feeds: React.FC = () => {
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
         onTouchMove={handleTouchMove}
-        className="scroll-tab-container flex gap-6 w-full pb-6 ml-[5%]"
+        className="scroll-tab-container hidden  lg:flex flex-col lg:flex-row gap-6 w-full pb-6 ml-[5%]"
       >
-        <div className="w-[45%] feed max-w-[450px] flex-shrink-0">
-          <FeedCard />
-        </div>
-        <div className="w-[45%] feed max-w-[450px] flex-shrink-0">
-          <FeedCard />
-        </div>
-        <div className="w-[45%] feed max-w-[450px] flex-shrink-0">
-          <FeedCard />
-        </div>
-        <div className="w-[45%] feed max-w-[450px] flex-shrink-0">
-          <FeedCard />
-        </div>
-        <div className="w-[45%] feed max-w-[450px] flex-shrink-0">
-          <FeedCard />
-        </div>
-        <div className="w-[45%] feed max-w-[450px] flex-shrink-0 mr-32">
-          <FeedCard />
-        </div>
+        {latestBlogs.slice(0, 8).map((blog: any) => (
+          <div
+            key={blog.id}
+            className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0"
+          >
+            <FeedCard
+              item={blog}
+              isFeed
+              handleClick={() => setIsFeednModalOpen(blog)}
+              showArrow={true}
+            />
+          </div>
+        ))}
       </section>
+
+      <section className=" flex lg:hidden flex-col lg:flex-row gap-6 w-full pb-6 px-[3%] lg:ml-[5%] lg:px-0 items-center">
+        {latestBlogs.slice(0, 3).map((blog: any) => (
+          <div
+            key={blog.id}
+            className="w-full lg:w-[45%] feed max-w-[450px] flex-shrink-0"
+          >
+            <FeedCard
+              item={blog}
+              isFeed
+              handleClick={() => setIsFeednModalOpen(blog)}
+              showArrow={true}
+            />
+          </div>
+        ))}
+      </section>
+
+      {isFeedModalOpen && (
+        <div className="mt-[10vh]">
+          <FeedModal
+            isFeedModalOpen={isFeedModalOpen}
+            setIsFeednModalOpen={setIsFeednModalOpen}
+          />
+        </div>
+      )}
     </article>
   );
 };

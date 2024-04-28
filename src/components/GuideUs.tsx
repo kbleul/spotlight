@@ -1,83 +1,84 @@
 import bulbImg from "../assets/images/light_small.svg";
-import borderImg from "../assets/images/border1.svg";
 
 const GuideUs = () => {
   return (
-    <article className="pl-[3%] overflow-hidden text-black bg-white ">
+    <article className="px-[3%] lg:px-0 lg:pl-[3%] overflow-hidden text-black bg-white lg:py-4">
       <img src={bulbImg} alt="" className="w-48" />
 
       <section className="px-[4%]">
-        <h4 className="text-7xl font-extrabold">What Guides Us</h4>
+        <h4 className="text-4xl lg:text-7xl font-extrabold">What Guides Us</h4>
 
-        <p className="mt-4 text-[#777777] w-1/2 max-w-[600px] ml-[30%] font-bold">
+        <p className="mt-2 lg:mt-4 text-[#777777] w-full lg:w-1/2 max-w-[600px] lg:ml-[30%] font-semibold leading-5 lg:leading-none lg:font-bold">
           Lorem ipsum dolor sit amet consectetur. Donec ac tincidunt integer sed
           euismod pellentesque. Eget fermentum leo diam tortor vitae tellus
           lacus pellentesque sed.
         </p>
       </section>
 
-      <section className="flex justify-evenly w-[90%] mt-20">
-        <div
-          className="max-w-[600px] w-[46%] z-0 px-6 pt-6 pb-20 border-b border-black "
-          style={{
-            backgroundImage: `url(${borderImg})`,
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-          }}
-        >
+      <section className="flex flex-col lg:flex-row justify-center items-center gap-y-5 lg:justify-evenly w-full lg:w-[90%] mt-4 lg:mt-20">
+        <div className="max-w-[600px] w-[96%] lg:w-[46%] z-0 px-6 pt-6 pb-8 lg:pb-20 relative customBorder border lg:border-none">
+          <div
+            className="absolute hidden lg:block  w-[97%] border rounded-2xl"
+            style={{
+              bottom: 0,
+              left: 9,
+            }}
+          />
+
           <h4 className="text-right text-3xl font-extrabold">Visionary</h4>
-          <p className="mt-4 text-[#777777] font-bold ">
+          <p className="mt-4 text-[#777777] text-sm lg:text-base font-bold ">
             Lorem ipsum dolor sit amet consectetur. Donec ac tincidunt integer
             sed euismod pellentesque. Eget fermentum leo diam tortor vitae
             tellus lacus pellentesque sed.
           </p>
         </div>
-        <div
-          className="max-w-[600px] w-[46%] z-0 px-6 pt-6 pb-20 border-b border-black "
-          style={{
-            backgroundImage: `url(${borderImg})`,
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-          }}
-        >
+        <div className="max-w-[600px] w-[96%] lg:w-[46%] z-0 px-6 pt-6 pb-8 lg:pb-20 relative customBorder border lg:border-none">
           <h4 className="text-right text-3xl font-extrabold">Precise</h4>
-          <p className="mt-4 text-[#777777] font-bold">
+          <p className="mt-4 text-[#777777] text-sm lg:text-base font-bold">
             Lorem ipsum dolor sit amet consectetur. Donec ac tincidunt integer
             sed euismod pellentesque. Eget fermentum leo diam tortor vitae
             tellus lacus pellentesque sed.
           </p>
+          <div
+            className="absolute hidden lg:block  w-[97%] border rounded-2xl"
+            style={{
+              bottom: 0,
+              left: 9,
+            }}
+          />
         </div>
       </section>
-      <section className="flex justify-evenly ml-[5%] w-[90%] mt-20">
-        <div
-          className="max-w-[600px] w-[46%] z-0 px-6 pt-6 pb-20 border-b border-black "
-          style={{
-            backgroundImage: `url(${borderImg})`,
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-          }}
-        >
+      <section className="flex flex-col lg:flex-row justify-center items-center gap-y-5 lg:justify-evenly lg:ml-[5%] lg:w-[90%] mt-4 lg:mt-20">
+        <div className="max-w-[600px] w-[96%] lg:w-[46%] z-0 px-6 pt-6 pb-8 lg:pb-20 relative customBorder border lg:border-none">
           <h4 className="text-right text-3xl font-extrabold">Agile</h4>
-          <p className="mt-4 text-[#777777] font-bold">
+          <p className="mt-4 text-[#777777] text-sm lg:text-base font-bold">
             Lorem ipsum dolor sit amet consectetur. Donec ac tincidunt integer
             sed euismod pellentesque. Eget fermentum leo diam tortor vitae
             tellus lacus pellentesque sed.
           </p>
+          <div
+            className="absolute hidden lg:block  w-[97%] border rounded-2xl"
+            style={{
+              bottom: 0,
+              left: 9,
+            }}
+          />
         </div>
-        <div
-          className="max-w-[600px] w-[46%] z-0 px-6 pt-6 pb-20 border-b border-black "
-          style={{
-            backgroundImage: `url(${borderImg})`,
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-          }}
-        >
-          <h4 className="text-right text-3xl font-extrabold">Harmonious</h4>
-          <p className="mt-4 text-[#777777] font-bold">
+        <div className="max-w-[600px] w-[96%] lg:w-[46%] z-0 px-6 pt-6 pb-8 lg:pb-20 relative customBorder border lg:border-none">
+          <h4 className="text-right text-3xl font-extrabold">Agile</h4>
+
+          <p className="mt-4 text-[#777777] text-sm lg:text-base font-bold">
             Lorem ipsum dolor sit amet consectetur. Donec ac tincidunt integer
             sed euismod pellentesque. Eget fermentum leo diam tortor vitae
             tellus lacus pellentesque sed.
           </p>
+          <div
+            className="absolute hidden lg:block  w-[97%] border border-gray-300 rounded-2xl"
+            style={{
+              bottom: 0,
+              left: 9,
+            }}
+          />
         </div>
       </section>
     </article>

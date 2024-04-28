@@ -2,46 +2,55 @@ import bg_img from "../assets/images/about.svg";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 const About = () => {
+  const navigate = useNavigate();
   const { ref, inView } = useInView({
     threshold: 0.4,
   });
 
   return (
-    <article className="px-[10%] py-52 overflow-hidden text-white bg-black flex items-start justify-between ">
-      <section ref={ref} className="flex items-start justify-between">
+    <article className="px-[2%] md:px-[10%]  pt-2 pb-32 lg:pt-32 lg:py-[10%] overflow-hidden text-black bg-white flex items-start justify-between ">
+      <section
+        ref={ref}
+        className="flex flex-col md:flex-row items-start justify-between"
+      >
         <motion.div
-          className="w-[45%] "
+          className="w-full lg:w-[45%] px-[5%] lg:px-0"
           initial={inView ? { x: -600 } : { x: 0 }}
           animate={inView ? { x: 0 } : { x: -600 }}
           transition={{ duration: 1 }}
         >
-          <h2 className="text-[#4F4F4F] text-[115px] font-extrabold">About</h2>
-          <h5 className="font-semibold text-xl">
-            Where Creativity Meets Strategy
+          <h2 className="text-[#4F4F4F] text-[90px] text-center lg:text-left md:text-[115px] font-extrabold">
+            About
+          </h2>
+          <h5 className="font-semibold text-lg md:text-xl mt-8 mb-3 md:mb-0">
+            We Take The Stage
           </h5>
-          <p className="mt-2">
-            We provide a broad spectrum of services because we are a
-            multifaceted business that meets the various needs of businesses.
-            With this all-inclusive range of services, we enable businesses to
-            effectively accomplish their goals, engage their audiences, and
-            improve their brand presence.
+          <p className="mt-2 lg:text-lg">
+            We are a leading creative communications, marketing, and advertising
+            agency in Ethiopia sparking bold, trendsetting ideas. Our innovative
+            strategies amplify brands and businesses, making them stand out.
           </p>
 
           <div className="expandButtonContainerSecondary mt-6">
             <button
+              onClick={() => {
+                window.scrollTo(0, 0);
+                navigate("/about");
+              }}
               type="button"
-              className="expandButton bg-white px-4 text-black py-2 text-sm font-normal flex gap-4 items-center"
+              className="expandButton bg-black px-4 text-white py-2 text-sm font-normal flex gap-4 items-center"
             >
-              <p className="text-nowrap">Read More</p>
+              <p className="text-nowrap">Learn More</p>
               <IoIosArrowRoundForward className="expandButtonIcon" size={24} />
             </button>
           </div>
         </motion.div>
 
         <motion.div
-          className="w-[45%] flex justify-center items-start  pt-4"
+          className="w-full lg:w-[45%] hidden lg:flex justify-center items-start  pt-4"
           initial={inView ? { x: 1000 } : { x: 0 }}
           animate={inView ? { x: 0 } : { x: 1000 }}
           transition={{ duration: 1 }}

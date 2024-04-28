@@ -1,4 +1,5 @@
 import { useState } from "react";
+import projectTraceImage from "../../assets/images/avatar3.svg";
 
 import { motion } from "framer-motion";
 
@@ -13,19 +14,19 @@ const ImageCard = ({ employee }: { employee: any }) => {
       onMouseLeave={() => setIsHover(false)}
     >
       <motion.img
-        src={employee.img}
+        src={projectTraceImage}
         alt=""
-        className="h-full w-full z-50 object-cover"
+        className="w-32 md:w-[14rem]  h-[33vh]  z-50 object-cover"
         style={{
           top: -40,
         }}
-        initial={isHover ? { x: 0, y: 0 } : { x: -40, y: -37 }}
-        animate={isHover ? { x: -40, y: -37 } : { x: 0, y: 0 }}
+        initial={isHover ? { x: 0, y: 0 } : { x: -40, y: -51 }}
+        animate={isHover ? { x: -40, y: -51 } : { x: 0, y: 0 }}
         transition={{ duration: 0.4 }}
       />
-      <div className="absolute bottom- 0 w-full px-3 py-2 flex justify-between items-center text-black font-medium">
-        <h3 className="">{employee.name}</h3>
-        <p className="">{employee.title}</p>
+      <div className="absolute w-full px-3 pb-1 flex flex-col justify-between items-center text-black font-medium">
+        <h3 className="self-start line-clamp-1">{employee.name}</h3>
+        <p className="self-end text-sm line-clamp-1">{employee.position}</p>
       </div>
     </section>
   );
