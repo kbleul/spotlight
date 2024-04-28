@@ -10,12 +10,9 @@ const Footer = () => {
   return (
     <article className="py-[4vh] bg-black flex flex-col lg:flex-row ">
       <section className="lg:pl-[7%] text-white w-full  flex lg:block flex-col items-center lg:w-1/2">
-        <img
-          src={logoWhite}
-          className="w-full lg:w-auto  max-w-[200px] lg:max-w-none order-1"
-        />
+        <img src={logoWhite} className="w-[150px] lg:max-w-none order-1" />
 
-        <div className="w-full pl-[15%] lg:pl-0 flex items-center justify-start gap-4 mt-4 lg:mt-4 order-3 ">
+        <div className="w-full pl-[15%] lg:pl-0 flex items-center justify-start gap-4 mt- lg:mt-8 order-3 ">
           <div className="border border-[#777777] p-2 rounded-full">
             <CiLocationOn className="w-4 h-4" />
           </div>
@@ -35,7 +32,7 @@ const Footer = () => {
           </div>
         </div>
       </section>
-      <section className="w-full lg:w-1/2 mt-[30vh] lg:mt-0 flex flex-col justify-between items-center lg:items-end lg:pr-[5%]">
+      <section className="w-full lg:w-1/2 mt-[10vh] lg:mt-0 flex flex-col justify-between items-center lg:items-end lg:pr-[5%]">
         <button
           className="hidden lg:block border border-[#777777] p-2 rounded-full w-fit text-white"
           onClick={() => scrollTo(0, 0)}
@@ -69,7 +66,7 @@ const Footer = () => {
 
             <a
               href="http://www.twitter.com/spotlightethiopia"
-              className="border border-[#777777] p-2 lg:p-2 rounded-full"
+              className="border border-[#777777] p-2 lg:p-3 rounded-full"
               target="_blank"
             >
               <FaXTwitter className="w-4 h-4" />

@@ -39,12 +39,12 @@ const Industries = () => {
           Industries
         </h2>
 
-        {/* <p className="mt-4 lg:mt-0 lg:font-bold text-[#4F4F4F] max-w-[600px] ">
+        <p className="mt-4 lg:mt-0 lg:font-bold text-[#4F4F4F] max-w-[600px] ">
           Lorem ipsum dolor sit amet consectetur. Pretium mattis sit aliquet
           hendrerit imperdiet tortor lectus auctor. Malesuada vitae nunc orci
           faucibus. Faucibus nisl nec eu accumsan. Neque in nisl sit nisl semper
           pulvinar pharetra. Congue commodo praesent.
-        </p> */}
+        </p>
       </motion.section>
 
       <section className="w-full lg:w-[45%] h-full flex flex-col justify-center text-[2.5rem] text-[#4f4f4f] capitalize font-extrabold pb-20">
@@ -72,6 +72,8 @@ const ItemCard = ({
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
+  const clientImages: any[] = item.client_images;
+
   return (
     <motion.div
       className={`h-[14%] pt-6 lg:pt-0 lg:pb-2 px-6 ${
@@ -87,19 +89,22 @@ const ItemCard = ({
 
       {isHovered && (
         <motion.div
-          className="absolute top-4 right-3 flex items-center gap-2"
+          className="absolute top-4 right-4 md:right-10 flex items-center gap-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          {item.client_images.map((img: any) => (
-            <img
-              key={img.uuid}
-              src={img.url}
-              alt={item.name}
-              className="w-8 h-8 md:w-10 md:h-10 rounded-full object-cover"
-            />
-          ))}
+          {clientImages &&
+            clientImages
+              .slice(0, 4)
+              .map((img: any) => (
+                <img
+                  key={img.uuid}
+                  src={img.url}
+                  alt={item.name}
+                  className="w-8 h-8 md:w-14 md:h-14 rounded-full object-cover"
+                />
+              ))}
         </motion.div>
       )}
     </motion.div>

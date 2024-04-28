@@ -10,11 +10,11 @@ const Hero = () => {
       transition={{ duration: 1 }}
     >
       <article className="px-[5%]">
-        <h2 className="text-[#e0e0e0] lg:text-[#4F4F4F] text-[95px] text-center lg:text-left lg:text-[110px] font-extrabold">
-          Service
+        <h2 className="text-[#e0e0e0] lg:text-[#4F4F4F] text-[85px] text-center lg:text-left lg:text-[110px] font-extrabold">
+          Services
         </h2>
 
-        <p className="lg:ml-[20%] text-[#4f4f4f]">
+        <p className="w-full lg:w-4/5 md:ml-[10%] text-[#4f4f4f] text-lg md:text-2xl">
           We are storytellers and brand advocates. We craft compelling
           narratives that grow brands, nurture meaningful connections, and
           inspire audiences through experiences across the full spectrum of
@@ -22,12 +22,12 @@ const Hero = () => {
           services.
         </p>
 
-        <p className="lg:ml-[20%] text-[#4f4f4f] mt-4">
+        {/* <p className="lg:ml-[20%] text-[#4f4f4f] mt-4">
           We connect with people to promote, manage and protect brands and
           reputations
-        </p>
+        </p> */}
 
-        <div className="w-full flex justify-center mt-10">
+        <div className="w-full flex justify-center mt-5">
           <img
             src={serviceImg}
             alt=""

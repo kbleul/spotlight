@@ -35,7 +35,7 @@ const CONTENT = [
   {
     id: "services004",
     title: "Want More?",
-    body: "Read More",
+    body: "Explore All",
     img: service4_img,
   },
 ];
@@ -44,7 +44,7 @@ const Services = () => {
   const navigate = useNavigate();
 
   const { ref, inView } = useInView({
-    threshold: 0.9,
+    threshold: 0.95,
   });
 
   const [scrollPrecentage, setScrollPercentage] = useState(0);
@@ -172,26 +172,26 @@ const Services = () => {
       >
         <div
           id="container"
-          className="w-full flex-shrink-0 h-[105vh] flex justify-evenly items-center bg-black"
+          className="w-full flex-shrink-0 h-full flex justify-evenly items-center bg-black"
         >
           <section className="w-[45%] max-w-[600px] text-white">
-            <h2 className="text-[115px] font-extrabold text-[#4F4F4F] mb-6">
+            <h2 className="stroke poppins-thin text-[123px] font-extrabold text-[#4F4F4F] mb-6">
               Services
             </h2>
 
-            <div className="font-bold text-2xl">
+            <div className="font-bold text-5xl">
               <h4>{CONTENT[0].title}</h4>
             </div>
 
-            <div className="max-w-[600px] mt-4 lg:text-lg">
+            <div className="max-w-[600px] mt-4 lg:text-2xl">
               {CONTENT[0].body}
             </div>
           </section>
-          <section className="w-[45%] flex justify-center items-start  pt-4 ">
+          <section className="w-[45%] flex justify-center items-start  pt-4  ">
             <img
               src={CONTENT[0].img}
               alt="logo"
-              className="max-w-[25rem] max-h-[25rem]"
+              className="max-w-[40rem] max-h-[40rem]"
             />
           </section>
         </div>
@@ -200,12 +200,8 @@ const Services = () => {
           className="w-full flex-shrink-0 h-[105vh] flex justify-evenly items-center bg-white"
         >
           <section className="w-[45%] max-w-[600px]">
-            <h2 className="text-[115px] font-extrabold text-[#4F4F4F] mb-6">
-              Services
-            </h2>
-
             <motion.div
-              className="font-bold text-2xl"
+              className="font-bold text-5xl"
               initial={{ y: -15 }}
               animate={{ y: 0 }}
               transition={{ duration: 0.8 }}
@@ -214,7 +210,7 @@ const Services = () => {
             </motion.div>
 
             <motion.div
-              className="max-w-[600px] mt-4 lg:text-lg"
+              className="max-w-[600px] mt-4 lg:text-2xl"
               initial={{ y: 50 }}
               animate={{ y: 0 }}
               transition={{ duration: 0.8 }}
@@ -226,7 +222,7 @@ const Services = () => {
             <img
               src={CONTENT[1].img}
               alt="logo"
-              className="max-w-[25rem] max-h-[25rem]"
+              className="max-w-[40rem] max-h-[40rem]"
             />
           </section>
         </div>
@@ -235,15 +231,15 @@ const Services = () => {
           className="w-full flex-shrink-0 h-[105vh] flex justify-evenly items-center bg-black"
         >
           <section className="w-[45%] max-w-[600px] text-white">
-            <h2 className="text-[115px] font-extrabold text-[#4F4F4F] mb-6">
+            <h2 className="stroke poppins-thin text-[123px] font-extrabold text-[#4F4F4F] mb-6">
               Services
             </h2>
 
-            <div className="font-bold text-2xl">
+            <div className="font-bold text-5xl">
               <h4>{CONTENT[2].title}</h4>
             </div>
 
-            <div className="max-w-[600px] mt-4 lg:text-lg">
+            <div className="max-w-[600px] mt-4 lg:text-2xl">
               {CONTENT[2].body}
             </div>
           </section>
@@ -251,7 +247,7 @@ const Services = () => {
             <img
               src={CONTENT[2].img}
               alt="logo"
-              className="max-w-[25rem] max-h-[25rem]"
+              className="max-w-[40rem] max-h-[40rem]"
             />
           </section>
         </div>
@@ -263,10 +259,10 @@ const Services = () => {
             <img className="" src={CONTENT[3].img} alt="" />
 
             <div className="py-16 w-full flex flex-col items-center">
-              <p className=" text-[#777777] font-medium lg:text-lg text-center">
+              <p className=" text-[#777777] font-medium lg:text-2xl text-center">
                 There's more to discover!
               </p>
-              <p className=" text-[#777777] font-medium lg:text-lg text-center">
+              <p className=" text-[#777777] font-medium lg:text-2xl text-center">
                 Explore our extended lineup of projects.
               </p>
             </div>
@@ -292,15 +288,11 @@ const Services = () => {
       </article>
 
       <article className="lg:hidden w-full bg-black flex flex-col overflow-hidden">
-        <h2 className="w-full text-center text-[80px] font-extrabold text-[#4F4F4F] mb-6">
+        <h2 className="stroke poppins-thin text-[70px] text-center pt-10 font-extrabold text-[#4F4F4F] mb-6">
           Services
         </h2>
         <div className="w-full flex-shrink-0  flex flex-col justify-evenly items-center bg-black  px-[5%]">
           <section className="w-full text-white">
-            <div className="font-bold text-2xl">
-              <h4>{CONTENT[0].title}</h4>
-            </div>
-
             <div className="max-w-[600px] mt-4">{CONTENT[0].body}</div>
           </section>
           <section className="w-[45%] flex justify-center items-start  pt-4 ">
@@ -313,7 +305,7 @@ const Services = () => {
         </div>
         <div className="w-full flex-shrink-0  flex flex-col justify-evenly items-center bg-black  px-[5%]">
           <section className="w-full text-white">
-            <div className="font-bold text-2xl">
+            <div className="font-bold text-5xl">
               <h4>{CONTENT[1].title}</h4>
             </div>
 

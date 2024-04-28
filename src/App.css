@@ -206,6 +206,16 @@ html {
   scrollbar-color: transparent;
 }
 
+.scroll-tab-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px; /* Adjust the width as needed */
+  height: 100%;
+  pointer-events: none;
+}
+
 .chatscroll {
   scrollbar-color: #555555 #000;
 }
@@ -304,6 +314,22 @@ html {
   position: absolute;
   left: -50px;
   top: 350px;
+}
+
+@supports (-webkit-text-stroke: 1px white) {
+  .stroke {
+    -webkit-text-stroke: 1px white;
+    -webkit-text-fill-color: black;
+    font-size: 100px;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .stroke-black {
+    -webkit-text-stroke: 1px black;
+    -webkit-text-fill-color: white;
+    font-size: 100px;
+    font-family: "Poppins", sans-serif;
+  }
 }
 
 @media (max-width: 768px) {

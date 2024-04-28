@@ -1,5 +1,5 @@
 import { FaPlayCircle } from "react-icons/fa";
-import bgImg from "../../assets/images/culture.png";
+import bgImg from "../../assets/images/bgvid.gif";
 import { useEffect, useState } from "react";
 import { Player } from "video-react";
 import { IoMdClose } from "react-icons/io";

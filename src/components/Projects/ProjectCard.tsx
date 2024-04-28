@@ -2,8 +2,8 @@ import { truncateText } from "../../utils/func";
 
 const ProjectCard = ({ project }: { project: any }) => {
   return (
-    <article className="bg-[#1e1e1e] rounded-lg overflow-x-hidden">
-      <div className="flex justify-start gap-x-1 w-full scroll-tab-container">
+    <article className="relative bg-[#1e1e1e] rounded-lg overflow-x-hidden">
+      <div className=" flex justify-start gap-x-1 w-full scroll-tab-container">
         {project.services.map((item: any, index: number) => (
           <p
             key={item + "--project--" + index}

@@ -1,74 +1,26 @@
-import img1 from "../assets/images/carasol/1.png";
-import img2 from "../assets/images/carasol/2.png";
-import img3 from "../assets/images/carasol/3.jpeg";
-import img4 from "../assets/images/carasol/4.jpeg";
-import img5 from "../assets/images/carasol/5.jpg";
-import img6 from "../assets/images/carasol/6.png";
-import img7 from "../assets/images/carasol/7.png";
-import img8 from "../assets/images/carasol/8.png";
-import img9 from "../assets/images/carasol/9.png";
-import img10 from "../assets/images/carasol/10.png";
-import img11 from "../assets/images/carasol/11.png";
-import img12 from "../assets/images/carasol/12.png";
-import img13 from "../assets/images/carasol/13.jpeg";
-import img14 from "../assets/images/carasol/14.jpg";
-import img15 from "../assets/images/carasol/15.png";
-import img16 from "../assets/images/carasol/16.png";
-import img17 from "../assets/images/carasol/17.jpg";
-import img18 from "../assets/images/carasol/18.jpg";
-import img19 from "../assets/images/carasol/19.jpg";
-import img20 from "../assets/images/carasol/20.jpg";
-import img21 from "../assets/images/carasol/21.png";
-import img22 from "../assets/images/carasol/22.png";
-import img23 from "../assets/images/carasol/23.png";
-import img24 from "../assets/images/carasol/24.webp";
-import img25 from "../assets/images/carasol/25.webp";
-import img26 from "../assets/images/carasol/26.png";
-import img27 from "../assets/images/carasol/27.png";
-import img28 from "../assets/images/carasol/28.jpg";
-import img29 from "../assets/images/carasol/29.png";
-import img30 from "../assets/images/carasol/30.png";
-import img31 from "../assets/images/carasol/31.webp";
-import img32 from "../assets/images/carasol/32.png";
-import img33 from "../assets/images/carasol/33.jpg";
-
-const imagesArr = [
-  img1,
-  img2,
-  img3,
-  img4,
-  img5,
-  img6,
-  img7,
-  img8,
-  img9,
-  img10,
-  img11,
-  img12,
-  img13,
-  img14,
-  img15,
-  img16,
-  img17,
-  img18,
-  img19,
-  img20,
-  img21,
-  img22,
-  img23,
-  img24,
-  img25,
-  img26,
-  img27,
-  img28,
-  img29,
-  img30,
-  img31,
-  img32,
-  img33,
-];
+import { useQuery } from "@tanstack/react-query";
 
 const Carasole = ({ title }: { title?: string }) => {
+  const { isPending, error, data } = useQuery({
+    queryKey: ["allclients"],
+    queryFn: () =>
+      fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}clients`).then(
+        (res) => res.json()
+      ),
+  });
+
+  //loading
+  if (isPending) return <article className="bg-white h-screen" />;
+
+  if (error) return <></>;
+
+  const clientsArr: {
+    id: string;
+    image: {
+      url: string;
+    };
+  }[] = data.data;
+
   return (
     <article className="carousel-container bg-black pt-0 pb-20 overflow-hidden">
       {title && (
@@ -78,14 +30,32 @@ const Carasole = ({ title }: { title?: string }) => {
       )}
       <section className="carousel">
         <div className="carousel-track gap-x-12 md:gap-x-40">
-          {Array.from({ length: 33 }).map((_, index) => (
+          {clientsArr.map((item, index) => (
             <img
-              key={index + "iimg" + index}
-              src={imagesArr[index]}
+              key={item.id + index}
+              src={item.image.url}
               alt=""
               className=" w-[15%] h-16 md:h-20 md:w-1/4"
             />
           ))}
+          {clientsArr.length < 33 &&
+            clientsArr.map((item, index) => (
+              <img
+                key={item.id + index}
+                src={item.image.url}
+                alt=""
+                className=" w-[15%] h-16 md:h-20 md:w-1/4"
+              />
+            ))}
+          {clientsArr.length < 33 &&
+            clientsArr.map((item, index) => (
+              <img
+                key={item.id + index}
+                src={item.image.url}
+                alt=""
+                className=" w-[15%] h-16 md:h-20 md:w-1/4"
+              />
+            ))}
         </div>
       </section>
     </article>

@@ -3,7 +3,7 @@ import stairImg from "../assets/images/Approach.png";
 
 const Approch = () => {
   return (
-    <article className="lg:h-screen px-[5%] py-10 pb-28 lg:py-20 bg-white flex flex-col items-start">
+    <article className=" px-[5%] py-10 pb-28 lg:py-20 bg-white flex flex-col items-start">
       <img
         src={approachTrace}
         alt=""
@@ -19,7 +19,7 @@ const Approch = () => {
           </p>
         </div>
         <div className="hidden  w-1/2 lg:flex justify-center items-center">
-          <img src={stairImg} alt="" className=" max-w-[450px]" />
+          <img src={stairImg} alt="" className=" max-w-[500px]" />
         </div>
       </section>
     </article>

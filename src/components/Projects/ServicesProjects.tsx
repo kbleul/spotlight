@@ -63,7 +63,7 @@ const ServicesProjects = () => {
             <FeedCard
               item={projectsArr[i + 3]}
               handleClick={() =>
-                handleNavigateToCaseStudy(projectsArr[i], navigate)
+                handleNavigateToCaseStudy(projectsArr[i + 3], navigate)
               }
               showArrow
             />

@@ -79,12 +79,10 @@ const ProjectsGrid = ({ projects }: { projects: any[] }) => {
         <section className="w-[90%] lg:w-1/3 max-w-[400px]  flex flex-col gap-6 lg:mt-[3vh] ">
           <ProjectCard project={projects[2]} />
           <section className="hidden lg:flex h-[50vh] px-4 bg-white text-black rounded-md flex-col gap-4 justify-center items-center">
-            <h4 className="font-extrabold w-full text-center">
-              Shape your Success: Partner with Our Experts!
-            </h4>
+            <h4 className="font-extrabold w-full text-center">See Our Wins.</h4>
             <p className="w-full text-center text-[#777777]">
-              Explore our standout projects and let's craft your brand's success
-              story together. Get in touch now!
+              Explore our success stories of creating strategically creative
+              communications solutions.
             </p>
             <div className="expandButtonContainerSecondary mt-16  pl-3">
               <button
@@ -92,7 +90,7 @@ const ProjectsGrid = ({ projects }: { projects: any[] }) => {
                 type="button"
                 className="expandButton bg-black px-4 text-white py-2 border k font-normal flex gap-4 items-center"
               >
-                <p className="text-base text-nowrap">Contact</p>
+                <p className="text-base text-nowrap">Connect</p>
                 <IoIosArrowRoundForward
                   className="expandButtonIcon"
                   size={33}
@@ -118,7 +116,7 @@ const ProjectsGrid = ({ projects }: { projects: any[] }) => {
                 type="button"
                 className="expandButton bg-black px-4 text-white py-2 border k font-normal flex gap-4 items-center"
               >
-                <p className="text-base text-nowrap">Contact</p>
+                <p className="text-base text-nowrap">Connect</p>
                 <IoIosArrowRoundForward
                   className="expandButtonIcon"
                   size={33}

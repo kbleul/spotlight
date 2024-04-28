@@ -38,7 +38,6 @@ const ChatBox = () => {
       );
 
       if (response.status === 200) {
-        console.log("Message sent successfully");
         setTimeout(() => {
           setAnsewers([]);
           setAnswer(null);
@@ -131,7 +130,7 @@ const ChatBox = () => {
   };
 
   return (
-    <article className="z-10 w-full lg:w-1/2 h-[80vh] lgh-[90vh]  md:px-4 lg:px-10  flex flex-col justify-end py-8 lg:py-16 overflow-hidden">
+    <article className="z-10 w-full lg:w-1/2 h-[60vh] lgh-[90vh]  md:px-4 lg:px-10  flex flex-col justify-end py-8 lg:py-16 overflow-hidden">
       <section
         ref={messagesContainerRef}
         className="chatscroll w-full pr-3 lg:pr-8 hover:pr-4 overflow-hidden hover:overflow-y-scroll"

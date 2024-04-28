@@ -5,12 +5,14 @@ const ContactUs = () => {
   return (
     <article
       id="contact-us"
-      className="lg:h-[100vh] px-[5%] bg-black pt-4 lg:pt-20 relative overflow-hidden"
+      className="px-[5%] bg-black pt-12 lg:pt-20 relative overflow-hidden"
     >
       <section className="flex flex-col lg:flex-row ">
         <div className="w-full lg:w-1/2 z-10 text-[3rem] md:text-[5rem] lg:text-[5rem] text-nowrap text-center lg:text-left leading-[3rem] md:leading-[5rem]">
-          <h4 className="text-white  font-extrabold">Want to Talk?</h4>
-          <h4 className="text-white  font-extrabold mt-2">Get in touch.</h4>
+          <h4 className="text-white leading-4 font-extrabold">
+            Let's Connect!
+          </h4>
+          {/* <h4 className="text-white  font-extrabold mt-2">Get in touch.</h4> */}
         </div>
 
         <ChatBox />

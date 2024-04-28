@@ -5,8 +5,8 @@ import parse from "html-react-parser";
 const ProjectDetail = ({ projectDetails }: { projectDetails: any }) => {
   return (
     <article className="bg-black text-white px-[3%] lg:px-[5%]">
-      <h2 className="text-[#4F4F4F] text-[75px] text-center lg:text-left md:text-[90px] lg:text-[115px] font-extrabold">
-        Projects
+      <h2 className="text-[#4F4F4F]  text-[60px] text-center lg:text-left md:text-[90px] lg:text-[115px] font-extrabold">
+        Case Study
       </h2>
 
       <section className="flex flex-col lg:flex-row  ">
@@ -16,18 +16,21 @@ const ProjectDetail = ({ projectDetails }: { projectDetails: any }) => {
             title="Industry"
             content={projectDetails.client.industry.name}
           />
-          <ItemBox
-            title="Duration"
-            content={[
-              projectDetails.duration.duration_count,
-              projectDetails.duration.duration_type,
-            ]}
-            type="duration"
-          />
+
           <ItemBox
             title="Service"
             content={projectDetails.services.flatMap((item: any) => item.name)}
           />
+          {projectDetails.duration.duration_count !== "--" && (
+            <ItemBox
+              title="Duration"
+              content={[
+                projectDetails.duration.duration_count,
+                projectDetails.duration.duration_type,
+              ]}
+              type="duration"
+            />
+          )}
         </div>
         <div className="w-full lg:w-1/2 pt-4 lg:pt-10 pb-20 min-h-[50vh] relative border-t lg:border-t-0  lg:border-l">
           <p className="px-[5%] lg:px-[10%] pb-28 text-2xl lg:text-4xl font-semibold">
@@ -42,10 +45,10 @@ const ProjectDetail = ({ projectDetails }: { projectDetails: any }) => {
           >
             <button
               type="button"
-              className="expandButton bg-white px-4 text-black py-2 border border-black font-normal flex gap-4 items-center"
+              className="expandButton bg-white px-3 text-sm text-black py-2 border border-black font-normal flex gap-4 items-center"
               onClick={() => scrollToContactSection()}
             >
-              <p className="text-base text-nowrap">Reach Out</p>
+              <p className="text-sm text-nowrap">Connect Now</p>
               <IoIosArrowRoundForward className="expandButtonIcon" size={33} />
             </button>
           </div>
@@ -65,7 +68,7 @@ const ItemBox = ({
   type?: string;
 }) => {
   const isArray = Array.isArray(content);
-
+  isArray && type === "duration" && console.log(content[0]);
   return (
     <div className="flex flex-col items-start justify-start  ">
       <p className="text-[#777777] mb-2 ">{truncateText(title, 25)}</p>
@@ -76,7 +79,7 @@ const ItemBox = ({
             key={"services-names" + index}
             className="font-bold text-xl lg:text-3xl"
           >
-            {truncateText(item, 25)}
+            {item}
           </p>
         ))}
 

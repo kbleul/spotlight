@@ -6,7 +6,7 @@ import partner_img4 from "../assets/images/partners/4.png";
 const Partners = () => {
   return (
     <article className="bg-black pt-4 pb-6">
-      <h4 className="text-[#4F4F4F] font-bold text-xl text-center w-full">
+      <h4 className="text-[#4F4F4F] pt-36 font-bold text-xl text-center w-full">
         Our Partners
       </h4>
 

@@ -43,7 +43,7 @@ const CONTENT = [
   },
   {
     id: "services004",
-    title: "Brand & Design",
+    title: "Branding & Design",
     body: [
       "Brand Strategy",
       "Brand Identity",
@@ -189,8 +189,11 @@ const ServicesScroll = () => {
             animate={{ y: 0 }}
             transition={{ duration: 0.2 }}
           >
+            <h2 className="text-xl md:text-3xl lg:text-2xl lg:text-center font-extrabold lg:font-bold text-[#4F4F4F] mb-6 md:mb-2">
+              We connect with people to promote,
+            </h2>
             <h2 className="text-xl md:text-3xl lg:text-2xl lg:text-center font-extrabold lg:font-bold text-[#4F4F4F] mb-6 md:mb-12">
-              We’ve multiple Services
+              manage and protect brands and reputations
             </h2>
             {currentContent == 0 && (
               <>
@@ -377,8 +380,10 @@ const ServicesScroll = () => {
           transition={{ duration: 0.2 }}
         >
           <h2 className="text-xl md:text-3xl lg:text-2xl lg:text-center font-extrabold lg:font-bold text-[#4F4F4F] mb-6 md:mb-12">
-            We’ve multiple Services
+            We connect with people to promote, manage and protect brands and
+            reputations
           </h2>
+
           <>
             <motion.div
               className="text-4xl md:text-6xl text-white font-bold"

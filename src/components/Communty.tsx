@@ -16,7 +16,7 @@ const Communty = () => {
           It’s a Creative Playground
         </h4>
 
-        <p className="max-w-[600px] text-[#777777] font-medium mt-10 text-lg">
+        <p className="max-w-[600px] text-[#777777] font-medium mt-10 text-xl">
           A daring tribe of visionary strategists, creatives, storytellers
           united by a bold desire to spark change through game-changing creative
           work. We're more than coworkers - we're a tight-knit creative family.

@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import cultureImg from "../../assets/images//Culture.png";
 
-import cultureImg1 from "../../assets/images/culture/1.svg";
-import cultureImg2 from "../../assets/images/culture/2.svg";
-import cultureImg3 from "../../assets/images/culture/3.svg";
+import cultureImg1 from "../../assets/images/culture/1.png";
+import cultureImg2 from "../../assets/images/culture/2.png";
+import cultureImg3 from "../../assets/images/culture/3.png";
 import cultureTrace from "../../assets/images/Culture.svg";
 
 import { IoIosArrowRoundForward } from "react-icons/io";
@@ -18,8 +18,8 @@ const Culture = () => {
     threshold: 0.2,
   });
 
-  const [showImageIndex, setShowImageIndex] = useState<number | null>(null);
-  const [smallImagePosition, setSmallImagePosition] = useState({ x: 0, y: 0 });
+  const [, setShowImageIndex] = useState<number | null>(null);
+  const [, setSmallImagePosition] = useState({ x: 0, y: 0 });
 
   const handleMouseEnter = (
     event: React.MouseEvent<HTMLImageElement>,
@@ -40,16 +40,16 @@ const Culture = () => {
   return (
     <article
       ref={ref}
-      className="bg-white md:pb-[25vh] md:pt-[20vh] lg:px-12 relative overflow-hidden"
+      className="bg-white flex justify-center items-center h-screen lg:px-12 relative overflow-hidden"
     >
       <motion.div
-        className="w-full flex flex-col lg:flex-row justify-between items-start px-[3%] lg:px-0"
+        className="w-full flex flex-col lg:flex-row justify-between items-start px-[3%] lg:px-0 h-[105vh] lg:h-[80%]"
         initial={inView ? { y: -1000, x: 0 } : { y: 0, x: 0 }}
         animate={inView ? { y: 0, x: 0 } : { y: 1000, x: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <section className=" w-full lg:w-1/2 flex flex-col items-center gap-y-[6vh] lg:gap-y-[18vh] relative order-2 lg:order-1  mt-10 lg:mt-0">
-          {/* <img
+        <section className="px-2 md:px-0 w-full lg:w-1/2 flex flex-col items-start lg:items-center gap-y-[6vh] lg:gap-y-[18vh] h-full relative order-2 lg:order-1  mt-10 lg:mt-0">
+          <img
             src={cultureImg2}
             alt=""
             className="w-3/5 z-10"
@@ -64,7 +64,7 @@ const Culture = () => {
           <img
             src={cultureImg3}
             alt=""
-            className="w-3/5 z-10"
+            className="w-3/5 z-10 absolute bottom-0"
             onMouseEnter={(event: React.MouseEvent<HTMLImageElement>) =>
               handleMouseEnter(event, 2)
             }
@@ -72,12 +72,15 @@ const Culture = () => {
               handleMouseMove(event)
             }
             onMouseLeave={handleMouseLeave}
-          /> */}
+          />
 
           <img
-            src={cultureImg}
+            src={cultureImg1}
             alt=""
-            className="lg:h-[60vh] max-w-[600px] w-4/5"
+            className="absolute  h-[80%] mt-[10%] w-3/5 mr-3"
+            style={{
+              right: 0,
+            }}
             onMouseEnter={(event: React.MouseEvent<HTMLImageElement>) =>
               handleMouseEnter(event, 3)
             }
@@ -108,9 +111,9 @@ const Culture = () => {
                   window.scrollTo(0, 0);
                   navigate("/culture");
                 }}
-                className="expandButton bg-black px-4 text-white py-2 text-sm font-normal flex gap-2 items-center"
+                className="expandButton bg-black pl-6 text-white py-2 text-sm font-normal flex gap-2 items-center"
               >
-                <p className="text-nowrap">Learn More </p>
+                <p className="text-nowrap">Explore</p>
                 <IoIosArrowRoundForward
                   className="expandButtonIcon"
                   size={32}

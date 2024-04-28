@@ -55,7 +55,7 @@ const SideNav = ({
           </motion.circle>
         ))}
 
-        <motion.div
+        {/*<motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.2 * 6, delay: 0.5 }}
@@ -69,7 +69,7 @@ const SideNav = ({
 
             <IoIosArrowRoundForward className="expandButtonIcon" size={24} />
           </button>
-        </motion.div>
+        </motion.div>*/}
       </article>
     </article>
   );

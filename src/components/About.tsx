@@ -11,7 +11,7 @@ const About = () => {
   });
 
   return (
-    <article className="px-[2%] md:px-[10%] pt-2 pb-32 lg:pt-16 lg:py-52 overflow-hidden text-white bg-black flex items-start justify-between ">
+    <article className="px-[2%] md:px-[10%]  pt-2 pb-32 lg:pt-32 lg:py-[10%] overflow-hidden text-black bg-white flex items-start justify-between ">
       <section
         ref={ref}
         className="flex flex-col md:flex-row items-start justify-between"
@@ -41,7 +41,7 @@ const About = () => {
                 navigate("/about");
               }}
               type="button"
-              className="expandButton bg-white px-4 text-black py-2 text-sm font-normal flex gap-4 items-center"
+              className="expandButton bg-black px-4 text-white py-2 text-sm font-normal flex gap-4 items-center"
             >
               <p className="text-nowrap">Learn More</p>
               <IoIosArrowRoundForward className="expandButtonIcon" size={24} />

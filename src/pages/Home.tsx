@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <article>
       <motion.div
-        className="h-[60vh] lg:h-[90vh]"
+        className="h-[60vh] lg:h-[90vh] bg-black"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -31,7 +31,7 @@ const Home = () => {
       <Projects />
 
       <div className="hidden md:block">
-        <Carasole title="Latest Wins" />
+        <Carasole title="Our Clients" />
       </div>
 
       <Culture />
@@ -40,7 +40,7 @@ const Home = () => {
       </div> */}
 
       <div className="mt-10 lg:hidden">
-        <Carasole title="Latest Wins" />
+        <Carasole title="Our Clients" />
       </div>
 
       <div className="hidden lg:block">
