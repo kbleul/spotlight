@@ -52,7 +52,7 @@ const Culture = () => {
           <img
             src={cultureImg2}
             alt=""
-            className="w-3/5 z-10"
+            className="w-1/2 z-10"
             onMouseEnter={(event: React.MouseEvent<HTMLImageElement>) =>
               handleMouseEnter(event, 1)
             }
@@ -64,7 +64,7 @@ const Culture = () => {
           <img
             src={cultureImg3}
             alt=""
-            className="w-3/5 z-10 absolute bottom-0"
+            className="w-1/2 z-10 absolute bottom-0"
             onMouseEnter={(event: React.MouseEvent<HTMLImageElement>) =>
               handleMouseEnter(event, 2)
             }
@@ -77,7 +77,7 @@ const Culture = () => {
           <img
             src={cultureImg1}
             alt=""
-            className="absolute  h-[80%] mt-[10%] w-3/5 mr-3"
+            className="absolute  h-[80%] mt-[10%] w-1/2 max-w-[400px] mr-3"
             style={{
               right: 0,
             }}
@@ -94,11 +94,11 @@ const Culture = () => {
           <img src={cultureTrace} alt="" className="w-full max-w-[500px]" />
 
           <div className="pl-3 w-full">
-            <h4 className="font-extrabold mt-8 md:mt-4 text-2xl">
+            <h4 className="font-extrabold mt-8 md:mt-4 text-4xl">
               We are Spotlight
             </h4>
 
-            <p className=" mt-4  text-[#4f4f4f] font-semibold lg:text-lg">
+            <p className=" mt-4  text-[#4f4f4f] font-semibold lg:text-2xl">
               We are creative, we are diverse, we are ever-changing. We debate,
               laugh, craft and bring together perspectives that challenge the
               status quo.

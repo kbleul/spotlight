@@ -12,7 +12,7 @@ const Approch = () => {
 
       <section className="flex items-start justify-start pl-6 w-full">
         <div className="w-full lg:w-1/2 flex flex-col gap-8 pt-4 lg:pt-10 text-[#4F4F4F] font-medium md:font-semibold">
-          <p className="max-w-[600px] text-lg">
+          <p className="max-w-[600px] text-lg lg:text-2xl">
             We collaborate to craft creative communications strategies and
             spot-lessly execute to create lastings connections in the hearts and
             minds of people.

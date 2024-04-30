@@ -115,7 +115,7 @@ const Featured = () => {
   const contentDispatch = () => {
     return (
       <div
-        className="w-1/2 max-w-[470px] "
+        className="w-1/2"
         key={
           featuredProjects[
             currentContent >= featuredProjects.length - 1
@@ -124,111 +124,115 @@ const Featured = () => {
           ]
         }
       >
-        <motion.img
-          src={
-            featuredProjects[
-              currentContent >= featuredProjects.length - 1
-                ? featuredProjects.length - 1
-                : currentContent
-            ].cover.url
-          }
-          alt=""
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4 }}
-          className="w-full"
-        />
+        <div className="w-full flex justify-center">
+          <motion.img
+            src={
+              featuredProjects[
+                currentContent >= featuredProjects.length - 1
+                  ? featuredProjects.length - 1
+                  : currentContent
+              ].cover.url
+            }
+            alt=""
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4 }}
+            className="w-[540px] h-[440px]"
+          />
+        </div>
 
-        <section className="py-2 pl-2 flex items-start gap-4">
-          <div className="w-1/2">
-            <motion.h3
-              className="text-3xl font-bold"
-              initial={{ y: 50 }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              0
-              {currentContent >= featuredProjects.length - 1
-                ? featuredProjects.length - 1
-                : currentContent + 1}
-            </motion.h3>
-            {featuredProjects[
-              currentContent >= featuredProjects.length - 1
-                ? featuredProjects.length - 1
-                : currentContent
-            ].sub_title && (
-              <motion.p
-                className="text-[#777777] text-sm line-clamp-5  mt-4 "
-                initial={{ y: 100 }}
+        <article className="w-full flex justify-center ">
+          <section className="py-2 px-4 flex justify-around items-center gap-4 max-w-[540px]">
+            <div className="w-1/2">
+              <motion.h3
+                className="text-3xl font-bold"
+                initial={{ y: 50 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                {parse(
-                  featuredProjects[
-                    currentContent >= featuredProjects.length - 1
-                      ? featuredProjects.length - 1
-                      : currentContent
-                  ].sub_title
-                )}
-              </motion.p>
-            )}
-
-            {featuredProjects[
-              currentContent >= featuredProjects.length - 1
-                ? featuredProjects.length - 1
-                : currentContent
-            ].content &&
-              featuredProjects[
+                0
+                {currentContent >= featuredProjects.length - 1
+                  ? featuredProjects.length - 1
+                  : currentContent + 1}
+              </motion.h3>
+              {featuredProjects[
                 currentContent >= featuredProjects.length - 1
                   ? featuredProjects.length - 1
                   : currentContent
               ].sub_title && (
-                <motion.div
-                  className="expandButtonContainerSecondary mt-6"
+                <motion.p
+                  className="text-[#777777] text-sm line-clamp-3  mt-4 "
                   initial={{ y: 100 }}
                   animate={{ y: 0 }}
-                  transition={{ duration: 1.1 }}
+                  transition={{ duration: 0.8 }}
                 >
-                  <button
-                    type="button"
-                    className={
-                      "expandButton bg-white px-4 text-black py-2 text-sm font-normal flex gap-4 items-center"
-                    }
-                    onClick={() =>
-                      handleNavigateToCaseStudy(
-                        featuredProjects[
-                          currentContent >= featuredProjects.length - 1
-                            ? featuredProjects.length - 1
-                            : currentContent
-                        ],
-                        navigate
-                      )
-                    }
-                  >
-                    {<p className="text-nowrap pl-2">Read Me</p>}
-                    <IoIosArrowRoundForward
-                      className="expandButtonIcon"
-                      size={24}
-                    />
-                  </button>
-                </motion.div>
+                  {parse(
+                    featuredProjects[
+                      currentContent >= featuredProjects.length - 1
+                        ? featuredProjects.length - 1
+                        : currentContent
+                    ].sub_title
+                  )}
+                </motion.p>
               )}
-          </div>
-          <motion.p
-            className="w-1/2 text-sm line-clamp-[8]"
-            initial={{ x: 100 }}
-            animate={{ x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            {parse(
-              featuredProjects[
+
+              {featuredProjects[
                 currentContent >= featuredProjects.length - 1
                   ? featuredProjects.length - 1
                   : currentContent
-              ].content
-            )}
-          </motion.p>
-        </section>
+              ].content &&
+                featuredProjects[
+                  currentContent >= featuredProjects.length - 1
+                    ? featuredProjects.length - 1
+                    : currentContent
+                ].sub_title && (
+                  <motion.div
+                    className="expandButtonContainerSecondary mt-6"
+                    initial={{ y: 100 }}
+                    animate={{ y: 0 }}
+                    transition={{ duration: 1.1 }}
+                  >
+                    <button
+                      type="button"
+                      className={
+                        "expandButton bg-white px-4 text-black py-2 text-sm font-normal flex gap-4 items-center"
+                      }
+                      onClick={() =>
+                        handleNavigateToCaseStudy(
+                          featuredProjects[
+                            currentContent >= featuredProjects.length - 1
+                              ? featuredProjects.length - 1
+                              : currentContent
+                          ],
+                          navigate
+                        )
+                      }
+                    >
+                      {<p className="text-nowrap pl-2">Read Me</p>}
+                      <IoIosArrowRoundForward
+                        className="expandButtonIcon"
+                        size={24}
+                      />
+                    </button>
+                  </motion.div>
+                )}
+            </div>
+            <motion.p
+              className="w-1/2 text-sm line-clamp-[8]"
+              initial={{ x: 100 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              {parse(
+                featuredProjects[
+                  currentContent >= featuredProjects.length - 1
+                    ? featuredProjects.length - 1
+                    : currentContent
+                ].content
+              )}
+            </motion.p>
+          </section>
+        </article>
       </div>
     );
   };
@@ -243,28 +247,30 @@ const Featured = () => {
                 "h-[105vh] px-[5%] pb-[5rem] overflow-hidden text-white bg-black"
               }
             >
-              <h2 className="py-4 text-[#4F4F4F] text-[70px] lg:text-[100px] text-center lg:text-left font-extrabold">
+              <h2 className="py-4 text-[#4F4F4F] text-[70px] lg:text-[100px] text-center lg:text-left font-extrabold stroke">
                 Featured
               </h2>
 
               <section
                 ref={ref}
-                className="w-full flex items-center mt-2 h-4/5 "
+                className="w-full flex items-stretch mt-2 h-4/5 "
               >
-                <div className="w-1/2 pl-[10%] pt-4 text-[#777777] text-4xl  font-extrabold ">
+                <div className="w-1/2  px-[5%] pt-4 text-[#777777] text-5xl  font-extrabold flex flex-col gap-[11%] items-start">
                   {featuredProjects
-                    .slice(0, 6)
+                    .slice(0, 5)
                     .map((content: any, index: number) => (
-                      <p
+                      <button
+                        type="button"
+                        onClick={() => setCurrentContent(index)}
                         key={content.id}
                         className={
                           currentContent === index
-                            ? "text-white mb-10 line-clamp-1"
-                            : "mb-10 line-clamp-1"
+                            ? "text-white  line-clamp-1 w-full text-left"
+                            : " line-clamp-1 w-full text-left hover:text-white"
                         }
                       >
                         {content.title}
-                      </p>
+                      </button>
                     ))}
                 </div>
                 {contentDispatch()}

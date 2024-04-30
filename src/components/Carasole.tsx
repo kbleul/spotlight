@@ -30,7 +30,15 @@ const Carasole = ({ title }: { title?: string }) => {
       )}
       <section className="carousel">
         <div className="carousel-track gap-x-12 md:gap-x-40">
-          {clientsArr.map((item, index) => (
+          {clientsArr.slice(0, 15).map((item, index) => (
+            <img
+              key={item.id + index}
+              src={item.image.url}
+              alt=""
+              className=" w-[15%] h-16 md:h-20 md:w-1/4"
+            />
+          ))}
+          {clientsArr.slice(0, 15).map((item, index) => (
             <img
               key={item.id + index}
               src={item.image.url}
@@ -39,23 +47,27 @@ const Carasole = ({ title }: { title?: string }) => {
             />
           ))}
           {clientsArr.length < 33 &&
-            clientsArr.map((item, index) => (
-              <img
-                key={item.id + index}
-                src={item.image.url}
-                alt=""
-                className=" w-[15%] h-16 md:h-20 md:w-1/4"
-              />
-            ))}
+            clientsArr
+              .slice(0, 15)
+              .map((item, index) => (
+                <img
+                  key={item.id + index}
+                  src={item.image.url}
+                  alt=""
+                  className=" w-[15%] h-16 md:h-20 md:w-1/4"
+                />
+              ))}
           {clientsArr.length < 33 &&
-            clientsArr.map((item, index) => (
-              <img
-                key={item.id + index}
-                src={item.image.url}
-                alt=""
-                className=" w-[15%] h-16 md:h-20 md:w-1/4"
-              />
-            ))}
+            clientsArr
+              .slice(0, 15)
+              .map((item, index) => (
+                <img
+                  key={item.id + index}
+                  src={item.image.url}
+                  alt=""
+                  className=" w-[15%] h-16 md:h-20 md:w-1/4"
+                />
+              ))}
         </div>
       </section>
     </article>

@@ -36,9 +36,9 @@ const CultureHero = () => {
         {!showVideo && (
           <>
             <div className="px-[5%] text-5xl lg:leading-[6rem] lg:text-[96px] text-white font-bold capitalize  absolute bottom-36 lg:bottom-14">
-              <p className="">relentless</p>
-              <p className="">commitment</p>
-              <p className="">to work and play</p>
+              <p className="">We are Spotlight</p>
+              {/* <p className="">commitment</p>
+              <p className="">to work and play</p> */}
 
               {/* {<button
                 type="button"

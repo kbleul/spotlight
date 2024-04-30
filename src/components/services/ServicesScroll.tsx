@@ -9,7 +9,7 @@ import { IoArrowForward } from "react-icons/io5";
 const CONTENT = [
   {
     id: "services001",
-    title: "Public Relations & Communications",
+    title: "PR & Communications",
     body: [
       "Reputation Management",
       "Communications Strategy",
@@ -189,12 +189,12 @@ const ServicesScroll = () => {
             animate={{ y: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <h2 className="text-xl md:text-3xl lg:text-2xl lg:text-center font-extrabold lg:font-bold text-[#4F4F4F] mb-6 md:mb-2">
-              We connect with people to promote,
+            <h2 className="text-xl md:text-3xl lg:text-2xl lg:text-center font-extrabold lg:font-bold text-[#4F4F4F] mb-6 md:mb-8">
+              We elevate brands through creatively strategic approaches
             </h2>
-            <h2 className="text-xl md:text-3xl lg:text-2xl lg:text-center font-extrabold lg:font-bold text-[#4F4F4F] mb-6 md:mb-12">
+            {/* <h2 className="text-xl md:text-3xl lg:text-2xl lg:text-center font-extrabold lg:font-bold text-[#4F4F4F] mb-6 md:mb-12">
               manage and protect brands and reputations
-            </h2>
+            </h2> */}
             {currentContent == 0 && (
               <>
                 <motion.div
@@ -206,18 +206,20 @@ const ServicesScroll = () => {
                   <h4 className="">{CONTENT[0].title}</h4>
                 </motion.div>
 
-                <h2 className="text-2xl text-center font-semibold text-[#4F4F4F] mt-32 mb-8">
+                <h2 className="text-2xl text-center font-semibold text-[#4F4F4F] mt-16 mb-8">
                   Includes
                 </h2>
 
                 <motion.div
-                  className="w-1/2 lg:w-full lg:max-w-[600px]   mt-4 font-semibold capitalize grid grid-cols-2 gap-10 items-center justify-center pl-20"
+                  className="w-1/2 lg:w-full lg:max-w-[600px] mt-4 font-semibold capitalize grid grid-cols-2 gap-10 gap-x-20 items-center justify-center pl-20"
                   initial={{ y: 50 }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.8 }}
                 >
                   {CONTENT[0].body.map((item, index) => (
-                    <p key={index}>{item}</p>
+                    <p className="" key={index}>
+                      {item}
+                    </p>
                   ))}
                 </motion.div>
               </>
@@ -238,7 +240,7 @@ const ServicesScroll = () => {
                 </h2>
 
                 <motion.div
-                  className="w-1/2  mt-4 font-semibold capitalize grid grid-cols-2 gap-10 items-center justify-center pl-20"
+                  className="w-1/2 lg:w-full lg:max-w-[600px] mt-4 font-semibold capitalize grid grid-cols-2 gap-10 gap-x-20 items-center justify-center pl-20"
                   initial={{ y: 50 }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.8 }}
@@ -266,7 +268,7 @@ const ServicesScroll = () => {
                 </h2>
 
                 <motion.div
-                  className="w-1/2  mt-4 font-semibold capitalize grid grid-cols-2 gap-10 items-center justify-center pl-20"
+                  className="w-1/2 lg:w-full lg:max-w-[600px] mt-4 font-semibold capitalize grid grid-cols-2 gap-10 gap-x-20 items-center justify-center pl-20"
                   initial={{ y: 50 }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.8 }}
@@ -294,7 +296,7 @@ const ServicesScroll = () => {
                 </h2>
 
                 <motion.div
-                  className="w-1/2  mt-4 font-semibold capitalize grid grid-cols-2 gap-10 items-center justify-center pl-20"
+                  className="w-1/2 lg:w-full lg:max-w-[600px] mt-4 font-semibold capitalize grid grid-cols-2 gap-10 gap-x-20 items-center justify-center pl-20"
                   initial={{ y: 50 }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.8 }}
@@ -322,7 +324,7 @@ const ServicesScroll = () => {
                 </h2>
 
                 <motion.div
-                  className="w-1/2  mt-4 font-semibold capitalize grid grid-cols-2 gap-10 items-center justify-center pl-20"
+                  className="w-1/2 lg:w-full lg:max-w-[600px] mt-4 font-semibold capitalize grid grid-cols-2 gap-10 gap-x-20 items-center justify-center pl-20"
                   initial={{ y: 50 }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.8 }}

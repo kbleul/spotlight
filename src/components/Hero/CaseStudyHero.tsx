@@ -39,7 +39,7 @@ const Hero = () => {
   return (
     <article
       ref={ref}
-      className="h-[90vh] w-full bg-black"
+      className="h-[88vh] w-full bg-black"
       style={{
         backgroundImage: `url(${item.cover.url})`,
         backgroundSize: "cover",
@@ -48,7 +48,7 @@ const Hero = () => {
     >
       {!showVideo && (
         <>
-          <div className="w-full px-[5%] text-3xl md:text-4xl lg:text-5xl lg:leading-[6rem] lg:text-[90px] text-white font-bold capitalize  absolute bottom-10 lg:bottom-14">
+          <div className="w-full px-[5%] text-3xl md:text-4xl lg:text-5xl lg:leading-[6rem] lg:text-[90px] text-white font-bold capitalize  absolute bottom-4">
             <p className="w-full lg:max-w-[80%]">{item.title}</p>
 
             {item.video && item.video !== "" && (
@@ -68,7 +68,7 @@ const Hero = () => {
                   item.services.length >= 2 ? "justify-end" : "justify-start"
                 }  mt-4  `}
               >
-                <section className="text-white text-sm  grid grid-cols-2 gap-4 justify-end">
+                {/* <section className="text-white text-sm  grid grid-cols-2 gap-4 justify-end">
                   {item.services.map((service: any, index: number) => (
                     <p
                       key={"servie-cate" + index}
@@ -77,7 +77,7 @@ const Hero = () => {
                       {service.name}
                     </p>
                   ))}
-                </section>
+                </section> */}
               </article>
             )}
           </div>

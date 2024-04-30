@@ -72,6 +72,20 @@ html {
   width: 155px;
 }
 
+.expandButtonContainerFourth {
+  width: 180px;
+}
+
+.expandButtonContainerFourth .expandButton {
+  width: 145px;
+  transition: width 0.3s ease-in-out;
+}
+
+.expandButtonContainerFourth .expandButton:hover,
+.expandButtonContainerFourth.expandButton:focus {
+  width: 180px;
+}
+
 .expandButtonIcon {
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
@@ -314,6 +328,23 @@ html {
   position: absolute;
   left: -50px;
   top: 350px;
+}
+
+.scroll_fade {
+  -webkit-mask: linear-gradient(
+    270deg,
+    transparent,
+    rgb(59, 59, 59),
+    rgb(59, 59, 59),
+    rgb(59, 59, 59)
+  );
+  mask: linear-gradient(
+    270deg,
+    transparent,
+    rgb(59, 59, 59),
+    rgb(59, 59, 59),
+    rgb(59, 59, 59)
+  );
 }
 
 @supports (-webkit-text-stroke: 1px white) {

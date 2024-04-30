@@ -51,7 +51,7 @@ export const createViewableImageGrid = (
   const newGalleryImagesArr: galleryImage[] = [];
   const addPortrateImagesIndex = new Set();
 
-  for (let i = 0; i < galleryImagesArr.length - 1; i++) {
+  for (let i = 0; i < galleryImagesArr.length; i++) {
     if (galleryImagesArr[i].type === "landscape") {
       newGalleryImagesArr.push(galleryImagesArr[i]);
       continue;
@@ -59,10 +59,7 @@ export const createViewableImageGrid = (
 
     let counter = i + 1;
 
-    if (
-      counter === galleryImagesArr.length - 1 &&
-      !addPortrateImagesIndex.has(i)
-    ) {
+    if (counter === galleryImagesArr.length && !addPortrateImagesIndex.has(i)) {
       newGalleryImagesArr.push(galleryImagesArr[i]);
       break;
     }
@@ -84,7 +81,7 @@ export const createViewableImageGrid = (
           foundNextPortrait = true;
         }
 
-        if (counter === galleryImagesArr.length - 1) {
+        if (counter === galleryImagesArr.length) {
           foundNextPortrait = true;
         }
 

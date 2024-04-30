@@ -30,7 +30,15 @@ const CarasoleReverse = ({ title }: { title?: string }) => {
       )}
       <section className="carouselReverse">
         <div className="carousel-track gap-x-6 md:gap-x-40">
-          {clientsArr.map((item, index) => (
+          {clientsArr.slice(15, clientsArr.length).map((item, index) => (
+            <img
+              key={item.id + index}
+              src={item.image.url}
+              alt=""
+              className="w-[15%] h-16 md:h-20 md:w-1/4"
+            />
+          ))}
+          {clientsArr.slice(15, clientsArr.length).map((item, index) => (
             <img
               key={item.id + index}
               src={item.image.url}
@@ -39,23 +47,27 @@ const CarasoleReverse = ({ title }: { title?: string }) => {
             />
           ))}
           {clientsArr.length < 33 &&
-            clientsArr.map((item, index) => (
-              <img
-                key={item.id + index}
-                src={item.image.url}
-                alt=""
-                className="w-[15%] h-16 md:h-20 md:w-1/4"
-              />
-            ))}
+            clientsArr
+              .slice(15, clientsArr.length)
+              .map((item, index) => (
+                <img
+                  key={item.id + index}
+                  src={item.image.url}
+                  alt=""
+                  className="w-[15%] h-16 md:h-20 md:w-1/4"
+                />
+              ))}
           {clientsArr.length < 33 &&
-            clientsArr.map((item, index) => (
-              <img
-                key={item.id + index}
-                src={item.image.url}
-                alt=""
-                className="w-[15%] h-16 md:h-20 md:w-1/4"
-              />
-            ))}
+            clientsArr
+              .slice(15, clientsArr.length)
+              .map((item, index) => (
+                <img
+                  key={item.id + index}
+                  src={item.image.url}
+                  alt=""
+                  className="w-[15%] h-16 md:h-20 md:w-1/4"
+                />
+              ))}
         </div>
       </section>
     </article>

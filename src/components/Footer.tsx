@@ -12,7 +12,7 @@ const Footer = () => {
       <section className="lg:pl-[7%] text-white w-full  flex lg:block flex-col items-center lg:w-1/2">
         <img src={logoWhite} className="w-[150px] lg:max-w-none order-1" />
 
-        <div className="w-full pl-[15%] lg:pl-0 flex items-center justify-start gap-4 mt- lg:mt-8 order-3 ">
+        <div className="w-full pl-[15%] lg:pl-0 flex items-center justify-start gap-4 mt- lg:mt-2 order-3 ">
           <div className="border border-[#777777] p-2 rounded-full">
             <CiLocationOn className="w-4 h-4" />
           </div>
@@ -22,7 +22,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="w-full pl-[15%] lg:pl-0 flex items-center justify-start gap-4 mt-8 order-2 ">
+        <div className="w-full pl-[15%] lg:pl-0 flex items-center justify-start gap-4 mt-4 order-2 ">
           <div className="border border-[#777777] p-2 rounded-full">
             <MdOutlinePhone className="w-4 h-4" />
           </div>
@@ -32,15 +32,15 @@ const Footer = () => {
           </div>
         </div>
       </section>
-      <section className="w-full lg:w-1/2 mt-[10vh] lg:mt-0 flex flex-col justify-between items-center lg:items-end lg:pr-[5%]">
+      <section className="w-full lg:w-1/2 mt-[10vh] lg:mt-0 flex flex-col justify-between items-center lg:items-end lg:pr-[7%]">
         <button
-          className="hidden lg:block border border-[#777777] p-2 rounded-full w-fit text-white"
+          className="hidden lg:block border border-[#777777] p-2 rounded-full w-fit text-white mr-4"
           onClick={() => scrollTo(0, 0)}
         >
           <IoIosArrowRoundUp size="50" />
         </button>
 
-        <div className="lg:pr-[10%]">
+        <div className="lg:pr-[4%]">
           <div className="flex justify-center lg:justify-end gap-6 text-white">
             <a
               href="http://www.facebook.com/spotlightethiopia"

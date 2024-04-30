@@ -18,7 +18,7 @@ const FeedCard = ({
   return (
     <button
       type="button"
-      className="bg-[#F5F5F5] rounded-lg md:min-w-[500px] max-w-[550px] pt-7"
+      className="bg-[#F5F5F5] rounded-lg  lg:w-[580px] pt-7"
       onClick={() =>
         showArrow && item.sub_title && item.content && handleClick(item)
       }
@@ -37,7 +37,7 @@ const FeedCard = ({
           item.sub_title ? "px-8 text-left h-[10vh]" : "px-8 text-left h-[4vh]"
         }
       >
-        <h4 className="text-xl font-bold mt-2 hidden md:block">
+        <h4 className="text-2xl font-bold mt-2 hidden md:block">
           {truncateText(item.title, 55)}
         </h4>
         <h4 className="text-xl font-bold mt-2  md:hidden">
@@ -46,7 +46,7 @@ const FeedCard = ({
 
         {item.sub_title && (
           <p
-            className="mt-2 font-medium text-sm  line-clamp-2"
+            className="mt-2 font-medium text-sm lg:text-base  line-clamp-2"
             style={{
               wordBreak: "break-all",
             }}
@@ -63,11 +63,11 @@ const FeedCard = ({
           <div className="h-8" />
         )}
       </div>
-      <div className="w-full max-h-[40vh] rounded-t-[2rem] overflow-hidden ">
+      <div className="w-[580px] h-[580px] rounded-t-[2rem] overflow-hidden ">
         <img
           src={item.cover && item.cover.url ? item.cover.url : placeholderimg}
           alt=""
-          className="w-full max-h-[40vh] object-cover"
+          className="w-[580px] h-[580px] object-cover"
         />
       </div>
     </button>

@@ -20,9 +20,12 @@ const Hero = () => {
         <h2 className="w-full  text-[#fff] text-[80px] text-center md:text-[120px] lg:text-[200px] leading-[8rem] lg:leading-[12rem] font-extrabold">
           SHINE
         </h2>
-        <h2 className="w-full  text-[#fff] text-[80px] text-center md:text-[120px] lg:text-[200px] leading-[4rem] lg:leading-[12rem] font-extrabold">
+        <h2 className="w-full  text-[#fff] text-[80px] text-center md:text-[120px] lg:text-[200px] leading-[8rem] lg:leading-[12rem] font-extrabold">
           BRIGHT
         </h2>
+        {/* <h2 className="w-full lg:w-1/4  text-[#fff] text-[80px] text-center lg:text-right lg:mr-[5%] md:text-[120px] lg:text-[80px] leading-[4rem] lg:leading-[6rem] font-extrabold">
+          BRIGHT
+        </h2> */}
       </div>
 
       {/* <section className="w-full flex justify-end mt-6 md:mt-10">

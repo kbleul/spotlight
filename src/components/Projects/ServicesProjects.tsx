@@ -32,7 +32,7 @@ const ServicesProjects = () => {
   const projectsArr: any[] = data.data.data;
 
   return (
-    <article className="bg-white flex flex-col lg:flex-row items-start px-[5%] pt-0 lg:py-16">
+    <article className="bg-white flex flex-col lg:flex-row items-start gap-[5%] px-[5%] pt-0 lg:py-16">
       <section className="w-full lg:w-1/2 pt-12 flex flex-col  justify-center items-center gap-8 order-2 lg:order-1">
         {Array.from({ length: 3 }).map((_, i) => (
           <div key={"ServicesProjects-" + i} className="max-w-[800px]">
@@ -57,9 +57,16 @@ const ServicesProjects = () => {
         </div> */}
       </section>
       <section className="w-full lg:w-1/2 pt-12 flex flex-col  justify-center items-center gap-8 order-1 lg:order-2">
-        <img src={projectTraceImage} alt="Projects" />
+        {/* <img src={projectTraceImage} alt="Projects" /> */}
+        <h2 className="stroke-black py-4 text-[#4F4F4F] text-[70px] lg:text-[100px] text-center w-full lg:text-left font-extrabold stroke">
+          Projects
+        </h2>
+
         {Array.from({ length: 3 }).map((_, i) => (
-          <div key={"ServicesProjects-secondary" + i} className="max-w-[800px]">
+          <div
+            key={"ServicesProjects-secondary" + i}
+            className="w-full flex justify-center"
+          >
             <FeedCard
               item={projectsArr[i + 3]}
               handleClick={() =>

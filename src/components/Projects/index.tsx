@@ -17,8 +17,6 @@ const Projects = () => {
       ),
   });
 
-  //loading
-
   if (error || isPending) return <></>;
 
   return (
@@ -26,7 +24,7 @@ const Projects = () => {
       <section className="flex items-start justify-between">
         <div className="w-full ">
           <div className="flex justify-between items-start">
-            <h2 className="text-[#4F4F4F] text-[75px] text-center lg:text-left md:text-[90px] lg:text-[115px] font-extrabold">
+            <h2 className="stroke text-[#4F4F4F] text-[75px] text-center lg:text-left md:text-[90px] lg:text-[115px] font-extrabold">
               Projects
             </h2>
             <div className="hidden lg:block expandButtonContainerSecondary mt-12">
@@ -38,7 +36,7 @@ const Projects = () => {
                 type="button"
                 className="expandButton bg-white px-4 text-black py-2 text-sm font-normal flex gap-4 items-center"
               >
-                <p className="text-nowrap">Read More</p>
+                <p className="text-nowrap">Explore All</p>
                 <IoIosArrowRoundForward
                   className="expandButtonIcon"
                   size={24}
@@ -47,7 +45,7 @@ const Projects = () => {
             </div>
           </div>
 
-          <p className="lg:ml-[15%] max-w-[1000px] mt-4 lg:pr-[7%] text-[#B9B9B9] lg:text-lg">
+          <p className="lg:ml-[15%] max-w-[1000px] mt-4 lg:pr-[7%] text-[#B9B9B9] lg:text-2xl">
             From global titans to innovative startups, our brands shine. Explore
             our campaigns that have stood out and captured hearts.
           </p>
@@ -65,32 +63,34 @@ const ProjectsGrid = ({ projects }: { projects: any[] }) => {
   });
 
   return (
-    <article ref={ref} className="w-full flex justify-center">
+    <article ref={ref} className="w-[90%] ml-[5%] flex justify-center mt-10">
       <motion.div
-        className="w-full gap-6 flex flex-col lg:flex-row justify-center items-center max-w-[1000px] mt-14 lg:mt-0"
+        className=" w-full gap-6 flex flex-col lg:flex-row justify-between items-center  mt-14 lg:mt-0"
         initial={inView ? { y: -1000, x: 0 } : { y: 0, x: 0 }}
         animate={inView ? { y: 0, x: 0 } : { y: 1000, x: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <section className="w-[90%] lg:w-1/3 max-w-[400px] flex flex-col gap-8 rounded-md">
+        <section className="w-[90%] lg:w-1/3 max-w-[480px] flex flex-col gap-8 rounded-md">
           <ProjectCard project={projects[0]} />
           <ProjectCard project={projects[1]} />
         </section>
-        <section className="w-[90%] lg:w-1/3 max-w-[400px]  flex flex-col gap-6 lg:mt-[3vh] ">
-          <ProjectCard project={projects[2]} />
-          <section className="hidden lg:flex h-[50vh] px-4 bg-white text-black rounded-md flex-col gap-4 justify-center items-center">
-            <h4 className="font-extrabold w-full text-center">See Our Wins.</h4>
-            <p className="w-full text-center text-[#777777]">
+        <section className="w-[90%] lg:w-1/3 max-w-[480px]  flex flex-col gap-6  ">
+          <ProjectCard project={projects[2]} is={true} />
+          <section className="hidden lg:flex h-[33vh] px-4 bg-white text-black rounded-md flex-col gap-4 justify-center items-center">
+            <h4 className="font-extrabold w-full text-center text-2xl">
+              See Our Wins.
+            </h4>
+            <p className="w-full text-center text-[#777777] lg:text-lg">
               Explore our success stories of creating strategically creative
               communications solutions.
             </p>
-            <div className="expandButtonContainerSecondary mt-16  pl-3">
+            <div className="expandButtonContainerFourth mt-16  pl-3">
               <button
                 onClick={() => scrollToContactSection()}
                 type="button"
                 className="expandButton bg-black px-4 text-white py-2 border k font-normal flex gap-4 items-center"
               >
-                <p className="text-base text-nowrap">Connect</p>
+                <p className="text-base text-nowrap">Connect Now</p>
                 <IoIosArrowRoundForward
                   className="expandButtonIcon"
                   size={33}
@@ -99,7 +99,7 @@ const ProjectsGrid = ({ projects }: { projects: any[] }) => {
             </div>
           </section>
         </section>
-        <section className="w-[90%] lg:w-1/3 max-w-[400px] flex flex-col gap-8 rounded-md">
+        <section className="w-[90%] lg:w-1/3 max-w-[480px] flex flex-col gap-8 rounded-md">
           <ProjectCard project={projects[3]} />
           <ProjectCard project={projects[4]} />
           <section className="flex lg:hidden h-[50vh] px-4 bg-white text-black rounded-md flex-col gap-4 justify-center items-center">
@@ -111,12 +111,12 @@ const ProjectsGrid = ({ projects }: { projects: any[] }) => {
               sed nibh suspendisse orci. Sed faucibus quis id vitae elementum
               libero.
             </p>
-            <div className="expandButtonContainerSecondary mt-16  pl-3">
+            <div className="expandButtonContainerFourth mt-16  pl-3">
               <button
                 type="button"
                 className="expandButton bg-black px-4 text-white py-2 border k font-normal flex gap-4 items-center"
               >
-                <p className="text-base text-nowrap">Connect</p>
+                <p className="text-base text-nowrap">Connect Now</p>
                 <IoIosArrowRoundForward
                   className="expandButtonIcon"
                   size={33}

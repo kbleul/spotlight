@@ -15,7 +15,7 @@ import { useNavigate } from "react-router-dom";
 const CONTENT = [
   {
     id: "services001",
-    title: "Public Relations & Communications",
+    title: "PR & Communications",
     body: "Creating influence through strategic media relations, thought leadership and attention-commanding campaigns.",
     img: service1_img,
   },
@@ -53,9 +53,9 @@ const Services = () => {
   function handleWheel(event: WheelEvent) {
     if (inView) {
       const rootElement = document.getElementById("root-body");
-      if (rootElement) {
-        rootElement.style.overflowY = "hidden";
-      }
+      // if (rootElement) {
+      //   rootElement.style.overflowY = "hidden";
+      // }
       const container: HTMLElement | null =
         document.querySelector("#container");
       const container2: HTMLElement | null =
@@ -66,13 +66,15 @@ const Services = () => {
         document.querySelector("#container4");
       if (event.deltaY < 0) {
         setScrollPercentage((prev) => {
-          if (prev === 0 && scrollPrecentageUp === 0) {
-            rootElement.style.overflowY = "scroll";
-          } else {
-            rootElement.style.overflowY = "hidden";
-          }
+          if (rootElement) {
+            if (prev === 0 && scrollPrecentageUp === 0) {
+              rootElement.style.overflowY = "scroll";
+            } else {
+              rootElement.style.overflowY = "hidden";
+            }
 
-          return 0;
+            return 0;
+          }
         });
         if (container && container2 && container3 && container4) {
           container.style.transform = `translateX(+${scrollPrecentageUp}%)`;
@@ -172,10 +174,10 @@ const Services = () => {
       >
         <div
           id="container"
-          className="w-full flex-shrink-0 h-full flex justify-evenly items-center bg-black"
+          className="w-full flex-shrink-0 h-full flex justify-evenly items-center bg-black relative"
         >
           <section className="w-[45%] max-w-[600px] text-white">
-            <h2 className="stroke poppins-thin text-[123px] font-extrabold text-[#4F4F4F] mb-6">
+            <h2 className="absolute top-4 stroke poppins-thin text-[123px] font-extrabold text-[#4F4F4F] mb-6">
               Services
             </h2>
 
@@ -231,10 +233,6 @@ const Services = () => {
           className="w-full flex-shrink-0 h-[105vh] flex justify-evenly items-center bg-black"
         >
           <section className="w-[45%] max-w-[600px] text-white">
-            <h2 className="stroke poppins-thin text-[123px] font-extrabold text-[#4F4F4F] mb-6">
-              Services
-            </h2>
-
             <div className="font-bold text-5xl">
               <h4>{CONTENT[2].title}</h4>
             </div>
@@ -255,16 +253,21 @@ const Services = () => {
           id="container4"
           className="w-full flex-shrink-0 h-[105vh] flex flex-col justify-evenly items-start bg-white "
         >
-          <section className="w-[40%] flex flex-col items-start pl-[5%]">
-            <img className="" src={CONTENT[3].img} alt="" />
+          <section className="w-[50%] flex flex-col items-start pl-[3%]">
+            <h2 className=" stroke-black poppins-thin text-[80px] w-full text-center font-extrabold text-[#4F4F4F] leading-12">
+              Looking For More ?
+            </h2>
 
             <div className="py-16 w-full flex flex-col items-center">
-              <p className=" text-[#777777] font-medium lg:text-2xl text-center">
-                There's more to discover!
+              <p className=" text-[#777777] font-medium lg:text-2xl text-center ">
+                We deliver strategic end-to-end
               </p>
-              <p className=" text-[#777777] font-medium lg:text-2xl text-center">
+              <p className=" text-[#777777] font-medium lg:text-2xl text-center ">
+                communication solutions.
+              </p>
+              {/* <p className=" text-[#777777] font-medium lg:text-2xl text-center">
                 Explore our extended lineup of projects.
-              </p>
+              </p> */}
             </div>
 
             <div className="expandButtonContainerThird w-full flex justify-center">

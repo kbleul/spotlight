@@ -26,7 +26,7 @@ const Home = () => {
 
       <Services />
 
-      <Approch />
+      {/* <Approch /> */}
 
       <Projects />
 
