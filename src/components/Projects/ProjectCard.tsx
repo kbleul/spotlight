@@ -2,7 +2,7 @@ import { truncateText } from "../../utils/func";
 import { useNavigate } from "react-router-dom";
 import { handleNavigateToCaseStudy } from "./ServicesProjects";
 
-const ProjectCard = ({ project }: { project: any }) => {
+const ProjectCard = ({ project, isMid }: { project: any; isMid?: boolean }) => {
   console.log(project);
   const navigate = useNavigate();
 
@@ -35,18 +35,32 @@ const ProjectCard = ({ project }: { project: any }) => {
       <h4 className="mx-4 mb-4 font-bold">{truncateText(project.title, 40)}</h4>
 
       <div
-        className={
-          "bg-[#d9d9d9] h-[30vh] lg:h-[35vh] w-full rounded-t-[2rem] overflow-hidden"
-        }
+        className={` lg:block bg-[#d9d9d9] ${
+          isMid ? "lg:h-[53vh] hidden" : "lg:h-[35vh]"
+        } h-[30vh] lg:h-[35vh] w-full rounded-t-[2rem] overflow-hidden`}
         style={{
-          backgroundImage: `url(${project.cover.url})`,
+          backgroundImage: `url(${
+            isMid ? project.square_thumbnail.url : project.cover.url
+          })`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
         }}
-      >
-        {/* <img src={project.cover.url} alt="" className="w-full h-full" /> */}
-      </div>
+      />
+
+      <div
+        className={` bg-[#d9d9d9] ${
+          isMid ? " lg:hidden lg:h-[53vh]" : " hidden lg:h-[35vh]"
+        } h-[30vh] lg:h-[35vh] w-full rounded-t-[2rem] overflow-hidden`}
+        style={{
+          backgroundImage: `url(${
+            isMid ? project.square_thumbnail.url : project.cover.url
+          })`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+        }}
+      />
     </button>
   );
 };
