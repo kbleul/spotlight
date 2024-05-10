@@ -44,7 +44,7 @@ const About = () => {
         />
       </div>
 
-      <div className=" bg-black h-[100vh] flex justify-center items-center">
+      <div className="pt-20 bg-black h-[100vh] flex justify-center items-center">
         <Leading
           img={shineImg}
           title="Setting the"
@@ -75,9 +75,9 @@ const About = () => {
         className="mt-32 py-20 px-[2%] hidden lg:block"
       /> */}
 
-      {/* <div className="mb-[5vh] hidden lg:block">
-        <Employees />
-      </div> */}
+      {/* <div className="mb-[5vh] hidden lg:block"> */}
+      <Employees />
+      {/* </div> */}
     </article>
   );
 };

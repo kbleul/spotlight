@@ -25,19 +25,19 @@ const Connections = ({
     <article className="px-[3%] lg:px-[10%] overflow-hidden text-white bg-black flex items-start justify-between ">
       <section
         ref={ref}
-        className="flex  flex-col lg:flex-row items-stretch justify-between "
+        className="flex  flex-col lg:flex-row items-stretch justify-between"
       >
         <motion.div
-          className="w-full lg:w-[45%] flex flex-col justify-center"
+          className="w-full lg:w-[45%] flex flex-col justify-center  order-2 md:order-1"
           initial={inView ? { x: isViewed ? 0 : -1600 } : { x: 0 }}
           animate={inView ? { x: 0 } : { x: isViewed ? 0 : -1600 }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-[#fff] text-5xl lg:text-6xl font-extrabold">
+          <h2 className="text-[#fff] text-4xl lg:text-6xl font-extrabold">
             {title}
           </h2>
           {secondaryTitle && (
-            <h2 className="text-[#fff] text-5xl lg:text-6xl font-extrabold">
+            <h2 className="text-[#fff] text-4xl lg:text-6xl font-extrabold">
               {secondaryTitle}
             </h2>
           )}
@@ -45,12 +45,12 @@ const Connections = ({
         </motion.div>
 
         <motion.div
-          className="w-full  lg:w-[45%] flex justify-center items-center pt-20 lg:pt-4"
+          className="w-full  lg:w-[45%] flex justify-center items-center pb-20 lg:pb-0 pt-20 lg:pt-4 order-1 md:order-2"
           initial={inView ? { x: isViewed ? 0 : 1000 } : { x: 0 }}
           animate={inView ? { x: 0 } : { x: isViewed ? 0 : 1000 }}
           transition={{ duration: 0.7 }}
         >
-          <img src={img} alt="" className="max-w-[30rem]" />
+          <img src={img} alt="" className="max-w-[16rem] lg:max-w-[30rem]" />
         </motion.div>
       </section>
     </article>

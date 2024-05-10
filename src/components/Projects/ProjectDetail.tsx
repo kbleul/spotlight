@@ -5,7 +5,7 @@ import parse from "html-react-parser";
 const ProjectDetail = ({ projectDetails }: { projectDetails: any }) => {
   return (
     <article className="bg-black text-white px-[3%] lg:px-[5%]">
-      <h2 className="text-[#4F4F4F]  text-[60px] text-center lg:text-left md:text-[90px] lg:text-7xl py-6 stroke font-extrabold">
+      <h2 className="text-[#4F4F4F]  text-[50px] text-left md:text-[90px] lg:text-7xl py-2 lg:py-6 stroke font-extrabold">
         Case Study
       </h2>
 
@@ -21,6 +21,7 @@ const ProjectDetail = ({ projectDetails }: { projectDetails: any }) => {
             title="Service"
             content={projectDetails.services.flatMap((item: any) => item.name)}
           />
+
           {projectDetails.duration.duration_count !== "--" && (
             <ItemBox
               title="Duration"
@@ -32,12 +33,14 @@ const ProjectDetail = ({ projectDetails }: { projectDetails: any }) => {
             />
           )}
         </div>
-        <div className="w-full lg:w-1/2 pt-4 lg:pt-20 pb-20 min-h-[50vh] relative border-t lg:border-t-0  lg:border-l">
-          <p className="px-[5%] lg:px-[10%] pb- text-2xl lg:text-[1.875rem] leading-[3.2rem]">
+        <div className="w-full lg:w-1/2 pt-10 min-h-[50vh] relative border-t lg:border-t-0  lg:border-l">
+          <p className="text-[#777777] mb-2 px-[5%] lg:px-[10%] ">Overview</p>
+
+          <p className="px-[5%] lg:px-[10%] text-xl lg:text-2xl text-left  leading-[2.2rem] lg:leading-[2.5rem]">
             {parse(projectDetails.sub_title)}
           </p>
 
-          <div className="px-[5%] lg:px-[10%] expandButtonContainerFourth  w-full flex justify-start absolute bottom-16">
+          <div className="px-[5%] lg:px-[10%] expandButtonContainerFourth  w-full flex justify-start mt-4">
             <button
               type="button"
               className="expandButton bg-white px-3 text-sm text-black py-2 border border-black font-normal flex gap-4 items-center"
@@ -72,7 +75,7 @@ const ItemBox = ({
         content.map((item, index) => (
           <p
             key={"services-names" + index}
-            className="font-bold text-xl lg:text-3xl"
+            className="font-bold text-xl lg:text-2xl"
           >
             {item}
           </p>

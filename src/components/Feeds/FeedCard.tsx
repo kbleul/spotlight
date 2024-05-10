@@ -3,6 +3,7 @@ import placeholderimg from "../../assets/images/feed_placeholder.svg";
 import { MdArrowOutward } from "react-icons/md";
 import { truncateText } from "../../utils/func";
 import parse from "html-react-parser";
+import img6 from "../../assets/images/6.jpg";
 
 const FeedCard = ({
   item,
@@ -18,7 +19,7 @@ const FeedCard = ({
   return (
     <button
       type="button"
-      className="bg-[#F5F5F5] rounded-lg  lg:w-[580px] pt-7"
+      className="bg-[#F5F5F5] rounded-lg  lg:max-w-[600px] pt-7"
       onClick={() =>
         showArrow && item.sub_title && item.content && handleClick(item)
       }
@@ -63,12 +64,8 @@ const FeedCard = ({
           <div className="h-8" />
         )}
       </div>
-      <div className="w-[580px] h-[580px] rounded-t-[2rem] overflow-hidden ">
-        <img
-          src={item.cover && item.cover.url ? item.cover.url : placeholderimg}
-          alt=""
-          className="w-[580px] h-[580px] object-cover"
-        />
+      <div className="w-full h-auto rounded-t-[2rem] overflow-hidden ">
+        <img src={item.cover.url} alt="" className="w-full object-cover" />
       </div>
     </button>
   );

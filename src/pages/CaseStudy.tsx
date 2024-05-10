@@ -7,7 +7,6 @@ import ProjectGallery from "../components/Projects/ProjectGallery";
 import parse from "html-react-parser";
 const CaseStudy = () => {
   const { id } = useParams();
-  console.log(id);
   const { isPending, error, data } = useQuery({
     queryKey: ["projectDetails" + id, id],
     queryFn: () =>
@@ -44,7 +43,7 @@ const Intro = ({ intro }: { intro: string }) => {
       {/* <h4 className="text-[#777777] text-xl lg:text-2xl font-bold mb-2">
         About
       </h4> */}
-      <p className="font-semibold  lg:text-lg">{parse(intro)}</p>
+      <p className="text-justify  lg:text-lg">{parse(intro)}</p>
     </section>
   );
 };

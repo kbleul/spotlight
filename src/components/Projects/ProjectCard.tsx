@@ -1,13 +1,30 @@
 import { truncateText } from "../../utils/func";
+import { useNavigate } from "react-router-dom";
+import { handleNavigateToCaseStudy } from "./ServicesProjects";
 
-const ProjectCard = ({ project, is }: { project: any; is?: boolean }) => {
+const ProjectCard = ({ project }: { project: any }) => {
+  console.log(project);
+  const navigate = useNavigate();
+
   return (
-    <article className="relative bg-[#1e1e1e] rounded-lg overflow-x-hidden">
+    <button
+      type="button"
+      className="relative bg-[#1e1e1e] rounded-lg overflow-hidden text-left"
+      onClick={() => {
+        project.sub_title &&
+          project.content &&
+          handleNavigateToCaseStudy(project, navigate);
+      }}
+    >
       <div className="scroll_fade flex justify-start gap-x-1 w-full scroll-tab-container">
         {project.services.map((item: any, index: number) => (
           <p
             key={item + "--project--" + index}
-            className="mx-2  text-sm border border-white px-4 py-1 mt-6 mb-4 rounded-full "
+            className={
+              project.services.length === 1
+                ? "mx-2 mb-8 text-sm border border-white px-4 py-1 mt-6 rounded-full"
+                : "mx-2  text-sm border border-white px-4 py-1 mt-6 mb-4 rounded-full"
+            }
             style={{ whiteSpace: "nowrap" }}
           >
             {item.name}
@@ -19,19 +36,18 @@ const ProjectCard = ({ project, is }: { project: any; is?: boolean }) => {
 
       <div
         className={
-          is
-            ? "bg-[#d9d9d9] h-[60vh] rounded-t-[2rem] overflow-hidden"
-            : "bg-[#d9d9d9] h-[40vh] rounded-t-[2rem] overflow-hidden"
+          "bg-[#d9d9d9] h-[30vh] lg:h-[35vh] w-full rounded-t-[2rem] overflow-hidden"
         }
-        // style={{
-        //   backgroundImage: `url(${project.cover.url})`,
-        //   backgroundSize: "cover",
-        //   backgroundRepeat: "no-repeat",
-        // }}
+        style={{
+          backgroundImage: `url(${project.cover.url})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+        }}
       >
-        <img src={project.cover.url} alt="" className="w-full h-auto" />
+        {/* <img src={project.cover.url} alt="" className="w-full h-full" /> */}
       </div>
-    </article>
+    </button>
   );
 };
 

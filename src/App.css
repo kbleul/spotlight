@@ -152,13 +152,13 @@ html {
 }
 
 .carouselEmployees--slow {
-  display: flex;
-  animation: scrollCarouselEmployee--slow 5s infinite linear;
+  /* display: flex; */
+  animation: scrollCarouselEmployee--slow 500000s infinite linear;
 }
 
 .carouselEmployeeReverse--slow {
-  display: flex;
-  animation: scrollCarouselEmployeeReverse--slow 5s infinite linear;
+  /* display: flex; */
+  animation: scrollCarouselEmployeeReverse--slow 500000s infinite linear;
 }
 
 @keyframes scrollCarouselEmployee--slow {
@@ -186,6 +186,10 @@ html {
   100% {
     transform: translateX(-250%);
   }
+}
+
+.carouselEmployees-paused:hover {
+  animation-play-state: paused;
 }
 
 @keyframes scrollCarouselEmployeeReverse {
@@ -347,6 +351,10 @@ html {
   );
 }
 
+.bg-gradient {
+  background: linear-gradient(240deg, transparent, rgba(0, 0, 0, 0.4));
+}
+
 @supports (-webkit-text-stroke: 1px white) {
   .stroke {
     -webkit-text-stroke: 1px white;
@@ -374,6 +382,6 @@ html {
   }
   .customImg3 {
     left: -100px;
-    top: 300px;
+    top: 200px;
   }
 }

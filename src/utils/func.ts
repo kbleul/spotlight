@@ -71,7 +71,10 @@ export const createViewableImageGrid = (
       let foundNextPortrait = false;
 
       while (!foundNextPortrait) {
-        if (galleryImagesArr[counter].type === "portrait") {
+        if (
+          galleryImagesArr[counter] &&
+          galleryImagesArr[counter].type === "portrait"
+        ) {
           addPortrateImagesIndex.add(i);
           addPortrateImagesIndex.add(counter);
 

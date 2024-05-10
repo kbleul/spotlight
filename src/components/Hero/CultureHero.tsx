@@ -22,20 +22,21 @@ const CultureHero = () => {
   }, [inView]);
 
   return (
-    <article className="w-full h-[100vh]  z-0">
+    <article className="w-full h-[55vh] lg:h-[88vh]  z-0">
       <section
         ref={ref}
-        className="absolute top-0 h-[100vh] w-full bg-black"
+        className="absolute top-0 h-[60vh] lg:h-[100vh] w-full bg-black"
         style={{
           backgroundImage: `url(${bgImg})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
         }}
       >
         <Header />
         {!showVideo && (
           <>
-            <div className="px-[5%] text-5xl lg:leading-[6rem] lg:text-[96px] text-white font-bold capitalize  absolute bottom-36 lg:bottom-14">
+            <div className="px-[5%] text-5xl lg:leading-[6rem] lg:text-[96px] text-white font-bold capitalize  absolute bottom-10  lg:bottom-14">
               <p className="">We are Spotlight</p>
               {/* <p className="">commitment</p>
               <p className="">to work and play</p> */}

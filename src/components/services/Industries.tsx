@@ -12,6 +12,7 @@ const Industries = () => {
     threshold: 0.4,
   });
   const [isViewed, setIsViewed] = useState(false);
+  const [isHovered, setIsHovered] = useState<any>(null);
 
   useEffect(() => {
     if (inView) {
@@ -42,7 +43,7 @@ const Industries = () => {
         animate={inView ? { x: 0 } : { x: isViewed ? 0 : -600 }}
         transition={{ duration: 1 }}
       >
-        <h2 className="text-[#E0E0E0] lg:text-[#4F4F4F] stroke-black text-[70px] md:text-[110px] text-center lg:text-left font-extrabold">
+        <h2 className="text-[#E0E0E0] lg:text-[#4F4F4F] stroke-black text-[60px] md:text-[110px] text-center lg:text-left font-extrabold">
           Industries
         </h2>
 
@@ -55,7 +56,7 @@ const Industries = () => {
         </p>
       </motion.section>
 
-      <section className="w-full lg:w-[55%]  h-full flex flex-col justify-center text-[2.5rem] text-[#4f4f4f] capitalize font-extrabold pb-20">
+      <section className="w-full lg:w-[55%]  h-full flex flex-col justify-center text-2xl md:text-[2.5rem] text-[#4f4f4f] capitalize font-extrabold pb-20">
         {data.data.map((item: any, index: number) => (
           <ItemCard
             key={"industry-item-" + index}
@@ -63,6 +64,8 @@ const Industries = () => {
             index={index}
             inView={inView}
             isViewed={isViewed}
+            isHovered={isHovered}
+            setIsHovered={setIsHovered}
           />
         ))}
       </section>
@@ -75,48 +78,58 @@ const ItemCard = ({
   index,
   inView,
   isViewed,
+  isHovered,
+  setIsHovered,
 }: {
   item: any;
   index: number;
   inView: boolean;
   isViewed: boolean;
+  isHovered: any;
+  setIsHovered: React.Dispatch<any>;
 }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
   const clientImages: any[] = item.client_images;
 
   return (
     <motion.div
       className={`h-[14%] pt-6 lg:pt-0 lg:pb-2 px-6 ${
         index !== 5 && " border-b "
-      }  border-black relative flex items-end cursor-pointer hover:bg-black hover:text-white`}
+      }  border-black relative flex items-end cursor-pointer ${
+        isHovered &&
+        isHovered.id === item.id &&
+        "bg-black text-white overflow-hidden"
+      }  `}
       initial={inView ? { y: isViewed ? 0 : 2000 } : { y: 0 }}
       animate={inView ? { y: 0 } : { y: isViewed ? 0 : 2000 }}
       transition={{ duration: 0.4 * (index + 1) }}
-      onMouseOver={() => setIsHovered(true)}
-      onMouseOut={() => setIsHovered(false)}
+      onMouseEnter={() => setIsHovered(item)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      <p>{item.name}</p>
+      {(!isHovered || isHovered.id !== item.id) && (
+        <p className="py-3 md:py-0">{item.name}</p>
+      )}
 
-      {isHovered && (
-        <motion.div
-          className="absolute bottom-4 right-4 md:right-10 flex items-center gap-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          {clientImages &&
-            clientImages
-              .slice(0, 4)
-              .map((img: any) => (
-                <img
-                  key={img.uuid}
-                  src={img.url}
-                  alt={item.name}
-                  className="w-8 h-8 md:w-10 md:h-10 rounded-full object-cover"
-                />
-              ))}
-        </motion.div>
+      {isHovered && isHovered.id === item.id && (
+        <div className="carousel">
+          <motion.div
+            className="carousel-track w-full flex items-center gap-10 pb-4 pt-2 lg:pt-0"
+            initial={{ y: 100 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            {clientImages &&
+              Array.from({ length: 4 }).map((_) =>
+                clientImages.map((img: any) => (
+                  <img
+                    key={img.uuid}
+                    src={img.url}
+                    alt={item.name}
+                    className="w-1/5 h-12 md:h-16 object-contain"
+                  />
+                ))
+              )}
+          </motion.div>
+        </div>
       )}
     </motion.div>
   );

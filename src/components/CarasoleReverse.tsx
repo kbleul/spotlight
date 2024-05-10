@@ -19,7 +19,7 @@ const CarasoleReverse = ({ title }: { title?: string }) => {
     image: {
       url: string;
     };
-  }[] = data.data.reverse();
+  }[] = data.data;
 
   return (
     <article className="carousel-container bg-black pb-20">

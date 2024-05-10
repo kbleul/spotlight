@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Player } from "video-react";
 import { FaPlayCircle } from "react-icons/fa";
+import img6 from "../../assets/images/6d.png";
 
 const Hero = () => {
   const location = useLocation();
@@ -39,17 +40,23 @@ const Hero = () => {
   return (
     <article
       ref={ref}
-      className="h-[88vh] w-full bg-black"
+      className="h-[30vh] lg:h-[85vh] w-full bg-black relative"
       style={{
-        backgroundImage: `url(${item.cover.url})`,
+        backgroundImage: `url(${item.landscape_thumbnail.url})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
+        backgroundPosition: "center center",
       }}
     >
+      {/* <img
+        src={item.landscape_thumbnail.url}
+        alt=""
+        className="w-full h-full"
+      /> */}
       {!showVideo && (
         <>
-          <div className="w-full px-[5%] text-3xl md:text-4xl lg:text-5xl lg:leading-[6rem] lg:text-[90px] text-white font-bold capitalize  absolute bottom-4">
-            <p className="w-full lg:max-w-[80%]">{item.title}</p>
+          <div className="bg-gradient w-full px-[5%] text-3xl md:text-4xl lg:text-5xl lg:leading-[6rem] lg:text-[90px] text-white font-bold capitalize  absolute bottom-0">
+            <p className="w-full py-2 lg:py-8 ">{item.title}</p>
 
             {item.video && item.video !== "" && (
               <button

@@ -9,6 +9,7 @@ export type galleryImage = {
   };
 };
 const ProjectGallery = ({ galleries }: { galleries: galleryImage[] }) => {
+  console.log(createViewableImageGrid(galleries));
   return (
     <article className="grid grid-cols-2 gap-y-2 lg:gap-y-5 gap-x-3 lg:gap-x-6 max-w-[1000px] items-stretch">
       {createViewableImageGrid(galleries).map((gallery) => (

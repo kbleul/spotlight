@@ -44,7 +44,7 @@ const Partners = () => {
           <img
             src={partner_img1}
             alt=""
-            className="max-w-[12rem] hover:opacity-70"
+            className="max-w-[10rem] hover:opacity-70"
           />
         </a>
       </section>

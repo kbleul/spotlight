@@ -34,7 +34,7 @@ const Leading = ({
           animate={inView ? { x: 0 } : { x: isViewed ? 0 : -1600 }}
           transition={{ duration: 0.7 }}
         >
-          <img src={img} alt="" className="max-w-[30rem]" />
+          <img src={img} alt="" className="max-w-[16rem]  lg:max-w-[30rem]" />
         </motion.div>
 
         <motion.div
@@ -43,11 +43,11 @@ const Leading = ({
           animate={inView ? { x: 0 } : { x: isViewed ? 0 : 1000 }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-[#fff] text-5xl lg:text-6xl font-extrabold w-full text-left">
+          <h2 className="text-[#fff] text-4xl lg:text-6xl font-extrabold w-full text-left">
             {title}
           </h2>
           {secondaryTitle && (
-            <h2 className="text-[#fff] text-5xl lg:text-6xl font-extrabold">
+            <h2 className="text-[#fff] text-4xl lg:text-6xl font-extrabold">
               {secondaryTitle}
             </h2>
           )}

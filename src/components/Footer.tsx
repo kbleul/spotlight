@@ -9,17 +9,21 @@ import { IoIosArrowRoundUp } from "react-icons/io";
 const Footer = () => {
   return (
     <article className="py-[4vh] bg-black flex flex-col lg:flex-row ">
-      <section className="lg:pl-[7%] text-white w-full  flex lg:block flex-col items-center lg:w-1/2">
+      <section className="lg:pl-[7%] text-white  flex lg:block flex-col items-center w-4/5 ml-[10%] lg:ml-0 lg:w-1/2 ">
         <img src={logoWhite} className="w-[150px] lg:max-w-none order-1" />
 
-        <div className="w-full pl-[15%] lg:pl-0 flex items-center justify-start gap-4 mt- lg:mt-2 order-3 ">
+        <div className="w-full pl-[15%] lg:pl-0 flex items-center justify-start gap-4  lg:mt-2 order-3 ">
           <div className="border border-[#777777] p-2 rounded-full">
             <CiLocationOn className="w-4 h-4" />
           </div>
-          <div className=" flex flex-col gap-2 mt-4">
+          <a
+            href="https://maps.app.goo.gl/gHQef7Uxz4eEsWdGA"
+            target="_blanck"
+            className=" flex flex-col gap-2 mt-4"
+          >
             <p>Bole, DH Geda Tower</p>
             <p>7th Floor; Office Suite 705</p>
-          </div>
+          </a>
         </div>
 
         <div className="w-full pl-[15%] lg:pl-0 flex items-center justify-start gap-4 mt-4 order-2 ">
@@ -72,8 +76,15 @@ const Footer = () => {
               <FaXTwitter className="w-4 h-4" />
             </a>
           </div>
-          <p className="text-[#777777] text-sm  lg:text-base uppercase font-semibold mt-5 text-center lg:text-right">
+          <p className="hidden lg:block text-[#777777] text-sm  px-2 lg:text-base uppercase font-semibold mt-5 text-center lg:text-right">
             Spotlight Communications and Marketing LTD © 2024
+          </p>
+
+          <p className=" lg:hidden text-[#777777] text-sm  px-2 lg:text-base uppercase font-semibold mt-5 text-center lg:text-right">
+            Spotlight Communications and Marketing LTD
+          </p>
+          <p className=" lg:hidden text-[#777777] text-sm  px-2 lg:text-base uppercase font-semibold mt-5 text-center lg:text-right">
+            © 2024
           </p>
         </div>
       </section>

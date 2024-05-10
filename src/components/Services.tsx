@@ -291,11 +291,14 @@ const Services = () => {
       </article>
 
       <article className="lg:hidden w-full bg-black flex flex-col overflow-hidden">
-        <h2 className="stroke poppins-thin text-[70px] text-center pt-10 font-extrabold text-[#4F4F4F] mb-6">
+        <h2 className="stroke text-[#4F4F4F] text-[70px] text-left px-4 pb-4 lg:pb-0 lg:px-0 lg:text-left md:text-[90px] lg:text-[115px] font-extrabold">
           Services
         </h2>
         <div className="w-full flex-shrink-0  flex flex-col justify-evenly items-center bg-black  px-[5%]">
           <section className="w-full text-white">
+            <div className="font-bold text-4xl lg:text-5xl">
+              <h4>{CONTENT[0].title}</h4>
+            </div>
             <div className="max-w-[600px] mt-4">{CONTENT[0].body}</div>
           </section>
           <section className="w-[45%] flex justify-center items-start  pt-4 ">
@@ -308,7 +311,7 @@ const Services = () => {
         </div>
         <div className="w-full flex-shrink-0  flex flex-col justify-evenly items-center bg-black  px-[5%]">
           <section className="w-full text-white">
-            <div className="font-bold text-5xl">
+            <div className="font-bold text-4xl lg:text-5xl">
               <h4>{CONTENT[1].title}</h4>
             </div>
 
@@ -324,7 +327,7 @@ const Services = () => {
         </div>
         <div className="w-full flex-shrink-0 flex flex-col justify-evenly items-center bg-black px-[5%]">
           <section className="w-full text-white">
-            <div className="font-bold text-2xl">
+            <div className="font-bold text-4xl lg:text-5xl">
               <h4>{CONTENT[2].title}</h4>
             </div>
 
@@ -339,11 +342,21 @@ const Services = () => {
           </section>
         </div>
         <div className="w-full flex-shrink-0 min-h-[40vh] flex flex-col justify-evenly items-start bg-white  px-[5%]">
-          <section className="w-full flex flex-col items-start px-[5%] gap-[5vh] ">
-            <h2 className="text-5xl font-extrabold text-[#4F4F4F] mb-6 text-nowrap">
-              Want More?
+          <section className="w-full flex flex-col items-start  md:px-[5%] gap-[5vh] ">
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-[#4F4F4F] w-full stroke-black   text-center lg:mb-6 text-nowrap">
+              Looking For More?
             </h2>
-
+            <div className=" lg:py-16 w-full flex flex-col items-center">
+              <p className=" text-[#777777] font-medium lg:text-2xl text-center ">
+                We deliver strategic end-to-end
+              </p>
+              <p className=" text-[#777777] font-medium lg:text-2xl text-center ">
+                communication solutions.
+              </p>
+              {/* <p className=" text-[#777777] font-medium lg:text-2xl text-center">
+                Explore our extended lineup of projects.
+              </p> */}
+            </div>
             <div className="w-full flex justify-center">
               <button
                 type="button"

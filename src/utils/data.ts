@@ -37,3 +37,9 @@ export const myHeader = {
   "Content-Type": "multipart/form-data",
   Accept: "application/json",
 };
+
+export const CaraouselStateTypes = {
+  Scroll: "Scroll",
+  slowScroll: "slowScroll",
+  Stopped: "Stopped",
+};

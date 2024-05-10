@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-
+import img5 from "../../assets/images/6.jpg";
 import { useInView } from "react-intersection-observer";
 import { useState, useEffect } from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
@@ -10,7 +10,7 @@ import { MdArrowOutward } from "react-icons/md";
 import parse from "html-react-parser";
 const Featured = () => {
   const { ref, inView } = useInView({
-    threshold: 1,
+    threshold: 0.9,
   });
 
   const navigate = useNavigate();
@@ -115,13 +115,33 @@ const Featured = () => {
   const contentDispatch = () => {
     return (
       <div
-        className="w-1/2"
+        className="w-1/2 cursor-pointer"
         key={
           featuredProjects[
             currentContent >= featuredProjects.length - 1
               ? featuredProjects.length - 1
               : currentContent
           ]
+        }
+        onClick={() =>
+          featuredProjects[
+            currentContent >= featuredProjects.length - 1
+              ? featuredProjects.length - 1
+              : currentContent
+          ].content &&
+          featuredProjects[
+            currentContent >= featuredProjects.length - 1
+              ? featuredProjects.length - 1
+              : currentContent
+          ].sub_title &&
+          handleNavigateToCaseStudy(
+            featuredProjects[
+              currentContent >= featuredProjects.length - 1
+                ? featuredProjects.length - 1
+                : currentContent
+            ],
+            navigate
+          )
         }
       >
         <div className="w-full flex justify-center">
@@ -137,12 +157,12 @@ const Featured = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4 }}
-            className="w-[540px] h-[440px]"
+            className="w-[90%] max-w-[510px]"
           />
         </div>
 
         <article className="w-full flex justify-center ">
-          <section className="py-2 px-4 flex justify-around items-center gap-4 max-w-[540px]">
+          <section className="w-[90%] max-w-[510px] py-2 px-4 flex justify-around items-center gap-4 ">
             <div className="w-1/2">
               <motion.h3
                 className="text-3xl font-bold"
@@ -152,7 +172,7 @@ const Featured = () => {
               >
                 0
                 {currentContent >= featuredProjects.length - 1
-                  ? featuredProjects.length - 1
+                  ? featuredProjects.length
                   : currentContent + 1}
               </motion.h3>
               {featuredProjects[
@@ -192,28 +212,17 @@ const Featured = () => {
                     animate={{ y: 0 }}
                     transition={{ duration: 1.1 }}
                   >
-                    <button
-                      type="button"
+                    <div
                       className={
-                        "expandButton bg-white px-4 text-black py-2 text-sm font-normal flex gap-4 items-center"
-                      }
-                      onClick={() =>
-                        handleNavigateToCaseStudy(
-                          featuredProjects[
-                            currentContent >= featuredProjects.length - 1
-                              ? featuredProjects.length - 1
-                              : currentContent
-                          ],
-                          navigate
-                        )
+                        "expandButton bg-white px-4 lg:px-2 text-black py-2 text-sm font-normal flex gap-4 items-center"
                       }
                     >
-                      {<p className="text-nowrap pl-2">Read Me</p>}
+                      {<p className="text-nowrap pl-2 lg:pl-1">Read Me</p>}
                       <IoIosArrowRoundForward
                         className="expandButtonIcon"
                         size={24}
                       />
-                    </button>
+                    </div>
                   </motion.div>
                 )}
             </div>
@@ -236,15 +245,16 @@ const Featured = () => {
       </div>
     );
   };
+
   return (
     <>
       {featuredProjects && featuredProjects.length > 0 && (
         <>
           {" "}
-          <article id="scrollContainer" className="hidden lg:block">
+          <article className="hidden lg:block">
             <article
               className={
-                "h-[105vh] px-[5%] pb-[5rem] overflow-hidden text-white bg-black"
+                "h-[101vh] px-[5%] pb-[5rem] overflow-hidden text-white bg-black"
               }
             >
               <h2 className="py-4 text-[#4F4F4F] text-[70px] lg:text-[100px] text-center lg:text-left font-extrabold stroke">
@@ -253,15 +263,35 @@ const Featured = () => {
 
               <section
                 ref={ref}
-                className="w-full flex items-stretch mt-2 h-4/5 "
+                className="w-full flex items-stretch mt-[5vh] h-4/5 "
               >
-                <div className="w-1/2  px-[5%] pt-4 text-[#777777] text-5xl  font-extrabold flex flex-col gap-[11%] items-start">
+                <div className="w-1/2  px-[5%] pt-4 text-[#777777] text-4xl  font-extrabold flex flex-col gap-[11%] items-start">
                   {featuredProjects
                     .slice(0, 5)
                     .map((content: any, index: number) => (
                       <button
                         type="button"
-                        onClick={() => setCurrentContent(index)}
+                        onMouseEnter={() => setCurrentContent(index)}
+                        onClick={() =>
+                          featuredProjects[
+                            currentContent >= featuredProjects.length - 1
+                              ? featuredProjects.length - 1
+                              : currentContent
+                          ].content &&
+                          featuredProjects[
+                            currentContent >= featuredProjects.length - 1
+                              ? featuredProjects.length - 1
+                              : currentContent
+                          ].sub_title &&
+                          handleNavigateToCaseStudy(
+                            featuredProjects[
+                              currentContent >= featuredProjects.length - 1
+                                ? featuredProjects.length - 1
+                                : currentContent
+                            ],
+                            navigate
+                          )
+                        }
                         key={content.id}
                         className={
                           currentContent === index
@@ -277,59 +307,15 @@ const Featured = () => {
               </section>
             </article>
           </article>
-          <article className="lg:hidden">
+          <article className="lg:hidden ">
             <article
               className={
-                "px-[5%] pb-[5rem] overflow-hidden text-white bg-black"
+                "px-[2%]  pb-[5rem] overflow-hidden text-white bg-black"
               }
             >
-              <h2 className="py-4 text-[#4F4F4F] text-[70px] lg:text-[100px] text-center lg:text-left font-extrabold">
+              <h2 className=" py-4 text-[#4F4F4F] text-[70px] lg:text-[100px] text-center lg:text-left font-extrabold">
                 Featured
               </h2>
-
-              <div className="w-[60%] mx-[10%] mb-8 relative">
-                <motion.img
-                  src={
-                    featuredProjects[
-                      currentContent >= featuredProjects.length - 1
-                        ? featuredProjects.length - 1
-                        : currentContent
-                    ].cover.url
-                  }
-                  className="w-full"
-                  alt=""
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.4 }}
-                />
-
-                {featuredProjects[
-                  currentContent >= featuredProjects.length - 1
-                    ? featuredProjects.length - 1
-                    : currentContent
-                ].content &&
-                  featuredProjects[
-                    currentContent >= featuredProjects.length - 1
-                      ? featuredProjects.length - 1
-                      : currentContent
-                  ].sub_title && (
-                    <button
-                      type="button"
-                      className="absolute top-0 text-white"
-                      style={{
-                        right: -30,
-                      }}
-                      onClick={() =>
-                        handleNavigateToCaseStudy(
-                          featuredProjects[currentContent],
-                          navigate
-                        )
-                      }
-                    >
-                      <MdArrowOutward className="" size={28} />
-                    </button>
-                  )}
-              </div>
 
               <section className="w-full flex items-center ">
                 <div className="w-full  px-[10%] text-[#777777] text-4xl  font-extrabold flex flex-col items-start ">
@@ -338,15 +324,56 @@ const Featured = () => {
                     .map((content: any, index: number) => (
                       <button
                         type="button"
-                        onClick={() => setCurrentContent(index)}
+                        onClick={() =>
+                          featuredProjects[
+                            currentContent >= featuredProjects.length - 1
+                              ? featuredProjects.length - 1
+                              : currentContent
+                          ].content &&
+                          featuredProjects[
+                            currentContent >= featuredProjects.length - 1
+                              ? featuredProjects.length - 1
+                              : currentContent
+                          ].sub_title &&
+                          handleNavigateToCaseStudy(content, navigate)
+                        }
                         key={content.id}
                         className={
                           currentContent === index
-                            ? "text-white mb-10 text-left"
-                            : "mb-10  w-full text-left"
+                            ? "text-white mb-10 text-left flex w-full "
+                            : "mb-10  w-full text-left flex "
                         }
                       >
-                        {content.title}
+                        <p className=" w-full"> {content.title}</p>
+                        <div
+                          className=" mb-8 relative"
+                          // onClick={() =>
+                          //   handleNavigateToCaseStudy(
+                          //     featuredProjects[currentContent],
+                          //     navigate
+                          //   )
+                          // }
+                        >
+                          {featuredProjects[
+                            currentContent >= featuredProjects.length - 1
+                              ? featuredProjects.length - 1
+                              : currentContent
+                          ].content &&
+                            featuredProjects[
+                              currentContent >= featuredProjects.length - 1
+                                ? featuredProjects.length - 1
+                                : currentContent
+                            ].sub_title && (
+                              <div
+                                className="absolute top-0 "
+                                style={{
+                                  right: -30,
+                                }}
+                              >
+                                <MdArrowOutward className="" size={28} />
+                              </div>
+                            )}
+                        </div>
                       </button>
                     ))}
                 </div>
