@@ -26,11 +26,13 @@ const Communty = () => {
         <img
           src={communityImg}
           alt=""
+          loading="lazy"
           className=" w-[90%] ml-[2%] lg:w-[550px]"
         />
         <img
           src={communityImg2}
           alt=""
+          loading="lazy"
           className=" w-[140px] lg:w-[225px] customImg1"
           style={{
             transform: "rotate(-15deg)",
@@ -39,6 +41,7 @@ const Communty = () => {
         <img
           src={communityImg2}
           alt=""
+          loading="lazy"
           className=" w-[140px] lg:w-[200px] customImg2"
         />
       </section>

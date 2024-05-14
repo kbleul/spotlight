@@ -22,6 +22,7 @@ const ContactUs = () => {
         src={circlesImg}
         className="bgCircles max-w-[350px] lg:max-w-[400px] block opacity-70 mt-8"
         alt=""
+        loading="lazy"
       />
     </article>
   );

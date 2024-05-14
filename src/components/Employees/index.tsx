@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import Caresole from "./Caresole";
-import { useState } from "react";
+import { Suspense, lazy, useState } from "react";
 import { CaraouselStateTypes } from "../../utils/data";
+
+const Caresole = lazy(() => import("./Caresole"));
 
 const getArrayLength = (teamsArr: any[]) => {
   const lengths = {
@@ -21,7 +22,7 @@ const getArrayLength = (teamsArr: any[]) => {
 };
 
 const Employees = () => {
-  const [scrollStatus, setScrollStatus] = useState(CaraouselStateTypes.Scroll);
+  const [scrollStatus] = useState(CaraouselStateTypes.Scroll);
 
   const { isPending, error, data } = useQuery({
     queryKey: ["teams"],
@@ -45,16 +46,22 @@ const Employees = () => {
       <h2 className="mb-6 md:pt-12 md:pb-16 px-[5%] leading-[3rem] text-[#e0e0e0] stroke-black lg:text-[#4F4F4F] text-[42px] text-center  lg:text-[110px] font-extrabold">
         We are Spotlight
       </h2>
-      <Caresole
-        teams={teamsArr.slice(0, arrLengths.firstRow)}
-        scrollStatus={scrollStatus}
-      />
-      <div className="py-12">
+
+      <Suspense fallback={<></>}>
         <Caresole
-          teams={teamsArr.slice(arrLengths.firstRow, teamsArr.length)}
-          isReverse
+          teams={teamsArr.slice(0, arrLengths.firstRow)}
           scrollStatus={scrollStatus}
         />
+      </Suspense>
+
+      <div className="py-12">
+        <Suspense fallback={<></>}>
+          <Caresole
+            teams={teamsArr.slice(arrLengths.firstRow, teamsArr.length)}
+            isReverse
+            scrollStatus={scrollStatus}
+          />
+        </Suspense>
       </div>
     </article>
   );

@@ -42,6 +42,12 @@ const Caresole = memo(
             {teams.map((employee) => (
               <ImageCard key={employee.id} employee={employee} />
             ))}
+            {teams.map((employee) => (
+              <ImageCard key={employee.id} employee={employee} />
+            ))}
+            {teams.map((employee) => (
+              <ImageCard key={employee.id} employee={employee} />
+            ))}
           </div>
         </section>
       </article>

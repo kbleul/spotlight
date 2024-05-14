@@ -1,9 +1,7 @@
 import avatar from "../../assets/images/avatar_placeholder.svg";
-import placeholderimg from "../../assets/images/feed_placeholder.svg";
 import { MdArrowOutward } from "react-icons/md";
 import { truncateText } from "../../utils/func";
 import parse from "html-react-parser";
-import img6 from "../../assets/images/6.jpg";
 
 const FeedCard = ({
   item,
@@ -65,7 +63,12 @@ const FeedCard = ({
         )}
       </div>
       <div className="w-full h-auto rounded-t-[2rem] overflow-hidden ">
-        <img src={item.cover.url} alt="" className="w-full object-cover" />
+        <img
+          src={item.cover.url}
+          alt=""
+          className="w-full object-cover"
+          loading="lazy"
+        />
       </div>
     </button>
   );

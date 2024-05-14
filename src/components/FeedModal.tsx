@@ -71,6 +71,8 @@ const FeedModal = ({
                       <img
                         src={avatar}
                         alt=""
+            loading="lazy"
+
                         className="w-8 h-8 rounded-full"
                       />
                     </div>
@@ -134,6 +136,8 @@ const FeedModal = ({
                           <img
                             src={blog.cover.url}
                             alt=""
+            loading="lazy"
+
                             className="w-full h-full"
                           />
 

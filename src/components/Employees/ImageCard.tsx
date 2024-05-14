@@ -1,5 +1,4 @@
 import { useState } from "react";
-import projectTraceImage from "../../assets/images/avatar3.svg";
 
 import { motion } from "framer-motion";
 
@@ -22,6 +21,7 @@ const ImageCard = ({ employee }: { employee: any }) => {
         initial={isHover ? { x: 0, y: 0 } : { x: -40, y: -51 }}
         animate={isHover ? { x: -40, y: -51 } : { x: 0, y: 0 }}
         transition={{ duration: 0.4 }}
+        loading="lazy"
       />
       <div className="absolute w-full px-1 lg:px-3 pb-1 flex flex-col justify-between items-center text-black font-medium">
         <h3 className="self-start font-semibold ">{employee.name}</h3>

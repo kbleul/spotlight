@@ -3,7 +3,9 @@ import bulbImg from "../assets/images/light_small.svg";
 const GuideUs = () => {
   return (
     <article className="px-[3%] lg:px-0 lg:pl-[3%] overflow-hidden text-black bg-white lg:py-4">
-      <img src={bulbImg} alt="" className="w-48" />
+      <img src={bulbImg} alt="" 
+            loading="lazy"
+            className="w-48" />
 
       <section className="px-[4%]">
         <h4 className="text-4xl lg:text-7xl font-extrabold">What Guides Us</h4>

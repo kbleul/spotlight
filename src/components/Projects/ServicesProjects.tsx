@@ -1,8 +1,9 @@
-import FeedCard from "../Feeds/FeedCard";
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { MdOutlineUnfoldMore } from "react-icons/md";
-import { useEffect, useState } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
+
+const FeedCard = lazy(() => import("../Feeds/FeedCard"));
 
 type industryType = {
   id: string;
@@ -70,13 +71,15 @@ const ServicesProjects = () => {
                   key={"ServicesProjects-" + i}
                   className=" flex justify-center"
                 >
-                  <FeedCard
-                    item={projectsArr[i]}
-                    handleClick={() =>
-                      handleNavigateToCaseStudy(projectsArr[i], navigate)
-                    }
-                    showArrow
-                  />
+                  <Suspense fallback={<></>}>
+                    <FeedCard
+                      item={projectsArr[i]}
+                      handleClick={() =>
+                        handleNavigateToCaseStudy(projectsArr[i], navigate)
+                      }
+                      showArrow
+                    />
+                  </Suspense>
                 </div>
               )
           )}

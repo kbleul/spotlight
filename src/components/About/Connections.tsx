@@ -50,7 +50,12 @@ const Connections = ({
           animate={inView ? { x: 0 } : { x: isViewed ? 0 : 1000 }}
           transition={{ duration: 0.7 }}
         >
-          <img src={img} alt="" className="max-w-[16rem] lg:max-w-[30rem]" />
+          <img
+            src={img}
+            alt=""
+            className="max-w-[16rem] lg:max-w-[30rem]"
+            loading="lazy"
+          />
         </motion.div>
       </section>
     </article>

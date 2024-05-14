@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { handleNavigateToCaseStudy } from "./ServicesProjects";
 
 const ProjectCard = ({ project, isMid }: { project: any; isMid?: boolean }) => {
-  console.log(project);
   const navigate = useNavigate();
 
   return (

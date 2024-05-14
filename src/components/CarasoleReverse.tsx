@@ -35,6 +35,7 @@ const CarasoleReverse = ({ title }: { title?: string }) => {
               key={item.id + index}
               src={item.image.url}
               alt=""
+              loading="lazy"
               className="w-[15%] h-16 md:h-20 md:w-1/4"
             />
           ))}
@@ -42,6 +43,7 @@ const CarasoleReverse = ({ title }: { title?: string }) => {
             <img
               key={item.id + index}
               src={item.image.url}
+              loading="lazy"
               alt=""
               className="w-[15%] h-16 md:h-20 md:w-1/4"
             />
@@ -54,6 +56,7 @@ const CarasoleReverse = ({ title }: { title?: string }) => {
                   key={item.id + index}
                   src={item.image.url}
                   alt=""
+                  loading="lazy"
                   className="w-[15%] h-16 md:h-20 md:w-1/4"
                 />
               ))}
@@ -65,6 +68,7 @@ const CarasoleReverse = ({ title }: { title?: string }) => {
                   key={item.id + index}
                   src={item.image.url}
                   alt=""
+                  loading="lazy"
                   className="w-[15%] h-16 md:h-20 md:w-1/4"
                 />
               ))}

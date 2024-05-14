@@ -10,7 +10,11 @@ const Footer = () => {
   return (
     <article className="py-[4vh] bg-black flex flex-col lg:flex-row ">
       <section className="lg:pl-[7%] text-white  flex lg:block flex-col items-center w-4/5 ml-[10%] lg:ml-0 lg:w-1/2 ">
-        <img src={logoWhite} className="w-[150px] lg:max-w-none order-1" />
+        <img
+          src={logoWhite}
+          className="w-[150px] lg:max-w-none order-1"
+          loading="lazy"
+        />
 
         <div className="w-full pl-[15%] lg:pl-0 flex items-center justify-start gap-4  lg:mt-2 order-3 ">
           <div className="border border-[#777777] p-2 rounded-full">

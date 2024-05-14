@@ -4,15 +4,17 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import Home from "./pages/Home";
 
-import Services from "./pages/Services";
 import Header from "./components/Header";
-import Works from "./pages/Works";
-import About from "./pages/About";
-import Culture from "./pages/Culture";
-import Feeds from "./pages/Feeds";
 import ContactUs from "./components/Contact";
 import Footer from "./components/Footer";
-import CaseStudy from "./pages/CaseStudy";
+import { Suspense, lazy } from "react";
+import Loading from "./components/Suspense";
+
+const Services = lazy(() => import("./pages/Services"));
+const Works = lazy(() => import("./pages/Works"));
+const About = lazy(() => import("./pages/About"));
+const Culture = lazy(() => import("./pages/Culture"));
+const CaseStudy = lazy(() => import("./pages/CaseStudy"));
 
 const Layout = () => {
   const queryClient = new QueryClient();
@@ -20,7 +22,9 @@ const Layout = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <Header />
-      <Outlet />
+      <Suspense fallback={<Loading />}>
+        <Outlet />
+      </Suspense>
       <ContactUs />
       <Footer />
     </QueryClientProvider>
@@ -51,10 +55,6 @@ const router = createBrowserRouter([
       {
         path: "/culture",
         element: <Culture />,
-      },
-      {
-        path: "/feeds",
-        element: <Feeds />,
       },
       {
         path: "/case-study/:id",

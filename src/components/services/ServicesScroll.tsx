@@ -1,5 +1,3 @@
-import bgImg from "../../assets/images/services_gradient.png";
-
 import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
@@ -77,6 +75,8 @@ const CONTENT = [
 ];
 
 const ServicesScroll = () => {
+  const [imageLoaded, setImageLoaded] = useState<string | null>(null);
+
   const [currentContent, setCurrentContent] = useState(0);
 
   const [isZero, setIsZero] = useState(0);
@@ -170,17 +170,32 @@ const ServicesScroll = () => {
     }
   }, [isZero]);
 
+  const handleImageLoad = () => {
+    import("../../assets/images/services_gradient.png").then((module) => {
+      setImageLoaded(module.default);
+    });
+  };
+
+  useEffect(() => {
+    handleImageLoad();
+  }, []);
+
   return (
     <>
       <article
         id="scrolledItem"
         ref={ref}
         className={`hidden lg:block relative lg:h-[108vh] w-full mt-10 bg-black`}
-        style={{
-          backgroundImage: `url(${bgImg})`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-        }}
+        style={
+          imageLoaded
+            ? {
+                backgroundImage: `url(${imageLoaded})`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+              }
+            : {}
+        }
       >
         {inView && (
           <motion.div
@@ -369,11 +384,16 @@ const ServicesScroll = () => {
 
       <article
         className={`lg:hidden h-[100vh] relative w-full block  mt-10  bg-black`}
-        style={{
-          backgroundImage: `url(${bgImg})`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-        }}
+        style={
+          imageLoaded
+            ? {
+                backgroundImage: `url(${imageLoaded})`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+              }
+            : {}
+        }
       >
         <motion.div
           className="px-[5%]  text-white py-20 flex flex-col items-start justify-center h-[85%]"

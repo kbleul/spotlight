@@ -23,12 +23,14 @@ const FeedImgList = ({ isFeedModalOpen }: { isFeedModalOpen: any }) => {
             <img
               src={newsImg1}
               alt=""
+              loading="lazy"
               className={isFeedModalOpen ? "w-[300px] z-0" : "w-[300px] z-50"}
             />
 
             <motion.img
               src={newsImg2}
               alt=""
+              loading="lazy"
               className="w-[220px] absolute  left-0 "
               style={{
                 top: 40,
@@ -40,6 +42,7 @@ const FeedImgList = ({ isFeedModalOpen }: { isFeedModalOpen: any }) => {
             <motion.img
               src={newsImg3}
               alt=""
+              loading="lazy"
               className="w-[240px] absolute left-0"
               style={{
                 top: 30,
@@ -52,6 +55,7 @@ const FeedImgList = ({ isFeedModalOpen }: { isFeedModalOpen: any }) => {
             <motion.img
               src={newsImg4}
               alt=""
+              loading="lazy"
               className="w-[240px]  absolute left-0  z-10"
               style={{
                 top: 30,
@@ -64,6 +68,7 @@ const FeedImgList = ({ isFeedModalOpen }: { isFeedModalOpen: any }) => {
             <motion.img
               src={newsImg5}
               alt=""
+              loading="lazy"
               className="w-[220px]  absolute left-0 "
               style={{
                 top: 40,
@@ -87,12 +92,14 @@ const FeedImgList = ({ isFeedModalOpen }: { isFeedModalOpen: any }) => {
             <img
               src={newsImg1}
               alt=""
+              loading="lazy"
               className={isFeedModalOpen ? "w-[30%] z-0" : "w-[30%] z-50"}
             />
 
             <motion.img
               src={newsImg2}
               alt=""
+              loading="lazy"
               className="w-[22%] absolute   "
               style={{
                 top: 14,
@@ -105,6 +112,7 @@ const FeedImgList = ({ isFeedModalOpen }: { isFeedModalOpen: any }) => {
             <motion.img
               src={newsImg3}
               alt=""
+              loading="lazy"
               className="w-1/4 absolute left-0"
               style={{
                 top: 9,
@@ -117,6 +125,7 @@ const FeedImgList = ({ isFeedModalOpen }: { isFeedModalOpen: any }) => {
             <motion.img
               src={newsImg4}
               alt=""
+              loading="lazy"
               className="w-1/4 absolute left-0  z-10"
               style={{
                 top: 10,
@@ -129,6 +138,7 @@ const FeedImgList = ({ isFeedModalOpen }: { isFeedModalOpen: any }) => {
             <motion.img
               src={newsImg5}
               alt=""
+              loading="lazy"
               className="w-[22%]  absolute left-0 "
               style={{
                 top: 15,

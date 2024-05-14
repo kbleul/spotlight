@@ -1,5 +1,5 @@
 import Hero from "../components/Hero/ServicesHero";
-import Industries from "../components/services/Industries";
+// import Industries from "../components/services/Industries";
 import ServicesScroll from "../components/services/ServicesScroll";
 
 const Services = () => {
@@ -7,7 +7,7 @@ const Services = () => {
     <article>
       <Hero />
       <ServicesScroll />
-      <Industries />
+      {/* <Industries /> */}
     </article>
   );
 };

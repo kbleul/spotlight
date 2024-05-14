@@ -1,28 +1,14 @@
-import { motion } from "framer-motion";
-
 import aboutImg from "../assets/images/About2.png";
 import shineImg from "../assets/images/About3.png";
 import handsImg from "../assets/images/About.png";
-import strongerImg from "../assets/images/Stronger.svg";
 
-import AboutHero from "../components/Hero/AboutHero";
 import Employees from "../components/Employees";
-import GuideUs from "../components/GuideUs";
 import Leading from "../components/About/Leading";
 import Connections from "../components/About/Connections";
 
 const About = () => {
   return (
     <article>
-      {/* <motion.div
-        className="lg:h-[90vh]"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <AboutHero />
-      </motion.div> */}
-
       <div className="py-16 lg:py-0 bg-black  lg:h-[80vh] flex justify-center">
         <Leading
           img={aboutImg}

@@ -1,5 +1,5 @@
 import Communty from "../components/Communty";
-import CultureGallery from "../components/CultureGallery";
+// import CultureGallery from "../components/CultureGallery";
 import CultureHero from "../components/Hero/CultureHero";
 import OurStory from "../components/OurStory";
 import Values from "../components/Values";

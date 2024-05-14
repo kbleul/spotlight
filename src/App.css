@@ -106,12 +106,12 @@ html {
 
 .carousel {
   display: flex;
-  animation: scrollCarousel 60s infinite linear;
+  animation: scrollCarousel 120s infinite linear;
 }
 
 .carouselReverse {
   display: flex;
-  animation: scrollCarouselReverse 60s infinite linear;
+  animation: scrollCarouselReverse 120s infinite linear;
 }
 
 .carousel-track {
@@ -143,12 +143,12 @@ html {
 
 .carouselEmployees {
   display: flex;
-  animation: scrollCarouselEmployee 20s infinite linear;
+  animation: scrollCarouselEmployee 50s infinite linear;
 }
 
 .carouselEmployeeReverse {
   display: flex;
-  animation: scrollCarouselEmployeeReverse 20s infinite linear;
+  animation: scrollCarouselEmployeeReverse 50s infinite linear;
 }
 
 .carouselEmployees--slow {
@@ -229,7 +229,7 @@ html {
   position: absolute;
   top: 0;
   right: 0;
-  width: 20px; /* Adjust the width as needed */
+  width: 20px;
   height: 100%;
   pointer-events: none;
 }

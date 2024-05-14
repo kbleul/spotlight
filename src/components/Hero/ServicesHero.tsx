@@ -32,6 +32,7 @@ const Hero = () => {
             src={serviceImg}
             alt=""
             className="mt-10 w-full lg:w-[90%]  bg-cover"
+            loading="lazy"
           />
         </div>
       </article>

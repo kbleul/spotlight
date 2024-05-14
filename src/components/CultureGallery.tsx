@@ -36,6 +36,7 @@ const CultureGallery = () => {
                 key={index + image.id}
                 src={image.image.url}
                 alt=""
+                loading="lazy"
               />
             ))}
           </section>
@@ -59,6 +60,7 @@ const CultureGallery = () => {
                   key={index + image.id}
                   src={image.image.url}
                   alt=""
+                  loading="lazy"
                 />
               ))}
           </section>
@@ -75,6 +77,7 @@ const CultureGallery = () => {
                   key={index + image.id}
                   src={image.image.url}
                   alt=""
+                  loading="lazy"
                 />
               ))}
           </section>
@@ -90,6 +93,7 @@ const CultureGallery = () => {
                 key={index + image.id}
                 src={image.image.url}
                 alt=""
+                loading="lazy"
               />
             ))}
           </section>
@@ -100,6 +104,7 @@ const CultureGallery = () => {
                 key={index + image.id}
                 src={image.image.url}
                 alt=""
+                loading="lazy"
               />
             ))}
           </section>
@@ -110,6 +115,7 @@ const CultureGallery = () => {
                 key={index + image.id}
                 src={image.image.url}
                 alt=""
+                loading="lazy"
               />
             ))}
           </section>
@@ -120,6 +126,7 @@ const CultureGallery = () => {
                 key={index + image.id}
                 src={image.image.url}
                 alt=""
+                loading="lazy"
               />
             ))}
           </section>

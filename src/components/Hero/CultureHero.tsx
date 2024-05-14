@@ -1,7 +1,4 @@
-import { FaPlayCircle } from "react-icons/fa";
-import bgImg from "../../assets/images/bgvid.gif";
 import { useEffect, useState } from "react";
-import { Player } from "video-react";
 import { IoMdClose } from "react-icons/io";
 import { motion } from "framer-motion";
 import Header from "../Header";
@@ -13,6 +10,17 @@ const CultureHero = () => {
   const { ref, inView } = useInView({
     threshold: 0.1,
   });
+  const [imageLoaded, setImageLoaded] = useState<string | null>(null);
+
+  const handleImageLoad = () => {
+    import("../../assets/images/bgvid.gif").then((module) => {
+      setImageLoaded(module.default);
+    });
+  };
+
+  useEffect(() => {
+    handleImageLoad();
+  }, []);
 
   useEffect(() => {
     if (!inView) {
@@ -26,95 +34,41 @@ const CultureHero = () => {
       <section
         ref={ref}
         className="absolute top-0 h-[60vh] lg:h-[100vh] w-full bg-black"
-        style={{
-          backgroundImage: `url(${bgImg})`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-        }}
+        style={
+          imageLoaded
+            ? {
+                backgroundImage: `url(${imageLoaded})`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+              }
+            : {}
+        }
       >
         <Header />
-        {!showVideo && (
-          <>
-            <div className="px-[5%] text-5xl lg:leading-[6rem] lg:text-[96px] text-white font-bold capitalize  absolute bottom-10  lg:bottom-14">
-              <p className="">We are Spotlight</p>
-              {/* <p className="">commitment</p>
-              <p className="">to work and play</p> */}
 
-              {/* {<button
-                type="button"
-                className="flex gap-4 items-center justify-start text-xl mt-10 hover:font-medium"
-                onClick={() => {
-                  const rootElement = document.getElementById("root-body");
-                  if (rootElement) {
-                    rootElement.style.overflowY = "hidden";
-                  }
-                  window.scrollTo(0, 0);
+        <div className="px-[5%] text-5xl lg:leading-[6rem] lg:text-[96px] text-white font-bold capitalize  absolute bottom-10  lg:bottom-14">
+          <p className="">We are Spotlight</p>
+        </div>
 
-                  isFirstTime && setIsFirstTime(false);
-                  setShowVideo(true);
-                }}
-              >
-                <FaPlayCircle size={25} className="pt-1" />
-                <p className="border-b hover:border-b-green-200">Watch Video</p>
-              </button>} */}
-            </div>
-
-            <motion.div
-              className="h-[100vh]  w-full bg-black z-10 absolute top-0"
-              initial={{ x: isFirstTime ? -3000 : 0 }}
-              animate={{ x: -3000 }}
-              transition={{ duration: 1.5 }}
+        <motion.div
+          className="h-[100vh]  w-full bg-black z-10 absolute top-0"
+          initial={{ x: isFirstTime ? -3000 : 0 }}
+          animate={{ x: -3000 }}
+          transition={{ duration: 1.5 }}
+        >
+          <div className="absolute top-8 right-12 text-gray-300 z-10">
+            <button
+              type="button"
+              className=""
+              onClick={() => {
+                setShowVideo(false);
+              }}
             >
-              <div className="absolute top-8 right-12 text-gray-300 z-10">
-                <button
-                  type="button"
-                  className=""
-                  onClick={() => {
-                    setShowVideo(false);
-                  }}
-                >
-                  <IoMdClose size={38} />
-                </button>
-              </div>
-            </motion.div>
-          </>
-        )}
-
-        {showVideo && (
-          <motion.div
-            className=" h-[100vh] w-full bg-black z-10 absolute top-0"
-            initial={{ x: -3000 }}
-            animate={{ x: showVideo ? 0 : -3000 }}
-            transition={{ duration: 1.4 }}
-          >
-            <div className="absolute top-8 right-12 text-gray-300 z-10">
-              <button
-                type="button"
-                className=""
-                onClick={() => {
-                  const rootElement = document.getElementById("root-body");
-                  if (rootElement) {
-                    rootElement.style.overflowY = "scroll";
-                  }
-                  setShowVideo(false);
-                }}
-              >
-                <IoMdClose size={38} />
-              </button>
-            </div>
-
-            <Player
-              fluid={false}
-              height="100%"
-              autoPlay
-              controls={false}
-              stopOnUnmount
-            >
-              <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
-            </Player>
-          </motion.div>
-        )}
+              <IoMdClose size={38} />
+            </button>
+          </div>
+        </motion.div>
       </section>
     </article>
   );

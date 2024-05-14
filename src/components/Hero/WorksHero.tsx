@@ -51,14 +51,6 @@ const Hero = () => {
         >
           <span className="text-black">out</span> simple
         </motion.p>
-        {/* <motion.p
-          className=" font-extrabold capitalize text-black tracking-wider"
-          initial={{ x: -600 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 1 }}
-        >
-          
-        </motion.p> */}
       </motion.article>
     </article>
   );

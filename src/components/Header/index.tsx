@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import logo_black from "../../assets/images/logo.svg";
 import logo_white from "../../assets/images/logo_white.svg";
 import NavButtoms from "./NavButtoms";
-import { BlackBgRoutes, ColorTheme } from "../../utils/data";
+import { BlackBgRoutes } from "../../utils/data";
 import { PiCirclesFourLight } from "react-icons/pi";
 import { useState } from "react";
 import SideNav from "./SideNav";
@@ -11,10 +11,6 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const currentRoute = location.pathname;
-
-  const buttonTheme = BlackBgRoutes.includes(currentRoute)
-    ? ColorTheme.dark
-    : ColorTheme.light;
 
   const mwnuButtonStyle = `text-${
     BlackBgRoutes.includes(currentRoute) ? "white" : "black"

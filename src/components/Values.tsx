@@ -14,6 +14,7 @@ const Values = () => {
             top: -50,
             transform: "rotate(13deg)",
           }}
+          loading="lazy"
         />
         <img
           src={communityImg2}
@@ -22,6 +23,7 @@ const Values = () => {
           style={{
             transform: "rotate(-25deg)",
           }}
+          loading="lazy"
         />
       </section>
       <section className="w-full lg:w-[48%] lg:pt-[20vh] order-1 lg:order-2">
