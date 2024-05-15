@@ -48,7 +48,9 @@ const CultureHero = () => {
         <Header />
 
         <div className="px-[5%] text-5xl lg:leading-[6rem] lg:text-[96px] text-white font-bold capitalize  absolute bottom-10  lg:bottom-14">
-          <p className="">We are Spotlight</p>
+          <p className="text-[#fff] font-extrabold  font-poppins ">
+            We are Spotlight
+          </p>
         </div>
 
         <motion.div

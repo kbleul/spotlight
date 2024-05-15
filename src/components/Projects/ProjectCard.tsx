@@ -31,7 +31,7 @@ const ProjectCard = ({ project, isMid }: { project: any; isMid?: boolean }) => {
         ))}
       </div>
 
-      <h4 className="mx-4 mb-4 font-bold">{truncateText(project.title, 40)}</h4>
+      <h5 className="mx-4 mb-4 font-bold">{truncateText(project.title, 40)}</h5>
 
       <div
         className={` lg:block bg-[#d9d9d9] ${

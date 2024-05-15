@@ -43,7 +43,7 @@ const Header = () => {
         <img
           src={BlackBgRoutes.includes(currentRoute) ? logo_white : logo_black}
           alt="logo"
-          className="w-28 md:w-40"
+          className="w-28 h-12 md:h-12 md:w-40"
         />
       </button>
 

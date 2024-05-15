@@ -16,11 +16,11 @@ const Projects = () => {
 
   if (error || isPending) return <></>;
   return (
-    <article className="px-4 lg:px-[5%] pb-[5rem] pt-8 overflow-hidden text-white bg-black">
+    <article className="px-4 lg:px-[5%] pb-[5rem] md:pt-8 overflow-hidden text-white bg-black ">
       <section className="flex items-start justify-between">
         <div className="w-full ">
           <div className="flex justify-between items-start">
-            <h2 className="stroke text-[#4F4F4F] text-[70px] text-center lg:text-left md:text-[90px] lg:text-[115px] font-extrabold">
+            <h2 className="font-poppins text-[#4F4F4F] text-[70px] text-center lg:text-left md:text-[90px] lg:text-[115px] font-extrabold">
               Projects
             </h2>
             <div className="hidden lg:block expandButtonContainerSecondary mt-12">

@@ -226,13 +226,13 @@ const ServicesScroll = () => {
                 </h2>
 
                 <motion.div
-                  className="w-1/2 lg:w-full lg:max-w-[600px] mt-4 font-semibold capitalize grid grid-cols-2 gap-10 gap-x-20 items-center justify-center pl-20"
+                  className="w-1/2 lg:w-full lg:max-w-[900px] mt-4 font-semibold capitalize grid grid-cols-2 gap-10 gap-x-36 items-center justify-center"
                   initial={{ y: 50 }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.8 }}
                 >
                   {CONTENT[0].body.map((item, index) => (
-                    <p className="" key={index}>
+                    <p className="border px-8 py-4 rounded-full" key={index}>
                       {item}
                     </p>
                   ))}
@@ -255,13 +255,15 @@ const ServicesScroll = () => {
                 </h2>
 
                 <motion.div
-                  className="w-1/2 lg:w-full lg:max-w-[600px] mt-4 font-semibold capitalize grid grid-cols-2 gap-10 gap-x-20 items-center justify-center pl-20"
+                  className="w-1/2 lg:w-full lg:max-w-[900px] mt-4 font-semibold capitalize grid grid-cols-2 gap-10 gap-x-36 items-center justify-center"
                   initial={{ y: 50 }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.8 }}
                 >
                   {CONTENT[1].body.map((item, index) => (
-                    <p key={index}>{item}</p>
+                    <p key={index} className="border px-8 py-4 rounded-full">
+                      {item}
+                    </p>
                   ))}
                 </motion.div>
               </>
@@ -283,13 +285,15 @@ const ServicesScroll = () => {
                 </h2>
 
                 <motion.div
-                  className="w-1/2 lg:w-full lg:max-w-[600px] mt-4 font-semibold capitalize grid grid-cols-2 gap-10 gap-x-20 items-center justify-center pl-20"
+                  className="w-1/2 lg:w-full lg:max-w-[900px] mt-4 font-semibold capitalize grid grid-cols-2 gap-10 gap-x-36 items-center justify-center"
                   initial={{ y: 50 }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.8 }}
                 >
                   {CONTENT[2].body.map((item, index) => (
-                    <p key={index}>{item}</p>
+                    <p key={index} className="border px-8 py-4 rounded-full">
+                      {item}
+                    </p>
                   ))}
                 </motion.div>
               </>
@@ -311,13 +315,15 @@ const ServicesScroll = () => {
                 </h2>
 
                 <motion.div
-                  className="w-1/2 lg:w-full lg:max-w-[600px] mt-4 font-semibold capitalize grid grid-cols-2 gap-10 gap-x-20 items-center justify-center pl-20"
+                  className="w-1/2 lg:w-full lg:max-w-[900px] mt-4 font-semibold capitalize grid grid-cols-2 gap-10 gap-x-36 items-center justify-center"
                   initial={{ y: 50 }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.8 }}
                 >
                   {CONTENT[3].body.map((item, index) => (
-                    <p key={index}>{item}</p>
+                    <p key={index} className="border px-8 py-4 rounded-full">
+                      {item}
+                    </p>
                   ))}
                 </motion.div>
               </>
@@ -339,13 +345,15 @@ const ServicesScroll = () => {
                 </h2>
 
                 <motion.div
-                  className="w-1/2 lg:w-full lg:max-w-[600px] mt-4 font-semibold capitalize grid grid-cols-2 gap-10 gap-x-20 items-center justify-center pl-20"
+                  className="w-1/2 lg:w-full lg:max-w-[900px] mt-4 font-semibold capitalize grid grid-cols-2 gap-10 gap-x-36 items-center justify-center"
                   initial={{ y: 50 }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.8 }}
                 >
                   {CONTENT[4].body.map((item, index) => (
-                    <p key={index}>{item}</p>
+                    <p key={index} className="border px-8 py-4 rounded-full">
+                      {item}
+                    </p>
                   ))}
                 </motion.div>
               </>
@@ -367,13 +375,15 @@ const ServicesScroll = () => {
                 </h2>
 
                 <motion.div
-                  className="w-1/2  mt-4 font-semibold capitalize grid grid-cols-2 gap-10 items-center justify-center pl-20"
+                  className="w-1/2 lg:w-full lg:max-w-[900px] mt-4 font-semibold capitalize grid grid-cols-2 gap-10 gap-x-36 items-center justify-center"
                   initial={{ y: 50 }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.8 }}
                 >
                   {CONTENT[5].body.map((item, index) => (
-                    <p key={index}>{item}</p>
+                    <p key={index} className="border px-8 py-4 rounded-full">
+                      {item}
+                    </p>
                   ))}
                 </motion.div>
               </>
@@ -423,14 +433,16 @@ const ServicesScroll = () => {
             </h2>
 
             <motion.div
-              className="w-full capitalize grid grid-cols-2 gap-4 items-center justify-center "
+              className="w-1/2  mt-4 lg:max-w-[900px] font-semibold capitalize grid grid-cols-2 gap-36 items-center justify-center"
               initial={{ y: 50 }}
               animate={{ y: 0 }}
               transition={{ duration: 0.8 }}
             >
               {CONTENT[currentContent >= 5 ? 5 : currentContent].body.map(
                 (item, index) => (
-                  <p key={index}>{item}</p>
+                  <p key={index} className="border px-8 py-4 rounded-full ">
+                    {item}
+                  </p>
                 )
               )}
             </motion.div>

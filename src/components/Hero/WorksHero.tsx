@@ -20,13 +20,13 @@ const Hero = () => {
   };
 
   return (
-    <article className="lg:h-[90vh] pt-16  pb-28 lg:pt-0 lg:pb-0 bg-white flex justify-center items-center">
+    <article className="lg:h-[90vh] pt-16  pb-28 lg:pt-0 lg:pb-0 bg-white flex justify-center items-center ">
       <motion.article
         ref={ref}
         variants={heroVariants}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
-        className="lg:h-[85vh] pt-[4vh] lg:pt-[20vh] text-[#777777] bg-white flex flex-col justify-start items-center text-3xl lg:text-8xl "
+        className="lg:h-[85vh] pt-[4vh] lg:pt-[20vh] text-[#777777]  flex flex-col justify-start items-center text-3xl lg:text-8xl "
       >
         <div className="flex gap-2 lg:gap-5 ">
           <motion.p

@@ -10,7 +10,7 @@ const Hero = () => {
       transition={{ duration: 1 }}
     >
       <article className="px-[5%]">
-        <h2 className="text-[#e0e0e0] stroke-black lg:text-[#4F4F4F] text-[70px] text-center lg:text-left lg:text-[110px] font-extrabold">
+        <h2 className="font-poppins text-[#e0e0e0]  lg:text-[#4F4F4F] text-[70px] text-center lg:text-left lg:text-[110px] font-extrabold">
           Services
         </h2>
 

@@ -56,7 +56,7 @@ const ServicesProjects = () => {
   const projectsArr: any[] = data.data.data;
 
   return (
-    <article className="px-[5%]">
+    <article className="px-[5%] bg-gradient-to-t from-white via-white to-[#fcfcfc]">
       <MyHeader
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
@@ -97,7 +97,7 @@ const MyHeader = ({
 }) => {
   return (
     <section className="flex justify-between items-center">
-      <h2 className="stroke-black  text-[#4F4F4F] text-[70px] lg:text-[120px]  w-full lg:text-left font-extrabold stroke">
+      <h2 className="text-[#e0e0e0]  lg:text-[#4F4F4F]  font-poppins text-[70px] lg:text-[120px]  w-full lg:text-left font-extrabold ">
         Projects
       </h2>
       <section className="hidden w-1/2 px-4 lg:px-0 md:flex lg:block justify-center">

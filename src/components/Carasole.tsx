@@ -36,7 +36,7 @@ const Carasole = ({ title }: { title?: string }) => {
               src={item.image.url}
               alt=""
               loading="lazy"
-              className=" w-[15%] h-16 md:h-20 md:w-1/4"
+              className=" w-[15%] h-12 md:h-20 md:w-1/4"
             />
           ))}
           {clientsArr.slice(0, 15).map((item, index) => (
@@ -45,7 +45,7 @@ const Carasole = ({ title }: { title?: string }) => {
               src={item.image.url}
               alt=""
               loading="lazy"
-              className=" w-[15%] h-16 md:h-20 md:w-1/4"
+              className=" w-[15%] h-12 md:h-20 md:w-1/4"
             />
           ))}
           {clientsArr.length < 33 &&
@@ -57,7 +57,7 @@ const Carasole = ({ title }: { title?: string }) => {
                   src={item.image.url}
                   alt=""
                   loading="lazy"
-                  className=" w-[15%] h-16 md:h-20 md:w-1/4"
+                  className=" w-[15%] h-12 md:h-20 md:w-1/4"
                 />
               ))}
           {clientsArr.length < 33 &&
@@ -69,7 +69,7 @@ const Carasole = ({ title }: { title?: string }) => {
                   src={item.image.url}
                   alt=""
                   loading="lazy"
-                  className=" w-[15%] h-16 md:h-20 md:w-1/4"
+                  className=" w-[15%] h-12 md:h-20 md:w-1/4"
                 />
               ))}
         </div>

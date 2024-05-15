@@ -43,7 +43,7 @@ const Employees = () => {
 
   return (
     <article className="w-full my-1 overflow-hidden">
-      <h2 className="mb-6 md:pt-12 md:pb-16 px-[5%] leading-[3rem] text-[#e0e0e0] stroke-black lg:text-[#4F4F4F] text-[42px] text-center  lg:text-[110px] font-extrabold">
+      <h2 className="mb-6 md:pt-12 md:pb-16 px-[5%] leading-[3rem]  font-CabinetGrotesk text-[#e0e0e0]  lg:text-[#4F4F4F] text-[42px] text-center  lg:text-[110px] font-extrabold">
         We are Spotlight
       </h2>
 

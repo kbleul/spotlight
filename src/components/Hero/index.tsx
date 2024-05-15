@@ -16,7 +16,7 @@ const Hero = () => {
 
   return (
     <article
-      className="absolute top-0 px-6 md:px-12 pt-[10%] w-full min-h-[40vh] md:min-h-[100vh] bg-black"
+      className="absolute top-0 px-6 md:px-12 pt-[10%] w-full min-h-[70vh] md:min-h-[100vh] bg-black"
       style={
         imageLoaded
           ? {

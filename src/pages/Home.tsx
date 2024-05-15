@@ -12,7 +12,7 @@ import Partners from "../components/Partners";
 
 const Home = () => {
   return (
-    <article>
+    <article className="w-full overflow-hidden">
       <motion.div
         className="h-[60vh] lg:h-[85vh] bg-black"
         initial={{ opacity: 0 }}
@@ -30,17 +30,17 @@ const Home = () => {
 
       <Projects />
 
-      <div className="hidden md:block">
+      <div className="hidden md:block w-full overflow-hidden">
         <Carasole title="Our Clients" />
       </div>
       {/* 
       <Culture /> */}
 
-      <div className="mt-10 lg:hidden">
+      <div className=" lg:hidden overflow-hidden">
         <Carasole title="Our Clients" />
       </div>
 
-      <div className="hidden lg:block">
+      <div className="">
         <Partners />
       </div>
     </article>

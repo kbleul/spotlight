@@ -22,7 +22,7 @@ const ProjectsGrid = ({ projects }: { projects: any[] }) => {
   return (
     <article
       ref={ref}
-      className="lg:w-[90%] lg:ml-[5%] flex justify-center mt-10"
+      className="lg:w-[90%] lg:ml-[5%] flex justify-center mt-2 lg:mt-10"
     >
       <motion.div
         className="w-full gap-6 flex flex-col lg:flex-row justify-start items-center lg:items-stretch max-w-[1800px] mt-14 lg:mt-0"
@@ -38,18 +38,18 @@ const ProjectsGrid = ({ projects }: { projects: any[] }) => {
             <ProjectCard project={projects[3]} />
           </Suspense>
         </section>
-        <section className="w-[90%] lg:w-1/3 max-w-[700px]  flex flex-col justify-between gap-6 ">
+        <section className="w-[90%] lg:w-1/3 max-w-[700px]   flex flex-col justify-between  ">
           <Suspense fallback={<></>}>
             <ProjectCard project={projects[1]} isMid />
           </Suspense>
 
-          <section className="hidden lg:flex h-[30vh] px-4 bg-white text-black rounded-md flex-col gap-4 justify-center items-center">
+          <section className="hidden lg:flex h-[30vh] mb-[0.65rem] px-4 bg-white text-black rounded-md flex-col gap-4 justify-center items-center">
             <h4 className="font-extrabold w-full text-center">See Our Wins.</h4>
             <p className="w-full text-center text-[#777777]">
               Explore our success stories of creating strategically creative
               communications solutions.
             </p>
-            <div className="expandButtonContainerSecondary mt-16  pl-3">
+            <div className="expandButtonContainerSecondary mt-10  pl-3">
               <button
                 onClick={() => scrollToContactSection()}
                 type="button"

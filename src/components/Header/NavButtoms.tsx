@@ -13,14 +13,16 @@ const NavButtoms = () => {
     : ColorTheme.light;
 
   const buttonStylePrimary = `text-${
-    currentRoute === "/culture" ? "white" : "[" + buttonTheme.primary + "]"
+    currentRoute === "/culture" || currentRoute === "/"
+      ? "white"
+      : "[" + buttonTheme.primary + "]"
   } `;
   const buttonStyleSecondary = `text-[${buttonTheme.active}] font-extrabold`;
 
-  const indicatorStylePrimary = `opacity-0 w-2 h-2 rounded-full`;
-  const indicatorStyleSecondary = BlackBgRoutes.includes(currentRoute)
-    ? `bg-white w-2 h-2 rounded-full`
-    : `bg-black w-2 h-2 rounded-full`;
+  // const indicatorStylePrimary = `opacity-0 w-2 h-2 rounded-full`;
+  // const indicatorStyleSecondary = BlackBgRoutes.includes(currentRoute)
+  //   ? `bg-white w-2 h-2 rounded-full`
+  //   : `bg-black w-2 h-2 rounded-full`;
 
   return (
     <article className=" gap-7 font-medium text-lg hidden lg:flex">
@@ -29,13 +31,13 @@ const NavButtoms = () => {
           key={index + "--" + route.link}
           className="flex items-center gap-1"
         >
-          <div
+          {/* <div
             className={
               currentRoute === route.link
                 ? indicatorStyleSecondary
                 : indicatorStylePrimary
             }
-          />
+          /> */}
           <button
             className={
               currentRoute === route.link

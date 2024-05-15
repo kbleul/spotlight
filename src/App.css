@@ -143,12 +143,12 @@ html {
 
 .carouselEmployees {
   display: flex;
-  animation: scrollCarouselEmployee 50s infinite linear;
+  animation: scrollCarouselEmployee 80s infinite linear;
 }
 
 .carouselEmployeeReverse {
   display: flex;
-  animation: scrollCarouselEmployeeReverse 50s infinite linear;
+  animation: scrollCarouselEmployeeReverse 80s infinite linear;
 }
 
 .carouselEmployees--slow {
@@ -293,8 +293,8 @@ html {
 
 .bgCircles {
   position: absolute;
-  bottom: -40px;
-  left: -40px;
+  top: -150px;
+  left: -50px;
   z-index: 0;
 }
 
