@@ -1,11 +1,8 @@
-import cultureImg1 from "../../assets/images/partners/1.svg";
-import cultureImg2 from "../../assets/images/cola_placeholder2.png";
-import cultureImg3 from "../../assets/images/cola_placeholder2.png";
-
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { useQuery } from "@tanstack/react-query";
+import heroimg from "../../assets/images/Illustration.svg";
 
 const Industries = () => {
   const { ref, inView } = useInView({
@@ -35,25 +32,31 @@ const Industries = () => {
   return (
     <article
       ref={ref}
-      className="bg-white flex flex-col lg:flex-row  items-start lg:px-0 lg:pl-[5%] lg:h-[100vh] overflow-hidden relative"
+      className="bg-white flex flex-col lg:flex-row  justify-start items-start lg:px-0  lg:h-[100vh] overflow-hidden relative"
     >
       <motion.section
-        className="w-full lg:w-[49.5%] lg:h-full px-[3%] pt-10 pb-[5%] lg:border-r border-black flex flex-col justify-between"
+        className="relative w-full  lg:w-[49.5%] lg:h-full   pt-10 pb-[5%] lg:border-r lg:border-black  flex flex-col justify-between"
         initial={inView ? { x: isViewed ? 0 : -600 } : { x: 0 }}
         animate={inView ? { x: 0 } : { x: isViewed ? 0 : -600 }}
         transition={{ duration: 1 }}
       >
-        <h2 className="text-[#E0E0E0] lg:text-[#4F4F4F] stroke-black text-[60px] md:text-[110px] text-center lg:text-left font-extrabold">
-          Industries
-        </h2>
+        <div className="lg:pl-[5%]">
+          <h2 className="text-[#E0E0E0] lg:text-[#4F4F4F]  text-[60px] md:text-[110px] text-center lg:text-left font-extrabold">
+            Industries
+          </h2>
 
-        <p className="mt-4 lg:mt-0 lg:font-bold text-[#4F4F4F] max-w-[600px] ">
-          Our expertise seamlessly navigates diverse sectors, expertly devising
-          industry-attuned solutions that propel brands forward. By pushing
-          innovation boundaries and elevating consumer experiences, we cement
-          brand eminence across industries. Our multidisciplinary prowess
-          catalyzes growth transcending verticals.
-        </p>
+          <p className="mt-4 lg:mt-0 lg:font-bold text-[#4F4F4F] max-w-[600px] ">
+            Our expertise seamlessly navigates diverse sectors, expertly
+            devising industry-attuned solutions that propel brands forward. By
+            pushing innovation boundaries and elevating consumer experiences, we
+            cement brand eminence across industries. Our multidisciplinary
+            prowess catalyzes growth transcending verticals.
+          </p>
+        </div>
+
+        <div className="hidden lg:block w-full absolute bottom-10">
+          <img src={heroimg} alt="" className="w-full" />
+        </div>
       </motion.section>
 
       <section className="w-full lg:w-[55%]  h-full flex flex-col justify-center text-2xl md:text-[2.5rem] text-[#4f4f4f] capitalize font-extrabold pb-20">
@@ -110,9 +113,9 @@ const ItemCard = ({
       )}
 
       {isHovered && isHovered.id === item.id && (
-        <div className="carousel">
+        <div className="carousel ">
           <motion.div
-            className="carousel-track w-full flex items-center gap-10 pb-4 pt-2 lg:pt-0"
+            className="carousel-track w-full flex items-center  pb-4 pt-2 lg:pt-0"
             initial={{ y: 100 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.2 }}
@@ -124,7 +127,7 @@ const ItemCard = ({
                     key={img.uuid}
                     src={img.url}
                     alt={item.name}
-                    className="w-1/5 h-12 md:h-16 object-contain"
+                    className="w-1/5 h-12 md:h-14 object-contain mr-6"
                   />
                 ))
               )}

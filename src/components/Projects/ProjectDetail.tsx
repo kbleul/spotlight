@@ -5,7 +5,7 @@ import parse from "html-react-parser";
 const ProjectDetail = ({ projectDetails }: { projectDetails: any }) => {
   return (
     <article className="bg-black text-white px-[3%] lg:px-[5%]">
-      <h2 className="text-[#4F4F4F]  text-[50px] text-left md:text-[90px] lg:text-7xl py-2 lg:py-6 stroke font-extrabold">
+      <h2 className="text-[#4F4F4F]  text-[50px] text-left md:text-[90px] lg:text-7xl py-2 lg:py-6  font-extrabold">
         Case Study
       </h2>
 

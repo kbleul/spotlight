@@ -1,7 +1,7 @@
 import partner_img1 from "../assets/images/partners/1.svg";
 import partner_img2 from "../assets/images/partners/2.svg";
 import partner_img3 from "../assets/images/partners/3.svg";
-import partner_img4 from "../assets/images/partners/4.png";
+import partner_img4 from "../assets/images/partners/4.svg";
 
 const Partners = () => {
   return (
@@ -34,7 +34,7 @@ const Partners = () => {
             src={partner_img3}
             alt=""
             loading="lazy"
-            className="max-w-[6rem] lg:max-w-[12rem] hover:opacity-70"
+            className="max-w-[8rem] lg:max-w-[16rem] hover:opacity-70"
           />
         </a>
         <a
@@ -47,7 +47,7 @@ const Partners = () => {
             src={partner_img4}
             alt=""
             loading="lazy"
-            className="max-w-[6rem] lg:max-w-[12rem] hover:opacity-70"
+            className="max-w-[8rem] lg:max-w-[16rem] hover:opacity-70"
           />
         </a>
         <a
@@ -60,7 +60,7 @@ const Partners = () => {
             src={partner_img1}
             alt=""
             loading="lazy"
-            className="max-w-[4rem] lg:max-w-[10rem] hover:opacity-70"
+            className="max-w-[8rem] lg:max-w-[14rem] hover:opacity-70"
           />
         </a>
       </section>
